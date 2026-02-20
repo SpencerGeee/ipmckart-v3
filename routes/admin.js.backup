@@ -1,0 +1,1794 @@
+const express = require('express');
+const router = express.Router();
+const rateLimit = require('express-rate-limit');
+const multer = require('multer');
+const xlsx = require('xlsx');
+// Import the new auth middleware (adjust path if needed)
+const { isAuthenticated, requireRole } = require('../middleware/auth');
+const User = require('../models/User');
+const Order = require('../models/Order');
+const Product = require('../models/Product');
+const { sendOrderShippedEmail, sendOrderDeliveredEmail } = require('../utils/mailjet');
+
+// Apply rate limiting to admin routes
+const adminRateLimit = rateLimit({ 
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 50, // limit each IP to 50 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.'
+});
+
+// Excel upload configuration
+const excelUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 10 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = ['.xlsx', '.xls', '.csv'];
+    const ext = file.originalname.toLowerCase().substring(file.originalname.lastIndexOf('.'));
+    if (allowedTypes.includes(ext)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only Excel (.xlsx, .xls) and CSV files are allowed'));
+    }
+  }
+});
+
+// Apply auth, admin, and rate limiting middleware to all routes in this file
+router.use(adminRateLimit);
+router.use(isAuthenticated, requireRole('admin'));
+
+// @route   GET /api/admin/stats
+// @desc    Get admin dashboard stats
+// @access  Private/Admin
+router.get('/stats', async (req, res) => {
+  try {
+    const totalOrders = await Order.countDocuments({});
+    const totalUsers = await User.countDocuments({}); 
+    
+    // --- FIX: Use status from Order model ---
+    const pendingOrders = await Order.countDocuments({ 
+        status: 'placed' // Matching the Order.js model enum
+    });
+
+    const revenueResult = await Order.aggregate([
+      {
+        // --- FIX: Use status from Order model ---
+        $match: { status: { $in: ['paid', 'shipped', 'delivered'] } } // Treat these as revenue-recognized statuses
+      },
+      {
+        $group: {
+          _id: null,
+           // --- FIX: Use 'total' from Order model ---
+          totalRevenue: { $sum: '$total' }
+        }
+      }
+    ]);
+
+    const totalRevenue = revenueResult.length > 0 ? revenueResult[0].totalRevenue : 0;
+
+    res.json({
+      totalOrders,
+      totalUsers,
+      totalRevenue,
+      pendingOrders
+    });
+  } catch (err) {
+    console.error('Admin stats error:', err);
+    const errorMessage = process.env.NODE_ENV === 'development' 
+      ? err.message 
+      : 'Internal server error';
+    res.status(500).json({ 
+      message: 'Server Error',
+      error: errorMessage,
+      ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+    });
+  }
+});
+
+// @route   GET /api/admin/orders
+// @desc    Get all orders for admin (paginated)
+// @access  Private/Admin
+router.get('/orders', async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+    const limitQuery = parseInt(req.query.limit) || 0; // For dashboard recent orders
+    const statusFilter = req.query.status; // <-- Get status filter
+
+    // Build the filter object
+    const filter = {};
+    if (statusFilter) {
+        filter.status = statusFilter; // Add status to the MongoDB query filter
+    }
+
+    let query = Order.find(filter) // <-- Apply the filter
+      .populate('user', 'name')
+      .sort({ createdAt: -1 });
+
+    if (limitQuery > 0) {
+        query = query.limit(limitQuery); // For ?limit=5
+    } else {
+        query = query.skip(skip).limit(limit); // For paginated view
+    }
+
+    // Use the same filter for counting documents
+    const totalOrders = await Order.countDocuments(filter); // <-- Count with filter
+    const orders = await query;
+
+    const formattedOrders = orders.map(order => ({
+        date: order.createdAt.toLocaleDateString(),
+        id: order._id,
+        customer: order.user ? order.user.name : (order.billing.name || 'Guest User'),
+        total: order.total,
+        status: order.status
+    }));
+
+    res.json({
+        data: formattedOrders,
+        pagination: {
+            page,
+            limit,
+            totalPages: Math.ceil(totalOrders / limit),
+            total: totalOrders
+        }
+    });
+  } catch (err) {
+    console.error('Admin orders error:', err);
+    const errorMessage = process.env.NODE_ENV === 'development' 
+      ? err.message 
+      : 'Internal server error';
+    res.status(500).json({ 
+      message: 'Server Error',
+      error: errorMessage,
+      ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+    });
+  }
+});
+
+// @route   PUT /api/admin/orders/:id/status
+// @desc    Update order status
+// @access  Private/Admin
+router.put('/orders/:id/status', async (req, res) => {
+    try {
+        const { status, trackingNumber, carrierName } = req.body;
+        // Expanded valid statuses
+        const validStatuses = ['placed', 'processing', 'paid', 'failed', 'shipped', 'delivered', 'cancelled', 'refunded']; 
+        if (!status || !validStatuses.includes(status)) {
+            return res.status(400).json({ message: 'Invalid status' });
+        }
+
+        const order = await Order.findByIdAndUpdate(req.params.id, { status }, { new: true }).populate('user');
+        if (!order) {
+            return res.status(404).json({ message: 'Order not found' });
+        }
+
+        const itemListHtml = order.items.map(item => `<li>${item.name} (x${item.qty})</li>`).join('');
+
+        if (status === 'shipped') {
+            const estimatedDelivery = new Date();
+            estimatedDelivery.setDate(estimatedDelivery.getDate() + 3); // 3 days from now
+            sendOrderShippedEmail({
+                toEmail: order.billing.email,
+                userName: order.billing.name,
+                orderId: order._id.toString(),
+                itemList: `<ul>${itemListHtml}</ul>`,
+                trackingNumber: trackingNumber || 'Not available',
+                carrierName: carrierName || 'Courier',
+                estimatedDeliveryDate: estimatedDelivery.toDateString(),
+                trackingLink: `${process.env.WEBSITE_URL}/track-order.html?id=${order._id.toString()}`,
+                paymentAmount: `GHS ${(order.total || 0).toFixed(2)}`
+            }).catch(err => console.error('Failed to send order shipped email:', err));
+        } else if (status === 'delivered') {
+            sendOrderDeliveredEmail({
+                toEmail: order.billing.email,
+                userName: order.billing.name,
+                orderId: order._id.toString(),
+                itemList: `<ul>${itemListHtml}</ul>`,
+                deliveryDate: new Date().toDateString(),
+                feedbackLink: `${process.env.WEBSITE_URL}/feedback.html?orderId=${order._id.toString()}`
+            }).catch(err => console.error('Failed to send order delivered email:', err));
+        }
+
+        res.json(order);
+    } catch (err) {
+        console.error('Admin update order status error:', err);
+        const errorMessage = process.env.NODE_ENV === 'development' 
+          ? err.message 
+          : 'Internal server error';
+        res.status(500).json({ 
+          message: 'Server Error',
+          error: errorMessage,
+          ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+        });
+    }
+});
+
+
+// @route   GET /api/admin/users
+// @desc    Get all users for admin
+// @access  Private/Admin
+router.get('/users', async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 15;
+    const skip = (page - 1) * limit;
+
+    // --- FIX for User Filter ---
+    const filter = {};
+    if (req.query.role) {
+      filter.role = req.query.role;
+    }
+    // --- End Fix ---
+
+    const totalUsers = await User.countDocuments(filter);
+    const users = await User.find(filter)
+      .select('-passwordHash') // Use '-passwordHash' to match your model
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+    
+    // Add 'isActive' field to user model if it's not there
+    // For now, assuming it exists or defaulting
+    const formattedUsers = users.map(user => ({
+    _id: user._id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+    createdAt: user.createdAt,
+    isActive: user.isActive !== false, // Default to true if field is missing
+    isEmailVerified: user.emailVerified, // Match model
+  }));
+
+
+    res.json({
+        data: formattedUsers,
+        pagination: {
+            page,
+            limit,
+            totalPages: Math.ceil(totalUsers / limit),
+            total: totalUsers
+        }
+    });
+  } catch (err) {
+    console.error('Admin orders error:', err);
+    const errorMessage = process.env.NODE_ENV === 'development' 
+      ? err.message 
+      : 'Internal server error';
+    res.status(500).json({ 
+      message: 'Server Error',
+      error: errorMessage,
+      ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+    });
+  }
+});
+
+// @route   PATCH /api/admin/users/:id/role
+// @desc    Update user role
+// @access  Private/Admin
+router.patch('/users/:id/role', async (req, res) => {
+    try {
+        const { role } = req.body;
+        const validRoles = ['customer', 'admin']; // Match your roles
+        if (!role || !validRoles.includes(role)) {
+            return res.status(400).json({ message: 'Invalid role specified' });
+        }
+
+        const user = await User.findByIdAndUpdate(req.params.id, { role }, { new: true }).select('-passwordHash'); // Exclude password
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json(user);
+    } catch (err) {
+        console.error('Admin update role error:', err);
+        // Handle potential CastError if ID format is invalid
+        if (err.kind === 'ObjectId') {
+             return res.status(404).json({ message: 'User not found' });
+        }
+        const errorMessage = process.env.NODE_ENV === 'development' 
+          ? err.message 
+          : 'Internal server error';
+        res.status(500).json({ 
+          message: 'Server Error',
+          error: errorMessage,
+          ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+        });
+    }
+});
+
+// @route   PATCH /api/admin/users/:id/status
+// @desc    Activate/Deactivate user
+// @access  Private/Admin
+router.patch('/users/:id/status', async (req, res) => {
+    try {
+        const { isActive } = req.body;
+        if (typeof isActive !== 'boolean') {
+            return res.status(400).json({ message: 'Invalid status value. Must be true or false.' });
+        }
+
+        // Ensure admin cannot deactivate themselves (optional but recommended)
+        const userIdStr = String(req.user._id || req.user.id);
+        const paramIdStr = String(req.params.id);
+        if (userIdStr === paramIdStr && !isActive) {
+             return res.status(400).json({ message: 'Admin cannot deactivate themselves.' });
+        }
+        
+        // Add { isActive: { type: Boolean, default: true } } to your user.js model!
+        const user = await User.findByIdAndUpdate(req.params.id, { isActive }, { new: true }).select('-passwordHash'); // Exclude password
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json(user);
+    } catch (err) {
+        console.error('Admin update status error:', err);
+         if (err.kind === 'ObjectId') {
+             return res.status(404).json({ message: 'User not found' });
+        }
+        const errorMessage = process.env.NODE_ENV === 'development' 
+          ? err.message 
+          : 'Internal server error';
+        res.status(500).json({ 
+          message: 'Server Error',
+          error: errorMessage,
+          ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+        });
+    }
+});
+
+// @route   POST /api/admin/report
+// @desc    Generate a sales report
+// @access  Private/Admin
+router.post('/report', async (req, res) => {
+    const { startDate, endDate } = req.body;
+
+    if (!startDate || !endDate) {
+        return res.status(400).json({ message: 'Please provide start and end dates' });
+    }
+
+    try {
+        const orders = await Order.find({
+            createdAt: { 
+                $gte: new Date(startDate), 
+                $lte: new Date(new Date(endDate).setHours(23, 59, 59, 999)) // Ensure full day
+            },
+            // --- FIX: Use status from Order model ---
+            status: { $in: ['paid', 'shipped', 'delivered'] }
+        });
+
+        const totalOrders = orders.length;
+         // --- FIX: Use 'total' from Order model ---
+        const totalRevenue = orders.reduce((acc, order) => acc + order.total, 0);
+        const avgOrderValue = totalOrders > 0 ? (totalRevenue / totalOrders) : 0;
+
+        res.json({
+            period: `${new Date(startDate).toLocaleDateString()} to ${new Date(endDate).toLocaleDateString()}`,
+            totalOrders,
+            totalRevenue,
+            avgOrderValue
+        });
+
+    } catch (err) {
+        console.error('Admin report error:', err);
+        const errorMessage = process.env.NODE_ENV === 'development' 
+          ? err.message 
+          : 'Internal server error';
+        res.status(500).json({ 
+          message: 'Server Error',
+          error: errorMessage,
+          ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+        });
+    }
+});
+
+
+// @route   POST /api/admin/regenerate-products
+// @desc    Manually trigger regeneration of products.grouped2.json
+// @access  Private/Admin
+router.post('/regenerate-products', isAuthenticated, requireRole('admin'), async (req, res) => {
+  try {
+    const productsModule = require('./products');
+    if (typeof productsModule.regenerateProductJson === 'function') {
+      await productsModule.regenerateProductJson();
+      return res.json({ ok: true, message: 'Regeneration completed' });
+    }
+    return res.status(500).json({ message: 'Regenerator not available' });
+  } catch (err) {
+    console.error('Admin regenerate-products error:', err);
+    const errorMessage = process.env.NODE_ENV === 'development' 
+      ? err.message 
+      : 'Internal server error';
+    res.status(500).json({ 
+      message: 'Server Error',
+      error: errorMessage,
+      ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+    });
+  }
+});
+
+// Assign products to promos
+// Promo assignment with proper type validation
+router.post('/promos/assign', isAuthenticated, requireRole('admin'), async (req, res) => {
+  try {
+    const { promoType, productSlugs, discountPercent } = req.body;
+    
+    const validPromos = {
+      'flash-sales': { field: 'isFlashSale', priceField: 'flashSalePrice' },
+      'black-friday': { field: 'isBlackFriday', priceField: 'blackFridayPrice' },
+      'christmas-sale': { field: 'isChristmas', priceField: 'christmasSalePrice' },
+      'back-to-school': { field: 'isBackToSchool', priceField: 'backToSchoolPrice' },
+      'top-selling': { field: 'isTopSelling', priceField: null }
+    };
+    
+    const normalized = promoType.toLowerCase().replace(/\s+/g, '-');
+    
+    if (!validPromos[normalized]) {
+      return res.status(400).json({ 
+        message: `Invalid promo type. Valid: ${Object.keys(validPromos).join(', ')}` 
+      });
+    }
+    
+    const { field, priceField } = validPromos[normalized];
+    
+    // Apply promo to products
+    if (priceField && discountPercent > 0) {
+      const products = await Product.find({ slug: { $in: productSlugs } });
+      for (const p of products) {
+        const promoPrice = p.price * (1 - discountPercent / 100);
+        await Product.updateOne(
+          { slug: p.slug },
+          { [field]: true, [priceField]: Math.round(promoPrice * 100) / 100 }
+        );
+      }
+    } else {
+      await Product.updateMany(
+        { slug: { $in: productSlugs } },
+        { $set: { [field]: true } }
+      );
+    }
+    
+    // Regenerate Christmas JSON if needed
+    if (normalized === 'christmas-sale') {
+      await regenerateChristmasJSON();
+    }
+    
+    res.json({ message: `Assigned ${productSlugs.length} products to ${promoType}` });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Add regenerate endpoint
+router.post('/promos/regenerate', isAuthenticated, requireRole('admin'), async (req, res) => {
+  try {
+    const { promoType } = req.query;
+    if (promoType === 'christmas-sale') {
+      await regenerateChristmasJSON();
+    }
+    res.json({ message: 'Regenerated successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+async function regenerateChristmasJSON() {
+  const fs = require('fs').promises;
+  const path = require('path');
+  const products = await Product.find({ isChristmas: true, active: true }).lean();
+  const data = {
+    christmasSale: products.map(p => ({
+      id: p.slug,
+      slug: p.slug,
+      categoryId: p.category || '',
+      categoryName: '',
+      subcategoryId: p.subcategory || '',
+      subcategoryName: '',
+      brand: p.brand || '',
+      name: p.name || '',
+      price: Number(p.price) || 0,
+      christmasSalePrice: Number(p.christmasSalePrice) || Number(p.price),
+      stock: Number(p.stock) || 0,
+      rating: Number(p.rating) || 0,
+      images: Array.isArray(p.images) ? p.images : [],
+      description: (p.description || '').replace(/[\n\r]/g, '\n').replace(/[\t]/g, ' '), // Sanitize
+      fullDescription: (p.fullDescription || '').replace(/[\n\r]/g, '\n').replace(/[\t]/g, ' '), // Sanitize
+      active: true,
+      christmasSaleStock: Number(p.stock) || 0,
+      christmasSaleSold: 0
+    }))
+  };
+  
+  await fs.writeFile(
+    path.join(__dirname, '..', 'christmas-sale.json'),
+    JSON.stringify(data, null, 2)
+  );
+}
+
+
+// Update promo pricing per product
+router.post('/promos/update-pricing', isAuthenticated, requireRole('admin'), async (req, res) => {
+  try {
+    const { promoType, items } = req.body || {};
+    if (!promoType || !Array.isArray(items) || items.length === 0) {
+      return res.status(400).json({ message: 'promoType and items are required' });
+    }
+    const Product = require('../models/Product');
+    const slugs = items.map(i => i.slug).filter(Boolean);
+    const docs = await Product.find({ slug: { $in: slugs } });
+    if (!docs.length) return res.status(404).json({ message: 'No products found for provided slugs' });
+
+    for (const p of docs) {
+      const payload = items.find(i => i.slug === p.slug) || {};
+      const base = Number(p.price) || 0;
+      let targetPrice = null;
+      if (typeof payload.promoPrice === 'number' && isFinite(payload.promoPrice)) {
+        targetPrice = Math.max(0, Number(payload.promoPrice.toFixed(2)));
+      } else if (typeof payload.discountPercent === 'number' && isFinite(payload.discountPercent)) {
+        const pct = Math.max(0, Math.min(95, Number(payload.discountPercent)));
+        targetPrice = Math.max(0, Number((base * (1 - pct/100)).toFixed(2)));
+      }
+
+      if (promoType === 'flash-sales') {
+        p.isFlashSale = true;
+        if (targetPrice != null) p.flashSalePrice = targetPrice;
+      } else if (promoType === 'black-friday') {
+        p.isBlackFriday = true;
+        if (targetPrice != null) p.blackFridayPrice = targetPrice;
+      } else if (promoType === 'christmas-sale') {
+        p.isChristmas = true;
+        if (targetPrice != null) p.christmasSalePrice = targetPrice;
+      } else if (promoType === 'back-to-school') {
+        p.isBackToSchool = true;
+        if (targetPrice != null) p.backToSchoolPrice = targetPrice;
+      } else if (promoType === 'top-selling') {
+        // Top Selling has no pricing; just ensure flag is set
+        p.isTopSelling = true;
+      } else {
+        return res.status(400).json({ message: 'Unsupported promoType' });
+      }
+      await p.save();
+    }
+
+    // Regenerate JSON for this promo type to reflect latest pricing
+    try {
+      const path = require('path');
+      const fs = require('fs/promises');
+      const itemsDb = await Product.find(
+        promoType === 'flash-sales' ? { isFlashSale: true, active: true } :
+        promoType === 'black-friday' ? { isBlackFriday: true, active: true } :
+        promoType === 'christmas-sale' ? { isChristmas: true, active: true } :
+        { isBackToSchool: true, active: true }
+      );
+      function baseMap(p) {
+        const images = Array.isArray(p.images) ? p.images : (typeof p.images === 'string' ? p.images.split(',').map(s=>s.trim()).filter(Boolean) : []);
+        return {
+          id: p.slug,
+          slug: p.slug,
+          categoryId: p.category || '',
+          categoryName: '',
+          subcategoryId: p.subcategory || '',
+          subcategoryName: '',
+          brand: p.brand || '',
+          name: p.name,
+          price: p.price,
+          stock: p.stock ?? 0,
+          rating: p.rating ?? 0,
+          images,
+          description: p.description || '',
+          fullDescription: p.fullDescription || '',
+          active: p.active !== false
+        };
+      }
+      if (promoType === 'flash-sales') {
+        const mapped = itemsDb.map(p => ({
+          ...baseMap(p),
+          isFlashSale: true,
+          flashSalePrice: p.flashSalePrice ?? p.price,
+          flashSaleImage: (Array.isArray(p.images) && p.images[0]) || '',
+          flashSaleStock: p.flashSaleStock ?? p.stock ?? 0
+        }));
+        await fs.writeFile(path.join(process.cwd(), 'flash-sales.json'), JSON.stringify({ flashSales: mapped }, null, 2));
+      } else if (promoType === 'black-friday') {
+        const mapped = itemsDb.map(p => ({
+          ...baseMap(p),
+          blackFridayPrice: p.blackFridayPrice ?? p.price,
+          blackFridayStock: p.stock ?? 0,
+          blackFridaySold: 0
+        }));
+        await fs.writeFile(path.join(process.cwd(), 'black-friday.json'), JSON.stringify({ blackFriday: mapped }, null, 2));
+      } else if (promoType === 'christmas-sale') {
+        const mapped = itemsDb.map(p => ({
+          ...baseMap(p),
+          christmasSalePrice: p.christmasSalePrice ?? p.price,
+          christmasSaleImage: p.christmasSaleImage || ((Array.isArray(p.images) && p.images[0]) || ''),
+          christmasStock: p.stock ?? 0,
+          christmasSold: 0
+        }));
+        await fs.writeFile(path.join(process.cwd(), 'christmas-sale.json'), JSON.stringify({ christmasSale: mapped }, null, 2));
+      } else if (promoType === 'back-to-school') {
+        const mapped = itemsDb.map(p => ({
+          ...baseMap(p),
+          backToSchoolPrice: p.backToSchoolPrice ?? p.price
+        }));
+        await fs.writeFile(path.join(process.cwd(), 'back-to-school.json'), JSON.stringify({ backToSchool: mapped }, null, 2));
+      }
+    } catch (regenErr) {
+      console.warn('Promo JSON regeneration after pricing update failed:', regenErr?.message);
+    }
+
+    return res.json({ ok: true, message: 'Promo pricing updated', updated: docs.length });
+  } catch (err) {
+    console.error('Update promo pricing error:', err);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+// Unassign products from promos
+router.post('/promos/unassign', isAuthenticated, requireRole('admin'), async (req, res) => {
+  try {
+    const { promoType, productSlugs } = req.body || {};
+    if (!promoType || !Array.isArray(productSlugs) || productSlugs.length === 0) {
+      return res.status(400).json({ message: 'promoType and productSlugs are required' });
+    }
+    const Product = require('../models/Product');
+    const docs = await Product.find({ slug: { $in: productSlugs } });
+    for (const p of docs) {
+      if (promoType === 'flash-sales') {
+        p.isFlashSale = false;
+        p.flashSalePrice = null;
+        p.flashSaleImage = p.flashSaleImage || '';
+        p.flashSaleStock = 0;
+      } else if (promoType === 'black-friday') {
+        p.isBlackFriday = false;
+        p.blackFridayPrice = null;
+      } else if (promoType === 'christmas-sale') {
+        p.isChristmas = false;
+        p.christmasSalePrice = null;
+      } else if (promoType === 'back-to-school') {
+        p.isBackToSchool = false;
+        p.backToSchoolPrice = null;
+      } else if (promoType === 'top-selling') {
+        p.isTopSelling = false;
+      } else {
+        return res.status(400).json({ message: 'Unsupported promoType' });
+      }
+      await p.save();
+    }
+    return res.json({ ok: true, message: 'Products removed from promo', updated: docs.length });
+  } catch (err) {
+    console.error('Unassign promo error:', err);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+// Regenerate promo JSONs to be consumed on frontend
+router.post('/promos/regenerate', isAuthenticated, requireRole('admin'), async (req, res) => {
+  try {
+    const path = require('path');
+    const fs = require('fs/promises');
+    const Product = require('../models/Product');
+    const type = (req.query.promoType || req.body?.promoType || '').toLowerCase();
+    if (!type) return res.status(400).json({ message: 'promoType is required' });
+
+    function baseMap(p) {
+      const images = Array.isArray(p.images) ? p.images : (typeof p.images === 'string' ? p.images.split(',').map(s=>s.trim()).filter(Boolean) : []);
+      return {
+        id: p.slug,
+        slug: p.slug,
+        categoryId: p.category || '',
+        categoryName: '',
+        subcategoryId: p.subcategory || '',
+        subcategoryName: '',
+        brand: p.brand || '',
+        name: p.name,
+        price: p.price,
+        stock: p.stock ?? 0,
+        rating: p.rating ?? 0,
+        images,
+        description: p.description || '',
+        fullDescription: p.fullDescription || '',
+        active: p.active !== false
+      };
+    }
+
+    if (type === 'flash-sales') {
+      const items = await Product.find({ isFlashSale: true, active: true });
+      const mapped = items.map(p => ({
+        ...baseMap(p),
+        isFlashSale: true,
+        flashSalePrice: p.flashSalePrice ?? p.price,
+        flashSaleImage: (Array.isArray(p.images) && p.images[0]) || '',
+        flashSaleStock: p.flashSaleStock ?? p.stock ?? 0
+      }));
+      const out = { flashSales: mapped };
+      await fs.writeFile(path.join(process.cwd(), 'flash-sales.json'), JSON.stringify(out, null, 2));
+      return res.json({ ok: true, message: 'flash-sales.json regenerated', count: mapped.length });
+    }
+
+    if (type === 'black-friday') {
+      const items = await Product.find({ isBlackFriday: true, active: true });
+      const mapped = items.map(p => ({
+        ...baseMap(p),
+        blackFridayPrice: p.blackFridayPrice ?? p.price,
+        blackFridayStock: p.stock ?? 0,
+        blackFridaySold: 0
+      }));
+      const out = { blackFriday: mapped };
+      await fs.writeFile(path.join(process.cwd(), 'black-friday.json'), JSON.stringify(out, null, 2));
+      return res.json({ ok: true, message: 'black-friday.json regenerated', count: mapped.length });
+    }
+
+    if (type === 'christmas-sale') {
+      const items = await Product.find({ isChristmas: true, active: true });
+      const mapped = items.map(p => ({
+        ...baseMap(p),
+        christmasSalePrice: p.christmasSalePrice ?? p.price,
+        christmasSaleImage: p.christmasSaleImage || ((Array.isArray(p.images) && p.images[0]) || ''),
+        christmasSaleStock: p.stock ?? 0,
+        christmasSaleSold: 0
+      }));
+      const out = { christmasSale: mapped };
+      await fs.writeFile(path.join(process.cwd(), 'christmas-sale.json'), JSON.stringify(out, null, 2));
+      return res.json({ ok: true, message: 'christmas-sale.json regenerated', count: mapped.length });
+    }
+
+    if (type === 'back-to-school') {
+      const items = await Product.find({ isBackToSchool: true, active: true });
+      const mapped = items.map(p => ({
+        ...baseMap(p),
+        backToSchoolPrice: p.backToSchoolPrice ?? p.price
+      }));
+      const out = { backToSchool: mapped };
+      await fs.writeFile(path.join(process.cwd(), 'back-to-school.json'), JSON.stringify(out, null, 2));
+      return res.json({ ok: true, message: 'back-to-school.json regenerated', count: mapped.length });
+    }
+
+    if (type === 'top-selling') {
+      const items = await Product.find({ isTopSelling: true, active: true });
+      const mapped = items.map(p => ({
+        ...baseMap(p),
+        isTopSelling: true
+      }));
+      const out = { topSelling: mapped };
+      await fs.writeFile(path.join(process.cwd(), 'top-selling.json'), JSON.stringify(out, null, 2));
+      return res.json({ ok: true, message: 'top-selling.json regenerated', count: mapped.length });
+    }
+
+    return res.status(400).json({ message: 'Unsupported promoType' });
+  } catch (err) {
+    console.error('Regenerate promo json error:', err);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+// BULK PRICE UPDATE FROM EXCEL
+// Category mapping: Excel categories -> Database categories
+
+// Logging configuration
+const fs = require('fs');
+const path = require('path');
+const logDir = path.join(__dirname, '..', 'logs');
+
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir, { recursive: true });
+}
+
+function getLogFilename() {
+  const now = new Date();
+  return `bulk-price-update-${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}.log`;
+}
+
+const logStream = fs.createWriteStream(path.join(logDir, getLogFilename()), { flags: 'a' });
+
+function logToFile(message, level = 'INFO') {
+  const timestamp = new Date().toISOString();
+  const logMessage = `[${timestamp}] [${level}] ${message}\n`;
+  logStream.write(logMessage);
+  console.log(logMessage.trim());
+}
+
+function logSection(title) {
+  const separator = '='.repeat(80);
+  logToFile(separator, 'INFO');
+  logToFile(title, 'INFO');
+  logToFile(separator, 'INFO');
+}
+
+function logRow(rowNum, data) {
+  logToFile(`ROW ${rowNum}:`, 'INFO');
+  logToFile(`  Raw Data: ${JSON.stringify(data)}`, 'DEBUG');
+  logToFile(`  Parsed Values: ${JSON.stringify(data.parsed)}`, 'DEBUG');
+  logToFile(`  Match Result: ${data.matchResult}`, 'DEBUG');
+  if (data.matchResult === 'MATCHED') {
+    logToFile(`  Product ID: ${data.productId}`, 'INFO');
+    logToFile(`  Product Name: ${data.productName}`, 'INFO');
+    logToFile(`  Match Method: ${data.matchMethod}`, 'INFO');
+    logToFile(`  Current Price: GHS ${data.currentPrice}`, 'INFO');
+    logToFile(`  New Price: GHS ${data.newPrice}`, 'INFO');
+  } else if (data.matchResult === 'NOT_FOUND') {
+    logToFile(`  Not Found: ${data.identifier}`, 'INFO');
+    logToFile(`  Reasons: ${data.reasons.join(', ')}`, 'WARN');
+  } else if (data.matchResult === 'INVALID_PRICE') {
+    logToFile(`  Invalid Price: ${data.identifier} - Provided: "${data.providedPrice}"`, 'WARN');
+  }
+}
+
+const CATEGORY_MAPPING = {
+  'laptop': 'computing-devices',
+  'all in one pc': 'computing-devices',
+  'all-in-one pc': 'computing-devices',
+  'printer': 'printers-scanners',
+  'scanner': 'printers-scanners',
+  'ups': 'power-solutions',
+  'access point': 'networking',
+  'access point': 'networking',
+  'switch': 'networking',
+  'router': 'networking',
+  'monitor': 'computing-devices',
+  'mobile phone': 'mobile-devices',
+  'tablet': 'computing-devices',
+  'headset': 'accessories',
+  'headphone': 'accessories',
+  'mouse': 'accessories',
+  'keyboard': 'accessories',
+  'speaker': 'audio-video',
+  'cctv camera': 'security',
+  'projector': 'audio-video',
+  'television': 'audio-video',
+  'desktop': 'computing-devices',
+  'workstation': 'computing-devices',
+  'server': 'computing-devices',
+  'toners': 'printers-scanners',
+  'adapter': 'accessories',
+  'cable': 'accessories',
+  'charger': 'accessories',
+  'power bank': 'power-solutions',
+  'earpods': 'accessories',
+  'ear pods': 'accessories',
+  'smart watches': 'mobile-devices',
+  'ssd': 'storage',
+  'usb drive': 'storage',
+  'blender': 'home-appliances',
+  'iron': 'home-appliances',
+  'rice cooker': 'home-appliances',
+  'kettle': 'home-appliances',
+  'microwave': 'home-appliances',
+  'toaster': 'home-appliances',
+  'stove': 'home-appliances',
+  'refrigerator': 'home-appliances',
+  'backpack': 'accessories',
+  'laptop bag': 'accessories'
+};
+
+function normalizeString(str) {
+  return String(str || '')
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '') // Remove special chars except hyphen
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function mapCategory(excelCategory) {
+  if (!excelCategory) return null;
+  const normalized = normalizeString(excelCategory);
+  return CATEGORY_MAPPING[normalized] || null;
+}
+
+function extractModelNumber(str) {
+  // Extract model codes like "LQ-350", "U6", "LT14", "12700", "U6-"
+  const patterns = [
+    /([A-Z]+-\d+[A-Z]*\d*)/g,      // LQ-350, PC-4087, IPMC-99
+    /([A-Z]{2,5}-\d{0,2}[A-Z]*)/g,  // U6-Mesh, U6-
+    /([A-Z]{2,6}\d{2,4})/g,        // LT14, 12700, NB5733
+    /([A-Z]+\d+[-\s][A-Z]{0,2}\d*)/g, // LQ-350, PC-4087
+  ];
+  
+  const models = [];
+  for (const pattern of patterns) {
+    const matches = str.match(pattern);
+    if (matches) models.push(...matches);
+  }
+  
+  // Clean up duplicates and partial matches
+  return models.length > 0 ? [...new Set(models.filter(m => m.length >= 3))] : null;
+}
+
+function extractKeywords(str) {
+  const normalized = normalizeString(str);
+  const commonWords = ['the', 'a', 'an', 'and', 'or', 'with', 'for', 'of', 'in', 'to', 'on', 'at', 'inch', 'screen', 'display', 'fhd', 'hd', 'ram', 'gb', 'tb', 'ssd', 'hdd', 'core', 'generation', 'windows', 'pro', 'home', 'plus', 'system'];
+  
+  const words = normalized.split(' ');
+  return words
+    .filter(word => word.length > 2 && !commonWords.includes(word))
+    .filter(word => !/^\d+$/.test(word)); // Remove pure numbers
+}
+
+function extractKeyParts(str) {
+  // Extract meaningful parts: brand, model numbers, key identifiers
+  const normalized = normalizeString(str);
+  const parts = [];
+  
+  // Extract model numbers (like i540, 2.8L, 12700, 23.8)
+  const modelNumbers = normalized.match(/([a-z]{2,8}\d{2,4}|[a-z]{1,3}-?\d+[a-z]?|\d+\.\d+l|\d+\.\d+|[a-z]\d{2,4}[a-z]?)/gi);
+  if (modelNumbers) parts.push(...modelNumbers);
+  
+  // Extract brand names (common brands)
+  const brands = ['nasco', 'binatone', 'midea', 'samsung', 'hp', 'dell', 'lenovo', 'epson', 'apple', 'iphone', 'ipad', 'ipmc', 'awow', 'infinix', 'oppo', 'tecno', 'asus', 'logitech', 'heatz', 'ubiquiti', 'hikvision', 'asano', 'resonate'];
+  const brandMatch = brands.find(b => normalized.includes(b));
+  if (brandMatch) parts.push(brandMatch);
+  
+  // Extract product type keywords
+  const types = ['laptop', 'monitor', 'printer', 'scanner', 'mouse', 'keyboard', 'tablet', 'phone', 'smartphone', 'blender', 'kettle', 'rice', 'cooker', 'microwave', 'toaster', 'fan', 'fridge', 'refrigerator', 'iron', 'stand', 'washer', 'dishwasher', 'air', 'fryer', 'ac'];
+  types.forEach(type => {
+    if (normalized.includes(type) && type.length > 3) parts.push(type);
+  });
+  
+  // Extract specifications (watts, sizes, etc)
+  const specs = normalized.match(/\d+w|\d+\.\d+|[a-z]\d+/gi);
+  if (specs) {
+    specs.forEach(spec => {
+      if (spec.length > 2) parts.push(spec);
+    });
+  }
+  
+  // Remove duplicates and empty parts
+  return [...new Set(parts.filter(p => p && p.length >= 3))];
+}
+
+function calculateSimilarity(str1, str2) {
+  const keywords1 = extractKeywords(str1);
+  const keywords2 = extractKeywords(str2);
+  
+  if (keywords1.length === 0 || keywords2.length === 0) return 0;
+  
+  // Count exact and partial matches
+  let exactMatches = 0;
+  let partialMatches = 0;
+  
+  for (const k1 of keywords1) {
+    for (const k2 of keywords2) {
+      if (k1 === k2) {
+        exactMatches++;
+        break;
+      } else if (k1.includes(k2) || k2.includes(k1)) {
+        partialMatches++;
+        break;
+      }
+    }
+  }
+  
+  const matchRatio = (2 * (exactMatches + partialMatches * 0.5)) / (keywords1.length + keywords2.length);
+  const lengthRatio = Math.min(keywords1.length, keywords2.length) / Math.max(keywords1.length, keywords2.length);
+  
+  return (matchRatio * 0.7) + (lengthRatio * 0.3);
+}
+
+function calculateLevenshteinDistance(str1, str2) {
+  const matrix = [];
+  
+  for (let i = 0; i <= str2.length; i++) {
+    matrix[i] = [i];
+  }
+  
+  for (let j = 0; j <= str1.length; j++) {
+    matrix[0][j] = j;
+  }
+  
+  for (let i = 1; i <= str2.length; i++) {
+    for (let j = 1; j <= str1.length; j++) {
+      if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        );
+      }
+    }
+  }
+  
+  return matrix[str2.length][str1.length];
+}
+
+async function findBestMatch(searchName, category, allProducts, threshold = 0.3) {
+  const searchNormalized = normalizeString(searchName);
+  const searchModels = extractModelNumber(searchName);
+  let bestMatch = null;
+  let bestScore = 0;
+  
+  for (const product of allProducts) {
+    const productName = product.name || '';
+    const productCategory = product.category || '';
+    const productNormalized = normalizeString(productName);
+    
+    // Strategy 1: Check for exact normalized name match first (highest priority)
+    if (searchNormalized === productNormalized) {
+      return { product, score: 1.0, matchType: 'exact-name' };
+    }
+    
+    // Strategy 2: Check for model number match (high priority but don't return immediately)
+    let modelBoost = 0;
+    if (searchModels) {
+      const productModels = extractModelNumber(productName);
+      for (const searchModel of searchModels) {
+        for (const productModel of (productModels || [])) {
+          if (searchModel === productModel || 
+              searchModel.includes(productModel) || 
+              productModel.includes(searchModel)) {
+            modelBoost = 0.25;
+            break;
+          }
+        }
+        if (modelBoost > 0) break;
+      }
+    }
+    
+    // Strategy 2: Category filtering with mapping
+    if (category) {
+      const mappedCategory = mapCategory(category);
+      const dbCategory = product.category || '';
+      
+      // Try direct match first
+      let catMatch = false;
+      
+      if (mappedCategory) {
+        // Use mapped category to compare
+        catMatch = dbCategory === mappedCategory || 
+                   dbCategory.includes(mappedCategory) ||
+                   mappedCategory.includes(dbCategory);
+      } else {
+        // Fallback to substring matching if no mapping
+        const catNormalized1 = normalizeString(category);
+        const catNormalized2 = normalizeString(dbCategory);
+        catMatch = catNormalized1 === catNormalized2 || 
+                   catNormalized1.includes(catNormalized2) || 
+                   catNormalized2.includes(catNormalized1);
+      }
+      
+      if (!catMatch) continue; // Skip if category doesn't match
+    }
+    
+    // Strategy 3: Brand matching (handle common variations)
+    const brandVariations = {
+      'ubiquity': 'ubiquiti',
+      'ubiquiti': 'ubiquity',
+      'epson': 'epson',
+      'hp': 'hp',
+      'dell': 'dell',
+      'lenovo': 'lenovo',
+      'samsung': 'samsung',
+      'canon': 'canon',
+      'lg': 'lg',
+      'awow': 'awow',
+      'apc': 'apc',
+      'tp-link': 'tp-link'
+    };
+    
+    const searchBrand = Object.keys(brandVariations).find(b => searchNormalized.includes(b));
+    const productBrand = Object.keys(brandVariations).find(b => productNormalized.includes(b));
+    
+    if (searchBrand && productBrand) {
+      if (brandVariations[searchBrand] === productBrand || productBrand === brandVariations[searchBrand]) {
+        // Brands match (with variations), boost similarity
+      }
+    }
+    
+    // Strategy 4: Calculate fuzzy similarity and apply model boost
+    const score = calculateSimilarity(searchName, productName) + modelBoost;
+    
+    // Strategy 5: Brand match boost (if brands match, boost score significantly)
+    if (score < 0.6 && modelBoost > 0) {
+      return { product, score: Math.max(score + 0.2, 0.6), matchType: 'brand-boost' };
+    }
+    
+    // Strategy 6: Order-insensitive word match (words can be in any order)
+    if (score < 0.5) {
+      const searchWords = extractKeywords(searchName);
+      const productWords = extractKeywords(productName);
+      
+      // Calculate match ratio (words can be in any order)
+      const matches = searchWords.filter(word => 
+        productWords.some(pWord => 
+          word === pWord || word.includes(pWord) || pWord.includes(word)
+        )
+      );
+      
+      const matchRatio = matches.length / Math.max(searchWords.length, productWords.length);
+      
+      if (matchRatio >= 0.5) {
+        return { product, score: Math.max(score, matchRatio), matchType: 'word-order-match' };
+      }
+    }
+    
+    if (score > bestScore && score >= threshold) {
+      bestScore = score;
+      bestMatch = { product, score, matchType: score > 0.8 ? 'fuzzy-high' : 'fuzzy-low' };
+    }
+  }
+  
+  return bestMatch;
+}
+
+// @route   POST /api/admin/bulk-price-update/preview
+// @desc    Upload Excel file and preview price changes
+// @access  Private/Admin
+router.post('/bulk-price-update/preview', excelUpload.single('file'), async (req, res) => {
+  const uploadId = Date.now();
+  const rowLogs = [];
+
+  try {
+    if (!req.file) {
+      logToFile(`[Upload ${uploadId}] No file uploaded`, 'ERROR');
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+
+    logSection(`[Upload ${uploadId}] BULK PRICE UPDATE PREVIEW STARTED`);
+    logToFile(`[Upload ${uploadId}] File: ${req.file.originalname}`, 'INFO');
+    logToFile(`[Upload ${uploadId}] File size: ${(req.file.size / 1024).toFixed(2)} KB`, 'INFO');
+
+    // Parse Excel file
+    const workbook = xlsx.read(req.file.buffer, { type: 'buffer' });
+    const sheetName = workbook.SheetNames[0];
+    const worksheet = workbook.Sheets[sheetName];
+    const data = xlsx.utils.sheet_to_json(worksheet, { defval: '' });
+
+    logToFile(`[Upload ${uploadId}] Total rows in Excel: ${data.length}`, 'INFO');
+
+    if (data.length === 0) {
+      return res.status(400).json({ message: 'Excel file is empty' });
+    }
+
+    // Detect column names (flexible matching)
+    const firstRow = data[0];
+    const keys = Object.keys(firstRow).map(k => k.toLowerCase().trim());
+
+    logToFile(`[Upload ${uploadId}] Excel columns: ${Object.keys(firstRow).join(', ')}`, 'INFO');
+    logToFile(`[Upload ${uploadId}] Normalized columns: ${keys.join(', ')}`, 'INFO');
+
+    const findColumn = (keywords) => {
+      const found = keys.find(k => keywords.some(kw => k.includes(kw)));
+      logToFile(`[Upload ${uploadId}] Looking for columns [${keywords.join(', ')}]: ${found || 'NOT FOUND'}`, 'DEBUG');
+      return found;
+    };
+
+    // Priority order for name column: Database Product Name (best), Clean Product Name, then others
+    const nameCol = findColumn(['database product name', 'clean product name', 'excel product name', 'name', 'product name', 'product', 'title', 'description', 'item']);
+    const idCol = findColumn(['slug', 'id', 'sku', 'product id', 'item no', 'item no.']);
+    const priceCol = findColumn(['price', 'new price', 'updated price', 'selling price', 'unit price']);
+    const categoryCol = findColumn(['category', 'product category', 'type']);
+
+    logToFile(`[Upload ${uploadId}] Detected columns:`, 'INFO');
+    logToFile(`[Upload ${uploadId}]   ID Column: ${idCol || 'NOT FOUND'}`, 'INFO');
+    logToFile(`[Upload ${uploadId}]   Name Column: ${nameCol || 'NOT FOUND'}`, 'INFO');
+    logToFile(`[Upload ${uploadId}]   Price Column: ${priceCol || 'NOT FOUND'}`, 'INFO');
+    logToFile(`[Upload ${uploadId}]   Category Column: ${categoryCol || 'NOT FOUND'}`, 'INFO');
+
+    if (!priceCol) {
+      logToFile(`[Upload ${uploadId}] Price column not found!`, 'ERROR');
+      return res.status(400).json({
+        message: 'Could not find price column. Expected columns: price, new price, selling price, unit price',
+        foundColumns: keys
+      });
+    }
+
+    if (!idCol && !nameCol) {
+      logToFile(`[Upload ${uploadId}] Neither ID nor Name column found!`, 'ERROR');
+      return res.status(400).json({
+        message: 'Could not find identifier column. Expected: slug, id, sku, name, description, product name, item, title',
+        foundColumns: keys
+      });
+    }
+
+    // Get the actual column names from first row
+    const actualIdCol = idCol ? Object.keys(firstRow).find(k => k.toLowerCase() === idCol) : null;
+    const actualNameCol = nameCol ? Object.keys(firstRow).find(k => k.toLowerCase() === nameCol) : null;
+    const actualPriceCol = priceCol ? Object.keys(firstRow).find(k => k.toLowerCase() === priceCol) : null;
+    const actualCategoryCol = categoryCol ? Object.keys(firstRow).find(k => k.toLowerCase() === categoryCol) : null;
+
+    logToFile(`[Upload ${uploadId}] Actual column names:`, 'INFO');
+    logToFile(`[Upload ${uploadId}]   ID: ${actualIdCol}`, 'INFO');
+    logToFile(`[Upload ${uploadId}]   Name: ${actualNameCol}`, 'INFO');
+    logToFile(`[Upload ${uploadId}]   Price: ${actualPriceCol}`, 'INFO');
+    logToFile(`[Upload ${uploadId}]   Category: ${actualCategoryCol}`, 'INFO');
+
+    // Fetch all products for fuzzy matching
+    const allProducts = await Product.find({ active: true }).lean();
+    logToFile(`[Upload ${uploadId}] Total active products in DB: ${allProducts.length}`, 'INFO');
+
+    // Show sample products for debugging
+    logToFile(`[Upload ${uploadId}] Sample products from DB:`, 'DEBUG');
+    allProducts.slice(0, 5).forEach((p, i) => {
+      logToFile(`[Upload ${uploadId}]   [${i + 1}] ${p.name} (Slug: ${p.slug}, Price: ${p.price}, Category: ${p.category})`, 'DEBUG');
+    });
+
+    // Match products in database
+    const updates = [];
+    const notFound = [];
+    const invalidPrices = [];
+    const fuzzyMatches = [];
+    const processedProductIds = new Set();
+    const processedProductSlugs = new Set();
+
+    for (let rowNum = 0; rowNum < data.length; rowNum++) {
+      const row = data[rowNum];
+      const rowIdentifier = `Row ${rowNum + 1}`;
+
+      logToFile(`[Upload ${uploadId}] Processing ${rowIdentifier}`, 'INFO');
+
+      const identifier = actualIdCol ? String(row[actualIdCol] || '').trim() : null;
+      const productName = actualNameCol ? String(row[actualNameCol] || '').trim() : null;
+      const productCategory = categoryCol ? String(row[categoryCol] || '').trim() : null;
+      const rawPrice = row[actualPriceCol];
+
+      // Parse price - handle both number and string formats
+      let newPrice;
+      if (typeof rawPrice === 'number') {
+        newPrice = rawPrice;
+      } else {
+        const priceStr = String(rawPrice || '').replace(/,/g, '').replace(/\s/g, '');
+        newPrice = parseFloat(priceStr);
+      }
+
+      const rowData = {
+        parsed: {
+          identifier: identifier,
+          productName: productName,
+          productCategory: productCategory,
+          rawPrice: rawPrice,
+          parsedPrice: newPrice
+        },
+        matchResult: null,
+        reasons: []
+      };
+
+      // Skip rows without product name or price
+      if (!productName && !identifier) {
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}: SKIPPED - No identifier or product name`, 'DEBUG');
+        rowLogs.push({ ...rowData, matchResult: 'SKIPPED', reasons: ['No identifier or product name'] });
+        continue;
+      }
+
+      if (isNaN(newPrice) || newPrice <= 0) {
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}: INVALID PRICE - "${productName || identifier}" - Provided: "${rawPrice}", Parsed: ${newPrice}`, 'WARN');
+        invalidPrices.push({
+          identifier: identifier || productName,
+          providedPrice: rawPrice,
+          parsedPrice: newPrice
+        });
+        rowLogs.push({ ...rowData, matchResult: 'INVALID_PRICE', providedPrice: rawPrice });
+        continue;
+      }
+
+      logToFile(`[Upload ${uploadId}] ${rowIdentifier}:`, 'INFO');
+      logToFile(`[Upload ${uploadId}]   Product Name: "${productName}"`, 'INFO');
+      logToFile(`[Upload ${uploadId}]   Identifier: "${identifier}"`, 'INFO');
+      logToFile(`[Upload ${uploadId}]   Category: "${productCategory}"`, 'INFO');
+      logToFile(`[Upload ${uploadId}]   Raw Price: "${rawPrice}"`, 'INFO');
+      logToFile(`[Upload ${uploadId}]   Parsed Price: ${newPrice}`, 'INFO');
+
+      let product = null;
+      let matchMethod = '';
+      let matchReasons = [];
+      let candidateProducts = allProducts;
+
+      // Priority 0: If we have Database Product Name column (from complete mapping), use it for exact match
+      if (actualNameCol && actualNameCol.toLowerCase().includes('database product name') && productName) {
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}: Trying DATABASE PRODUCT NAME match...`, 'DEBUG');
+        const searchNormalized = normalizeString(productName);
+        product = allProducts.find(p => normalizeString(p.name) === searchNormalized);
+        if (product) {
+          matchMethod = 'exact-db-match';
+          matchReasons.push('database_product_name_match');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✓ DATABASE NAME MATCH - "${productName.substring(0, 50)}"`, 'INFO');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   → DB Product: "${product.name}" (Slug: ${product.slug}, ID: ${product._id})`, 'INFO');
+        } else {
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✗ No database name match found`, 'DEBUG');
+        }
+      }
+
+      // Priority 1: Try EXACT name match using productName (HIGHEST PRIORITY - never override)
+      if (!product && productName) {
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}: Trying EXACT NAME match...`, 'DEBUG');
+        const searchNormalized = normalizeString(productName);
+        product = allProducts.find(p => normalizeString(p.name) === searchNormalized);
+        if (product) {
+          matchMethod = 'exact-name';
+          matchReasons.push('exact_name_match');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✓ EXACT NAME MATCH - "${productName.substring(0, 50)}"`, 'INFO');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   → DB Product: "${product.name}" (Slug: ${product.slug}, ID: ${product._id})`, 'INFO');
+        } else {
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✗ No exact name match found`, 'DEBUG');
+          // Log what we're looking for vs what's available
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Searching for normalized: "${searchNormalized}"`, 'DEBUG');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Available products: ${allProducts.slice(0, 10).map(p => normalizeString(p.name)).join(', ')}`, 'DEBUG');
+        }
+      }
+
+      // Priority 2: If no exact name match, try slug match using identifier
+      if (!product && identifier) {
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}: Trying SLUG match with identifier: "${identifier}"`, 'DEBUG');
+        product = await Product.findOne({ slug: identifier });
+        if (product) {
+          matchMethod = 'slug';
+          matchReasons.push('slug_match');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✓ SLUG MATCH - "${identifier}"`, 'INFO');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   → DB Product: "${product.name}"`, 'INFO');
+        } else {
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✗ No slug match found for: "${identifier}"`, 'DEBUG');
+        }
+      }
+
+      // Priority 3: Try exact name match using identifier (only if no productName or no match from it)
+      if (!product && identifier && (!productName || normalizeString(productName) !== normalizeString(identifier))) {
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}: Trying IDENTIFIER AS NAME match: "${identifier}"`, 'DEBUG');
+        product = allProducts.find(p => normalizeString(p.name) === normalizeString(identifier));
+        if (product) {
+          matchMethod = 'identifier-name';
+          matchReasons.push('identifier_as_name_match');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✓ IDENTIFIER-AS-NAME MATCH - "${identifier}"`, 'INFO');
+        }
+      }
+
+      // Priority 4: Item No. matching (only if: no product found yet AND no productName, and only using identifier)
+      if (!product && identifier && !productName) {
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}: Trying ITEM NO. match: "${identifier}"`, 'DEBUG');
+        const normalizedId = normalizeString(identifier);
+        product = allProducts.find(p => {
+          const normalizedSlug = normalizeString(p.slug);
+          const slugParts = normalizedSlug.replace(/-/g, ' ').split(' ');
+          return slugParts.some(part => part.length >= 3 && (
+            normalizedId.includes(part) || part.includes(normalizedId)
+          )) || normalizedSlug === normalizedId;
+        });
+        if (product) {
+          matchMethod = 'item-no-match';
+          matchReasons.push('item_no_match');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✓ ITEM NO. MATCH - "${identifier}"`, 'INFO');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   → DB Product: "${product.name}"`, 'INFO');
+        }
+      }
+
+      // Priority 5: Key-part matching (ONLY if no product found yet)
+      if (!product && productName) {
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}: Trying KEY-PART match: "${productName}"`, 'DEBUG');
+        const searchKeyParts = extractKeyParts(productName);
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Key parts: ${searchKeyParts.join(', ')}`, 'DEBUG');
+
+        if (searchKeyParts.length < 2) {
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: SKIPPED - Not enough key parts (${searchKeyParts.length})`, 'DEBUG');
+        } else {
+          // Filter by category if available
+          let candidateProducts = allProducts;
+          const mappedCategory = mapCategory(productCategory);
+          if (mappedCategory) {
+            candidateProducts = allProducts.filter(p => {
+              const dbCat = p.category || '';
+              return dbCat === mappedCategory || dbCat.includes(mappedCategory) || mappedCategory.includes(dbCat);
+            });
+            logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Filtered by category "${productCategory}" → ${candidateProducts.length} candidates`, 'DEBUG');
+          }
+
+          // Try to match products by checking if key parts match
+          for (const dbProduct of candidateProducts) {
+            if (dbProduct.name.toLowerCase().includes('test product')) continue;
+
+            const dbKeyParts = extractKeyParts(dbProduct.name);
+
+            if (dbKeyParts.length < 2) continue;
+
+            const matchingParts = searchKeyParts.filter(part =>
+              dbKeyParts.some(dbPart =>
+                (part.length >= 3 && dbPart.length >= 3) &&
+                (part.includes(dbPart) || dbPart.includes(part))
+              )
+            );
+
+            const matchRatio = matchingParts.length / searchKeyParts.length;
+
+            if (matchRatio >= 0.7 && matchingParts.length >= 2) {
+              product = dbProduct;
+              matchMethod = 'key-part-match';
+              matchReasons.push('key_part_match');
+              logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✓ KEY-PART MATCH - "${productName.substring(0, 40)}"`, 'INFO');
+              logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   → DB Product: "${product.name}"`, 'INFO');
+              logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Matched parts: ${matchingParts.join(', ')}`, 'DEBUG');
+              break;
+            }
+          }
+          if (!product) {
+            logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✗ No key-part match found`, 'DEBUG');
+          }
+        }
+      }
+
+      // Priority 6: Fuzzy match as last resort
+      if (!product && productName) {
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}: Trying FUZZY match: "${productName}"`, 'DEBUG');
+
+        if (productName.toLowerCase().includes('test')) {
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: SKIPPED - Test product`, 'DEBUG');
+        } else {
+          const mappedCategory = mapCategory(productCategory);
+
+          let candidateProducts = allProducts;
+          if (mappedCategory) {
+            candidateProducts = allProducts.filter(p => {
+              const dbCat = p.category || '';
+              return dbCat === mappedCategory;
+            });
+            logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Category filter: "${mappedCategory}" → ${candidateProducts.length} candidates`, 'DEBUG');
+          }
+
+          if (!mappedCategory && candidateProducts.length > 100) {
+            logToFile(`[Upload ${uploadId}] ${rowIdentifier}: SKIPPED - No category and too many candidates (${candidateProducts.length})`, 'DEBUG');
+          } else {
+            if (candidateProducts.length > 100) {
+              candidateProducts = candidateProducts.slice(0, 100);
+            }
+
+            const bestMatch = await findBestMatch(productName, mappedCategory, candidateProducts, 0.75);
+            if (bestMatch && bestMatch.score >= 0.75) {
+              if (!bestMatch.product.name.toLowerCase().includes('test')) {
+                product = bestMatch.product;
+                matchMethod = `${bestMatch.matchType} (${(bestMatch.score * 100).toFixed(0)}%)`;
+                matchReasons.push('fuzzy_match');
+                logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✓ FUZZY MATCH (${bestMatch.score * 100}%) - "${productName.substring(0, 40)}"`, 'INFO');
+                logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   → DB Product: "${product.name}"`, 'INFO');
+              }
+            } else {
+              logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✗ No fuzzy match (best score: ${bestMatch?.score || 'none'})`, 'DEBUG');
+            }
+          }
+        }
+      }
+      }
+      if (!product && identifier && (!productName || normalizeString(productName) !== normalizeString(identifier))) {
+        product = allProducts.find(p => normalizeString(p.name) === normalizeString(identifier));
+        if (product) {
+          matchMethod = 'identifier-name';
+          console.log(`[Bulk Price Update] EXACT MATCH by identifier: "${identifier}" -> "${product.name}" (ID: ${product._id}, Slug: ${product.slug})`);
+        }
+      }
+      
+      // Priority 4: Item No. matching (only if: no product found yet AND no productName, and only using identifier)
+      if (!product && identifier && !productName) {
+        const normalizedId = normalizeString(identifier);
+        // More strict matching: require to be a significant part of slug
+        product = allProducts.find(p => {
+          const normalizedSlug = normalizeString(p.slug);
+          const slugParts = normalizedSlug.replace(/-/g, ' ').split(' ');
+          // Check if any significant part of the slug matches
+          return slugParts.some(part => part.length >= 3 && (
+            normalizedId.includes(part) || part.includes(normalizedId)
+          )) || normalizedSlug === normalizedId;
+        });
+        if (product) {
+          matchMethod = 'item-no-match';
+          console.log(`[Bulk Price Update] ITEM-NO MATCH: "${identifier}" -> "${product.name}" (ID: ${product._id}, Slug: ${product.slug})`);
+        }
+      }
+      
+      // Priority 4: Item No. matching (only if: identifier exists and no productName, and still no match)
+      // Only use this if: identifier looks like a model number/slug and we don't have a product name
+      if (!product && identifier && !productName) {
+        const normalizedId = normalizeString(identifier);
+        // More strict matching: require to be a significant part of the slug
+        product = allProducts.find(p => {
+          const normalizedSlug = normalizeString(p.slug);
+          const slugParts = normalizedSlug.replace(/-/g, ' ').split(' ');
+          // Check if any significant part of the slug matches
+          return slugParts.some(part => part.length >= 3 && (
+            normalizedId.includes(part) || part.includes(normalizedId)
+          )) || normalizedSlug === normalizedId;
+        });
+        if (product) {
+          matchMethod = 'item-no-match';
+        }
+      }
+
+      // Priority 5: Key-part matching (ONLY if no product found yet)
+      if (!product && productName) {
+        const searchKeyParts = extractKeyParts(productName);
+        
+        // Skip if we don't have enough key parts (at least 2 meaningful parts)
+        if (searchKeyParts.length < 2) {
+          console.log(`[Bulk Price Update] SKIPPED key-part matching: Not enough key parts from "${productName.substring(0, 40)}"`);
+        } else {
+          console.log(`[Bulk Price Update] Key parts from "${productName.substring(0, 40)}": ${searchKeyParts.join(', ')}`);
+          
+          // Filter by category if available
+          let candidateProducts = allProducts;
+          const mappedCategory = mapCategory(productCategory);
+          if (mappedCategory) {
+            candidateProducts = allProducts.filter(p => {
+              const dbCat = p.category || '';
+              return dbCat === mappedCategory || 
+                     dbCat.includes(mappedCategory) || 
+                     mappedCategory.includes(dbCat);
+            });
+          }
+          
+          // Try to match products by checking if key parts match
+          for (const dbProduct of candidateProducts) {
+            // Skip test products
+            if (dbProduct.name.toLowerCase().includes('test product')) continue;
+            
+            const dbKeyParts = extractKeyParts(dbProduct.name);
+            
+            // Skip if DB product doesn't have enough key parts
+            if (dbKeyParts.length < 2) continue;
+            
+            // Check if most search key parts are in DB name (at least 70%)
+            const matchingParts = searchKeyParts.filter(part => 
+              dbKeyParts.some(dbPart => 
+                (part.length >= 3 && dbPart.length >= 3) && 
+                (part.includes(dbPart) || dbPart.includes(part))
+              )
+            );
+            
+            const matchRatio = matchingParts.length / searchKeyParts.length;
+            
+            if (matchRatio >= 0.7 && matchingParts.length >= 2) {
+              product = dbProduct;
+              matchMethod = 'key-part-match';
+              console.log(`[Bulk Price Update] KEY-PART MATCH: "${productName.substring(0, 40)}" -> "${dbProduct.name.substring(0, 40)}"`);
+              break;
+            }
+          }
+        }
+      }
+
+      // Priority 7: Fuzzy match with moderate threshold (60%) as last resort
+      if (!product && productName) {
+        // Skip test products
+        if (productName.toLowerCase().includes('test')) {
+          console.log(`[Bulk Price Update] SKIPPED fuzzy matching for test product: "${productName.substring(0, 40)}"`);
+        } else {
+          const mappedCategory = mapCategory(productCategory);
+
+          // Filter by category (CRITICAL for accuracy)
+          let candidateProducts = allProducts;
+          if (mappedCategory) {
+            candidateProducts = allProducts.filter(p => {
+              const dbCat = p.category || '';
+              return dbCat === mappedCategory;
+            });
+          }
+
+          // If we don't have category and too many candidates, try to use the exact name from complete mapping
+          if (!mappedCategory && candidateProducts.length > 100) {
+            console.log(`[Bulk Price Update] SKIPPED fuzzy matching: No category filter and too many candidates (${candidateProducts.length})`);
+          } else {
+            // Limit candidates to prevent performance issues
+            if (candidateProducts.length > 100) {
+              candidateProducts = candidateProducts.slice(0, 100);
+            }
+
+            // Try with higher threshold first for better accuracy
+            const bestMatch = await findBestMatch(productName, mappedCategory, candidateProducts, 0.75);
+            if (bestMatch && bestMatch.score >= 0.75) {
+              // Double check it's not a test product
+              if (!bestMatch.product.name.toLowerCase().includes('test')) {
+                product = bestMatch.product;
+                matchMethod = `${bestMatch.matchType} (${(bestMatch.score * 100).toFixed(0)}%)`;
+                console.log(`[Bulk Price Update] FUZZY MATCH: "${productName.substring(0, 40)}" -> "${product.name.substring(0, 40)}" [${matchMethod}]`);
+              }
+            } else {
+              console.log(`[Bulk Price Update] NO FUZZY MATCH: "${productName.substring(0, 40)}" (Candidates: ${candidateProducts.length}, Best Score: ${bestMatch?.score || 'none'})`);
+            }
+          }
+        }
+      }
+
+
+      if (product) {
+        // Check if we've already processed this product (prevent duplicates)
+        if (processedProductIds.has(String(product._id))) {
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: SKIPPED DUPLICATE - Product already matched (${product.name})`, 'WARN');
+          rowLogs.push({ ...rowData, matchResult: 'DUPLICATE', reasons: ['Product already matched from another row'] });
+          notFound.push({
+            identifier: identifier || productName,
+            reason: 'duplicate_match'
+          });
+          continue;
+        }
+
+        if (processedProductSlugs.has(product.slug)) {
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: SKIPPED DUPLICATE SLUG - ${product.slug}`, 'WARN');
+          rowLogs.push({ ...rowData, matchResult: 'DUPLICATE_SLUG', reasons: ['Product slug already matched'] });
+          continue;
+        }
+
+        processedProductIds.add(String(product._id));
+        processedProductSlugs.add(product.slug);
+
+        const currentPrice = Number(product.price);
+        if (Math.abs(currentPrice - newPrice) > 0.01) {
+          const update = {
+            _id: product._id,
+            slug: product.slug,
+            name: product.name,
+            currentPrice,
+            newPrice,
+            difference: newPrice - currentPrice,
+            percentChange: currentPrice > 0 ? ((newPrice - currentPrice) / currentPrice * 100).toFixed(2) : 0,
+            matchMethod
+          };
+          updates.push(update);
+
+          if (matchMethod && matchMethod.startsWith('fuzzy')) {
+            fuzzyMatches.push({
+              excelName: productName,
+              matchedName: product.name,
+              slug: product.slug,
+              score: matchMethod
+            });
+          }
+
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✓ ADDED TO UPDATES`, 'INFO');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Current: GHS ${currentPrice}`, 'INFO');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   New: GHS ${newPrice}`, 'INFO');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Change: ${update.percentChange}%`, 'INFO');
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Match Method: ${matchMethod}`, 'INFO');
+
+          rowLogs.push({
+            ...rowData,
+            matchResult: 'MATCHED',
+            productId: String(product._id),
+            productName: product.name,
+            productSlug: product.slug,
+            currentPrice,
+            newPrice,
+            matchMethod,
+            reasons: matchReasons
+          });
+        } else {
+          logToFile(`[Upload ${uploadId}] ${rowIdentifier}: SKIPPED - No price change (Current: ${currentPrice}, New: ${newPrice})`, 'DEBUG');
+          rowLogs.push({ ...rowData, matchResult: 'NO_CHANGE', reasons: ['No price change'] });
+        }
+      } else {
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}: ✗ NOT FOUND`, 'WARN');
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Product Name: "${productName}"`, 'WARN');
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Identifier: "${identifier}"`, 'WARN');
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Category: "${productCategory}"`, 'WARN');
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Tried methods: ${matchReasons.join(', ') || 'all'}", 'WARN');
+        logToFile(`[Upload ${uploadId}] ${rowIdentifier}:   Total products in DB: ${allProducts.length}`, 'DEBUG');
+
+        notFound.push({
+          identifier: identifier || productName
+        });
+
+        rowLogs.push({
+          ...rowData,
+          matchResult: 'NOT_FOUND',
+          reasons: matchReasons
+        });
+      }
+    }
+
+    // Final summary
+    logSection(`[Upload ${uploadId}] FINAL RESULTS`);
+    logToFile(`[Upload ${uploadId}] Total Excel Rows: ${data.length}`, 'INFO');
+    logToFile(`[Upload ${uploadId}] Matched Products: ${updates.length}`, 'INFO');
+    logToFile(`[Upload ${uploadId}] Not Found: ${notFound.length}`, 'INFO');
+    logToFile(`[Upload ${uploadId}] Invalid Prices: ${invalidPrices.length}`, 'INFO');
+    logToFile(`[Upload ${uploadId}] Fuzzy Matches: ${fuzzyMatches.length}`, 'INFO');
+    logToFile(`[Upload ${uploadId}] Match Rate: ${data.length > 0 ? ((updates.length / data.length) * 100).toFixed(1) : 0}%`, 'INFO');
+
+    // Log unmatched products
+    if (notFound.length > 0) {
+      logSection(`[Upload ${uploadId}] UNMATCHED PRODUCTS`);
+      notFound.forEach((item, i) => {
+        logToFile(`[Upload ${uploadId}] [${i + 1}] ${item.identifier}`, 'INFO');
+      });
+    }
+
+    // Log update details
+    if (updates.length > 0) {
+      logSection(`[Upload ${uploadId}] PRICE UPDATES`);
+      updates.forEach((update, i) => {
+        logToFile(`[Upload ${uploadId}] [${i + 1}] ${update.slug}`, 'INFO');
+        logToFile(`[Upload ${uploadId}]     Name: ${update.name}`, 'DEBUG');
+        logToFile(`[Upload ${uploadId}]     Current: GHS ${update.currentPrice}`, 'INFO');
+        logToFile(`[Upload ${uploadId}]     New: GHS ${update.newPrice}`, 'INFO');
+        logToFile(`[Upload ${uploadId}]     Change: ${update.percentChange}% (${update.difference > 0 ? '+' : ''}${update.difference.toFixed(2)})`, 'INFO');
+        logToFile(`[Upload ${uploadId}]     Match: ${update.matchMethod}`, 'INFO');
+      });
+    }
+
+    const responseData = {
+      summary: {
+        totalRows: data.length,
+        matchedProducts: updates.length,
+        notFound: notFound.length,
+        invalidPrices: invalidPrices.length,
+        fuzzyMatches: fuzzyMatches.length,
+        matchRate: data.length > 0 ? ((updates.length / data.length) * 100).toFixed(1) : 0
+      },
+      updates,
+      notFound,
+      invalidPrices,
+      fuzzyMatches,
+      debug: {
+        uploadId: uploadId,
+        columnDetection: {
+          idCol: actualIdCol,
+          nameCol: actualNameCol,
+          priceCol: actualPriceCol,
+          categoryCol: actualCategoryCol
+        },
+        rowLogs: rowLogs,
+        totalProductsInDB: allProducts.length,
+        logFile: path.join(logDir, getLogFilename())
+      }
+    };
+
+    logSection(`[Upload ${uploadId}] RESPONSE SENT TO CLIENT`);
+    logToFile(`[Upload ${uploadId}] Summary: ${JSON.stringify(responseData.summary)}`, 'INFO');
+
+    res.json(responseData);
+  } catch (err) {
+    console.error('Bulk price update preview error:', err);
+    logToFile(`[Upload ${uploadId}] ERROR: ${err.message}`, 'ERROR');
+    logToFile(`[Upload ${uploadId}] Stack: ${err.stack}`, 'ERROR');
+    res.status(500).json({
+      message: 'Error processing Excel file',
+      error: process.env.NODE_ENV === 'development' ? err.message : undefined,
+      uploadId: uploadId
+    });
+  } finally {
+    logSection(`[Upload ${uploadId}] BULK PRICE UPDATE PREVIEW ENDED`);
+  }
+
+// @route   POST /api/admin/bulk-price-update/apply
+// @desc    Apply bulk price updates from Excel
+// @access  Private/Admin
+router.post('/bulk-price-update/apply', async (req, res) => {
+  try {
+    const { updates } = req.body;
+
+    if (!Array.isArray(updates) || updates.length === 0) {
+      return res.status(400).json({ message: 'No updates provided' });
+    }
+
+    const bulkOps = [];
+    for (const update of updates) {
+      if (update._id && update.newPrice) {
+        bulkOps.push({
+          updateOne: {
+            filter: { _id: update._id },
+            update: { price: Number(update.newPrice) }
+          }
+        });
+      }
+    }
+
+    if (bulkOps.length === 0) {
+      return res.status(400).json({ message: 'No valid updates to apply' });
+    }
+
+    const result = await Product.bulkWrite(bulkOps);
+
+    // Trigger product JSON regeneration
+    try {
+      const productsModule = require('./products');
+      if (typeof productsModule.regenerateProductJson === 'function') {
+        await productsModule.regenerateProductJson();
+      }
+    } catch (regenErr) {
+      console.warn('Failed to regenerate product JSON:', regenErr?.message);
+    }
+
+    res.json({
+      message: 'Price updates applied successfully',
+      updatedCount: result.modifiedCount
+    });
+  } catch (err) {
+    console.error('Bulk price update apply error:', err);
+    res.status(500).json({ 
+      message: 'Error applying price updates',
+      error: process.env.NODE_ENV === 'development' ? err.message : undefined
+    });
+  }
+});
+
+module.exports = router;

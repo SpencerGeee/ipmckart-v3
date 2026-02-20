@@ -1,0 +1,383 @@
+BULK PRICE UPDATE MAPPING REPORT
+================================
+Generated: 2025-12-31T11:34:49.499Z
+
+SUMMARY:
+- Total Products in Excel: 362
+- Successfully Mapped: 115 (31.8%)
+- New Products (not in DB): 247 (68.2%)
+
+MAPPED PRODUCTS (115):
+---------------------------------
+✓ IPMC All-In-One PC 27" → IPMC AIO CORE I7-12700 8GB/256GB (5 YEARS WARRANTY)
+✓ IPMC All-In-One PC 23.8" → IPMC AIO 8+256GB CORE I5-12400 ( 5 YEARS WARRANTY)
+✓ AWOW Crea i540 Laptop → IPMC CREA I540 16GB RAM/512GB SSD
+✓ Kid Yoga Laptop 11.6" Purple → AWOW 11.6 LAPTOP KID NOTEBOOK 6GB LPDDRA/128GB SSD - PURPLE
+✓ Kid Yoga Laptop 11.6" Blue → AWOW 11.6 LAPTOP KID NOTEBOOK 6GB LPDDRA/128GB SSD
+✓ Ubiquiti U6-Mesh Access Point → Ubiquiti U6-Mesh Access Point
+✓ Epson Printer LQ-350 → EPSON PRINTER LQ-350
+✓ APC Smart-UPS C 3000VA → APC Smart-UPS C 3000VA
+✓ IPMC Laptop LT14 → LENOVO THINKPAD L14
+✓ Epson Scanner V39 II → Epson Scanner V39 II
+✓ Ubiquiti POE Power Adapter 48W → Ubiquiti PoE Power Adapter
+✓ iPhone 17 Pro 512GB → iPhone 17 PRO (512GB) SILVER
+✓ IPMC All-In-One PC 27" UHD → IPMC AIO CORE I7-12700 8GB/256GB (5 YEARS WARRANTY)
+✓ Ubiquiti POE Injector 30W → Ubiquiti PoE Power Adapter
+✓ Epson Dot Matrix Printer LQ-690II → EPSON DOT MATRIX PRINTER LQ-690II
+✓ Heatz Back Pack Zj04 → Heatz Backpack Zj04
+✓ Heatz USB-A to Lightning Cable Zc33 → Heatz Nylon-Fit USB‑A to Lightning Cable Zc33
+✓ Heatz Portable Bluetooth Speaker 30W → Heatz Portable Bluetooth Speaker, 30W, Black, Zs27
+✓ Epson Printer C31CH51011 TM → Epson TM-T20III Printer
+✓ D-Link Wireless Adapter N300 → D LINK WIRELESS N300 USB RANGE EXTENDER
+✓ D-Link Router DIR-506L → D LINK ROUTER DIR-506/EU
+✓ D-Link Router DWR-932C → D-Link DWR-932C/3GG4HC
+✓ D-Link Smart Switch 24-Port → D LINK SMART SWITCH DGS-1210-28P
+✓ D-Link Switch 24GE PoE → D-Link DGS-F1210-26PS-E
+✓ iPhone 16 Pro Max 256GB → APPLE IPHONE16 PRO MAX 256GB
+✓ HP 216A Magenta Toner → HP 216A Magenta Original Laserjet Toner Cartridge
+✓ HP 216A Cyan Toner → HP 216A Cyan Original Laserjet Toner Cartridge
+✓ HP 216A Black Toner → HP 216A Black Original Laserjet Toner Cartridge
+✓ HP Z Book Fury G8 Laptop → HP ZBOOK FURY G8 I7-11850 VPRO 16GB (2*8GB)
+✓ Oppo A5 Pro → OPPO A5 PRO (8GB+256GB)
+✓ Oppo A3 White → Oppo A3 6GB +128GB Sparkle Black
+✓ Oppo A3X Red → Oppo A3x 4GB+128GB Nebula red
+✓ HP Laserjet Tank MFP 2602SDW → HP LaserJet Tank MFP 2602sdw
+✓ HP Color Laserjet Pro MFP 3303FDW → HP Color LaserJet Pro MFP 3303fdw
+✓ HP Laserjet Pro MFP 4103DW → HP LASERJET PRO MFP 4103DW
+✓ Oppo A3X Red → Oppo A3x 4GB+128GB Nebula red
+✓ HP 415A Yellow Toner → HP 415A Yellow Original LaserJet Toner Cartridge
+✓ HP 415A Magenta Toner → HP 415A Magenta Original LaserJet Toner Cartridge
+✓ HP 415A Black Toner → HP 415A Black Original LaserJet Toner Cartridge
+✓ HP 207A Yellow Toner → HP 207A Yellow Original LaserJet Toner Cartridge
+✓ HP 207A Black Toner → HP 207A Black Original LaserJet Toner Cartridge
+✓ HP 59A Black Toner → HP 59A Black Original LaserJet Toner Cartridge
+✓ HP 44A Black Toner → HP 44A Black Original LaserJet Toner Cartridge
+✓ Nasco Rice Cooker 1.8L → NASCO RICE COOKER, ALL WHITE, 700W/1.8L, 220V 50HZ
+✓ Nasco Rice Cooker 2.8L → NASCO RICE COOKER, ALL WHITE,1000W/2.8L, 220V 50HZ
+✓ Nasco Toaster 850W → NASCO TOASTER 850W
+✓ Nasco Stand Blender 1.75L → NASCO STAND BLENDER 1.75L, 800W, SILVER
+✓ Binatone Blender & Grinder BLG-412 → BINATONE BLENDER & GRINDER BLG-412
+✓ Binatone Blender with Grinder BLG-460 → BINATONE BLENDER BLG-460
+✓ Binatone Blender with Grinder BLG 450P → BINATONE BLENDER BLG-450 MK2
+✓ Lenovo Wired Mouse 120 → LENOVO 120 WIRED MOUSE
+✓ Logitech K120 Keyboard → LOGITECH K120 KEYBOARD
+✓ HP Elitepad Productivity Jacket → HP ELITEPAD PRODUCTIVITY JACKET
+✓ Dell Optical Mouse MS116 → DELL OPTICAL MOUSE MS116-BLACK
+✓ Lenovo Wireless Mouse 130 → LENOVO 130 WIRELESS MOUSE
+✓ Dell Wireless Mouse WM118 → DELL WM118 WIRELESS MOUSE
+✓ Resonate UPS → Resonate UPS CRU 12V2 A Gen 2
+✓ HP Scanner SJ PRO N4600 → HP SCANJET PRO SCANNER - N4600 FNW1
+✓ Epson Printer M2170 → EPSON M2170 PRINTER
+✓ Epson Workforce Pro WF-M5899DWF → EPSON WORKFORCE PRO WF-M5899DWF
+✓ HP Laserjet Pro MFP 4303DW → HP COLOR LJ PRO MFP 4303DW
+✓ Surpass Dream Shredder 815B → SURPASS DREAM SHREDDER 815B
+✓ HP Officejet Pro 8023 → HP OFFICEJET PRO 8023
+✓ Betterlink Interactive Flat Panel → BETTERLINK INTERACTIVE FLAT PANEL
+✓ Lenovo Monitor 18.5" → LENOVO 18.5 TN PANEL
+✓ Betterlink Cat6 Cable Grey 100M → BETTERLINK CAT6 CABLE GREY 100M
+✓ Betterlink Cat6 Cable Black 100M → BETTERLINK CAT6 CABLE BLACK 100M
+✓ Betterlink Cat6 Cable 305M → BETTERLINK CAT6 CABLE 305M
+✓ HP 121 Color Inkjet Cartridge → HP CART 121 COLOUR INKJET
+✓ HP 901 Black Cartridge → HP CART 901 BLACK
+✓ HP 901 Black Cartridge → HP CART 901 BLACK
+✓ HP 22 Color Cartridge → HP CART 22 COLOUR
+✓ HP 21A Black Cartridge → HP CART 21 BLACK (C9351AE)
+✓ Ubiquiti Nanostation M2 → UBIQUITI NANOSTATION M2 AIRMAX NSM2
+✓ Hikvision Tandem VU Camera → HIKVISION TANDEMVU 4INCH 2MP CAMERA
+✓ Samsung Galaxy Buds Pro 2 → samsung galaxy buds 2 bora purple
+✓ Samsung Galaxy Watch 7 44mm → Samsung Galaxy Watch 7 (44mm SILVER)
+✓ Samsung Galaxy A06 128GB Blue → SAMSUNG GALAXY A06 (128+6) LIGHT BLUE
+✓ Samsung Galaxy A06 128GB → SAMSUNG GALAXY A06 (4+128GB) LIGHT BLUE
+✓ Samsung Galaxy A16 256GB → SAMSUNG GALAXY A16 - 256GB/8GB RAM
+✓ Samsung Galaxy A16 256GB Grey → SAMSUNG GALAXY A16(4+128GB)GRAY
+✓ Samsung Galaxy A16 128GB → SAMSUNG GALAXY A16(4+128GB)GRAY
+✓ Samsung Galaxy A56 256GB Black → SAMSUNG GALAXY A56 256GB/8GB
+✓ Samsung Galaxy Tab A9 64GB → SAMSUNG GALAXY TAB A9 64GB/4GB
+✓ Apple AirPods Pro 2 → Apple AIRPOD PRO 2ND GEN
+✓ JBL Headset Tune 760NC → JBL HEADSET TUNE 760NC
+✓ JBL Portable Bluetooth Speaker Charge 5 → JBL PORTABLE BLUETOOTH CHARGE 5
+✓ Apple iPhone 16 Plus 256GB → APPLE IPHONE 16 PLUS - 256GB/8GB RAM
+✓ Apple iPhone 16 Pro 128GB → APPLE IPHONE 16 PRO 128GB
+✓ Excel Cat6 UTP Cable Violet → EXCEL CAT6 UTP 25 AWG CABLE
+✓ Excel Cat6 UTP Cable → EXCEL CAT6 UTP CABLE
+✓ D-Link Cat6 FTP Cable → D LINK CAT6 SFTP 23 CABLE
+✓ D-Link Cat6 UTP Cable 305m → D LINK CAT6 ETHERNET SOLID CABLE UTP 24 AWG
+✓ HP Black Toner 85A → HP 85A Black Toner cartridge
+✓ HP Toner 80A Black → HP 80A Black Toner Cartridge (CF280A)
+✓ HP Black Toner 05A → HP LaserJet CE505A Black Print Cartridge
+✓ Lenovo ThinkPad L14 Laptop → Lenovo ThinkPad L14
+✓ HP Laptop 840 G8 → HP EliteBook 840 G8
+✓ Lenovo IdeaPad Flex 5 → Lenovo IdeaPad Flex 5
+✓ Dell Chromebook 3100 → Dell Chromebook 3100
+✓ Starlink Mini Kit → STARLINK MINI KIT
+✓ Starlink Standard Kit → STARLINK STANDARD KIT
+✓ HP Mouse M10 → HP MOUSE USB M10
+✓ Logitech Optical Mouse M90 → LOGITECH OPTICAL MOUSE-M90
+✓ Jabra Biz 1500 Headset → JABRA BIZ 1500MONO HEADSET
+✓ SanDisk Pen Drive 64GB → SanDisk 64GB USB Flash Drive
+✓ APC Smart UPS 2200VA → APC SMART-UPS 2200VA LCD 230V
+✓ HP Scanjet Professional 1000 → HP SCANJET PROFESSIONAL 1000
+✓ HP Deskjet Printer 2320 → HP PRINTER DESKJET 2320
+✓ HP Laserjet MFP 135W → HP LASERJET MFP 135W
+✓ HP Laserjet Pro Printer 4003DW → HP LASERJET PRO 4003DW
+✓ Dell Precision Workstation 7920 → Dell Precision 7920 XCTO Base
+✓ Lenovo ThinkCentre Neo 30A → LENOVO THINK CENTRE NEO 30A AIO I7, 8GB, 512SSD, GEN 12
+✓ HP EliteOne 840 G9 → HP ELITEONE 840, G9 AIO GEN 12, 16GB,512GB CORE I7
+✓ APC Smart UPS C 1000VA → APC Smart-UPS C 1000VA LCD 230V
+
+NEW PRODUCTS TO ADD TO DATABASE (247):
+-----------------------------------------------
++ Heatz Pocket Mini Tripod Zu37 (tech-accessories) - GHS 150
++ Heatz Display to VGA Adapter Zt26 (tech-accessories) - GHS 115
++ Heatz Wireless Mouse Zm05 (tech-accessories) - GHS 90
++ Heatz Printer Cable 3Mtr Zt35 (printers-scanners) - GHS 50
++ Heatz HDMI Cable 10Mtr Zt76 (tech-accessories) - GHS 82
++ Heatz 10 in 1 Power Plug Zc614 (tech-accessories) - GHS 212
++ Heatz HDMI Cable 1.5Mtr Zt29 (tech-accessories) - GHS 35
++ Heatz HDMI Cable 3.0Mtr Zt30 (tech-accessories) - GHS 55
++ Heatz Nylon Micro Cable Type C Zc34 (tech-accessories) - GHS 45
++ Heatz Type C to Type C Cable Zc25 (tech-accessories) - GHS 52
++ Heatz HDMI to VGA Convertor Zt22 (tech-accessories) - GHS 52
++ Heatz VGA to HDTV Adapter Zt21 (tech-accessories) - GHS 72
++ Heatz USB C to C Cable 100W Zc02 (tech-accessories) - GHS 50
++ Heatz USB Cable 2Mtr Type C Zc03 (tech-accessories) - GHS 52
++ Heatz Travel Adapter 35W Za59 (tech-accessories) - GHS 250
++ Heatz C to C Nylon Cable 6A Zc44 (tech-accessories) - GHS 50
++ Heatz Gaming Wired Mouse Zm55 (tech-accessories) - GHS 95
++ Heatz Fast Charging Power Adapter 65W Za65 (tech-accessories) - GHS 185
++ Heatz Cat6 Patchcord Cable Zt05 (tech-accessories) - GHS 135
++ Heatz Wireless Holder Zh96 (tech-accessories) - GHS 195
++ Microdigit Portable Radio Speaker MDO11R (tech-accessories) - GHS 250
++ Epson Projector CO-W01 WXGA (tech-accessories) - GHS 7208
++ Heatz Power Bank 10,000Mah Zp29 (tech-accessories) - GHS 255
++ Heatz USB Dual Port Adapter Za39 (tech-accessories) - GHS 75
++ Binatone Standing Fan A1692 MK5 (home-appliances) - GHS 499.79
++ Samsung Galaxy A17 Screen Protector (mobile-phones) - GHS 50
++ Heatz Mini USB Speaker Zs51 (tech-accessories) - GHS 95.08
++ Heatz Bluetooth Soundbar 14W Zs25 (tech-accessories) - GHS 188
++ Heatz Bluetooth Speaker 16W Zs29 (tech-accessories) - GHS 222
++ Heatz Bluetooth Speaker 16W Zs29 (tech-accessories) - GHS 222
++ Heatz Android TV Box Zu30 (tech-accessories) - GHS 525
++ Heatz Smart Watch Hw26 (tech-accessories) - GHS 350
++ Laptop Adapter Lenovo 65W Type C (computing-devices) - GHS 150
++ Laptop Adapter Dell 65W Type C (computing-devices) - GHS 225
++ D-Link Smart Switch 16-port (printers-scanners) - GHS 3986
++ Heatz Wired Mouse & Keyboard Zk28 (tech-accessories) - GHS 105
++ Heatz Gaming Keyboard 3 in 1 Zk30 (tech-accessories) - GHS 340
++ Heatz Wireless Rechargeable Mouse Zm06 (tech-accessories) - GHS 105
++ Heatz Wireless Rechargeable Mouse Zm06 (tech-accessories) - GHS 105
++ Heatz Stylus Universal Pencil Zu31 (tech-accessories) - GHS 162
++ Heatz Keycap Mouse Zm23 (tech-accessories) - GHS 135
++ Heatz Wireless Mouse Zm15 (tech-accessories) - GHS 85
++ Heatz Type C to HDMI+VGA Adapter ZT92 (tech-accessories) - GHS 135
++ Heatz Multiport Ethernet Adapter ZT88 (tech-accessories) - GHS 148
++ Heatz Multiport Ethernet Adapter ZT88 (tech-accessories) - GHS 148
++ Heatz Multi USB Charger Zc618 (tech-accessories) - GHS 304.75
++ D-Link Switch 24-port PoE+ (printers-scanners) - GHS 3468.06
++ Heatz Laptop Power Cable ZT44 (computing-devices) - GHS 25
++ Heatz Laptop Adapter HP 19.5V (computing-devices) - GHS 300
++ Heatz Laptop Adapter ZAL65 HP (computing-devices) - GHS 125
++ iPhone 16 Pro Phone Case (mobile-phones) - GHS 100
++ APC Back-UPS 700VA (ups) - GHS 
++ Grandstream Access Point GWN7660ELR (tech-accessories) - GHS 2500
++ D-Link Switch DGS-1100-08 (printers-scanners) - GHS 1913
++ Binatone Kettle 1.7L (kitchen-appliances) - GHS 390.01
++ APC Easy UPS SMV 2000VA (ups) - GHS 10150
++ D-Link Switch 24 Port DGS-1024C (printers-scanners) - GHS 1526.01
++ Samsung LED Monitor 27" (computing-devices) - GHS 2282
++ TP-Link Range Extender RE450 (printers-scanners) - GHS 1371.38
++ Oppo A5 Green (mobile-phones) - GHS 2150
++ Oppo A5 White (mobile-phones) - GHS 2150
++ Hikvision Face Access Terminal (tech-accessories) - GHS 1153
++ Pixel 9 Pro XL Grip Case (tech-accessories) - GHS 130
++ Pixel 9 Pro XL Screen Protector (tech-accessories) - GHS 75
++ Apple USB 2 pin iPhone to C adapter (mobile-phones) - GHS 100
++ D-Link Wireless N300 Range Extender (printers-scanners) - GHS 423.01
++ Starlink Gen 3 Cable 45M (printers-scanners) - GHS 1850
++ Repair & Service of Accessories (tech-accessories) - GHS 90
++ Starlink Subscription Service (printers-scanners) - GHS 115
++ iPhone 16 Pro Max Phone Case (mobile-phones) - GHS 50
++ APC Easy UPS 800VA (ups) - GHS 1734
++ Hikvision Face Terminal (tech-accessories) - GHS 1528.63
++ HP Laptop Bag 17.3" (computing-devices) - GHS 200
++ Binatone Voltage Protector (tech-accessories) - GHS 250
++ Binatone Stabilizer DVS-2000 (ups) - GHS 799.01
++ Binatone Microwave 20L (kitchen-appliances) - GHS 1110
++ Binatone Electric Kettle (kitchen-appliances) - GHS 244.99
++ Hikvision Switch 24 Port (tech-accessories) - GHS 3087
++ Hikvision Switch 16 Port (tech-accessories) - GHS 2357
++ Hikvision Bullet Wifi Kit (tech-accessories) - GHS 3121.01
++ Apple EarPods USB-C (tech-accessories) - GHS 500
++ Tonemac Charger 20W (tech-accessories) - GHS 130
++ Samsung Type C Adapter 25W (tech-accessories) - GHS 130
++ Infinix In-Ear Earphone (mobile-phones) - GHS 50
++ Itel Type C to USB A Cable (mobile-phones) - GHS 40
++ Hikvision NVR DS-7616NXI-K2 (tech-accessories) - GHS 5312
++ Oraimo Type C Handsfree (tech-accessories) - GHS 110
++ iPhone 14 Pro 256GB (mobile-phones) - GHS 12750
++ Hikvision NVR DS-7608NXI-K2 (tech-accessories) - GHS 3663
++ Hikvision NVR DS-7104NI-Q1 (tech-accessories) - GHS 1357
++ Hikvision NVR DS-E08NI-Q1 (tech-accessories) - GHS 3528.01
++ Hikvision NVR DS-E04NI-Q1 (tech-accessories) - GHS 2951
++ 5 in 1 Multifunctional Charging Hub (tech-accessories) - GHS 100
++ 4 in 1 Fast Charging Cable (tech-accessories) - GHS 50
++ Hikvision CCTV Camera 2MP (tech-accessories) - GHS 1528.63
++ Apple USB 3 pin iPhone to C adapter (mobile-phones) - GHS 100
++ Apple USB 3 pin iPhone to C adapter (mobile-phones) - GHS 100
++ USB 3 in 1 cable (tech-accessories) - GHS 100
++ Apple USB C to Lightning Cable (tech-accessories) - GHS 50
++ Hikvision CCTV Camera 3.6MM (tech-accessories) - GHS 577
++ Nasco Refrigerator 65L (home-appliances) - GHS 1355
++ Oppo A3 Black (mobile-phones) - GHS 2150
++ Oppo A3X Blue (mobile-phones) - GHS 1300
++ Realme Note 50 Black (mobile-phones) - GHS 1200
++ Realme Note 50 Blue (mobile-phones) - GHS 1000
++ Realme Note 50 Black (mobile-phones) - GHS 1000
++ HP Envy X360 Laptop (computing-devices) - GHS 14900
++ Hikvision CCTV Camera 3K (tech-accessories) - GHS 432
++ Hikvision CCTV Camera 2MP (tech-accessories) - GHS 432
++ Hikvision CCTV Camera 2MP (tech-accessories) - GHS 432
++ Receipt Printer Adapter (printers-scanners) - GHS 300
++ USB Printer Cable (printers-scanners) - GHS 60
++ 4M Poles for Solar Lights (tech-accessories) - GHS 1199.99
++ Brackets for Solar Lights (tech-accessories) - GHS 150
++ RelianceOne Solar Street Light (tech-accessories) - GHS 1100
++ RelianceOne Solar Street Lights Kit (tech-accessories) - GHS 2066
++ Samsung Galaxy A35 Glass Protector (mobile-phones) - GHS 50
++ Samsung Galaxy A35 Black Case (mobile-phones) - GHS 80
++ Samsung Galaxy A06 Black Case (mobile-phones) - GHS 80
++ VVYLABS Helmet Bone Conduction Headset (tech-accessories) - GHS 300
++ Heatz Type C Adapter 10 in 1 (tech-accessories) - GHS 450
++ Heatz Power Extension Board ZC603 (tech-accessories) - GHS 225
++ Samsung Power Adapter 45W (tech-accessories) - GHS 375
++ Oraimo Neckband Wireless Earphone (mobile-phones) - GHS 450
++ Microdigit FM Radio (tech-accessories) - GHS 225
++ Bumblebee Wireless Earphone (mobile-phones) - GHS 225
++ Asano Super Hand Mixer (tech-accessories) - GHS 150
++ EZASHY USB Flash Drive 64GB (tech-accessories) - GHS 85
++ EZASHY Micro SD Card 64GB (tech-accessories) - GHS 90
++ Itel 2A Charger with Type C Cable (mobile-phones) - GHS 50
++ Itel 5W Charger with USB-A Cable (mobile-phones) - GHS 40
++ Monster Airmars Wireless Headphones XKT10 (mobile-phones) - GHS 330
++ Monster Airmars Wireless Headphone XKT09 (mobile-phones) - GHS 300
++ Heatz Car Charger (tech-accessories) - GHS 75
++ Itel Buds Neo 3 (mobile-phones) - GHS 190
++ Heatz Smart Watch HW9 (tech-accessories) - GHS 750
++ Itel Smart Watch ISW-32B (mobile-phones) - GHS 520
++ Itel Smart Watch ISW023 (mobile-phones) - GHS 300
++ HP Ink 653 Black (printers-scanners) - GHS 380
++ HP Ink 653 Color (printers-scanners) - GHS 380
++ HP 305 Color Ink Cartridge (printers-scanners) - GHS 290
++ Techno Camon 40 (tech-accessories) - GHS 3860
++ Itel A50 (mobile-phones) - GHS 1150
++ Itel S25 Ultra (mobile-phones) - GHS 3010
++ Hikvision CCTV Camera 4MP (tech-accessories) - GHS 983.84
++ Hikvision CCTV Camera 4MP (tech-accessories) - GHS 983.84
++ Anker Soundcore P25I Earbuds (tech-accessories) - GHS 299
++ Anker Soundcore R50I Earbuds (tech-accessories) - GHS 340
++ Anker Powerline III USB-C Cable (tech-accessories) - GHS 110
++ Anker PowerExtend USB-C Adapter 30W (tech-accessories) - GHS 640
++ Anker Soundcore Motion Speaker 300 (tech-accessories) - GHS 1490
++ Anker Power Bank 20K 30W (tech-accessories) - GHS 670
++ Anker Soundcore Motion 100 Speaker (tech-accessories) - GHS 1090
++ Anker 322 USB-A to USB-C Cable (tech-accessories) - GHS 140
++ Anker Powerdrive 2 Car Charger (tech-accessories) - GHS 150
++ Anker 335 Car Charger 67W (tech-accessories) - GHS 419.99
++ Case Logic Laptop Sleeve (computing-devices) - GHS 346
++ Midea Ceramic Hot Plate 4 Burners (tech-accessories) - GHS 5401
++ Connector RJ 45 (tech-accessories) - GHS 4.95
++ Grandstream Access Point GWN7660E (tech-accessories) - GHS 1465
++ D-Link Range Extender DAP-X1860 (printers-scanners) - GHS 1691
++ Samsung Vacuum Cleaner 2000W (home-appliances) - GHS 1950
++ Starlink Device Installation (printers-scanners) - GHS 1350.01
++ Starlink 500GB Top-Up (printers-scanners) - GHS 2116.18
++ Starlink 50GB Top-Up (printers-scanners) - GHS 750.9
++ Starlink Local Priority Plan 4TB (printers-scanners) - GHS 17748.64
++ Starlink Local Priority Plan 2TB (printers-scanners) - GHS 8519.59
++ Starlink Local Priority Plan 1.5TB (printers-scanners) - GHS 7099.46
++ Starlink Local Priority Plan 700GB (printers-scanners) - GHS 4178
++ Starlink Local Priority Plan 500GB (printers-scanners) - GHS 2948.76
++ Starlink Local Priority Plan 200GB (printers-scanners) - GHS 2573.31
++ Starlink Local Priority Plan 50GB (printers-scanners) - GHS 1365.28
++ Logitech Stereo Headset H111 (tech-accessories) - GHS 305.01
++ iPhone Cable Type C-C (mobile-phones) - GHS 237.07
++ Apple Cable USB-C 60W (tech-accessories) - GHS 557.81
++ Samsung Adapter 45W USB C Cable (tech-accessories) - GHS 669.38
++ Apple Adapter USB C-Port 35W (tech-accessories) - GHS 1380.59
++ AirPods Pro (tech-accessories) - GHS 348.63
++ AirPods 3 (tech-accessories) - GHS 278.91
++ Heatz Smart Watch Queen Edition (tech-accessories) - GHS 450
++ Heatz Smart Watch HW6 (tech-accessories) - GHS 627.54
++ Sony PS5 Wireless Controller (tech-accessories) - GHS 1100
++ Amazon Fire HD8 Kids Pro (tech-accessories) - GHS 2280
++ PS5 FC25 Gaming CD (tech-accessories) - GHS 1185
++ Baseaus Cable 1M Lightning-C (tech-accessories) - GHS 140
++ Baseaus Cable 2M Lightning-C (tech-accessories) - GHS 210
++ Joyroom Power Bank 20,000mAh (tech-accessories) - GHS 490
++ Rock Power Bank 10,000mAh (tech-accessories) - GHS 490
++ LDNIO Power Bank 50,000mAh (tech-accessories) - GHS 739.99
++ LDNIO Power Bank 20,000mAh (tech-accessories) - GHS 490
++ LDNIO Power Bank 10,000mAh (tech-accessories) - GHS 320
++ Baseaus Charger Head 20W (tech-accessories) - GHS 210
++ Dell Latitude 5420 Laptop (computing-devices) - GHS 22800.01
++ Microsoft Xbox One X (tech-accessories) - GHS 10080
++ Sony PlayStation 5 1TB (tech-accessories) - GHS 11763.35
++ Onyx Studio 8 Speaker (tech-accessories) - GHS 5753.68
++ JBL Bluetooth Speaker Clip 4 (tech-accessories) - GHS 1330
++ JBL Headset Tune 520BT (tech-accessories) - GHS 1010
++ Binatone Rice Cooker RCSG-1805 (kitchen-appliances) - GHS 648.51
++ Binatone Ceiling Fan 56" (home-appliances) - GHS 519.29
++ Binatone Dry Iron DI-108 (home-appliances) - GHS 175
++ Binatone Dry Iron DI 1255 MK2 (home-appliances) - GHS 170
++ Binatone Steam Iron SI 2410 (home-appliances) - GHS 395
++ Binatone Steam Iron SI 2225 (home-appliances) - GHS 315
++ Binatone Steam Iron SI-1605 (home-appliances) - GHS 220.64
++ Pico Projector PK201 20 Lumens (tech-accessories) - GHS 8029
++ Pico Projector PK120 18 Lumens (tech-accessories) - GHS 7094.99
++ VJ ANC Stereo Bass Headset (tech-accessories) - GHS 1010
++ Apple iPad Air 13" M2 256GB (tech-accessories) - GHS 22845.28
++ Apple iPad Pro 13" M4 256GB (tech-accessories) - GHS 27549.4
++ HIKSEMI SSD 512GB M.2 (tech-accessories) - GHS 649
++ HIKSEMI SSD 256GB M.2 (tech-accessories) - GHS 364.01
++ HIKSEMI SSD 512GB (tech-accessories) - GHS 610
++ HIKSEMI SSD 256GB (tech-accessories) - GHS 317
++ Riso Master Toner Type 37E (printers-scanners) - GHS 695.6
++ Riso Master Toner Type 30E (printers-scanners) - GHS 513.67
++ Riso Toners Ink (printers-scanners) - GHS 334.66
++ Modecom Earphone (mobile-phones) - GHS 352.63
++ APC SurgeArrest Notebook Pro (tech-accessories) - GHS 37.4
++ Liebert PSI UPS 1000VA (ups) - GHS 5330.08
++ HP Scanjet Pro Scanner N4600 (printers-scanners) - GHS 13922.16
++ Case Logic Wireless Earbuds (tech-accessories) - GHS 402.86
++ Case Logic Sport Ear pods (tech-accessories) - GHS 402.86
++ Case Logic Mini Earbud (tech-accessories) - GHS 402.86
++ Case Logic Charging Hub (tech-accessories) - GHS 415.84
++ Case Logic Attache 14" (tech-accessories) - GHS 549.81
++ Case Logic Attache 13" (tech-accessories) - GHS 628.77
++ Case Logic 10.1" Bag (tech-accessories) - GHS 278.88
++ Thule Backpack (tech-accessories) - GHS 1127.6
++ Thule Lithos Backpack 16L (tech-accessories) - GHS 939.67
++ Case Logic Prevailer Backpack 17" (tech-accessories) - GHS 652.76
++ Case Logic Invigo Backpack 14" (tech-accessories) - GHS 1051.62
++ Ubiquiti LBE-5AC Access Point (tech-accessories) - GHS 1840
++ Ubiquiti Unifi 6 Lite Access Point (tech-accessories) - GHS 3070
++ Ubiquiti Nano HD Access Point (tech-accessories) - GHS 3970
++ Ubiquiti Nano Station M5 (tech-accessories) - GHS 2120
++ Ubiquiti UAP-AC-PRO (tech-accessories) - GHS 3360
++ Samsung Galaxy A16 Black Case (mobile-phones) - GHS 80
++ HiFuture MusicBox 100 Speaker (tech-accessories) - GHS 1347.99
++ HiFuture Ripple Speaker 30W (tech-accessories) - GHS 612
++ HiFuture Portable Speaker Ascendo 20W (tech-accessories) - GHS 444
++ HiFuture Flybuds 4 ANC Hot Pink (printers-scanners) - GHS 375
++ HiFuture Flybuds 4 ANC Matcha Green (tech-accessories) - GHS 375
++ 6 IN 1 Sound Machine Alarm Clock (tech-accessories) - GHS 632
++ White Noise Sound Machine (tech-accessories) - GHS 563.99
++ 4-in-1 Bluetooth Speaker with Clock Green (tech-accessories) - GHS 632
++ 4-in-1 Bluetooth Speaker with Clock Wooden (tech-accessories) - GHS 632
+
+INSTRUCTIONS:
+-------------
+1. Use complete_product_mapping.xlsx as your upload file
+2. The "Database Product Name" column will be used for matching
+3. New products will need to be added to the database manually
+4. All prices from the original Excel file are preserved

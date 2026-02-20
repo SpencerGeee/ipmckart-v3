@@ -1,0 +1,1 @@
+Home folder contains blog images, goes to assets, , images, blog folder, blog.html to blog9.html goes to the root directory

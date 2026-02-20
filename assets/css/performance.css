@@ -1,0 +1,70 @@
+/**
+ * Performance optimizations CSS
+ * Includes critical CSS and optimizations
+ */
+
+/* Font Display Optimization */
+@font-face {
+  font-family: 'FontAwesome';
+  font-display: swap;
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  /* Explicitly target heavy sections */
+  .home-slider, .hero, .banner, .owl-carousel *, .product-default, .header {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Image Optimization */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Will-change for animations */
+.product-default,
+.cart-toast {
+  will-change: transform;
+}
+
+/* Contain layout for performance */
+.product-default {
+  contain: layout style paint;
+}
+
+/* GPU acceleration for transforms */
+.product-default:hover,
+.btn-add-cart:active {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize scrolling */
+.dropdown-menu,
+.custom-scrollbar {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Print styles */
+@media print {
+  .header,
+  .footer,
+  .cart-dropdown,
+  .mobile-menu-container,
+  .newsletter-popup {
+    display: none !important;
+  }
+}
+

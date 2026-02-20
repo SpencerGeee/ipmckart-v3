@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scroll Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .products-container {
+            position: relative;
+            overflow: hidden;
+            padding: 0 40px 0 0;
+        }
+        
+        .products-scroll {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 25px;
+            padding: 20px 0;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .products-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .product-card {
+            flex: 0 0 auto;
+            min-width: 260px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-arrow:hover {
+            background: #333;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .scroll-arrow.prev {
+            left: 0;
+        }
+        
+        .scroll-arrow.next {
+            right: 0;
+        }
+        
+        h2 {
+            margin-top: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .product-card {
+                min-width: 160px;
+            }
+            
+            .scroll-arrow {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            .scroll-arrow.prev {
+                left: -15px;
+            }
+            
+            .scroll-arrow.next {
+                right: -15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-card {
+                min-width: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Horizontal Scroll Test</h1>
+    
+    <div class="section">
+        <h2>Valentine's Products</h2>
+        <div class="products-container" id="valentines-test">
+            <div class="products-scroll" id="valentines-products-test">
+                <div class="product-card">
+                    <div class="product-image">Product 1</div>
+                    <div class="product-info">
+                        <h3>Valentine Item 1</h3>
+                        <p>Price: ₵100.00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product 2</div>
+                    <div class="product-info">
+                        <h3>Valentine Item 2</h3>
+                        <p>Price: ₵200.00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product 3</div>
+                    <div class="product-info">
+                        <h3>Valentine Item 3</h3>
+                        <p>Price: ₵300.00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product 4</div>
+                    <div class="product-info">
+                        <h3>Valentine Item 4</h3>
+                        <p>Price: ₵400.00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product 5</div>
+                    <div class="product-info">
+                        <h3>Valentine Item 5</h3>
+                        <p>Price: ₵500.00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product 6</div>
+                    <div class="product-info">
+                        <h3>Valentine Item 6</h3>
+                        <p>Price: ₵600.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-arrow prev" onclick="scrollPrev('valentines-products-test')">‹</div>
+            <div class="scroll-arrow next" onclick="scrollNext('valentines-products-test')">›</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>New Year Products</h2>
+        <div class="products-container" id="newyear-test">
+            <div class="products-scroll" id="newyear-products-test">
+                <div class="product-card">
+                    <div class="product-image">Product A</div>
+                    <div class="product-info">
+                        <h3>New Year Item A</h3>
+                        <p>Price: ₵150.00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product B</div>
+                    <div class="product-info">
+                        <h3>New Year Item B</h3>
+                        <p>Price: ₵250.00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product C</div>
+                    <div class="product-info">
+                        <h3>New Year Item C</h3>
+                        <p>Price: ₵350.00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product D</div>
+                    <div class="product-info">
+                        <h3>New Year Item D</h3>
+                        <p>Price: ₵450.00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product E</div>
+                    <div class="product-info">
+                        <h3>New Year Item E</h3>
+                        <p>Price: ₵550.00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product F</div>
+                    <div class="product-info">
+                        <h3>New Year Item F</h3>
+                        <p>Price: ₵650.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-arrow prev" onclick="scrollPrev('newyear-products-test')">‹</div>
+            <div class="scroll-arrow next" onclick="scrollNext('newyear-products-test')">›</div>
+        </div>
+    </div>
+
+    <script>
+        function scrollNext(containerId) {
+            const container = document.getElementById(containerId);
+            container.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+        
+        function scrollPrev(containerId) {
+            const container = document.getElementById(containerId);
+            container.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1494 @@
+{
+  "generatedAt": "2026-01-02T14:02:21.203Z",
+  "summary": {
+    "totalExcelRows": 362,
+    "updated": 43,
+    "exactMatches": 4,
+    "partialMatches": 39,
+    "notFound": 191,
+    "invalidPrices": 1,
+    "skippedSamePrice": 127
+  },
+  "updatedProducts": [
+    {
+      "row": 12,
+      "excelName": "Ubiquiti POE Power Adapter 48W",
+      "dbName": "Ubiquiti PoE Power Adapter",
+      "slug": "ubiquiti-poe-power-adapter",
+      "oldPrice": 323.04,
+      "newPrice": 400,
+      "diff": 76.95999999999998,
+      "percentChange": 23.82,
+      "matchMethod": "FUZZY MATCH (80%)",
+      "matchScore": 80
+    },
+    {
+      "row": 29,
+      "excelName": "Heatz Type C to Type C Cable Zc25",
+      "dbName": "ITEL TYPE C TO TYPE USB A CABLE",
+      "slug": "power-solutions-043-itel-type-c-to-type-usb-a-cable",
+      "oldPrice": 40,
+      "newPrice": 52,
+      "diff": 12,
+      "percentChange": 30,
+      "matchMethod": "FUZZY MATCH (100%)",
+      "matchScore": 100
+    },
+    {
+      "row": 57,
+      "excelName": "Heatz Smart Watch Hw26",
+      "dbName": "HEATZ SMART WATCH 43MM",
+      "slug": "storage-devices-029-heatz-smart-watch-43mm",
+      "oldPrice": 1200,
+      "newPrice": 350,
+      "diff": -850,
+      "percentChange": -70.83,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 81,
+      "excelName": "APC Easy UPS SMV 2000VA",
+      "dbName": "APC Easy UPS SMV 750VA",
+      "slug": "ups-005-apc-easy-ups-smv-750va",
+      "oldPrice": 3453,
+      "newPrice": 10150,
+      "diff": 6697,
+      "percentChange": 193.95,
+      "matchMethod": "FUZZY MATCH (80%)",
+      "matchScore": 80
+    },
+    {
+      "row": 87,
+      "excelName": "Hikvision Face Access Terminal",
+      "dbName": "HIKVISION FACE ACCESS TERMINAL-DS-K1T342MFX-E1",
+      "slug": "storage-devices-037-hikvision-face-access-terminal-ds-k1t342mfx-e1",
+      "oldPrice": 2056,
+      "newPrice": 1153,
+      "diff": -903,
+      "percentChange": -43.92,
+      "matchMethod": "CONTAINS MATCH (Excel in DB)",
+      "matchScore": 80
+    },
+    {
+      "row": 91,
+      "excelName": "D-Link Wireless N300 Range Extender",
+      "dbName": "D LINK WIRELESS N300 USB RANGE EXTENDER",
+      "slug": "storage-devices-047-d-link-wireless-n300-usb-range-extender",
+      "oldPrice": 534,
+      "newPrice": 423.01,
+      "diff": -110.99000000000001,
+      "percentChange": -20.78,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 95,
+      "excelName": "iPhone 16 Pro Max Phone Case",
+      "dbName": "APPLE IPHONE 16 PRO MAX 512GB",
+      "slug": "apple-iphone-001-apple-iphone-16-pro-max-512gb",
+      "oldPrice": 28000,
+      "newPrice": 50,
+      "diff": -27950,
+      "percentChange": -99.82,
+      "matchMethod": "FUZZY MATCH (70%)",
+      "matchScore": 70
+    },
+    {
+      "row": 96,
+      "excelName": "iPhone 16 Pro Max 256GB",
+      "dbName": "APPLE IPHONE 16 PRO 256GB",
+      "slug": "apple-iphone-004-apple-iphone-16-pro-256gb",
+      "oldPrice": 22900,
+      "newPrice": 20000,
+      "diff": -2900,
+      "percentChange": -12.66,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 104,
+      "excelName": "Binatone Voltage Protector",
+      "dbName": "BINATONE VOLTAGE PROTECTOR 13AMPS AVP-1300",
+      "slug": "ups-031-binatone-voltage-protector-13amps-avp-1300",
+      "oldPrice": 170,
+      "newPrice": 250,
+      "diff": 80,
+      "percentChange": 47.06,
+      "matchMethod": "CONTAINS MATCH (Excel in DB)",
+      "matchScore": 80
+    },
+    {
+      "row": 116,
+      "excelName": "Samsung Type C Adapter 25W",
+      "dbName": "SAMSUNG TYPE C ADAPTORS 25W",
+      "slug": "misc-003-samsung-type-c-adaptors-25w",
+      "oldPrice": 0,
+      "newPrice": 130,
+      "diff": 130,
+      "percentChange": 0,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 121,
+      "excelName": "iPhone 14 Pro 256GB",
+      "dbName": "APPLE IPHONE 16 PRO 256GB",
+      "slug": "apple-iphone-004-apple-iphone-16-pro-256gb",
+      "oldPrice": 22900,
+      "newPrice": 12750,
+      "diff": -10150,
+      "percentChange": -44.32,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 131,
+      "excelName": "Hikvision CCTV Camera 2MP",
+      "dbName": "Hikvision CCTV CAMERA 2 MP(2.8mm)",
+      "slug": "cctv-cameras-001-hikvision-cctv-camera-2-mp-2-8mm",
+      "oldPrice": 432,
+      "newPrice": 1528.63,
+      "diff": 1096.63,
+      "percentChange": 253.85,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 134,
+      "excelName": "USB 3 in 1 cable",
+      "dbName": "3M USB A TO B CABLE 2.0",
+      "slug": "power-solutions-023-3m-usb-a-to-b-cable-2-0",
+      "oldPrice": 56,
+      "newPrice": 100,
+      "diff": 44,
+      "percentChange": 78.57,
+      "matchMethod": "FUZZY MATCH (100%)",
+      "matchScore": 100
+    },
+    {
+      "row": 136,
+      "excelName": "Hikvision CCTV Camera 3.6MM",
+      "dbName": "Hikvision CCTV CAMERA 2 MP(2.8mm)",
+      "slug": "cctv-cameras-001-hikvision-cctv-camera-2-mp-2-8mm",
+      "oldPrice": 432,
+      "newPrice": 577,
+      "diff": 145,
+      "percentChange": 33.56,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 159,
+      "excelName": "RelianceOne Solar Street Light",
+      "dbName": "RELIANCEONE SOLAR STREETLIGHT KIT",
+      "slug": "storage-devices-070-relianceone-solar-streetlight-kit",
+      "oldPrice": 2450,
+      "newPrice": 1100,
+      "diff": -1350,
+      "percentChange": -55.1,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 160,
+      "excelName": "RelianceOne Solar Street Lights Kit",
+      "dbName": "RELIANCEONE SOLAR STREETLIGHT KIT",
+      "slug": "storage-devices-070-relianceone-solar-streetlight-kit",
+      "oldPrice": 2450,
+      "newPrice": 2066,
+      "diff": -384,
+      "percentChange": -15.67,
+      "matchMethod": "FUZZY MATCH (70%)",
+      "matchScore": 70
+    },
+    {
+      "row": 167,
+      "excelName": "Samsung Power Adapter 45W",
+      "dbName": "Samsung 45W USB-C Power Adapter",
+      "slug": "power-solutions-022-samsung-45w-usb-c-power-adapter",
+      "oldPrice": 669.38,
+      "newPrice": 375,
+      "diff": -294.38,
+      "percentChange": -43.98,
+      "matchMethod": "FUZZY MATCH (80%)",
+      "matchScore": 80
+    },
+    {
+      "row": 175,
+      "excelName": "Itel 5W Charger with USB-A Cable",
+      "dbName": "Itel 2A Charger with Type-C Cable",
+      "slug": "power-solutions-034-itel-2a-charger-with-type-c-cable",
+      "oldPrice": 50,
+      "newPrice": 40,
+      "diff": -10,
+      "percentChange": -20,
+      "matchMethod": "FUZZY MATCH (80%)",
+      "matchScore": 80
+    },
+    {
+      "row": 180,
+      "excelName": "Heatz Smart Watch HW9",
+      "dbName": "HEATZ SMART WATCH 43MM",
+      "slug": "storage-devices-029-heatz-smart-watch-43mm",
+      "oldPrice": 1200,
+      "newPrice": 750,
+      "diff": -450,
+      "percentChange": -37.5,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 183,
+      "excelName": "HP Ink 653 Black",
+      "dbName": "HP INK 653 BLACK",
+      "slug": "printers-scanners-043-hp-ink-653-black",
+      "oldPrice": 402,
+      "newPrice": 380,
+      "diff": -22,
+      "percentChange": -5.47,
+      "matchMethod": "EXACT NAME MATCH",
+      "matchScore": 100
+    },
+    {
+      "row": 188,
+      "excelName": "Itel A50",
+      "dbName": "ITEL A50 64GB/6GB",
+      "slug": "itel-phones-002-itel-a50-64gb-6gb",
+      "oldPrice": 1130,
+      "newPrice": 1150,
+      "diff": 20,
+      "percentChange": 1.77,
+      "matchMethod": "CONTAINS MATCH (Excel in DB)",
+      "matchScore": 80
+    },
+    {
+      "row": 189,
+      "excelName": "Itel S25 Ultra",
+      "dbName": "ITEL S25 ULTRA",
+      "slug": "itel-phones-006-itel-s25-ultra",
+      "oldPrice": 3669.19,
+      "newPrice": 3010,
+      "diff": -659.19,
+      "percentChange": -17.97,
+      "matchMethod": "EXACT NAME MATCH",
+      "matchScore": 100
+    },
+    {
+      "row": 190,
+      "excelName": "Hikvision CCTV Camera 4MP",
+      "dbName": "Hikvision CCTV CAMERA 2 MP(2.8mm)",
+      "slug": "cctv-cameras-001-hikvision-cctv-camera-2-mp-2-8mm",
+      "oldPrice": 432,
+      "newPrice": 983.84,
+      "diff": 551.84,
+      "percentChange": 127.74,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 191,
+      "excelName": "Hikvision CCTV Camera 4MP",
+      "dbName": "Hikvision CCTV CAMERA 2 MP(2.8mm)",
+      "slug": "cctv-cameras-001-hikvision-cctv-camera-2-mp-2-8mm",
+      "oldPrice": 432,
+      "newPrice": 983.84,
+      "diff": 551.84,
+      "percentChange": 127.74,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 206,
+      "excelName": "Connector RJ 45",
+      "dbName": "CONNECTOR RJ 45(UTP)",
+      "slug": "power-solutions-032-connector-rj-45-utp",
+      "oldPrice": 0.96,
+      "newPrice": 4.95,
+      "diff": 3.99,
+      "percentChange": 415.63,
+      "matchMethod": "CONTAINS MATCH (Excel in DB)",
+      "matchScore": 80
+    },
+    {
+      "row": 228,
+      "excelName": "Heatz Smart Watch HW6",
+      "dbName": "HEATZ SMART WATCH 43MM",
+      "slug": "storage-devices-029-heatz-smart-watch-43mm",
+      "oldPrice": 1200,
+      "newPrice": 627.54,
+      "diff": -572.46,
+      "percentChange": -47.71,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 229,
+      "excelName": "Sony PS5 Wireless Controller",
+      "dbName": "SONY PS5 WIRELESS CONTROLLER DUAL SENSE",
+      "slug": "playhub-003-sony-ps5-wireless-controller-dual-sense",
+      "oldPrice": 1448,
+      "newPrice": 1100,
+      "diff": -348,
+      "percentChange": -24.03,
+      "matchMethod": "CONTAINS MATCH (Excel in DB)",
+      "matchScore": 80
+    },
+    {
+      "row": 232,
+      "excelName": "Baseaus Cable 1M Lightning-C",
+      "dbName": "BASEAUS CABLE 2M LIGHTNING -C",
+      "slug": "power-solutions-027-baseaus-cable-2m-lightning-c",
+      "oldPrice": 210,
+      "newPrice": 140,
+      "diff": -70,
+      "percentChange": -33.33,
+      "matchMethod": "FUZZY MATCH (83%)",
+      "matchScore": 83
+    },
+    {
+      "row": 236,
+      "excelName": "LDNIO Power Bank 50,000mAh",
+      "dbName": "LDNIO 20000mAh Power Bank",
+      "slug": "power-solutions-024-ldnio-20000mah-power-bank",
+      "oldPrice": 490,
+      "newPrice": 739.99,
+      "diff": 249.99,
+      "percentChange": 51.02,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 238,
+      "excelName": "LDNIO Power Bank 10,000mAh",
+      "dbName": "LDNIO 20000mAh Power Bank",
+      "slug": "power-solutions-024-ldnio-20000mah-power-bank",
+      "oldPrice": 490,
+      "newPrice": 320,
+      "diff": -170,
+      "percentChange": -34.69,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 286,
+      "excelName": "Samsung Galaxy A06 128GB Blue",
+      "dbName": "SAMSUNG GALAXY A06 (4+128GB) LIGHT BLUE",
+      "slug": "samsung-smartphones-025-samsung-galaxy-a06-4-128gb-light-blue",
+      "oldPrice": 1550,
+      "newPrice": 1983,
+      "diff": 433,
+      "percentChange": 27.94,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 289,
+      "excelName": "Samsung Galaxy A16 256GB Grey",
+      "dbName": "SAMSUNG GALAXY A16 - 256GB/8GB RAM",
+      "slug": "samsung-smartphones-031-samsung-galaxy-a16-256gb-8gb-ram",
+      "oldPrice": 3000,
+      "newPrice": 3312,
+      "diff": 312,
+      "percentChange": 10.4,
+      "matchMethod": "FUZZY MATCH (70%)",
+      "matchScore": 70
+    },
+    {
+      "row": 292,
+      "excelName": "Samsung Galaxy Tab A9 64GB",
+      "dbName": "Samsung Galaxy Tab A9 (64GB)",
+      "slug": "tablets-017-samsung-galaxy-tab-a9-64gb",
+      "oldPrice": 4389,
+      "newPrice": 3108.45,
+      "diff": -1280.5500000000002,
+      "percentChange": -29.18,
+      "matchMethod": "EXACT NAME MATCH",
+      "matchScore": 100
+    },
+    {
+      "row": 298,
+      "excelName": "Apple iPad Pro 13\" M4 256GB",
+      "dbName": "APPLE IPHONE 16 PRO 256GB",
+      "slug": "apple-iphone-004-apple-iphone-16-pro-256gb",
+      "oldPrice": 22900,
+      "newPrice": 27549.4,
+      "diff": 4649.4000000000015,
+      "percentChange": 20.3,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 299,
+      "excelName": "Apple iPhone 16 Plus 256GB",
+      "dbName": "APPLE IPHONE 16 PRO 256GB",
+      "slug": "apple-iphone-004-apple-iphone-16-pro-256gb",
+      "oldPrice": 22900,
+      "newPrice": 24861.51,
+      "diff": 1961.5099999999984,
+      "percentChange": 8.57,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 306,
+      "excelName": "HIKSEMI SSD 256GB M.2",
+      "dbName": "Hiksemi 256GB SSD",
+      "slug": "storage-devices-042-hiksemi-256gb-ssd",
+      "oldPrice": 317,
+      "newPrice": 364.01,
+      "diff": 47.00999999999999,
+      "percentChange": 14.83,
+      "matchMethod": "FUZZY MATCH (100%)",
+      "matchScore": 100
+    },
+    {
+      "row": 335,
+      "excelName": "Lenovo ThinkCentre Neo 30A",
+      "dbName": "Lenovo ThinkCentre Neo 50s G3",
+      "slug": "misc-001-lenovo-thinkcentre-neo-50s-g3",
+      "oldPrice": 14598,
+      "newPrice": 14020,
+      "diff": -578,
+      "percentChange": -3.96,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 341,
+      "excelName": "Case Logic Attache 14\"",
+      "dbName": "Case Logic Attache 10.1",
+      "slug": "tablet-laptop-sleeves-004-case-logic-attache-10-1",
+      "oldPrice": 279,
+      "newPrice": 549.81,
+      "diff": 270.80999999999995,
+      "percentChange": 97.06,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 342,
+      "excelName": "Case Logic Attache 13\"",
+      "dbName": "Case Logic Attache 10.1",
+      "slug": "tablet-laptop-sleeves-004-case-logic-attache-10-1",
+      "oldPrice": 279,
+      "newPrice": 628.77,
+      "diff": 349.77,
+      "percentChange": 125.37,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 343,
+      "excelName": "Case Logic 10.1\" Bag",
+      "dbName": "Case Logic Attache 10.1",
+      "slug": "tablet-laptop-sleeves-004-case-logic-attache-10-1",
+      "oldPrice": 279,
+      "newPrice": 278.88,
+      "diff": -0.12000000000000455,
+      "percentChange": -0.04,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 345,
+      "excelName": "Thule Lithos Backpack 16L",
+      "dbName": "Thule Lithos Backpack 16L",
+      "slug": "tablet-laptop-sleeves-005-thule-lithos-backpack-16l",
+      "oldPrice": 1127.6,
+      "newPrice": 939.67,
+      "diff": -187.92999999999995,
+      "percentChange": -16.67,
+      "matchMethod": "EXACT NAME MATCH",
+      "matchScore": 100
+    },
+    {
+      "row": 348,
+      "excelName": "Ubiquiti LBE-5AC Access Point",
+      "dbName": "Ubiquiti U6-Mesh Access Point",
+      "slug": "storage-devices-014-ubiquiti-u6-mesh-access-point",
+      "oldPrice": 4261,
+      "newPrice": 1840,
+      "diff": -2421,
+      "percentChange": -56.82,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    },
+    {
+      "row": 350,
+      "excelName": "Ubiquiti Nano HD Access Point",
+      "dbName": "Ubiquiti U6-Mesh Access Point",
+      "slug": "storage-devices-014-ubiquiti-u6-mesh-access-point",
+      "oldPrice": 4261,
+      "newPrice": 3970,
+      "diff": -291,
+      "percentChange": -6.83,
+      "matchMethod": "FUZZY MATCH (75%)",
+      "matchScore": 75
+    }
+  ],
+  "notFoundProducts": [
+    {
+      "row": 2,
+      "name": "IPMC All-In-One PC 27\"",
+      "price": 11364.01
+    },
+    {
+      "row": 3,
+      "name": "IPMC All-In-One PC 23.8\"",
+      "price": 7980
+    },
+    {
+      "row": 4,
+      "name": "AWOW Crea i540 Laptop",
+      "price": 5485.5
+    },
+    {
+      "row": 5,
+      "name": "Kid Yoga Laptop 11.6\" Purple",
+      "price": 2967
+    },
+    {
+      "row": 6,
+      "name": "Kid Yoga Laptop 11.6\" Blue",
+      "price": 3018
+    },
+    {
+      "row": 9,
+      "name": "APC Smart-UPS C 3000VA",
+      "price": 31481.28
+    },
+    {
+      "row": 10,
+      "name": "IPMC Laptop LT14",
+      "price": 7930
+    },
+    {
+      "row": 14,
+      "name": "IPMC All-In-One PC 27\" UHD",
+      "price": 11099.99
+    },
+    {
+      "row": 15,
+      "name": "Ubiquiti POE Injector 30W",
+      "price": 323.04
+    },
+    {
+      "row": 18,
+      "name": "Heatz USB-A to Lightning Cable Zc33",
+      "price": 35
+    },
+    {
+      "row": 20,
+      "name": "Heatz Pocket Mini Tripod Zu37",
+      "price": 150
+    },
+    {
+      "row": 21,
+      "name": "Heatz Display to VGA Adapter Zt26",
+      "price": 115
+    },
+    {
+      "row": 22,
+      "name": "Heatz Wireless Mouse Zm05",
+      "price": 90
+    },
+    {
+      "row": 23,
+      "name": "Heatz Printer Cable 3Mtr Zt35",
+      "price": 50
+    },
+    {
+      "row": 24,
+      "name": "Heatz HDMI Cable 10Mtr Zt76",
+      "price": 82
+    },
+    {
+      "row": 25,
+      "name": "Heatz 10 in 1 Power Plug Zc614",
+      "price": 212
+    },
+    {
+      "row": 26,
+      "name": "Heatz HDMI Cable 1.5Mtr Zt29",
+      "price": 35
+    },
+    {
+      "row": 27,
+      "name": "Heatz HDMI Cable 3.0Mtr Zt30",
+      "price": 55
+    },
+    {
+      "row": 28,
+      "name": "Heatz Nylon Micro Cable Type C Zc34",
+      "price": 45
+    },
+    {
+      "row": 30,
+      "name": "Heatz HDMI to VGA Convertor Zt22",
+      "price": 52
+    },
+    {
+      "row": 31,
+      "name": "Heatz VGA to HDTV Adapter Zt21",
+      "price": 72
+    },
+    {
+      "row": 32,
+      "name": "Heatz USB C to C Cable 100W Zc02",
+      "price": 50
+    },
+    {
+      "row": 33,
+      "name": "Epson Printer C31CH51011 TM",
+      "price": 3511
+    },
+    {
+      "row": 34,
+      "name": "Heatz USB Cable 2Mtr Type C Zc03",
+      "price": 52
+    },
+    {
+      "row": 35,
+      "name": "Heatz Travel Adapter 35W Za59",
+      "price": 250
+    },
+    {
+      "row": 36,
+      "name": "Heatz C to C Nylon Cable 6A Zc44",
+      "price": 50
+    },
+    {
+      "row": 37,
+      "name": "Heatz Gaming Wired Mouse Zm55",
+      "price": 95
+    },
+    {
+      "row": 38,
+      "name": "Heatz Fast Charging Power Adapter 65W Za65",
+      "price": 185
+    },
+    {
+      "row": 39,
+      "name": "Heatz Cat6 Patchcord Cable Zt05",
+      "price": 135
+    },
+    {
+      "row": 40,
+      "name": "Heatz Wireless Holder Zh96",
+      "price": 195
+    },
+    {
+      "row": 41,
+      "name": "Microdigit Portable Radio Speaker MDO11R",
+      "price": 250
+    },
+    {
+      "row": 43,
+      "name": "Heatz Power Bank 10,000Mah Zp29",
+      "price": 255
+    },
+    {
+      "row": 44,
+      "name": "Heatz USB Dual Port Adapter Za39",
+      "price": 75
+    },
+    {
+      "row": 45,
+      "name": "D-Link Wireless Adapter N300",
+      "price": 534
+    },
+    {
+      "row": 46,
+      "name": "D-Link Router DIR-506L",
+      "price": 1254
+    },
+    {
+      "row": 47,
+      "name": "D-Link Router DWR-932C",
+      "price": 763
+    },
+    {
+      "row": 48,
+      "name": "Binatone Standing Fan A1692 MK5",
+      "price": 499.79
+    },
+    {
+      "row": 49,
+      "name": "D-Link Smart Switch 24-Port",
+      "price": 6275
+    },
+    {
+      "row": 50,
+      "name": "D-Link Switch 24GE PoE",
+      "price": 4223.01
+    },
+    {
+      "row": 52,
+      "name": "Heatz Mini USB Speaker Zs51",
+      "price": 95.08
+    },
+    {
+      "row": 53,
+      "name": "Heatz Bluetooth Soundbar 14W Zs25",
+      "price": 188
+    },
+    {
+      "row": 54,
+      "name": "Heatz Bluetooth Speaker 16W Zs29",
+      "price": 222
+    },
+    {
+      "row": 55,
+      "name": "Heatz Bluetooth Speaker 16W Zs29",
+      "price": 222
+    },
+    {
+      "row": 56,
+      "name": "Heatz Android TV Box Zu30",
+      "price": 525
+    },
+    {
+      "row": 58,
+      "name": "Laptop Adapter Lenovo 65W Type C",
+      "price": 150
+    },
+    {
+      "row": 59,
+      "name": "Laptop Adapter Dell 65W Type C",
+      "price": 225
+    },
+    {
+      "row": 60,
+      "name": "D-Link Smart Switch 16-port",
+      "price": 3986
+    },
+    {
+      "row": 61,
+      "name": "Heatz Wired Mouse & Keyboard Zk28",
+      "price": 105
+    },
+    {
+      "row": 62,
+      "name": "Heatz Gaming Keyboard 3 in 1 Zk30",
+      "price": 340
+    },
+    {
+      "row": 63,
+      "name": "Heatz Wireless Rechargeable Mouse Zm06",
+      "price": 105
+    },
+    {
+      "row": 64,
+      "name": "Heatz Wireless Rechargeable Mouse Zm06",
+      "price": 105
+    },
+    {
+      "row": 65,
+      "name": "Heatz Stylus Universal Pencil Zu31",
+      "price": 162
+    },
+    {
+      "row": 66,
+      "name": "Heatz Keycap Mouse Zm23",
+      "price": 135
+    },
+    {
+      "row": 67,
+      "name": "Heatz Wireless Mouse Zm15",
+      "price": 85
+    },
+    {
+      "row": 68,
+      "name": "Heatz Type C to HDMI+VGA Adapter ZT92",
+      "price": 135
+    },
+    {
+      "row": 69,
+      "name": "Heatz Multiport Ethernet Adapter ZT88",
+      "price": 148
+    },
+    {
+      "row": 70,
+      "name": "Heatz Multiport Ethernet Adapter ZT88",
+      "price": 148
+    },
+    {
+      "row": 71,
+      "name": "Heatz Multi USB Charger Zc618",
+      "price": 304.75
+    },
+    {
+      "row": 72,
+      "name": "D-Link Switch 24-port PoE+",
+      "price": 3468.06
+    },
+    {
+      "row": 73,
+      "name": "Heatz Laptop Power Cable ZT44",
+      "price": 25
+    },
+    {
+      "row": 74,
+      "name": "Heatz Laptop Adapter HP 19.5V",
+      "price": 300
+    },
+    {
+      "row": 75,
+      "name": "Heatz Laptop Adapter ZAL65 HP",
+      "price": 125
+    },
+    {
+      "row": 76,
+      "name": "iPhone 16 Pro Phone Case",
+      "price": 100
+    },
+    {
+      "row": 78,
+      "name": "Grandstream Access Point GWN7660ELR",
+      "price": 2500
+    },
+    {
+      "row": 79,
+      "name": "D-Link Switch DGS-1100-08",
+      "price": 1913
+    },
+    {
+      "row": 80,
+      "name": "Binatone Kettle 1.7L",
+      "price": 390.01
+    },
+    {
+      "row": 82,
+      "name": "D-Link Switch 24 Port DGS-1024C",
+      "price": 1526.01
+    },
+    {
+      "row": 83,
+      "name": "Samsung LED Monitor 27\"",
+      "price": 2282
+    },
+    {
+      "row": 84,
+      "name": "TP-Link Range Extender RE450",
+      "price": 1371.38
+    },
+    {
+      "row": 85,
+      "name": "Oppo A5 Green",
+      "price": 2150
+    },
+    {
+      "row": 86,
+      "name": "Oppo A5 White",
+      "price": 2150
+    },
+    {
+      "row": 88,
+      "name": "Pixel 9 Pro XL Grip Case",
+      "price": 130
+    },
+    {
+      "row": 89,
+      "name": "Pixel 9 Pro XL Screen Protector",
+      "price": 75
+    },
+    {
+      "row": 92,
+      "name": "Starlink Gen 3 Cable 45M",
+      "price": 1850
+    },
+    {
+      "row": 93,
+      "name": "Repair & Service of Accessories",
+      "price": 90
+    },
+    {
+      "row": 94,
+      "name": "Starlink Subscription Service",
+      "price": 115
+    },
+    {
+      "row": 97,
+      "name": "HP 216A Magenta Toner",
+      "price": 1220
+    },
+    {
+      "row": 98,
+      "name": "HP 216A Cyan Toner",
+      "price": 1220
+    },
+    {
+      "row": 100,
+      "name": "HP 216A Black Toner",
+      "price": 1220
+    },
+    {
+      "row": 101,
+      "name": "Hikvision Face Terminal",
+      "price": 1528.63
+    },
+    {
+      "row": 102,
+      "name": "HP Laptop Bag 17.3\"",
+      "price": 200
+    },
+    {
+      "row": 103,
+      "name": "HP Z Book Fury G8 Laptop",
+      "price": 19500
+    },
+    {
+      "row": 107,
+      "name": "Binatone Electric Kettle",
+      "price": 244.99
+    },
+    {
+      "row": 108,
+      "name": "Hikvision Switch 24 Port",
+      "price": 3087
+    },
+    {
+      "row": 109,
+      "name": "Hikvision Switch 16 Port",
+      "price": 2357
+    },
+    {
+      "row": 112,
+      "name": "Oppo A3 White",
+      "price": 2150
+    },
+    {
+      "row": 113,
+      "name": "Oppo A3X Red",
+      "price": 1300
+    },
+    {
+      "row": 114,
+      "name": "Apple EarPods USB-C",
+      "price": 500
+    },
+    {
+      "row": 115,
+      "name": "Tonemac Charger 20W",
+      "price": 130
+    },
+    {
+      "row": 117,
+      "name": "Infinix In-Ear Earphone",
+      "price": 50
+    },
+    {
+      "row": 119,
+      "name": "Hikvision NVR DS-7616NXI-K2",
+      "price": 5312
+    },
+    {
+      "row": 123,
+      "name": "Hikvision NVR DS-7104NI-Q1",
+      "price": 1357
+    },
+    {
+      "row": 124,
+      "name": "Hikvision NVR DS-E08NI-Q1",
+      "price": 3528.01
+    },
+    {
+      "row": 125,
+      "name": "Hikvision NVR DS-E04NI-Q1",
+      "price": 2951
+    },
+    {
+      "row": 126,
+      "name": "5 in 1 Multifunctional Charging Hub",
+      "price": 100
+    },
+    {
+      "row": 127,
+      "name": "4 in 1 Fast Charging Cable",
+      "price": 50
+    },
+    {
+      "row": 137,
+      "name": "Nasco Refrigerator 65L",
+      "price": 1355
+    },
+    {
+      "row": 138,
+      "name": "Oppo A3 Black",
+      "price": 2150
+    },
+    {
+      "row": 139,
+      "name": "Oppo A3X Red",
+      "price": 1550
+    },
+    {
+      "row": 140,
+      "name": "Oppo A3X Blue",
+      "price": 1300
+    },
+    {
+      "row": 141,
+      "name": "Realme Note 50 Black",
+      "price": 1200
+    },
+    {
+      "row": 142,
+      "name": "Realme Note 50 Blue",
+      "price": 1000
+    },
+    {
+      "row": 143,
+      "name": "Realme Note 50 Black",
+      "price": 1000
+    },
+    {
+      "row": 144,
+      "name": "HP Envy X360 Laptop",
+      "price": 14900
+    },
+    {
+      "row": 146,
+      "name": "HP 415A Yellow Toner",
+      "price": 2425.44
+    },
+    {
+      "row": 147,
+      "name": "HP 415A Magenta Toner",
+      "price": 2425.44
+    },
+    {
+      "row": 148,
+      "name": "HP 415A Black Toner",
+      "price": 1837.48
+    },
+    {
+      "row": 149,
+      "name": "HP 207A Yellow Toner",
+      "price": 1601.19
+    },
+    {
+      "row": 150,
+      "name": "HP 207A Black Toner",
+      "price": 1349.21
+    },
+    {
+      "row": 151,
+      "name": "HP 59A Black Toner",
+      "price": 2236.46
+    },
+    {
+      "row": 152,
+      "name": "HP 44A Black Toner",
+      "price": 1142.85
+    },
+    {
+      "row": 155,
+      "name": "Receipt Printer Adapter",
+      "price": 300
+    },
+    {
+      "row": 156,
+      "name": "USB Printer Cable",
+      "price": 60
+    },
+    {
+      "row": 157,
+      "name": "4M Poles for Solar Lights",
+      "price": 1199.99
+    },
+    {
+      "row": 158,
+      "name": "Brackets for Solar Lights",
+      "price": 150
+    },
+    {
+      "row": 164,
+      "name": "VVYLABS Helmet Bone Conduction Headset",
+      "price": 300
+    },
+    {
+      "row": 165,
+      "name": "Heatz Type C Adapter 10 in 1",
+      "price": 450
+    },
+    {
+      "row": 166,
+      "name": "Heatz Power Extension Board ZC603",
+      "price": 225
+    },
+    {
+      "row": 168,
+      "name": "Oraimo Neckband Wireless Earphone",
+      "price": 450
+    },
+    {
+      "row": 171,
+      "name": "Asano Super Hand Mixer",
+      "price": 150
+    },
+    {
+      "row": 177,
+      "name": "Monster Airmars Wireless Headphone XKT09",
+      "price": 300
+    },
+    {
+      "row": 178,
+      "name": "Heatz Car Charger",
+      "price": 75
+    },
+    {
+      "row": 181,
+      "name": "Itel Smart Watch ISW-32B",
+      "price": 520
+    },
+    {
+      "row": 182,
+      "name": "Itel Smart Watch ISW023",
+      "price": 300
+    },
+    {
+      "row": 184,
+      "name": "HP Ink 653 Color",
+      "price": 380
+    },
+    {
+      "row": 185,
+      "name": "HP 305 Color Ink Cartridge",
+      "price": 290
+    },
+    {
+      "row": 186,
+      "name": "Nasco Rice Cooker 1.8L",
+      "price": 318
+    },
+    {
+      "row": 187,
+      "name": "Techno Camon 40",
+      "price": 3860
+    },
+    {
+      "row": 192,
+      "name": "Anker Soundcore P25I Earbuds",
+      "price": 299
+    },
+    {
+      "row": 194,
+      "name": "Nasco Rice Cooker 2.8L",
+      "price": 376
+    },
+    {
+      "row": 195,
+      "name": "Anker Powerline III USB-C Cable",
+      "price": 110
+    },
+    {
+      "row": 196,
+      "name": "Anker PowerExtend USB-C Adapter 30W",
+      "price": 640
+    },
+    {
+      "row": 197,
+      "name": "Anker Soundcore Motion Speaker 300",
+      "price": 1490
+    },
+    {
+      "row": 198,
+      "name": "Anker Power Bank 20K 30W",
+      "price": 670
+    },
+    {
+      "row": 199,
+      "name": "Anker Soundcore Motion 100 Speaker",
+      "price": 1090
+    },
+    {
+      "row": 201,
+      "name": "Anker Powerdrive 2 Car Charger",
+      "price": 150
+    },
+    {
+      "row": 203,
+      "name": "Anker 335 Car Charger 67W",
+      "price": 419.99
+    },
+    {
+      "row": 204,
+      "name": "Case Logic Laptop Sleeve",
+      "price": 346
+    },
+    {
+      "row": 207,
+      "name": "Grandstream Access Point GWN7660E",
+      "price": 1465
+    },
+    {
+      "row": 208,
+      "name": "D-Link Range Extender DAP-X1860",
+      "price": 1691
+    },
+    {
+      "row": 210,
+      "name": "Starlink Device Installation",
+      "price": 1350.01
+    },
+    {
+      "row": 211,
+      "name": "Starlink 500GB Top-Up",
+      "price": 2116.18
+    },
+    {
+      "row": 212,
+      "name": "Starlink 50GB Top-Up",
+      "price": 750.9
+    },
+    {
+      "row": 213,
+      "name": "Starlink Local Priority Plan 4TB",
+      "price": 17748.64
+    },
+    {
+      "row": 214,
+      "name": "Starlink Local Priority Plan 2TB",
+      "price": 8519.59
+    },
+    {
+      "row": 215,
+      "name": "Starlink Local Priority Plan 1.5TB",
+      "price": 7099.46
+    },
+    {
+      "row": 216,
+      "name": "Starlink Local Priority Plan 700GB",
+      "price": 4178
+    },
+    {
+      "row": 217,
+      "name": "Starlink Local Priority Plan 500GB",
+      "price": 2948.76
+    },
+    {
+      "row": 218,
+      "name": "Starlink Local Priority Plan 200GB",
+      "price": 2573.31
+    },
+    {
+      "row": 219,
+      "name": "Starlink Local Priority Plan 50GB",
+      "price": 1365.28
+    },
+    {
+      "row": 224,
+      "name": "Apple Adapter USB C-Port 35W",
+      "price": 1380.59
+    },
+    {
+      "row": 225,
+      "name": "AirPods Pro",
+      "price": 348.63
+    },
+    {
+      "row": 226,
+      "name": "AirPods 3",
+      "price": 278.91
+    },
+    {
+      "row": 227,
+      "name": "Heatz Smart Watch Queen Edition",
+      "price": 450
+    },
+    {
+      "row": 240,
+      "name": "Dell Latitude 5420 Laptop",
+      "price": 22800.01
+    },
+    {
+      "row": 242,
+      "name": "Sony PlayStation 5 1TB",
+      "price": 11763.35
+    },
+    {
+      "row": 243,
+      "name": "Onyx Studio 8 Speaker",
+      "price": 5753.68
+    },
+    {
+      "row": 255,
+      "name": "Binatone Blender with Grinder BLG-460",
+      "price": 601.58
+    },
+    {
+      "row": 256,
+      "name": "Binatone Blender with Grinder BLG 450P",
+      "price": 580.24
+    },
+    {
+      "row": 264,
+      "name": "HP Scanner SJ PRO N4600",
+      "price": 13922.16
+    },
+    {
+      "row": 271,
+      "name": "Lenovo Monitor 18.5\"",
+      "price": 1410.05
+    },
+    {
+      "row": 275,
+      "name": "HP 121 Color Inkjet Cartridge",
+      "price": 493.6
+    },
+    {
+      "row": 278,
+      "name": "HP 22 Color Cartridge",
+      "price": 213.2
+    },
+    {
+      "row": 279,
+      "name": "HP 21A Black Cartridge",
+      "price": 257.14
+    },
+    {
+      "row": 281,
+      "name": "Hikvision Tandem VU Camera",
+      "price": 5410
+    },
+    {
+      "row": 284,
+      "name": "Samsung Galaxy Buds Pro 2",
+      "price": 3980.3
+    },
+    {
+      "row": 293,
+      "name": "Apple AirPods Pro 2",
+      "price": 4840
+    },
+    {
+      "row": 297,
+      "name": "Apple iPad Air 13\" M2 256GB",
+      "price": 22845.28
+    },
+    {
+      "row": 304,
+      "name": "HIKSEMI SSD 512GB M.2",
+      "price": 649
+    },
+    {
+      "row": 305,
+      "name": "D-Link Cat6 UTP Cable 305m",
+      "price": 1950
+    },
+    {
+      "row": 307,
+      "name": "HIKSEMI SSD 512GB",
+      "price": 610
+    },
+    {
+      "row": 311,
+      "name": "HP Black Toner 05A",
+      "price": 980.73
+    },
+    {
+      "row": 314,
+      "name": "Riso Toners Ink",
+      "price": 334.66
+    },
+    {
+      "row": 316,
+      "name": "HP Laptop 840 G8",
+      "price": 25767.09
+    },
+    {
+      "row": 321,
+      "name": "HP Mouse M10",
+      "price": 170.66
+    },
+    {
+      "row": 324,
+      "name": "Modecom Earphone",
+      "price": 352.63
+    },
+    {
+      "row": 326,
+      "name": "SanDisk Pen Drive 64GB",
+      "price": 170.56
+    },
+    {
+      "row": 327,
+      "name": "APC Smart UPS 2200VA",
+      "price": 18633.95
+    },
+    {
+      "row": 334,
+      "name": "Dell Precision Workstation 7920",
+      "price": 91108.08
+    },
+    {
+      "row": 337,
+      "name": "Case Logic Wireless Earbuds",
+      "price": 402.86
+    },
+    {
+      "row": 338,
+      "name": "Case Logic Sport Ear pods",
+      "price": 402.86
+    },
+    {
+      "row": 340,
+      "name": "Case Logic Charging Hub",
+      "price": 415.84
+    },
+    {
+      "row": 349,
+      "name": "Ubiquiti Unifi 6 Lite Access Point",
+      "price": 3070
+    },
+    {
+      "row": 351,
+      "name": "Ubiquiti Nano Station M5",
+      "price": 2120
+    },
+    {
+      "row": 353,
+      "name": "APC Smart UPS C 1000VA",
+      "price": 9189
+    },
+    {
+      "row": 355,
+      "name": "HiFuture MusicBox 100 Speaker",
+      "price": 1347.99
+    },
+    {
+      "row": 356,
+      "name": "HiFuture Ripple Speaker 30W",
+      "price": 612
+    },
+    {
+      "row": 358,
+      "name": "HiFuture Flybuds 4 ANC Hot Pink",
+      "price": 375
+    },
+    {
+      "row": 359,
+      "name": "HiFuture Flybuds 4 ANC Matcha Green",
+      "price": 375
+    },
+    {
+      "row": 362,
+      "name": "4-in-1 Bluetooth Speaker with Clock Green",
+      "price": 632
+    },
+    {
+      "row": 363,
+      "name": "4-in-1 Bluetooth Speaker with Clock Wooden",
+      "price": 632
+    }
+  ],
+  "invalidPrices": [
+    {
+      "row": 77,
+      "name": "APC Back-UPS 700VA",
+      "price": ""
+    }
+  ]
+}

@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WYYP5D7Q1G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WYYP5D7Q1G');
+</script>
+    <script src="assets/js/cache-manager.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Complete your order securely on IPMCKart's checkout page. Review your items, select your preferred payment method, and confirm your purchase now." />
+   <meta name="robots" content="noindex, nofollow" />
+    <meta name="author" content="Spencer">
+    <title>Secure Checkout | IPMCKart</title>
+    <link rel="canonical" href="https://ipmckart.com/checkout.html" />
+    
+   
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.webp">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.webp">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.webp">
+    <link rel="stylesheet" href="assets/css/checkout-styles.ac2fa0ba.css">
+
+	
+	<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/css/performance.c706b3e6.css">
+
+<!-- OLD GTM REMOVED -->
+	<style>
+	.fa {
+      font-weight: 300 !important; /* lighter weight */
+      opacity: 0.85;               /* softens visual heaviness */
+      transform: scale(0.95);      /* slightly smaller for elegance */
+    }
+ 
+    /* Styles from your reference project for payment messages */
+    .payment-error {
+      background: rgba(220, 53, 69, 0.1);
+      border: 1px solid rgba(220, 53, 69, 0.3);
+      color: #dc3545;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .payment-success {
+      background: rgba(40, 167, 69, 0.1);
+      border: 1px solid rgba(40, 167, 69, 0.3);
+      color: #28a745;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    /* Loading state for place order button */
+    .btn-place-order.loading {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .btn-place-order.loading .btn-text {
+      display: none;
+    }
+
+    .btn-place-order .btn-loader {
+      display: none;
+    }
+
+    .btn-place-order.loading .btn-loader {
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 2px solid #fff;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* --- Responsive Checkout layout --- */
+/* container grid */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px; /* form | order summary */
+  gap: 28px;
+  align-items: start;
+  padding: 28px;
+}
+
+/* mobile: single column stacked */
+@media (max-width: 900px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .order-summary {
+    order: 2;
+  }
+
+  .form-section {
+    order: 1;
+  }
+}
+
+/* form layout improvements */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* shipping collapsible smoother */
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 320ms ease;
+  will-change: max-height;
+}
+
+/* compact order summary card */
+.order-summary {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+/* make place order more prominent on mobile */
+.btn-place-order {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+@media (min-width: 901px) {
+  .btn-place-order { width: auto; }
+}
+
+/* small accessibility / spacing tweaks */
+    .secure-badge { margin-top: 12px; display:flex; align-items:center; gap:8px; font-size:14px; color:#6b6b6b; }
+
+    /* Payment Method Styles */
+    .payment-method-section {
+        margin: 24px 0;
+        padding: 20px 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+
+    .payment-option {
+        padding: 16px;
+        margin-bottom: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: #fff;
+    }
+
+    .payment-option:hover {
+        border-color: #0066cc;
+        background: #f8f9ff;
+    }
+
+    .payment-option.selected {
+        border-color: #0066cc;
+        background: #f0f4ff;
+    }
+
+    .payment-option.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        filter: grayscale(100%);
+    }
+
+    .payment-option.disabled .payment-title {
+        color: #999;
+    }
+
+    .payment-title {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        font-size: 15px;
+        color: #333;
+        cursor: pointer;
+        margin-bottom: 8px;
+    }
+
+    .payment-description {
+        margin-left: 28px;
+        font-size: 13px;
+        color: #666;
+        margin-top: 4px;
+    }
+
+    .payment-description p {
+        margin: 0;
+    }
+
+	</style>
+
+
+	
+	
+
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.7b4ce378.css">
+<noscript><link rel="stylesheet" href="assets/css/bootstrap.min.7b4ce378.css"></noscript>
+
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="assets/css/demo21.min.c1b82ef2.css">
+<noscript><link rel="stylesheet" href="assets/css/demo21.min.c1b82ef2.css"></noscript>
+
+    <link rel="stylesheet" href="assets/vendor/fontawesome-free/css/all.min.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    
+  
+</head>
+
+<body>
+     <!-- OLD GTM NOSCRIPT REMOVED -->
+    <div class="page-wrapper">
+        <header class="header box-shadow">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-left">
+                        <div class="header-dropdown">
+                            <a href="#"><i class="flag-us flag"></i>ENG</a>
+                            <div class="header-menu">
+                                <ul>
+                                    <li><a href="#"><i class="flag-us flag mr-2"></i>ENG</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            <!-- End .header-menu -->
+                        </div>
+                        <!-- End .header-dropdown -->
+                        <span class="gap mx-3">|</span>
+                        <div class="header-dropdown">
+                            <a href="#">USD</a>
+                            <div class="header-menu">
+                                <ul>
+                                    
+                                    <li><a href="#">USD</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End .header-menu -->
+                    </div>
+                    <!-- End .header-dropdown -->
+
+                    <div class="header-right ml-0 ml-lg-auto">
+                        <p class="top-message mb-0 text-uppercase">Welcome To IPMC!</p>
+                        <span class="gap mx-4 d-none d-lg-block">|</span>
+                        <div class="header-dropdown dropdown-expanded d-none d-lg-block">
+                            <a href="#">Links</a>
+                            <div class="header-menu">
+                                <ul class="mb-0 d-none d-lg-flex">
+                                    <li><a href="dashboard.html">My Account</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="wishlist.html">My Wishlist</a></li>
+                                    
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="login.html">Log In</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .header-right -->
+                </div>
+                <!-- End .container -->
+            </div>
+            <!-- End .header-top -->
+            <div class="header-middle sticky-header" data-sticky-options="{'mobile': true}">
+                <div class="container" style="height: 65px;">
+                    <div class="header-left">
+                        <button class="mobile-menu-toggler" type="button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu-container">
+                            <i class="fas fa-bars" aria-hidden="true"></i>
+                        </button>
+                        <a href="index.html" class="logo" aria-label="IPMC Kart Homepage">
+                            <img src="assets/logo.webp" alt="IPMC Kart - Quality Electronics Store" width="150" height="44" style="border-radius: 10px;" loading="eager" fetchpriority="high">
+                            <img src="assets/logo.webp" alt="IPMC Kart" width="111" height="44" class="sticky-logo" loading="eager">
+                        </a>
+                    </div>
+
+                    <div class="header-center">
+                        <div class="header-icon header-search header-search-inline header-search-category w-lg-max text-right mt-0">
+                            <a href="#" class="search-toggle" role="button" aria-label="Open search" aria-expanded="false" tabindex="0"><i class="icon-search-3" aria-hidden="true"></i></a>
+                            <form action="#" method="get" role="search" aria-label="Site search">
+                                <div class="header-search-wrapper">
+                                    <label for="q" class="sr-only">Search products</label>
+                                    <input type="search" class="form-control" name="q" id="q" placeholder="I'm searching for..." required aria-label="Search products" autocomplete="off">
+                                    <div class="select-custom">
+                                        <label for="cat" class="sr-only">Select category</label>
+                                        <select id="cat" name="cat" aria-label="Product category">
+                                            <option value="">All Categories</option>
+                                            <option value="4">Printers & Scanners</option>
+                                            <option value="12">Computing Devices</option>
+                                           
+                                            <option value="5">Home Appliances</option>
+                                            <option value="21">Kitchen Appliances</option>
+                                            
+                                            <option value="7">Tech Accessories</option>
+                                            <option value="11">Mobile Phones</option>
+                                           
+                                        </select>
+										
+                                    </div>
+                                    <!-- End .select-custom -->
+                                    <button class="btn icon-magnifier bg-dark text-white" title="Search" type="submit" aria-label="Search">
+                                        <span class="sr-only">Search</span>
+                                    </button>
+                                </div>
+                                <!-- End .header-search-wrapper -->
+                            </form>
+                        </div>
+                        <!-- End .header-search -->
+                    </div>
+
+                    <div class="header-right ml-0 ml-lg-auto">
+                        <a href="wishlist.html" class="header-icon" aria-label="View wishlist">
+                            <i class="icon-wishlist-2" aria-hidden="true"></i>
+                            <span class="sr-only">Wishlist</span>
+                        </a>
+
+                        <div class="dropdown cart-dropdown">
+                            <a href="#" title="Shopping Cart" class="dropdown-toggle cart-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" aria-label="View shopping cart">
+                                <i class="minicart-icon" aria-hidden="true"></i>
+                                <span class="cart-count badge-circle" aria-live="polite" aria-atomic="true">3</span>
+                                <span class="sr-only">Items in cart:</span>
+                            </a>
+
+                            <div class="cart-overlay"></div>
+
+                            <div class="dropdown-menu mobile-cart">
+                                <a href="#" title="Close (Esc)" class="btn-close">×</a>
+
+                                <div class="dropdownmenu-wrapper custom-scrollbar">
+                                    <div class="dropdown-cart-header">Shopping Cart</div>
+                                    <!-- End .dropdown-cart-header -->
+
+                                    <div class="dropdown-cart-products">
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Ultimate 3D Bluetooth Speaker</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵99.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-1.webp" alt="Ultimate 3D Bluetooth Speaker" width="80" height="80" loading="lazy">
+                                                </a>
+
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Brown Women Casual HandBag</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵35.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-2.webp" alt="Brown Women Casual HandBag" width="80" height="80" loading="lazy">
+                                                </a>
+
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Circled Ultimate 3D Speaker</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵35.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-3.webp" alt="Circled Ultimate 3D Speaker" width="80" height="80" loading="lazy">
+                                                </a>
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+                                    </div>
+                                    <!-- End .cart-product -->
+
+                                    <div class="dropdown-cart-total">
+                                        <span>SUBTOTAL:</span>
+
+                                        <span class="cart-total-price float-right">₵134.00</span>
+                                    </div>
+                                    <!-- End .dropdown-cart-total -->
+
+                                    <div class="dropdown-cart-action">
+                                        <a href="cart.html" class="btn btn-gray btn-block view-cart">View
+                                            Cart</a>
+                                        <a href="checkout.html" class="btn btn-dark btn-block">Checkout</a>
+                                    </div>
+                                    <!-- End .dropdown-cart-total -->
+                                </div>
+                                <!-- End .dropdownmenu-wrapper -->
+                            </div>
+                            <!-- End .dropdown-menu -->
+                        </div>
+                        <!-- End .dropdown -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-bottom sticky-header" data-sticky-options="{'mobile': false}">
+                <div class="container">
+                    <div class="header-left">
+                        <a href="index.html" class="logo">
+                            <img src="assets/logo.webp" alt="IPMC Logo" width="111" height="70" style="border-radius: 10px;">
+                        </a>
+                    </div>
+                    <div class="header-center">
+                        <nav class="main-nav w-100">
+                            <ul class="menu">
+                                <li class="nav-home">
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="nav-categories">
+                                    <a href="category-page.html">Categories</a>
+                                    <div class="megamenu megamenu-fixed-width megamenu-3cols">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=printers-scanners" class="nolink">Printers & Scanners</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=printers-scanners&subcategory=printers-scanners">Printers & Scanners</a></li>
+                                                    <li><a href="category1.html?category=printers-scanners&subcategory=toners">Toners</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=printers-scanners&subcategory=ink-cartridges">Ink Catridges</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=printers-scanners&subcategory=printing-consumables">Printing Consumables</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=computing-devices" class="nolink">Computing Devices</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=workstations">Workstations</a></li>
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=laptops">Laptops</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=tablets">Tablets</a></li>
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=monitors">Monitors</a></li>
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=all-in-one-computers">All-In-One Computers</a></li>
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=keys">Keys & Clicks</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=home-appliances" class="nolink">Home Appliances</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=home-appliances&subcategory=washing-machines">Washing Machines</a></li>
+                                                    <li><a href="category1.html?category=home-appliances&subcategory=refridgerators">Refridgerators</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=home-appliances&subcategory=washing-machines">Irons</a></li>
+                                                    <li><a href="category1.html?category=home-appliances&subcategory=vacuum-cleaners">Vacuum Cleaners</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=kitchen-appliances" class="nolink">Kitchen Appliances</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=kitchen-appliances&subcategory=dishwashers">Dishwashers</a></li>
+                                                    <li><a href="category1.html?category=kitchen-appliances&subcategory=microwaves">Microwaves</a></li>
+                                                    <li><a href="category1.html?category=kitchen-appliances&subcategory=stoves">Stoves</a></li>
+                                                    <li><a href="category1.html?category=kitchen-appliances&subcategory=rice-cookers">Rice Cooker</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=tech-accessories" class="nolink">Tech Accessories</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=storage-devices">Storage Devices</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=headsets-earphones">Headsets & Earphones</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=playhub">PlayHub</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=wireless-sound">Wireless Sound</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=cctv-cameras">CCTV Cameras</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=network-switches">Network Switches</a>
+                                                    </li>
+                                                    <li><a href="category.html">WIFI Extenders</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=tablet-laptop-sleeves">Tablet & Laptop Sleeves</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=power-solutions">Power Solutions</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=smart-watches">Smart Watches</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=mobile-phones" class="nolink">Mobile Phones</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=apple-iphone">Apple Iphone </a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=samsung-smartphones">Samsung Smartphones</a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=tecno-phones">Tecno Phones</a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=itel-phones">Itel Phones</a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=infinix-smartphones">Infinix Smartphones </a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=oppo-smartphones">Oppo Smartphones</a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=oppo-smartphones">Realme Smartphones</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=ups&subcategory=ups" class="nolink">UPS</a>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=computing-devices&subcategory=shredders" class="nolink">Shredders</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End .megamenu -->
+                                </li>
+                                <li class="nav-starlink">
+                                    <a href="product.html?id=starlink-001-starlink-standard-kit">Starlink Ghana</a>
+                                    <div class="megamenu megamenu-fixed-width">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=computing-devices&subcategory=starlink" class="nolink">Order Starlink</a>
+                                                <ul class="submenu">
+                                                    <li><a href="starlink-mini.html">Starlink Mini</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- End .row -->
+                                    </div>
+                                    <!-- End .megamenu -->
+                                </li>
+                                <li class="nav-valentines">
+                                    <a href="valentines-sale.html">💝 Valentine's Sales</a>
+                                </li>
+                                <li class="nav-repairs">
+                                    <a href="repairs-upgrade.html">Repairs and Upgrades</a>
+                                </li>
+                                <li class="nav-blog">
+                                    <a href="blog.html">Blog</a>
+                                </li>
+                                <li class="nav-about">
+                                    <a href="about.html">About Us</a>
+                                </li>
+                                <li class="nav-contact">
+                                    <a href="contact.html">Contact Us</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-right pr-0">
+                        <div class="header-icon header-search header-search-popup header-search-category w-lg-max text-right">
+                            <a href="#" class="search-toggle" role="button" aria-label="Open search"><i class="icon-search-3" aria-hidden="true"></i></a>
+                            <form action="#" method="get">
+                                <div class="header-search-wrapper">
+                                    <input type="search" class="form-control" name="q" id="q1" placeholder="I'm searching for..." required>
+                                    <div class="select-custom">
+                                        <select id="cat1" name="cat">
+                                            <option value="">All Categories</option>
+                                            <option value="4">Printers & Scanners</option>
+                                            <option value="12">Computing Devices</option>
+                                           
+                                            <option value="5">Home Appliances</option>
+                                            <option value="21">Kitchen Appliances</option>
+                                            
+                                            <option value="7">Tech Accessories</option>
+                                            <option value="11">Mobile Phones</option>
+                                        </select>
+                                    </div>
+                                    <!-- End .select-custom -->
+                                    <button class="btn icon-search-3 bg-dark text-white p-0" title="search" type="submit"></button>
+                                </div>
+                                <!-- End .header-search-wrapper -->
+                            </form>
+                        </div>
+                        <!-- End .header-search -->
+
+                        <a href="wishlist.html" class="header-icon" aria-label="View wishlist">
+                            <i class="icon-wishlist-2" aria-hidden="true"></i>
+                        </a>
+
+                        <div class="dropdown cart-dropdown">
+                            <a href="#" title="Cart" class="dropdown-toggle cart-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" aria-label="View shopping cart">
+                                <i class="minicart-icon" aria-hidden="true"></i>
+                                <span class="cart-count badge-circle">3</span>
+                            </a>
+
+                            <div class="cart-overlay"></div>
+
+                            <div class="dropdown-menu mobile-cart">
+                                <a href="#" title="Close (Esc)" class="btn-close">×</a>
+
+                                <div class="dropdownmenu-wrapper custom-scrollbar">
+                                    <div class="dropdown-cart-header">Shopping Cart</div>
+                                    <!-- End .dropdown-cart-header -->
+
+                                    <div class="dropdown-cart-products">
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Ultimate 3D Bluetooth Speaker</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵99.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-1.webp" alt="Ultimate 3D Bluetooth Speaker" width="80" height="80" loading="lazy">
+                                                </a>
+
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Brown Women Casual HandBag</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵35.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-2.webp" alt="Brown Women Casual HandBag" width="80" height="80" loading="lazy">
+                                                </a>
+
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Circled Ultimate 3D Speaker</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵35.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-3.webp" alt="Circled Ultimate 3D Speaker" width="80" height="80" loading="lazy">
+                                                </a>
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+                                    </div>
+                                    <!-- End .cart-product -->
+
+                                    <div class="dropdown-cart-total">
+                                        <span>SUBTOTAL:</span>
+
+                                        <span class="cart-total-price float-right">₵134.00</span>
+                                    </div>
+                                    <!-- End .dropdown-cart-total -->
+
+                                    <div class="dropdown-cart-action">
+                                        <a href="cart.html" class="btn btn-gray btn-block view-cart">View
+                                            Cart</a>
+                                        <a href="checkout.html" class="btn btn-dark btn-block">Checkout</a>
+                                    </div>
+                                    <!-- End .dropdown-cart-total -->
+                                </div>
+                                <!-- End .dropdownmenu-wrapper -->
+                            </div>
+                            <!-- End .dropdown-menu -->
+                        </div>
+                        <!-- End .dropdown -->
+                    </div>
+                </div>
+            </div>
+        </header>
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+        <!-- End .header -->
+
+        <div class="progress-container">
+            <ul class="checkout-progress">
+                <li class="completed">
+                    <span class="progress-step"><i class="fas fa-check"></i></span>
+                    <span class="step-label">Shopping Cart</span>
+                </li>
+                <li class="active">
+                    <span class="progress-step">2</span>
+                    <span class="step-label">Checkout</span>
+                </li>
+                <li>
+                    <span class="progress-step">3</span>
+                    <span class="step-label">Complete</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-grid">
+            <div class="form-section">
+                <h2 class="section-title">Billing Details</h2>
+                
+                <form id="checkout-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Company Name (Optional)</label>
+                        <input type="text" id="companyName" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Country / Region <span class="required">*</span></label>
+                        <select id="country" class="form-control" required>
+                            <option value="GH">Ghana</option>
+                            <option value="NG">Nigeria</option>
+                            <option value="KE">Kenya</option>
+                            <option value="ZA">South Africa</option>
+                             <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Street Address <span class="required">*</span></label>
+                        <input type="text" id="streetAddress" class="form-control" placeholder="House number and street name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="streetAddress2" class="form-control" placeholder="Apartment, suite, unit (optional)">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Town / City <span class="required">*</span></label>
+                            <input type="text" id="townName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Postcode / Zip <span class="required">*</span></label>
+                            <input type="text" id="zipCode" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone <span class="required">*</span></label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="toggle-section" onclick="toggleCollapse('shipping', event)">
+                        <h4><i class="fas fa-truck"></i> Ship to different address?</h4>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <input type="checkbox" id="shipDifferent" style="display: none;">
+
+
+                    <div id="shipping" class="collapsible-content">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name <span class="required">*</span></label>
+                                <input type="text" id="shippingFirstName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name <span class="required">*</span></label>
+                                <input type="text" id="shippingLastName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Street Address <span class="required">*</span></label>
+                            <input type="text" id="shippingStreetAddress" class="form-control" placeholder="House number and street name">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Town / City <span class="required">*</span></label>
+                                <input type="text" id="shippingTownName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Postcode <span class="required">*</span></label>
+                                <input type="text" id="shippingZipCode" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Order Notes (Optional)</label>
+                        <textarea id="orderNotes" class="form-control" placeholder="Special instructions for delivery..."></textarea>
+                    </div>
+
+                    <!-- Remove create account checkbox, as auth is now mandatory -->
+                    
+                </form>
+            </div>
+
+            <div class="order-summary">
+                <h3 class="summary-title">Your Order</h3>
+                <div id="order-items-container">
+                    <!-- Order items will be injected here -->
+                    <div class="text-center p-3">Loading order items...</div>
+                </div>
+                
+                <!-- Payment Method Section -->
+                <div class="payment-method-section">
+                    <h4 class="section-title">Payment Method</h4>
+                    <div class="payment-option selected" data-payment="cod">
+                         <input type="radio" id="cod" name="payment" value="cod" checked style="display: none;">
+                         <label for="cod" class="payment-title">
+                            <i class="fas fa-money-bill-wave" style="margin-right: 10px;"></i>
+                            Cash on Delivery
+                         </label>
+                        <div class="payment-description">
+                            <p>Pay with cash upon delivery of your order.</p>
+                        </div>
+                    </div>
+                    <div class="payment-option" data-payment="paystack">
+                         <input type="radio" id="paystack" name="payment" value="paystack" style="display: none;">
+                         <label for="paystack" class="payment-title">
+                            <i class="fas fa-credit-card" style="margin-right: 10px;"></i>
+                            Paystack (Card, Mobile Money, Apple Pay)
+                         </label>
+                        <div class="payment-description">
+                            <p>Pay securely with card, mobile money, or Apple Pay via Paystack.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="summary-totals-container">
+                    <!-- Totals will be injected here -->
+                    <div class="text-center p-3">Calculating totals...</div>
+                </div>
+
+                <!-- Payment Messages -->
+                <div id="paymentMessage" class="mt-3"></div>
+
+                <button type="submit" class="btn-place-order" id="placeOrderBtn" form="checkout-form">
+                    <i class="fas fa-lock"></i>
+                    <span class="btn-text">Place Order</span>
+                    <span class="btn-loader"></span>
+                </button>
+                <div class="secure-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>256-bit SSL Secure Checkout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- End .main -->
+
+        <footer>
+            <div class="footer">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 col-lg-3">
+                                <h4 class="widget-newsletter-title font1 font-weight-bold text-white ls-n-10">Sign Up to Newsletter
+                                </h4>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <p class="widget-newsletter-content ls-n-10 text-white mb-0">Get all the latest information on Events, Sales and Offers.</p>
+                                <span class="widget-newsletter-content d-block font-weight-bold ls-n-10 text-white">Receive
+                                    ₵10 coupon for first shopping.</span>
+                            </div>
+                            <div class="col-md-10 col-lg-5">
+                                <form action="#" class="mb-0">
+                                    <div class="footer-submit-wrapper d-flex">
+                                        <input type="email" class="form-control mb-0" placeholder="Enter your Email address..." required>
+                                        <button type="submit" class="btn btn-md btn-dark">Subscribe</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="footer-middle">
+                        <div class="row">
+                            <div class="col-lg-6 mb-1">
+                                <a href="index.html">
+                                    <img src="assets/logo.webp" alt="Logo" class="logo mb-3 mb-lg-6" loading="lazy" fetchpriority="low" decoding="async">
+                                </a>
+
+                                <div class="row no-gutters m-0">
+                                    <div class="col-md-4 mb-2">
+                                        <div class="contact-widget phone">
+                                            <h4 class="widget-title">call us now:</h4>
+                                            <a href="#">+233(0)53-100-5871</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="contact-widget email">
+                                            <h4 class="widget-title">e-mail address:</h4>
+                                            <a href="mailto:care@ipmcghana.com"><span class="">[care@ipmcghana.com]</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="contact-widget follow">
+                                            <h4 class="widget-title ls-n-10">follow us</h4>
+                                            <div class="social-icons">
+                                                <a href="https://www.facebook.com/IPMCKart/" class="social-icon social-facebook icon-facebook" target="_blank"></a>
+                                                <a href="https://x.com/ipmckart" class="social-icon social-twitter icon-twitter" target="_blank"></a>
+                                                <a href="https://www.linkedin.com/company/ipmc-kart/" class="social-icon social-instagram icon-instagram" target="_blank"></a>
+                                            </div>
+                                            <!-- End .social-icons -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="widget">
+                                    <h4 class="widget-title">Categories</h4>
+
+                                    <ul class="links">
+                                        <li><a href="category1.html?category=printers-scanners&subcategory=printers-scanners">Printers & Scanners</a></li>
+                                        <li><a href="category1.html?category=computing-devices">Computing Devices</a></li>
+                                        <li><a href="category1.html?category=home-appliances">Home Appliances</a></li>
+                                        <li><a href="category1.html?category=kitchen-appliances">Kitchen Appliances</a></li>
+                                        <li><a href="category1.html?category=tech-accessories">Tech Accessories</a></li>
+                                        <li><a href="category1.html?category=mobile-phones">Mobile Phones</a></li>
+                                        <li><a href="category1.html?category=ups&subcategory=ups">UPS</a></li>
+                                        <li><a href="category1.html?category=computing-devices&subcategory=starlink">Starlink</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="widget">
+                                    <h4 class="widget-title">About</h4>
+
+                                    <ul class="links">
+                                        <li><a href="about.html">About us</a></li>
+                                        <li><a href="contact.html">Contact us</a></li>
+                                        
+                                        <li><a href="privacy-policy.html">Privacy policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="widget">
+                                    <h4 class="widget-title">Customer Care</h4>
+
+                                    <ul class="links">
+                                        <li><a href="dashboard.html">My Account</a></li>
+                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                        <li><a href="cart.html">Shopping Cart</a></li>
+                                        <li><a href="contact.html">FAQs</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom d-sm-flex align-items-center">
+                        <div class="footer-left">
+                            <span class="footer-copyright">© IPMC KART 2025 <a href="https://www.linkedin.com/in/cyril-spencer-713326255/">Site Created by Spencer</a></span>
+                        </div>
+
+                        <div class="footer-right ml-auto mt-1 mt-sm-0">
+                            <img  decoding="async" src="assets/images/demoes/demo21/payment-icon.webp" alt="payment" loading="lazy" fetchpriority="low" decoding="async">
+                        </div>
+                    </div>
+                </div>
+                <!-- End .footer-bottom -->
+            </div>
+        </footer>
+    </div>
+    <!-- End .page-wrapper -->
+
+    <div class="loading-overlay">
+        <div class="bounce-loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <div class="mobile-menu-overlay"></div>
+    <!-- End .mobil-menu-overlay -->
+
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="fa fa-times"></i></span>
+            <nav class="mobile-nav">
+                <ul class="mobile-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                    <a href="category-page.html">Categories</a>
+                    <ul>
+                        <li><a href="category1.html?category=printers-scanners&subcategory=printers-scanners">Printers & Scanners</a></li>
+                        <li><a href="category1.html?category=computing-devices">Computing Devices</a></li>
+                        <li><a href="category1.html?category=home-appliances">Home Appliances</a></li>
+                        <li><a href="category1.html?category=kitchen-appliances">Kitchen Appliances</a></li>
+                        <li><a href="category1.html?category=tech-accessories">Tech Accessories</a></li>
+                        <li><a href="category1.html?category=mobile-phones">Mobile Phones</a></li>
+                        <li><a href="category1.html?category=ups&subcategory=ups">UPS</a></li>
+                        <li><a href="category1.html?category=computing-devices&subcategory=starlink">Starlink</a></li>
+                    </ul>
+                    </li>
+                    <li>
+                    <a href="newyear-sale.html">🎉 New Year Sale <span class="tip tip-hot">Hot!</span></a>
+                    </li>
+                    <li>
+                    <a href="#">Starlink Ghana</a>
+                    <ul>
+                        <li><a href="starlink-mini.html">Starlink Mini</a></li>
+                    </ul>
+                    <a href="repairs-upgrade.html">Repairs and Upgrades</a>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li>
+                    <a href="about.html">About Us</a>
+                    </li>
+                    <li>
+                    <a href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End .mobile-nav -->
+
+           
+
+            <div class="social-icons">
+                <a href="https://www.facebook.com/IPMCKart/" class="social-icon social-facebook icon-facebook" target="_blank"></a>
+                <a href="https://x.com/ipmckart" class="social-icon social-twitter icon-twitter" target="_blank"></a>
+                <a href="https://www.linkedin.com/company/ipmc-kart/" class="social-icon social-instagram icon-instagram" target="_blank"></a>
+            </div>
+        </div>
+        <!-- End .mobile-menu-wrapper -->
+    </div>
+    <!-- End .mobile-menu-container -->
+
+    <div class="sticky-navbar">
+        <div class="sticky-info">
+            <a href="index.html">
+                <i class="icon-home"></i>Home
+            </a>
+        </div>
+        <div class="sticky-info">
+            <a href="category-page.html" class="">
+                <i class="icon-bars"></i>Categories
+            </a>
+        </div>
+        <div class="sticky-info">
+            <a href="wishlist.html" class="">
+                <i class="icon-wishlist-2"></i>Wishlist
+            </a>
+        </div>
+        <div class="sticky-info">
+            <a href="login.html" class="">
+                <i class="icon-user-2"></i>Account
+            </a>
+        </div>
+        <div class="sticky-info">
+            <a href="cart.html" class="">
+                <i class="icon-shopping-cart position-relative">
+                    <span class="cart-count badge-circle">3</span>
+                </i>Cart
+            </a>
+        </div>
+    </div>
+
+
+	<a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
+
+    <!-- Plugins JS File -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://ssl.google-analytics.com https://analytics.google.com https://www.google.com https://elfsightcdn.com https://*.elfsight.com https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com data: https://cdnjs.cloudflare.com; img-src 'self' data: https: http: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.google.com/measurement/conversion https://region1.google-analytics.com https://www.googletagmanager.com https://core.service.elfsight.com https://*.elfsight.com https://analytics.google.com/g/collect https://www.google.com https://stats.g.doubleclick.net; frame-src 'self' https://www.googletagmanager.com https://elfsightcdn.com; object-src 'none'">
+    
+    
+    
+    
+    
+
+    <!-- Main JS File -->
+    
+    
+    <!-- Application Scripts -->
+    <script defer src="/assets/js/cart.4e84a143.js"></script>
+    <!-- cart-manager.js is assumed to be loaded by main.min.js or similar -->
+    <!-- Make sure CartManager is available globally -->
+    <script defer src="cart-manager.js"></script> 
+    <script defer src="/assets/js/checkout.3013ddb1.js"></script>
+    
+    
+
+
+  <script src="assets/js/common.bundle.min.fc8e2cc1.js" defer></script>
+   <script src="/assets/js/page-init.e2c16ff4.js" defer></script>
+
+    <!-- Sticky WhatsApp Button -->
+    <a href="https://wa.me/233243400821" target="_blank" class="whatsapp-sticky-btn" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <style>
+    .whatsapp-sticky-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    .whatsapp-sticky-btn:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+    }
+    @media (max-width: 768px) {
+        .whatsapp-sticky-btn {
+            bottom: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+    }
+    </style>
+
+    <!-- Google Ads Conversion Tracking -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-CONVERSION_ID',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
+    <!-- End Google Ads Conversion Tracking -->
+
+    <!-- Service Worker Registration - Ultra Fast Performance -->
+    <script>
+    (function() {
+        'use strict';
+        
+        if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js', {
+                    scope: '/',
+                    updateViaCache: 'imports'
+                })
+                .then(function(registration) {
+                    console.log('[SW] Successfully registered:', registration.scope);
+                    
+                    // Check for updates every 5 minutes
+                    setInterval(() => {
+                        registration.update();
+                    }, 5 * 60 * 1000);
+                    
+                    // Listen for controlling changes
+                    if (registration.waiting) {
+                        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                    }
+                    
+                    registration.addEventListener('updatefound', function() {
+                        const newWorker = registration.installing;
+                        
+                        newWorker.addEventListener('statechange', function() {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                if (window.confirm('New version available! Reload to update?')) {
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                })
+                .catch(function(error) {
+                    console.error('[SW] Registration failed:', error);
+                });
+            });
+            
+            navigator.serviceWorker.addEventListener('message', function(event) {
+                if (event.data && event.data.type === 'SW_ACTIVATED') {
+                    console.log('[SW] New version activated:', event.data.version);
+                }
+            });
+        }
+    })();
+    </script>
+
+    <script src="scripts/navigation-handler.js" defer></script>
+</body>
+
+
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /index.html  # since your homepage is already https://ipmckart.com/
+
+Sitemap: https://ipmckart.com/sitemap.xml

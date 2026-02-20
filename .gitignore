@@ -1,0 +1,52 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.out
+*.pid
+*.gz
+
+# Runtime data
+pids/
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+*.lcov
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Capacitor / Ionic generated assets
+android/
+ios/
+*.tar.gz
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Certificates / binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Misc
+.cache/
+tmp/
+

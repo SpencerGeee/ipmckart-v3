@@ -1,0 +1,96 @@
+================================================================================
+PRODUCT NAME RENAMING PROMPT FOR AI
+================================================================================
+
+You are helping a user update product prices in their e-commerce database. They have:
+1. An Excel file with 362 products with new prices
+2. A database with 482 products with current prices
+3. Only 2% of Excel products are matching the database (7 out of 362)
+
+Your task: Help rename the Excel product names to match the exact database product names.
+
+DATABASE PRODUCT NAMES STRUCTURE:
+- Names are very descriptive and specific
+- Include ALL technical details, specs, colors, variants
+- Format patterns:
+  * "BRAND MODEL SPECIFICATIONS - COLOR - STORAGE - FEATURES"
+  * "BRAND PRODUCT TYPE MODEL SPECIFICATIONS - VARIANTS"
+  * Examples from database:
+    * "AWOW 11.6 LAPTOP KID NOTEBOOK 6GB LPDDRA/128GB SSD - PURPLE"
+    * "IPMC AIO CORE I7-12700 8GB/256GB (5 YEARS WARRANTY)"
+    * "NASCO KETTLE - GLASS - 1.7 LTRS"
+    * "MIDEA BUILT IN DISHWASHER HALF BOARD INDICATOR"
+    * "EPSON PRINTER LQ-350"
+    * "HP COLOR LASERJET ENTERPRISE FLOW MFP M776Z"
+
+EXCEL PRODUCT NAMES (CURRENT - TOO SIMPLE):
+Examples that aren't matching:
+- "Nasco Rice Cooker 2.8L" (DB: "NASCO RICE COOKER, ALL WHITE, 1000W/2.8L, 220V 50HZ")
+- "Heatz Back Pack Zj04" (DB needs to be checked)
+- "Nasco Stand Blender 1.75L" (DB: "NASCO STAND BLENDER 1.75L, 800W, SILVER")
+
+================================================================
+YOUR INSTRUCTIONS:
+================================================================
+
+1. I will provide you with:
+   - The Excel product name
+   - The database product category
+   - Context from similar database products in that category
+
+2. Your job is to:
+   a) Find the BEST matching database product name
+   b) Provide the RENAMED Excel product name
+   c) Explain WHY this match is correct
+
+3. Rules for renaming:
+   - ADD all missing specs: wattage, color, storage, capacity, voltage
+   - REORDER words to match DB format (usually: BRAND → TYPE → MODEL → SPECS → COLOR → FEATURES)
+   - PRESERVE all technical details
+   - DON'T simplify - database names are VERY detailed
+   - Use FULL brand names (not abbreviations)
+   - Add model codes/numbers if they exist
+
+4. Output format for each product:
+
+EXCEL NAME: [current excel name]
+DB CATEGORY: [category name]
+CONTEXT: [similar DB products in this category]
+
+RECOMMENDED NAME: [new name that will match DB exactly]
+
+MATCH REASONING: [explain why this is the correct match and what details you added]
+
+================================================================
+EXAMPLE (to show you understand):
+================================================================
+
+EXCEL NAME: Nasco Rice Cooker 2.8L
+DB CATEGORY: dishwashers (actually dishwashers or kettles)
+CONTEXT: Products include "NASCO KETTLE - GLASS - 1.7 LTRS", "BINATONE KETTLE CEJ-2005"
+
+RECOMMENDED NAME: NASCO RICE COOKER 1000W/2.8L 220V 50HZ ALL WHITE
+
+MATCH REASONING:
+- Added missing specs: 1000W (from "1000W" in name), 220V, 50HZ (standard specs)
+- Added "ALL WHITE" (common color variant)
+- Reordered to match DB format: BRAND + TYPE + MODEL + SPECS
+- This matches the detailed naming convention in the database
+
+================================================================
+NOW READY FOR YOUR INPUT:
+================================================================
+
+I will paste products one by one or in batches. Please process each one following the instructions above.
+
+IMPORTANT: The database has 482 products across these categories:
+- mobile-phones (63 products)
+- computing-devices (73 products)
+- home-appliances (16 products)
+- kitchen-appliances (19 products)
+- printers-scanners (61 products)
+- (other categories exist too)
+
+Excel has 362 products. We need to increase match rate from 2% to 80%+.
+
+Please be thorough and add ALL technical details you can infer from the name!

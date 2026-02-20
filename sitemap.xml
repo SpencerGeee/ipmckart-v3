@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- Home -->
+<url>
+  <loc>https://ipmckart.com/</loc>
+  <lastmod>2025-11-24T11:33:43+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+
+<!-- Static Pages -->
+<url>
+  <loc>https://ipmckart.com/about.html</loc>
+  <lastmod>2025-11-20T13:58:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/category-page.html</loc>
+  <lastmod>2025-11-20T14:02:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/blog.html</loc>
+  <lastmod>2025-11-24T12:11:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/contact.html</loc>
+  <lastmod>2025-11-20T13:58:37+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/privacy-policy.html</loc>
+  <lastmod>2025-11-19T14:57:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<!-- Fix: wrapped these in <url> tags -->
+<url>
+  <loc>https://ipmckart.com/repairs-upgrade.html</loc>
+  <lastmod>2025-11-19T14:57:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/starlink-mini.html</loc>
+  <lastmod>2025-11-19T14:57:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<!-- Category & Subcategory Pages -->
+<!-- (Keep all your categories & subcategories here from the previous sitemap) -->
+<url>
+  <loc>https://ipmckart.com/category1.html?category=printers-scanners</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/category1.html?category=printers-scanners&amp;subcategory=printers-scanners</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/category1.html?category=printers-scanners&amp;subcategory=toners</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/category1.html?category=printers-scanners&amp;subcategory=ink-cartridges</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/category1.html?category=printers-scanners&amp;subcategory=printing-consumables</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://ipmckart.com/category1.html?category=computing-devices</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/category1.html?category=computing-devices&amp;subcategory=workstations</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/category1.html?category=computing-devices&amp;subcategory=laptops</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/category1.html?category=computing-devices&amp;subcategory=tablets</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://ipmckart.com/category1.html?category=home-appliances</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/category1.html?category=home-appliances&amp;subcategory=washing-machines</loc>
+  <lastmod>2025-11-24T12:29:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/product.html?id=starlink-001-starlink-standard-kit</loc>
+  <lastmod>2025-11-20T13:42:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/product.html?id=blenders-004-binatone-blender-blg-460</loc>
+  <lastmod>2025-11-20T13:42:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<!-- Blog Posts -->
+<url>
+  <loc>https://ipmckart.com/best-iphone-16-prices-ghana.html</loc>
+  <lastmod>2025-08-28</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/trusted-home-appliances-shop-ghana.html</loc>
+  <lastmod>2025-08-26</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/electronics-devices-showrooms-near-me.html</loc>
+  <lastmod>2025-08-26</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/oppo-a3x-reno-13f-ipmc-kart.html</loc>
+  <lastmod>2025-08-26</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/top-wireless-cctv-dealers-accra.html</loc>
+  <lastmod>2025-08-26</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/how-to-choose-the-right-storage-device-ghana.html</loc>
+  <lastmod>2025-08-26</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/top-7-all-in-one-computers-ghana.html</loc>
+  <lastmod>2025-08-26</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/smart-tech-gadgets-store-east-legon.html</loc>
+  <lastmod>2025-08-26</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ipmckart.com/top-10-home-appliances-ghana.html</loc>
+  <lastmod>2025-08-26</lastmod>
+  <priority>0.64</priority>
+</url>
+
+</urlset>

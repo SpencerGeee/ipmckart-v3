@@ -1,0 +1,51 @@
+/* Logo size adjustments for better visibility */
+
+/* Main logo in header */
+.header .logo img {
+    max-width: 180px !important;  /* Increased from 111px */
+    height: auto !important;
+    transition: all 0.3s ease;
+}
+
+/* Sticky header logo */
+.sticky-header.fixed .logo img,
+.header-bottom.fixed .logo img {
+    max-width: 150px !important;  /* Slightly smaller when sticky */
+}
+
+/* Mobile menu logo */
+.mobile-menu-container .logo img {
+    max-width: 180px !important;
+    height: auto !important;
+}
+
+/* Footer logo */
+.footer .logo {
+    max-width: 180px !important;
+}
+
+/* Newsletter popup logo */
+.newsletter-popup .logo-newsletter {
+    max-width: 180px !important;
+    height: auto !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .header .logo img,
+    .mobile-menu-container .logo img {
+        max-width: 160px !important;  /* Slightly smaller on tablets */
+    }
+}
+
+@media (max-width: 767px) {
+    .header .logo img,
+    .mobile-menu-container .logo img {
+        max-width: 140px !important;  /* Smaller on mobile */
+    }
+    
+    .sticky-header.fixed .logo img,
+    .header-bottom.fixed .logo img {
+        max-width: 120px !important;  /* Smaller sticky on mobile */
+    }
+}

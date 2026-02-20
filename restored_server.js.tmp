@@ -1,0 +1,185 @@
+<file path="server.js">
+// server.js
+require('dotenv').config();
+
+// Initialize logger first to catch any startup errors
+const logger = require('./logger');
+
+// Log uncaught exceptions and unhandled rejections
+process.on('uncaughtException', (error) => {
+  logger.error('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+  logger.error(error);
+  process.exit(1);
+});
+
+const fs = require('fs');
+const path = require('path');
+const https = require('https');
+const express = require('express');
+const compression = require('compression');
+const helmet = require('helmet');
+const morgan = require('morgan');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const passport = require('./passport');
+
+// Import the connectDB function
+const connectDB = require('./db');
+
+// Call the function AFTER dotenv has been configured
+connectDB().catch(err => {
+  logger.error('Failed to connect to database:', err);
+  process.exit(1);
+});
+
+// Routers
+const authRouter = require('./routes/auth');
+const productsRouter = require('./routes/products');
+const ordersRouter = require('./routes/orders');
+const meRouter = require('./routes/me');
+const adminRouter = require('./routes/admin');
+
+const app = express();
+
+// Core parsers first
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+// Security + perf
+app.use(helmet());
+app.use((req, res, next) => {
+  // --- CSP UPDATED ---
+  // We are now allowing styles and scripts from 'cdnjs.cloudflare.com'
+  // to permit Owl Carousel and FontAwesome to load correctly.
+  const csp = [
+        "default-src 'self'",
+        "script-src 'self' https://maps.googleapis.com https://maps.gstatic.com https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net",
+        "connect-src 'self' https://maps.googleapis.com https://maps.gstatic.com",
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com",
+        "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
+        "img-src 'self' data: https:",
+        "object-src 'none'",
+        "base-uri 'self'",
+        "form-action 'self'",
+    ].join('; ');
+    res.setHeader('Content-Security-Policy', csp);
+    next();
+});
+
+app.use(compression());
+
+// Replace morgan with Winston for HTTP request logging
+app.use((req, res, next) => {
+  const start = Date.now();
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    logger.http(`${req.method} ${req.originalUrl} - ${res.statusCode} - ${duration}ms`);
+  });
+  next();
+});
+
+// CORS configuration
+const corsOptions = {
+  origin: ['http://localhost:8080', 'http://127.0.0.1:8080', process.env.FRONTEND_URL].filter(Boolean),
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
+  exposedHeaders: ['set-cookie'],
+  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+};
+
+app.use(cors(corsOptions));
+// Handle preflight requests for all routes
+app.options('*', cors(corsOptions));
+
+// Passport
+app.use(passport.initialize());
+
+// APIs
+app.use('/api/auth', authRouter);
+app.use('/api/products', productsRouter);
+app.use('/api/orders', ordersRouter);
+app.use('/api/me', meRouter);
+app.use('/api/cart', require('./routes/cart'));
+app.use('/api/orders', require('./routes/orders'));
+app.use(require('./routes/userRoutes'));
+app.use('/api/admin', adminRouter);
+
+
+
+
+// Static site
+app.use(express.static(path.join(__dirname)));
+
+// 404 handler
+app.use((req, res, next) => {
+  res.status(404).json({ message: 'Not Found' });
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+  logger.error('Error:', {
+    message: err.message,
+    stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
+    path: req.path,
+    method: req.method
+  });
+
+  res.status(err.status || 500).json({
+    message: err.message || 'Internal Server Error',
+    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+  });
+});
+
+// HTTPS/HTTP start
+const keyPath = path.join(__dirname, 'cert', 'localhost-key.pem');
+const certPath = path.join(__dirname, 'cert', 'localhost-cert.pem');
+const PORT = process.env.PORT || 4040;
+
+let server; // Declare server variable at the top level scope
+
+function startHttp() {
+  const HTTP_PORT = process.env.HTTP_PORT || 8080;
+  server = app.listen(HTTP_PORT, () => {
+    logger.info(`Server running in ${process.env.NODE_ENV || 'development'} mode`);
+    logger.info(`HTTP server listening on port ${HTTP_PORT}`);
+    logger.info(`Access the app at http://localhost:${HTTP_PORT}`);
+  });
+  return server;
+}
+
+if (fs.existsSync(keyPath) && fs.existsSync(certPath)) {
+  const creds = { key: fs.readFileSync(keyPath), cert: fs.readFileSync(certPath) };
+  server = https.createServer(creds, app);
+  server.listen(PORT, () => {
+    logger.info(`Server running in ${process.env.NODE_ENV || 'development'} mode`);
+    logger.info(`HTTPS server listening on port ${PORT}`);
+    logger.info(`Access the app at https://localhost:${PORT}`);
+  });
+} else {
+  server = startHttp();
+}
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+  logger.error('UNHANDLED REJECTION! 💥 Shutting down...');
+  logger.error('Unhandled Rejection at:', promise, 'Reason:', reason);
+  // Close server & exit process
+  server?.close(() => {
+    process.exit(1);
+  });
+});
+
+// Graceful shutdown
+const shutdown = (signal) => {
+  logger.info(`${signal} received. Shutting down gracefully...`);
+  server?.close(() => {
+    logger.info('Process terminated');
+    process.exit(0);
+  });
+};
+
+process.on('SIGINT', () => shutdown('SIGINT'));
+process.on('SIGTERM', () => shutdown('SIGTERM'));
+</file>

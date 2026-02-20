@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KT8441REGL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KT8441REGL');
+</script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://ssl.google-analytics.com https://analytics.google.com https://www.google.com https://elfsightcdn.com https://*.elfsight.com https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com data: https://cdnjs.cloudflare.com; img-src 'self' data: https: http: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.google.com/measurement/conversion https://region1.google-analytics.com https://www.googletagmanager.com https://core.service.elfsight.com https://*.elfsight.com https://analytics.google.com/g/collect https://www.google.com https://stats.g.doubleclick.net; frame-src 'self' https://www.googletagmanager.com https://elfsightcdn.com; object-src 'none'">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You are Offline | IPMC Kart</title>
+    <meta name="description" content="No internet connection detected. Check your settings and try again.">
+    
+    <!-- Preconnect to Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fontawesome-free/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2563EB;
+            --dark: #0F172A;
+            --light: #F8FAFC;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Decorative Background Elements */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: #60A5FA;
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 250px;
+            height: 250px;
+            background: #818CF8;
+            bottom: -50px;
+            right: -50px;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 50px); }
+        }
+
+        /* Glass Card */
+        .offline-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 60px 40px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .offline-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Logo */
+        .logo {
+            width: 160px;
+            height: auto;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        /* Animated Wifi Icon */
+        .icon-wrapper {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 32px;
+        }
+
+        .icon-wrapper::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            opacity: 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 28px;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            color: #64748B;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* Action Buttons */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #E2E8F0;
+            color: #475569;
+        }
+
+        .btn-outline:hover {
+            border-color: #CBD5E1;
+            background: #F8FAFC;
+            color: var(--dark);
+        }
+
+        .icon-spin {
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+            display: none;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* Footer Info */
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            font-size: 13px;
+            color: #94A3B8;
+        }
+        
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (min-width: 640px) {
+            .btn-group {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header box-shadow">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-left">
+                        <div class="header-dropdown">
+                            <a href="#"><i class="flag-us flag"></i>ENG</a>
+                            <div class="header-menu">
+                                <ul>
+                                    <li><a href="#"><i class="flag-us flag mr-2"></i>ENG</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            <!-- End .header-menu -->
+                        </div>
+                        <!-- End .header-dropdown -->
+                        <span class="gap mx-3">|</span>
+                        <div class="header-dropdown">
+                            <a href="#">USD</a>
+                            <div class="header-menu">
+                                <ul>
+                                    
+                                    <li><a href="#">USD</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End .header-menu -->
+                    </div>
+                    <!-- End .header-dropdown -->
+
+                    <div class="header-right ml-0 ml-lg-auto">
+                        <p class="top-message mb-0 text-uppercase">Welcome To IPMC!</p>
+                        <span class="gap mx-4 d-none d-lg-block">|</span>
+                        <div class="header-dropdown dropdown-expanded d-none d-lg-block">
+                            <a href="#">Links</a>
+                            <div class="header-menu">
+                                <ul class="mb-0 d-none d-lg-flex">
+                                    <li><a href="dashboard.html">My Account</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="wishlist.html">My Wishlist</a></li>
+                                    
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="login.html">Log In</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .header-right -->
+                </div>
+                <!-- End .container -->
+            </div>
+            <!-- End .header-top -->
+            <div class="header-middle sticky-header" data-sticky-options="{'mobile': true}">
+                <div class="container" style="height: 65px;">
+                    <div class="header-left">
+                        <button class="mobile-menu-toggler" type="button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu-container">
+                            <i class="fas fa-bars" aria-hidden="true"></i>
+                        </button>
+                        <a href="index.html" class="logo" aria-label="IPMC Kart Homepage">
+                            <img src="assets/logo.webp" alt="IPMC Kart - Quality Electronics Store" width="150" height="44" style="border-radius: 10px;" loading="eager" fetchpriority="high">
+                            <img src="assets/logo.webp" alt="IPMC Kart" width="111" height="44" class="sticky-logo" loading="eager">
+                        </a>
+                    </div>
+
+                    <div class="header-center">
+                        <div class="header-icon header-search header-search-inline header-search-category w-lg-max text-right mt-0">
+                            <a href="#" class="search-toggle" role="button" aria-label="Open search" aria-expanded="false" tabindex="0"><i class="icon-search-3" aria-hidden="true"></i></a>
+                            <form action="#" method="get" role="search" aria-label="Site search">
+                                <div class="header-search-wrapper">
+                                    <label for="q" class="sr-only">Search products</label>
+                                    <input type="search" class="form-control" name="q" id="q" placeholder="I'm searching for..." required aria-label="Search products" autocomplete="off">
+                                    <div class="select-custom">
+                                        <label for="cat" class="sr-only">Select category</label>
+                                        <select id="cat" name="cat" aria-label="Product category">
+                                            <option value="">All Categories</option>
+                                            <option value="4">Printers & Scanners</option>
+                                            <option value="12">Computing Devices</option>
+                                           
+                                            <option value="5">Home Appliances</option>
+                                            <option value="21">Kitchen Appliances</option>
+                                            
+                                            <option value="7">Tech Accessories</option>
+                                            <option value="11">Mobile Phones</option>
+                                           
+                                        </select>
+										
+                                    </div>
+                                    <!-- End .select-custom -->
+                                    <button class="btn icon-magnifier bg-dark text-white" title="Search" type="submit" aria-label="Search">
+                                        <span class="sr-only">Search</span>
+                                    </button>
+                                </div>
+                                <!-- End .header-search-wrapper -->
+                            </form>
+                        </div>
+                        <!-- End .header-search -->
+                    </div>
+
+                    <div class="header-right ml-0 ml-lg-auto">
+                        <a href="wishlist.html" class="header-icon" aria-label="View wishlist">
+                            <i class="icon-wishlist-2" aria-hidden="true"></i>
+                            <span class="sr-only">Wishlist</span>
+                        </a>
+
+                        <div class="dropdown cart-dropdown">
+                            <a href="#" title="Shopping Cart" class="dropdown-toggle cart-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" aria-label="View shopping cart">
+                                <i class="minicart-icon" aria-hidden="true"></i>
+                                <span class="cart-count badge-circle" aria-live="polite" aria-atomic="true">3</span>
+                                <span class="sr-only">Items in cart:</span>
+                            </a>
+
+                            <div class="cart-overlay"></div>
+
+                            <div class="dropdown-menu mobile-cart">
+                                <a href="#" title="Close (Esc)" class="btn-close">×</a>
+
+                                <div class="dropdownmenu-wrapper custom-scrollbar">
+                                    <div class="dropdown-cart-header">Shopping Cart</div>
+                                    <!-- End .dropdown-cart-header -->
+
+                                    <div class="dropdown-cart-products">
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Ultimate 3D Bluetooth Speaker</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵99.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-1.webp" alt="Ultimate 3D Bluetooth Speaker" width="80" height="80" loading="lazy">
+                                                </a>
+
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Brown Women Casual HandBag</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵35.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-2.webp" alt="Brown Women Casual HandBag" width="80" height="80" loading="lazy">
+                                                </a>
+
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Circled Ultimate 3D Speaker</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵35.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-3.webp" alt="Circled Ultimate 3D Speaker" width="80" height="80" loading="lazy">
+                                                </a>
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+                                    </div>
+                                    <!-- End .cart-product -->
+
+                                    <div class="dropdown-cart-total">
+                                        <span>SUBTOTAL:</span>
+
+                                        <span class="cart-total-price float-right">₵134.00</span>
+                                    </div>
+                                    <!-- End .dropdown-cart-total -->
+
+                                    <div class="dropdown-cart-action">
+                                        <a href="cart.html" class="btn btn-gray btn-block view-cart">View
+                                            Cart</a>
+                                        <a href="checkout.html" class="btn btn-dark btn-block">Checkout</a>
+                                    </div>
+                                    <!-- End .dropdown-cart-total -->
+                                </div>
+                                <!-- End .dropdownmenu-wrapper -->
+                            </div>
+                            <!-- End .dropdown-menu -->
+                        </div>
+                        <!-- End .dropdown -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-bottom sticky-header" data-sticky-options="{'mobile': false}">
+                <div class="container">
+                    <div class="header-left">
+                        <a href="index.html" class="logo">
+                            <img src="assets/logo.webp" alt="IPMC Logo" width="111" height="70" style="border-radius: 10px;">
+                        </a>
+                    </div>
+                    <div class="header-center">
+                        <nav class="main-nav w-100">
+                            <ul class="menu">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a href="category-page.html">Categories</a>
+                                    <div class="megamenu megamenu-fixed-width megamenu-3cols">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=printers-scanners" class="nolink">Printers & Scanners</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=printers-scanners&subcategory=printers-scanners">Printers & Scanners</a></li>
+                                                    <li><a href="category1.html?category=printers-scanners&subcategory=toners">Toners</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=printers-scanners&subcategory=ink-cartridges">Ink Catridges</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=printers-scanners&subcategory=printing-consumables">Printing Consumables</a></li>
+                                                   
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=computing-devices" class="nolink">Computing Devices</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=workstations">Workstations</a></li>
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=laptops">Laptops</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=tablets">Tablets</a></li>
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=monitors">Monitors</a></li>
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=all-in-one-computers">All-In-One Computers</a></li>
+                                                    <li><a href="category1.html?category=computing-devices&subcategory=keys">Keys & Clicks</a></li>
+                                                    
+                                                </ul>
+                                            </div>
+											<div class="col-lg-4">
+                                                <a href="category1.html?category=home-appliances" class="nolink">Home Appliances</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=home-appliances&subcategory=washing-machines">Washing Machines</a></li>
+                                                    <li><a href="category1.html?category=home-appliances&subcategory=refridgerators">Refridgerators</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=home-appliances&subcategory=washing-machines">Irons</a></li>
+                                                    <li><a href="category1.html?category=home-appliances&subcategory=vacuum-cleaners">Vacuum Cleaners</a></li>
+                                                    
+                                                    
+                                                </ul>
+                                            </div>
+											<div class="col-lg-4">
+                                                <a href="category1.html?category=kitchen-appliances" class="nolink">Kitchen Appliances</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=kitchen-appliances&subcategory=dishwashers">Dishwashers</a></li>
+                                                    <li><a href="category1.html?category=kitchen-appliances&subcategory=microwaves">Microwaves</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=kitchen-appliances&subcategory=stoves">Stoves</a></li>
+                                                    <li><a href="category1.html?category=kitchen-appliances&subcategory=rice-cookers">Rice Cooker</a></li>
+                                                </ul>
+                                            </div>
+											<div class="col-lg-4">
+                                                <a href="category1.html?category=tech-accessories" class="nolink">Tech Accessories</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=storage-devices">Storage Devices</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=headsets-earphones">Headsets & Earphones</a>
+                                                    </li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=playhub">PlayHub</a></li>
+                                                    <li><a href="category-4col.html">Wireless Sound</a></li><li>
+													<a href="category1.html?category=tech-accessories&subcategory=cctv-cameras">CCTV Cameras</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=network-switches">Network Switches</a>
+                                                    </li>
+                                                    <li><a href="category.html">WIFI Extenders</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=tablet-laptop-sleeves">Tablet & Laptop Sleeves</a></li>
+													<li><a href="category1.html?category=tech-accessories&subcategory=power-solutions">Power Solutions</a></li>
+                                                    <li><a href="category1.html?category=tech-accessories&subcategory=wireless-sound">Smart Watches</a></li>
+                                                </ul>
+                                            </div>
+											<div class="col-lg-4">
+                                                <a href="category1.html?category=mobile-phones" class="nolink">Mobile Phones</a>
+                                                <ul class="submenu">
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=apple-iphone">Apple Iphone </a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=samsung-smartphones">Samsung Smartphones</a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=tecno-phones">Tecno Phones</a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=itel-phones">Itel Phones</a></li>
+													<li><a href="category1.html?category=mobile-phones&subcategory=infinix-smartphones">Infinix Smartphones </a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=oppo-smartphones">Oppo Smartphones</a></li>
+                                                    <li><a href="category1.html?category=mobile-phones&subcategory=oppo-smartphones">Realme Smartphones</a></li>
+                                                    
+                                                </ul>
+                                            </div>
+											<div class="col-lg-4">
+                                                <a href="category1.html?category=ups&subcategory=ups" class="nolink">UPS</a>
+											</div>
+											<div class="col-lg-4">
+                                                <a href="category1.html?category=computing-devices&subcategory=shredders" class="nolink">Shredders</a>
+											</div>
+                                            
+                                        </div>
+                                    </div>
+                                    <!-- End .megamenu -->
+                                </li>
+                                <li>
+                                    <a href="product.html?id=starlink-001-starlink-standard-kit">Starlink Ghana</a>
+                                    <div class="megamenu megamenu-fixed-width">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <a href="category1.html?category=computing-devices&subcategory=starlink" class="nolink">Order Starlink</a>
+                                                <ul class="submenu">
+                                                    <li><a href="starlink-mini.html">Starlink Mini</a></li>
+                                                   
+                                                </ul>
+                                            </div>
+                                            <!-- End .col-lg-4 -->
+
+
+                                            <!-- End .col-lg-4 -->
+
+                                            
+                                            <!-- End .col-lg-4 -->
+                                        </div>
+                                        <!-- End .row -->
+                                    </div>
+                                    <!-- End .megamenu -->
+                                </li>
+                                <li>
+                                    <a href="newyear-sale.html">⚡︎ New Year Sales</a>
+
+                                </li>
+								<li>
+                                    <a href="repairs-upgrade.html">Repairs and Upgrades</a>
+                                </li>
+								
+                                <li><a href="blog.html">Blog</a></li>
+                                <li>
+                                    <a href="about.html">About Us</a>
+                                </li>
+								<li>
+                                    <a href="contact.html">Contact Us</a>
+                                </li>
+                               
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-right pr-0">
+                        <div class="header-icon header-search header-search-popup header-search-category w-lg-max text-right">
+                            <a href="#" class="search-toggle" role="button" aria-label="Open search"><i class="icon-search-3" aria-hidden="true"></i></a>
+                            <form action="#" method="get">
+                                <div class="header-search-wrapper">
+                                    <input type="search" class="form-control" name="q" id="q1" placeholder="I'm searching for..." required>
+                                    <div class="select-custom">
+                                        <select id="cat1" name="cat">
+                                            <option value="">All Categories</option>
+                                            <option value="4">Printers & Scanners</option>
+                                            <option value="12">Computing Devices</option>
+                                           
+                                            <option value="5">Home Appliances</option>
+                                            <option value="21">Kitchen Appliances</option>
+                                            
+                                            <option value="7">Tech Accessories</option>
+                                            <option value="11">Mobile Phones</option>
+                                        </select>
+                                    </div>
+                                    <!-- End .select-custom -->
+                                    <button class="btn icon-search-3 bg-dark text-white p-0" title="search" type="submit"></button>
+                                </div>
+                                <!-- End .header-search-wrapper -->
+                            </form>
+                        </div>
+                        <!-- End .header-search -->
+
+                        <a href="wishlist.html" class="header-icon" aria-label="View wishlist">
+                            <i class="icon-wishlist-2" aria-hidden="true"></i>
+                        </a>
+
+                        <div class="dropdown cart-dropdown">
+                            <a href="#" title="Cart" class="dropdown-toggle cart-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" aria-label="View shopping cart">
+                                <i class="minicart-icon" aria-hidden="true"></i>
+                                <span class="cart-count badge-circle">3</span>
+                            </a>
+
+                            <div class="cart-overlay"></div>
+
+                            <div class="dropdown-menu mobile-cart">
+                                <a href="#" title="Close (Esc)" class="btn-close">×</a>
+
+                                <div class="dropdownmenu-wrapper custom-scrollbar">
+                                    <div class="dropdown-cart-header">Shopping Cart</div>
+                                    <!-- End .dropdown-cart-header -->
+
+                                    <div class="dropdown-cart-products">
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Ultimate 3D Bluetooth Speaker</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵99.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-1.webp" alt="Ultimate 3D Bluetooth Speaker" width="80" height="80" loading="lazy">
+                                                </a>
+
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Brown Women Casual HandBag</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵35.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-2.webp" alt="Brown Women Casual HandBag" width="80" height="80" loading="lazy">
+                                                </a>
+
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="demo21-product.html">Circled Ultimate 3D Speaker</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × ₵35.00
+                                                </span>
+                                            </div>
+                                            <!-- End .product-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="demo21-product.html" class="product-image">
+                                                    <img src="assets/images/products/product-3.webp" alt="Circled Ultimate 3D Speaker" width="80" height="80" loading="lazy">
+                                                </a>
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                        <!-- End .product -->
+                                    </div>
+                                    <!-- End .cart-product -->
+
+                                    <div class="dropdown-cart-total">
+                                        <span>SUBTOTAL:</span>
+
+                                        <span class="cart-total-price float-right">₵134.00</span>
+                                    </div>
+                                    <!-- End .dropdown-cart-total -->
+
+                                    <div class="dropdown-cart-action">
+                                        <a href="cart.html" class="btn btn-gray btn-block view-cart">View
+                                            Cart</a>
+                                        <a href="checkout.html" class="btn btn-dark btn-block">Checkout</a>
+                                    </div>
+                                    <!-- End .dropdown-cart-total -->
+                                </div>
+                                <!-- End .dropdownmenu-wrapper -->
+                            </div>
+                            <!-- End .dropdown-menu -->
+                        </div>
+                        <!-- End .dropdown -->
+                    </div>
+                </div>
+            </div>
+        </header>
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <div class="offline-card">
+        <img src="assets/logo.webp" alt="IPMC Kart" class="logo">
+        
+        <div class="icon-wrapper">
+            <i class="fas fa-wifi-slash"></i>
+        </div>
+
+        <h1>Connection Lost</h1>
+        <p>It seems you're currently offline. Please check your internet connection to continue browsing our exclusive deals.</p>
+
+        <div class="btn-group">
+            <button onclick="retryConnection()" class="btn btn-primary">
+                <i class="fas fa-sync-alt icon-spin" id="spinIcon"></i>
+                <span id="btnText">Try Again</span>
+            </button>
+            <a href="tel:+233531005871" class="btn btn-outline">
+                <i class="fas fa-phone-alt" style="margin-right: 8px;"></i> Contact Support
+            </a>
+        </div>
+
+        <div class="contact-info">
+            Need urgent help? Call us at <a href="tel:+233531005871">+233 (0) 53 100 5871</a>
+        </div>
+    </div>
+
+    <script>
+        function retryConnection() {
+            const btn = document.querySelector('.btn-primary');
+            const icon = document.getElementById('spinIcon');
+            const text = document.getElementById('btnText');
+
+            // Show loading state
+            btn.style.opacity = '0.8';
+            icon.style.display = 'inline-block';
+            text.textContent = 'Reconnecting...';
+
+            // Attempt reload after short delay
+            setTimeout(() => {
+                window.location.reload();
+            }, 800);
+
+            // Reset if reload takes too long (timeout)
+            setTimeout(() => {
+                btn.style.opacity = '1';
+                icon.style.display = 'none';
+                text.textContent = 'Try Again';
+            }, 5000);
+        }
+
+        // Auto-refresh when online
+        window.addEventListener('online', () => {
+            retryConnection();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KT8441REGL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KT8441REGL');
+</script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://ssl.google-analytics.com https://analytics.google.com https://www.google.com https://elfsightcdn.com https://*.elfsight.com https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com data: https://cdnjs.cloudflare.com; img-src 'self' data: https: http: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.google.com/measurement/conversion https://region1.google-analytics.com https://www.googletagmanager.com https://core.service.elfsight.com https://*.elfsight.com https://analytics.google.com/g/collect https://www.google.com https://stats.g.doubleclick.net; frame-src 'self' https://www.googletagmanager.com https://elfsightcdn.com; object-src 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | IPMCKart</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.webp">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.webp">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.7b4ce378.css">
+<!-- OLD GTM REMOVED -->
+    
+    <style>
+        :root {
+            --primary-red: #e53935;
+            --dark-red: #c62828;
+            --light-red: #ef5350;
+            --bg-dark: #0a0a0a;
+            --bg-darker: #050505;
+            --glass-white: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-red: rgba(229, 57, 53, 0.3);
+            --luxury-gold: #ff0000;
+            --metallic-silver: #c0c0c0;
+            --deep-shadow: rgba(0, 0, 0, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+        
+        /* Luxury Background with Particles */
+        .luxury-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, var(--luxury-gold), transparent);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .particle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+        
+        .particle:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            right: -200px;
+            animation-delay: 5s;
+        }
+        
+        .particle:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            top: 50%;
+            right: 10%;
+            animation-delay: 10s;
+        }
+        
+        .glow-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(229, 57, 53, 0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite alternate;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(5deg); }
+            50% { transform: translate(-20px, 20px) rotate(-5deg); }
+            75% { transform: translate(20px, 30px) rotate(3deg); }
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+        
+        /* Main Content Wrapper */
+        .admin-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Luxury Glass Sidebar */
+        .admin-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 120px;
+            z-index: 999;
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 5px 0 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        @media (max-width: 991px) {
+            .admin-sidebar {
+                transform: translateX(-100%);
+            }
+            .admin-sidebar.mobile-open {
+                transform: translateX(0);
+            }
+        }
+        
+        .sidebar-brand {
+            padding: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+            animation: slideInLeft 0.6s ease;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .sidebar-brand h4 {
+            background: linear-gradient(90deg, #fff, var(--luxury-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .sidebar-nav {
+            padding: 0 20px;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 18px 25px;
+            margin: 12px 0;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-red), var(--luxury-gold));
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(229, 57, 53, 0.1), rgba(212, 175, 55, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            transform: scaleY(1);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            opacity: 1;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff;
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-link i {
+            width: 25px;
+            margin-right: 15px;
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+            color: var(--luxury-gold);
+        }
+        
+        .nav-link:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        /* Mobile Toggle */
+        .mobile-toggle {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            z-index: 1001;
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            border: none;
+            border-radius: 15px;
+            width: 55px;
+            height: 55px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px var(--shadow-red);
+            transition: all 0.4s ease;
+        }
+        
+        .mobile-toggle:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 8px 25px var(--shadow-red);
+        }
+        
+        @media (max-width: 991px) {
+            .mobile-toggle {
+                display: flex;
+            }
+        }
+        
+        /* Main Content Area */
+        .admin-content {
+            margin-left: 300px;
+            padding: 140px 50px 50px;
+            min-height: 100vh;
+            transition: margin-left 0.4s ease;
+            overflow: hidden;
+        }
+        .admin-content > .view.active {
+            overflow-y: auto;
+            max-height: calc(100vh - 140px);
+            padding-bottom: 40px;
+        }
+        
+        @media (max-width: 991px) {
+            .admin-content {
+                margin-left: 0;
+                padding: 120px 25px 25px;
+            }
+        }
+        
+        /* Luxury Glass Cards */
+        .card {
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(229, 57, 53, 0.05), rgba(212, 175, 55, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            background: linear-gradient(90deg, rgba(229, 57, 53, 0.2), rgba(212, 175, 55, 0.2));
+            color: white;
+            font-weight: 600;
+            border-radius: 20px 20px 0 0;
+            padding: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 40px 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--luxury-gold));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .stat-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-red), var(--luxury-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(229, 57, 53, 0.3));
+        }
+        
+        .stat-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff, var(--metallic-silver));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Luxury Tables */
+        .table {
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .table th {
+            border-top: none;
+            color: var(--luxury-gold);
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .table td {
+            vertical-align: middle;
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background 0.3s ease;
+        }
+        
+        .table tbody tr {
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+        }
+        
+        .status-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .status-pending {
+            background: linear-gradient(135deg, rgba(255,193,7,0.2), transparent);
+            color: #ffc107;
+            border: 1px solid rgba(255,193,7,0.3);
+        }
+        
+        .status-processing {
+            background: linear-gradient(135deg, rgba(0,123,255,0.2), transparent);
+            color: #007bff;
+            border: 1px solid rgba(0,123,255,0.3);
+        }
+        
+        .status-shipped {
+            background: linear-gradient(135deg, rgba(23,162,184,0.2), transparent);
+            color: #17a2b8;
+            border: 1px solid rgba(23,162,184,0.3);
+        }
+        
+        .status-delivered {
+            background: linear-gradient(135deg, rgba(40,167,69,0.2), transparent);
+            color: #28a745;
+            border: 1px solid rgba(40,167,69,0.3);
+        }
+        
+        .status-cancelled {
+            background: linear-gradient(135deg, rgba(220,53,69,0.2), transparent);
+            color: #dc3545;
+            border: 1px solid rgba(220,53,69,0.3);
+        }
+        
+        /* Form Elements */
+        .form-control {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 0.2rem rgba(229, 57, 53, 0.2);
+            color: #fff;
+        }
+        
+        .form-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        /* Luxury Buttons */
+        .btn {
+            border-radius: 10px;
+            padding: 12px 25px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            border: none;
+            box-shadow: 0 5px 15px rgba(229, 57, 53, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--light-red), var(--primary-red));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(229, 57, 53, 0.4);
+        }
+        
+        .btn-outline-light {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            background: transparent;
+        }
+        
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        
+        /* Toast Notification */
+        #toast {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1050;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(-20px) scale(0.9);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        #toast.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        #toast p {
+            margin: 0;
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.8);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .loading-overlay.active {
+            display: flex;
+        }
+        
+        .luxury-spinner {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--primary-red), var(--luxury-gold), var(--primary-red));
+            position: relative;
+            animation: spin 1.5s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .luxury-spinner::before {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #0a0a0a;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Luxury Modals */
+        .modal-content {
+            background: rgba(30, 30, 30, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+        
+        .modal-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+        }
+        
+        .modal-title {
+            color: var(--luxury-gold);
+            font-weight: 700;
+        }
+        
+        .modal-body {
+            padding: 25px;
+        }
+        
+        .modal-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 25px;
+        }
+        
+        .btn-close {
+            filter: invert(1);
+            opacity: 0.7;
+        }
+        
+        .btn-close:hover {
+            opacity: 1;
+        }
+        
+        /* Pagination */
+        .pagination {
+            margin-bottom: 0;
+        }
+        
+        .page-item .page-link {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 10px 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .page-item .page-link:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+        
+        .page-item.active .page-link {
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            border-color: var(--primary-red);
+            color: #fff;
+        }
+        
+        .page-item.disabled .page-link {
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .status-paid {
+            background: linear-gradient(135deg, rgba(255, 99, 71, 0.14), transparent);
+            color: #ff5722;
+            border: 1px solid rgba(255, 87, 34, 0.25);
+        }
+
+        .status-failed {
+            background: linear-gradient(135deg, rgba(120, 120, 120, 0.12), transparent);
+            color: #6c757d;
+            border: 1px solid rgba(120, 120, 120, 0.25);
+        }
+
+        
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 10, 0.8) !important;
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            margin-left: 300px;
+            transition: margin-left 0.4s ease;
+        }
+        
+        @media (max-width: 991px) {
+            .footer {
+                margin-left: 0;
+            }
+        }
+        
+        .footer .widget-title {
+            color: var(--luxury-gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--luxury-gold);
+        }
+        
+        .footer .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer .social-icons a:hover {
+            background: var(--primary-red);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 0;
+        }
+        
+        /* View Transitions */
+        .view {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .view.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Action Buttons */
+        .action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .action-btn:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+        
+        .btn-edit:hover {
+            background: rgba(23, 162, 184, 0.3);
+            border-color: rgba(23, 162, 184, 0.5);
+        }
+        
+        .btn-delete:hover {
+            background: rgba(220, 53, 69, 0.3);
+            border-color: rgba(220, 53, 69, 0.5);
+        }
+        
+        /* Quick Actions Grid */
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .quick-action-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+        
+        .quick-action-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .quick-action-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary-red), var(--luxury-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .quick-action-card h5 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .quick-action-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        /* Promos: conditionally hide Status column */
+        .promo-hide-status th:nth-child(3),
+        .promo-hide-status td:nth-child(3) {
+            display: none;
+        }
+
+        /* === LUXURY SCROLL FIX === */
+
+.admin-wrapper {
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Main content scroll */
+.admin-content {
+    margin-left: 300px;
+    padding: 140px 50px 50px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    /* Luxury scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) rgba(255, 255, 255, 0.05);
+}
+
+.admin-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.admin-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.admin-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.admin-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--gold-light), var(--gold));
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Remove problematic view scroll */
+.admin-content > .view {
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+.admin-content > .view.active {
+    display: block;
+}
+
+/* Sidebar scroll */
+.admin-sidebar {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) rgba(255, 255, 255, 0.1);
+}
+
+.admin-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border-radius: 10px;
+}
+
+/* Table horizontal scroll only */
+.table-responsive {
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+@media (max-width: 991px) {
+    .admin-content {
+        margin-left: 0;
+        padding: 120px 25px 25px;
+    }
+}
+    </style>
+    
+</head>
+<body>
+<header class="header box-shadow">
+            
+        </header>
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+    <!-- Header area end here -->
+ <!-- OLD GTM NOSCRIPT REMOVED -->
+    <!-- Header area end here -->
+    <div class="luxury-bg">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="glow-effect"></div>
+    </div>
+    
+    <button id="sidebarToggle" class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <div class="admin-wrapper">
+        <aside id="sidebar" class="admin-sidebar">
+            <div class="sidebar-brand">
+                <h4>IPMC KART</h4>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active" data-target="dashboard-view"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="#" class="nav-link" data-target="products-view"><i class="fas fa-box"></i> Products</a>
+                <a href="#" class="nav-link" data-target="orders-view"><i class="fas fa-shopping-cart"></i> Orders</a>
+                <a href="#" class="nav-link" data-target="users-view"><i class="fas fa-users"></i> Users</a>
+                <a href="#" class="nav-link" data-target="reports-view"><i class="fas fa-chart-bar"></i> Reports</a>
+                <a href="#" class="nav-link" data-target="promos-view"><i class="fas fa-tags"></i> Promos</a>
+                <a href="#" class="nav-link" data-target="quota-view"><i class="fas fa-microchip"></i> AI Quotas</a>
+                <a href="#" class="nav-link" data-target="logs-view"><i class="fas fa-terminal"></i> System Logs</a>
+                 <a href="#" class="nav-link" onclick="if(typeof CacheManager !== 'undefined') { CacheManager.clearAll(); } else { alert('Cache manager not loaded'); }"><i class="fas fa-sync-alt"></i> Clear Cache</a>
+                 <a href="#" id="logoutBtn" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+             </nav>
+        </aside>
+        
+        <main class="admin-content">
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="view active">
+                <h2 class="mb-4" style="color: var(--luxury-gold);">Dashboard Overview</h2>
+                <div class="row g-4 mb-5">
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <i class="fas fa-shopping-cart stat-icon"></i>
+                            <div class="stat-value" id="totalOrders">0</div>
+                            <div class="stat-label">Total Orders</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <i class="fas fa-users stat-icon"></i>
+                            <div class="stat-value" id="totalUsers">0</div>
+                            <div class="stat-label">Total Users</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <i class="fas fa-dollar-sign stat-icon"></i>
+                            <div class="stat-value" id="totalRevenue">₵0</div>
+                            <div class="stat-label">Total Revenue</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <i class="fas fa-clock stat-icon"></i>
+                            <div class="stat-value" id="pendingOrders">0</div>
+                            <div class="stat-label">Pending Orders</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">Recent Orders</div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Order ID</th>
+                                                <th>Customer</th>
+                                                <th>Total</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="recentOrdersBody">
+                                            <!-- Populated dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-header">Quick Actions</div>
+                            <div class="card-body">
+                                <div class="quick-actions-grid">
+                                    <div class="quick-action-card" data-action="show-products">
+                                        <i class="fas fa-box"></i>
+                                        <h5>Manage Products</h5>
+                                        <p>Add, edit or remove products</p>
+                                    </div>
+                                    <div class="quick-action-card" data-action="show-orders">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <h5>View All Orders</h5>
+                                        <p>See all customer orders</p>
+                                    </div>
+                                    <div class="quick-action-card" data-action="show-users">
+                                        <i class="fas fa-users"></i>
+                                        <h5>Manage Users</h5>
+                                        <p>View and manage users</p>
+                                    </div>
+                                    <div class="quick-action-card" data-action="show-reports">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <h5>Generate Report</h5>
+                                        <p>Create sales reports</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">System Status</div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center" style="background: transparent; border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">
+                                        <span>Server Uptime</span>
+                                        <span class="badge bg-success">99.9%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center" style="background: transparent; border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">
+                                        <span>Active Sessions</span>
+                                        <span class="badge bg-primary">42</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center" style="background: transparent; border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">
+                                        <span>Storage Used</span>
+                                        <span class="badge bg-info">65%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center" style="background: transparent; border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">
+                                        <span>Last Backup</span>
+                                        <span class="badge bg-warning">2 hours ago</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Products View -->
+            <div id="products-view" class="view">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 style="color: var(--luxury-gold);">Products Management</h2>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                            <i class="fas fa-plus me-2"></i>Add Product
+                        </button>
+                        <button id="regenerateProductsBtn" class="btn btn-warning ms-2">
+                            <i class="fas fa-rotate me-2"></i>Regenerate Product JSON
+                        </button>
+                        <small id="regenerateProductsStatus" class="ms-2"></small>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>All Products</span>
+                        <div class="d-flex">
+                            <div class="input-group me-2" style="width: 320px;">
+  <input type="text" id="productSearchInput" class="form-control" placeholder="Search products...">
+  <button class="btn btn-outline-secondary" id="productSearchClearBtn" type="button" title="Clear search">Clear</button>
+</div>
+                            <select class="form-select me-2" id="productCategoryFilter" style="width: 180px;">
+                            <option value="">All Categories</option>
+                            <option value="combo-deals">Combo Deals</option>
+                            <option value="printers-scanners">Printers & Scanners</option>
+                            <option value="computing-devices">Computing Devices</option>
+                            <option value="home-appliances">Home Appliances</option>
+                            <option value="kitchen-appliances">Kitchen Appliances</option>
+                            <option value="tech-accessories">Tech Accessories</option>
+                            <option value="mobile-phones">Mobile Phones</option>
+                            <option value="ups">UPS</option>
+                            <option value="shredders">Shredders</option>
+                            </select>
+                            <select class="form-select" id="productSubcategoryFilter" style="width: 200px;" disabled>
+                              <option value="">All Subcategories</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="width:36px;"><input type="checkbox" id="selectAllProducts"></th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Subcategory</th>
+                                        <th>Price</th>
+                                        <th>Stock</th>
+                                        <th>Rating</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productsTableBody">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="productsPagination" class="d-flex justify-content-center mt-4"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Promos View -->
+            <div id="promos-view" class="view">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 style="color: var(--luxury-gold);">Promotions Management</h2>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header d-flex flex-wrap align-items-center gap-2">
+                        <div class="me-3">
+                            <label class="form-label mb-1">Promo Type</label>
+                            <select id="promoTypeSelect" class="form-select">
+                                <option value="new-year">New Year Sale</option>
+                                <option value="christmas-sale">Christmas Sale</option>
+                                <option value="valentines" selected>Valentine's Day</option>
+                                <option value="flash-sales">Flash Sales</option>
+                                <option value="back-to-school">Back to School</option>
+                                <option value="top-selling">Top Selling</option>
+                                <option value="combo-deals">Combo Deals</option>
+                            </select>
+                        </div>
+                        <div class="me-3" id="discountWrapper">
+                            <label class="form-label mb-1">Discount % (flash sales)</label>
+                            <input type="number" id="promoDiscountPercent" class="form-control" min="0" max="95" step="1" placeholder="e.g. 20">
+                        </div>
+                        <div class="me-3 flex-grow-1" style="min-width:260px;">
+                            <label class="form-label mb-1">Search products</label>
+                            <div class="input-group">
+                                <input type="text" id="promoSearchInput" class="form-control" placeholder="Search by name, brand, category...">
+                                <button class="btn btn-outline-secondary" id="promoSearchClearBtn" type="button">Clear</button>
+                            </div>
+                        </div>
+                        <div class="form-check form-switch mt-4 mt-md-0 me-3">
+                            <input class="form-check-input" type="checkbox" id="promoAssignedOnlyToggle" checked>
+                            <label class="form-check-label" for="promoAssignedOnlyToggle">Show assigned only</label>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 mt-4 mt-md-0">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPromoProductModal">
+                                <i class="fas fa-plus me-2"></i>Direct Add Product
+                            </button>
+                            <button id="assignToPromoBtn" class="btn btn-outline-light">
+                                <i class="fas fa-check me-2"></i>Assign Selected
+                            </button>
+                            <button id="unassignFromPromoBtn" class="btn btn-warning">
+                                <i class="fas fa-minus me-2"></i>Remove Selected
+                            </button>
+                            <button id="selectVisiblePromoBtn" class="btn btn-outline-light">
+                                <i class="fas fa-check-double me-2"></i>Select Visible
+                            </button>
+                            <button id="clearSelectionPromoBtn" class="btn btn-outline-light">
+                                <i class="fas fa-times me-2"></i>Clear Selection
+                            </button>
+                            <button id="savePricingBtn" class="btn btn-success">
+                                <i class="fas fa-save me-2"></i>Save Selected Pricing
+                            </button>
+                            <button id="regeneratePromoBtn" class="btn btn-outline-light">
+                                <i class="fas fa-rotate me-2"></i>Regenerate JSON
+                            </button>
+                        </div>
+                        <small id="promoActionStatus" class="ms-2"></small>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="width:36px;"><input type="checkbox" id="selectAllPromoProducts"></th>
+                                        <th>Name</th>
+                                        <th>Status</th>
+                                        <th>Category</th>
+                                        <th>Subcategory</th>
+                                        <th>Base Price</th>
+                                        <th>Promo Price</th>
+                                        <th>Discount %</th>
+                                        <th>Promo Image</th>
+                                        <th>Stock</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="promosProductsTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="promosProductsPagination" class="d-flex justify-content-center mt-4"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="quota-view" class="view">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 style="color: var(--luxury-gold);">AI Account & Quota Management</h2>
+                    <button id="resetAllQuotasBtn" class="btn btn-danger">
+                        <i class="fas fa-undo me-2"></i>Reset All Quotas
+                    </button>
+                </div>
+                <div class="row g-4" id="quotaCardsContainer">
+                </div>
+                
+                <div class="card mt-5">
+                    <div class="card-header">Account Usage Details</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Account Name</th>
+                                        <th>Status</th>
+                                        <th>Quota Used</th>
+                                        <th>Remaining</th>
+                                        <th>Priority</th>
+                                        <th>Last Used</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="quotaTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Orders View -->
+            <div id="orders-view" class="view">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 style="color: var(--luxury-gold);">Orders Management</h2>
+                    <div class="d-flex">
+                        <input type="text" id="orderSearchInput" class="form-control me-2" placeholder="Search orders..." style="width: 250px;">
+                        <select id="orderStatusFilter" class="form-select" style="width: 150px;">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">All Orders</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTableBody">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="ordersPagination" class="d-flex justify-content-center mt-4"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Logs View -->
+            <div id="logs-view" class="view">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 style="color: var(--luxury-gold);">System Logs</h2>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-light" onclick="loadLogFiles()">
+                            <i class="fas fa-sync-alt me-2"></i>Refresh
+                        </button>
+                        <div class="form-check form-switch pt-2">
+                            <input class="form-check-input" type="checkbox" id="autoRefreshLogs">
+                            <label class="form-check-label" for="autoRefreshLogs">Auto-refresh (5s)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-terminal me-2"></i>Server Output (tail -n 100)</span>
+                        <span class="badge bg-secondary" id="logTimestamp">Last updated: Never</span>
+                    </div>
+                    <div class="card-body bg-black p-0">
+                        <div id="logContainer" style="height: 600px; overflow-y: auto; padding: 15px; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9rem; color: #d4d4d4; white-space: pre-wrap;">
+                            <div class="text-center text-muted mt-5">Click refresh to load logs...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Users View -->
+            <div id="users-view" class="view">
+                <h2 class="mb-4" style="color: var(--luxury-gold);">Users Management</h2>
+                <div class="card">
+                    <div class="card-header">All Users</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Joined</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTableBody">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="usersPagination" class="d-flex justify-content-center mt-4"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Reports View -->
+            <div id="reports-view" class="view">
+                <h2 class="mb-4" style="color: var(--luxury-gold);">Generate Reports</h2>
+                <div class="row g-4">
+                    <div class="col-md-8">
+                        <div class="card mb-4">
+                            <div class="card-header">Sales Report</div>
+                            <div class="card-body">
+                                <form class="row g-3">
+                                    <div class="col-md-5">
+                                        <label class="form-label">Start Date</label>
+                                        <input type="date" class="form-control" id="reportStartDate">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label class="form-label">End Date</label>
+                                        <input type="date" class="form-control" id="reportEndDate">
+                                    </div>
+                                    <div class="col-md-2 d-flex align-items-end">
+                                        <button type="button" class="btn btn-primary w-100" id="generateReportBtn">Generate</button>
+                                    </div>
+                                </form>
+                                <div id="reportSummary" class="mt-4">
+                                    <p class="text-muted">Select a date range and click "Generate Report"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">Top Selling Products</div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Category</th>
+                                                <th>Units Sold</th>
+                                                <th>Revenue</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>HP LaserJet Printer</td>
+                                                <td>Printers</td>
+                                                <td>142</td>
+                                                <td>₵170,400</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dell Laptop</td>
+                                                <td>Computing</td>
+                                                <td>98</td>
+                                                <td>₵441,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Samsung Monitor</td>
+                                                <td>Computing</td>
+                                                <td>87</td>
+                                                <td>₵52,200</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Assets View -->
+
+            <!-- Logs View -->
+            <div id="logs-view" class="view">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 style="color: var(--luxury-gold);">System Logs</h2>
+                    <button class="btn btn-primary" id="refreshLogFilesBtn">
+                        <i class="fas fa-sync-alt me-2"></i>Refresh Files
+                    </button>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">Log Files</div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush" id="logFilesList" style="max-height: 600px; overflow-y: auto;">
+                                    <div class="p-3 text-center text-muted">Loading files...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span id="currentLogName">Select a log file</span>
+                                <button class="btn btn-sm btn-outline-light" id="refreshCurrentLogBtn" style="display: none;">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <pre id="logContent" style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; max-height: 600px; overflow-y: auto; color: #00ff00; font-family: 'Courier New', Courier, monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all;">Select a file from the list to view its contents.</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+       </main>
+    </div>
+
+
+    <div class="modal fade" id="addPromoProductModal" tabindex="-1" aria-labelledby="addPromoProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPromoProductModalLabel">Add Product Directly to Promo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addPromoProductForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="promoProdName" class="form-label">Product Name</label>
+                                <input type="text" class="form-control" id="promoProdName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="promoProdPromoType" class="form-label">Assign to Promo Type</label>
+                                <select class="form-select" id="promoProdPromoType" required>
+                                    <option value="flash-sales">Flash Sales</option>
+                                    <option value="christmas-sale">Christmas Sale</option>
+                                    <option value="new-year">New Year Sale</option>
+                                    <option value="valentines">Valentine's Day</option>
+                                    <option value="back-to-school">Back to School</option>
+                                    <option value="top-selling">Top Selling</option>
+                                    <option value="combo-deals">Combo Deals</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="promoProdCategory" class="form-label">Main Category</label>
+                                <select class="form-select" id="promoProdCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="combo-deals">Combo Deals</option>
+                                    <option value="printers-scanners">Printers & Scanners</option>
+                                    <option value="computing-devices">Computing Devices</option>
+                                    <option value="home-appliances">Home Appliances</option>
+                                    <option value="kitchen-appliances">Kitchen Appliances</option>
+                                    <option value="tech-accessories">Tech Accessories</option>
+                                    <option value="mobile-phones">Mobile Phones</option>
+                                    <option value="ups">UPS</option>
+                                    <option value="shredders">Shredders</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="promoProdSubcategory" class="form-label">Subcategory</label>
+                                <select class="form-select" id="promoProdSubcategory" required>
+                                    <option value="">Select Subcategory</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="promoProdBasePrice" class="form-label">Base Price (₵)</label>
+                                <input type="number" class="form-control" id="promoProdBasePrice" step="0.01" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="promoProdPromoPrice" class="form-label">Promo Price (₵) - Optional</label>
+                                <input type="number" class="form-control" id="promoProdPromoPrice" step="0.01">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="promoProdStock" class="form-label">Stock</label>
+                                <input type="number" class="form-control" id="promoProdStock" value="10" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="promoProdBrand" class="form-label">Brand (Optional)</label>
+                                <input type="text" class="form-control" id="promoProdBrand">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Product Image</label>
+                                <input type="file" class="form-control" id="promoProdFile" accept="image/*">
+                                <div class="form-text">Will be uploaded and assigned as the primary image</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="promoProdDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="promoProdDescription" rows="3"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="promoProdSearchable" checked>
+                                    <label class="form-check-label" for="promoProdSearchable">
+                                        Make searchable in global search
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="addPromoProductForm" class="btn btn-primary">Create & Assign Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProductForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="productName" class="form-label">Product Name</label>
+                                <input type="text" class="form-control" id="productName" required>
+                            </div>
+                            <div class="col-md-6">
+                            <label for="productCategory" class="form-label">Category</label>
+                            <select class="form-select" id="productCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="combo-deals">Combo Deals</option>
+                                <option value="printers-scanners">Printers & Scanners</option>
+                                <option value="computing-devices">Computing Devices</option>
+                                <option value="home-appliances">Home Appliances</option>
+                                <option value="kitchen-appliances">Kitchen Appliances</option>
+                                <option value="tech-accessories">Tech Accessories</option>
+                                <option value="mobile-phones">Mobile Phones</option>
+                                <option value="ups">UPS</option>
+                                <option value="shredders">Shredders</option>
+                            </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="productSubcategory" class="form-label">Subcategory</label>
+                                <select class="form-select" id="productSubcategory" required>
+                                    <option value="">Select Subcategory</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="productPrice" class="form-label">Price (₵)</label>
+                                <input type="number" class="form-control" id="productPrice" step="0.01" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="productStock" class="form-label">Stock</label>
+                                <input type="number" class="form-control" id="productStock" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="productImages" class="form-label">Image URLs (optional, comma separated)</label>
+                                <input type="text" class="form-control" id="productImages" placeholder="assets/images/products/<category>/<slug>-1.webp", ...">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Upload Image 1</label>
+                                <input type="file" class="form-control" id="productFile1" accept="image/*">
+                                <div class="form-text" id="addImg1Hint">Stored as assets/images/products/&lt;category&gt;/&lt;slug&gt;-1.webp"</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Upload Image 2</label>
+                                <input type="file" class="form-control" id="productFile2" accept="image/*">
+                                <div class="form-text" id="addImg2Hint">Stored as assets/images/products/&lt;category&gt;/&lt;slug&gt;-2.webp"</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="productDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="productDescription" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="addProductForm" class="btn btn-primary">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProductModalLabel">Edit Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProductForm">
+                        <input type="hidden" id="editProductId">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="editProductName" class="form-label">Product Name</label>
+                                <input type="text" class="form-control" id="editProductName" required>
+                            </div>
+                            <div class="col-md-6">
+                            <label for="editProductCategory" class="form-label">Category</label>
+                            <select class="form-select" id="editProductCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="combo-deals">Combo Deals</option>
+                                <option value="printers-scanners">Printers & Scanners</option>
+                                <option value="computing-devices">Computing Devices</option>
+                                <option value="home-appliances">Home Appliances</option>
+                                <option value="kitchen-appliances">Kitchen Appliances</option>
+                                <option value="tech-accessories">Tech Accessories</option>
+                                <option value="mobile-phones">Mobile Phones</option>
+                                <option value="ups">UPS</option>
+                                <option value="shredders">Shredders</option>
+                            </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editProductSubcategory" class="form-label">Subcategory</label>
+                                <select class="form-select" id="editProductSubcategory" required>
+                                    <option value="">Select Subcategory</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editProductPrice" class="form-label">Price (₵)</label>
+                                <input type="number" class="form-control" id="editProductPrice" step="0.01" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editProductStock" class="form-label">Stock</label>
+                                <input type="number" class="form-control" id="editProductStock" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="editProductImages" class="form-label">Image URLs (optional, comma separated)</label>
+                                <input type="text" class="form-control" id="editProductImages" placeholder="assets/images/products/<category>/<slug>-1.webp", ...">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Upload Image 1</label>
+                                <input type="file" class="form-control" id="editProductFile1" accept="image/*">
+                                <div class="form-text" id="editImg1Hint">Stored as assets/images/products/&lt;category&gt;/&lt;slug&gt;-1.webp"</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Upload Image 2</label>
+                                <input type="file" class="form-control" id="editProductFile2" accept="image/*">
+                                <div class="form-text" id="editImg2Hint">Stored as assets/images/products/&lt;category&gt;/&lt;slug&gt;-2.webp"</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="editProductDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="editProductDescription" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="editProductForm" class="btn btn-primary">Update Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Detail Modal -->
+<div class="modal fade" id="orderDetailModal" tabindex="-1" aria-labelledby="orderDetailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="orderDetailModalLabel">Order Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="orderDetailContent">
+          <div class="mb-3">
+            <strong>Order</strong>
+            <div id="od-order-meta" class="text-muted small"></div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card p-3">
+                <h6 class="mb-2">Billing</h6>
+                <div id="od-billing"></div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card p-3">
+                <h6 class="mb-2">Shipping</h6>
+                <div id="od-shipping"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-3 card p-3">
+            <h6>Items</h6>
+            <div class="table-responsive">
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Line Total</th>
+                    <th>Custom</th>
+                  </tr>
+                </thead>
+                <tbody id="od-items-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="mt-3 d-flex justify-content-end">
+            <div style="min-width:320px" class="card p-3">
+              <h6 class="mb-2">Summary</h6>
+              <div id="od-summary" class="small text-muted"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" id="od-refresh-btn" class="btn btn-outline-light">Refresh</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Toast Notification -->
+    <div id="toast">
+        <p></p>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="luxury-spinner"></div>
+    </div>
+
+    <!-- Footer -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="admin.js"></script>
+  <!-- common.bundle is not needed on admin and was causing init errors; removed for stability -->
+  <script src="/assets/js/page-init.e2c16ff4.js" defer></script>
+            
+
+
+      <!-- removed inline script: moved to admin.js for CSP compliance -->
+      <script src="assets/js/cache-manager.js" defer></script>
+
+    <!-- Service Worker Registration - Ultra Fast Performance -->
+    <script>
+    (function() {
+        'use strict';
+        
+        if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js', {
+                    scope: '/',
+                    updateViaCache: 'imports'
+                })
+                .then(function(registration) {
+                    console.log('[SW] Successfully registered:', registration.scope);
+                    
+                    // Check for updates every 5 minutes
+                    setInterval(() => {
+                        registration.update();
+                    }, 5 * 60 * 1000);
+                    
+                    // Listen for controlling changes
+                    if (registration.waiting) {
+                        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                    }
+                    
+                    registration.addEventListener('updatefound', function() {
+                        const newWorker = registration.installing;
+                        
+                        newWorker.addEventListener('statechange', function() {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                if (window.confirm('New version available! Reload to update?')) {
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                })
+                .catch(function(error) {
+                    console.error('[SW] Registration failed:', error);
+                });
+            });
+            
+            navigator.serviceWorker.addEventListener('message', function(event) {
+                if (event.data && event.data.type === 'SW_ACTIVATED') {
+                    console.log('[SW] New version activated:', event.data.version);
+                }
+            });
+        }
+    })();
+    </script>
+
+    <script src="scripts/navigation-handler.js" defer></script>
+</body>
+</html>
