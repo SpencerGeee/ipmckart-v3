@@ -58,8 +58,8 @@
       "stock": 10,
       "rating": 0,
       "images": [
-        "assets/images/products/combo-deals/combo-deals/realme-note-50-4gb-128gb-includes-wireless-neckband-1.webp",
-        "assets/images/products/combo-deals/combo-deals/realme-note-50-4gb-128gb-includes-wireless-neckband-2.webp"
+        "assets/images/products/mobile-phones/oppo-smartphones/realme-note-50-4gb-128gb-includes-wireless-neckband-1.jpg",
+        "assets/images/products/mobile-phones/oppo-smartphones/realme-note-50-4gb-128gb-includes-wireless-neckband-2.jpg"
       ],
       "description": "A smartphone with a large battery that fits within its budget, a smooth screen, and well-equipped hardware is perfect for daily multimedia use.",
       "fullDescription": "• Display: 6.7″ IPS LCD with 90 Hz refresh\r\n• Processor: Unisoc Tiger T612\r\n• Memory: 4 GB RAM\r\n• Storage: 128 GB internal, expandable up to 2tb.\r\n• Rear Camera: 13 MP\r\n• Front Camera: 5 MP.\r\n• Battery: 5000 mAh\r\n• OS: Android with Realme UI",
@@ -68,7 +68,7 @@
       "flashSalePrice": 0,
       "flashSaleStock": 0,
       "flashSaleSold": 0,
-      "flashSaleImage": "assets/images/products/combo-deals/combo-deals/realme-note-50-4gb-128gb-includes-wireless-neckband-1.webp",
+      "flashSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/realme-note-50-4gb-128gb-includes-wireless-neckband-1.jpg",
       "isBlackFriday": false,
       "blackFridayPrice": 0,
       "blackFridayStock": 0,
@@ -77,7 +77,7 @@
       "christmasSalePrice": 0,
       "christmasSaleStock": 0,
       "christmasSaleSold": 0,
-      "christmasSaleImage": "assets/images/products/combo-deals/combo-deals/realme-note-50-4gb-128gb-includes-wireless-neckband-1.webp",
+      "christmasSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/realme-note-50-4gb-128gb-includes-wireless-neckband-1.jpg",
       "isBackToSchool": false,
       "backToSchoolPrice": 0,
       "isTopSelling": false,
@@ -103,8 +103,8 @@
       "stock": 10,
       "rating": 0,
       "images": [
-        "assets/images/products/combo-deals/combo-deals/oppo-a5-pro-8gb-256gb-with-flybuds-1.webp",
-        "assets/images/products/combo-deals/combo-deals/oppo-a5-pro-8gb-256gb-with-flybuds-2.webp"
+        "assets/images/products/mobile-phones/oppo-smartphones/oppo-a5-pro-8gb-256gb-with-flybuds-1.png",
+        "assets/images/products/mobile-phones/oppo-smartphones/oppo-a5-pro-8gb-256gb-with-flybuds-2.png"
       ],
       "description": "A rugged-feeling mid-range smartphone that pairs a large smooth 6.67″ display with strong battery life and a versatile 50 MP camera setup built to handle daily tasks, long multimedia sessions, and casual photography with ease.",
       "fullDescription": "• Display: 6.67″ HD+ IPS LCD with 120 Hz refresh rate and up to 1000 nits brightness\r\n• Processor: Qualcomm Snapdragon 6s Gen 1 (11 nm) Octa-core\r\n• Memory: 8 GB RAM\r\n• Storage: 256 GB internal, expandable via microSD\r\n• Rear Camera: Dual 50 MP (main) + 2 MP (depth) with LED flash, HDR, and panorama\r\n• Front Camera: 8 MP\r\n• Battery: 5800 mAh with 45 W SuperVOOC/PD fast charging\r\n• OS: Android 15 with ColorOS 15 (or Android 14 with ColorOS 14 in some regions)\r\n• Connectivity: Dual SIM, Wi-Fi, Bluetooth, USB-C, NFC.\r\n• Build & Durability: IP68/IP69 dust and water resistance with military-grade shock protection\r\n• Sensors: Side-mounted fingerprint, accelerometer, proximity, compass.\r\n• Best for: Daily browsing, social media, video streaming, and long battery usage with solid photo capabilities.",
@@ -113,7 +113,7 @@
       "flashSalePrice": 0,
       "flashSaleStock": 0,
       "flashSaleSold": 0,
-      "flashSaleImage": "assets/images/products/combo-deals/combo-deals/oppo-a5-pro-8gb-256gb-with-flybuds-1.webp",
+      "flashSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-a5-pro-8gb-256gb-with-flybuds-1.png",
       "isBlackFriday": false,
       "blackFridayPrice": 0,
       "blackFridayStock": 0,
@@ -122,7 +122,7 @@
       "christmasSalePrice": 0,
       "christmasSaleStock": 0,
       "christmasSaleSold": 0,
-      "christmasSaleImage": "assets/images/products/combo-deals/combo-deals/oppo-a5-pro-8gb-256gb-with-flybuds-1.webp",
+      "christmasSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-a5-pro-8gb-256gb-with-flybuds-1.png",
       "isBackToSchool": false,
       "backToSchoolPrice": 0,
       "isTopSelling": false,
@@ -148,7 +148,8 @@
       "stock": 10,
       "rating": 0,
       "images": [
-        "assets/images/products/combo-deals/combo-deals/oppo-a3x-4gb-64gb-with-flybuds-1.webp"
+        "assets/images/products/mobile-phones/oppo-smartphones/oppo-a3x-4gb-64gb-with-flybuds-1.png",
+        "assets/images/products/mobile-phones/oppo-smartphones/oppo-a3x-4gb-64gb-with-flybuds-2.jpg"
       ],
       "description": "A budget-friendly Android smartphone with a large display and everyday performance, ideal for social apps, browsing, and basic photography.",
       "fullDescription": "• Display: 6.67″ IPS LCD, HD+ (720 × 1604) with 90 Hz refresh rate\r\n• Processor: Qualcomm Snapdragon 6s Gen 1 (Octa-core)\r\n• Memory: 4 GB RAM\r\n• Storage: 64 GB internal (microSD expandable)\r\n• Rear Camera: 50 MP main camera\r\n• Front Camera: 5 MP for selfies.Battery: 5100 mAh\r\n• OS: Android with ColorOS\r\n• Best for: Everyday use, social media, calls/messages, video streaming",
@@ -157,7 +158,7 @@
       "flashSalePrice": 0,
       "flashSaleStock": 0,
       "flashSaleSold": 0,
-      "flashSaleImage": "assets/images/products/combo-deals/combo-deals/oppo-a3x-4gb-64gb-with-flybuds-1.webp",
+      "flashSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-a3x-4gb-64gb-with-flybuds-1.png",
       "isBlackFriday": false,
       "blackFridayPrice": 0,
       "blackFridayStock": 0,
@@ -166,7 +167,7 @@
       "christmasSalePrice": 0,
       "christmasSaleStock": 0,
       "christmasSaleSold": 0,
-      "christmasSaleImage": "assets/images/products/combo-deals/combo-deals/oppo-a3x-4gb-64gb-with-flybuds-1.webp",
+      "christmasSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-a3x-4gb-64gb-with-flybuds-1.png",
       "isBackToSchool": false,
       "backToSchoolPrice": 0,
       "isTopSelling": false,
@@ -326,8 +327,8 @@
       "stock": 10,
       "rating": 0,
       "images": [
-        "assets/images/products/combo-deals/combo-deals/iphone-17-pro-256gb-accessories-1.webp",
-        "assets/images/products/combo-deals/combo-deals/iphone-17-pro-256gb-accessories-2.webp"
+        "assets/images/products/mobile-phones/other/iphone-17-pro-256gb-accessories-1.jpg",
+        "assets/images/products/mobile-phones/other/iphone-17-pro-256gb-accessories-2.jpg"
       ],
       "description": "A top‑tier flagship smartphone with a stunning 6.3″ ProMotion OLED display, ultra‑fast performance thanks to the A19 Pro chip, and a versatile triple‑camera system built for users who want premium speed, pro‑grade photography, smooth visuals, and long‑term software support.",
       "fullDescription": "• Display: 6.3″ Super Retina XDR OLED with 120 Hz ProMotion, HDR10, Dolby Vision, and up to 3000 nits peak brightness\r\n• Processor: Apple A19 Pro chip with 6‑core CPU, 6‑core GPU, and 16‑core Neural Engine\r\n• Memory: 12 GB RAM (varies by configuration).\r\n• Storage: 256 GB internal\r\n• Rear Camera: Triple 48 MP setup (main, ultra‑wide, periscope telephoto with up to 4× optical zoom + LiDAR)\r\n• Front Camera: 18 MP\r\n• Battery: Type Li-Ion 3998 mAh – Nano SIM model. Li-Ion 4252 mAh – eSIM only model\r\n• OS: iOS 26 with Apple Intelligence and long‑term update support.\r\n• Build/Other: IP68 water/dust resistance, Ceramic Shield 2 front and back, premium aluminum unibody, USB‑C with high‑speed data, 5G connectivity, Wi‑Fi 7, Bluetooth.\r\n• Best for: Users seeking flagship performance, professional‑level photography/video, smooth high‑refresh display, and long‑term software support.",
@@ -336,7 +337,7 @@
       "flashSalePrice": 0,
       "flashSaleStock": 0,
       "flashSaleSold": 0,
-      "flashSaleImage": "assets/images/products/combo-deals/combo-deals/iphone-17-pro-256gb-accessories-1.webp",
+      "flashSaleImage": "assets/images/products/mobile-phones/other/iphone-17-pro-256gb-accessories-1.jpg",
       "isBlackFriday": false,
       "blackFridayPrice": 0,
       "blackFridayStock": 0,
@@ -345,7 +346,7 @@
       "christmasSalePrice": 0,
       "christmasSaleStock": 0,
       "christmasSaleSold": 0,
-      "christmasSaleImage": "assets/images/products/combo-deals/combo-deals/iphone-17-pro-256gb-accessories-1.webp",
+      "christmasSaleImage": "assets/images/products/mobile-phones/other/iphone-17-pro-256gb-accessories-1.jpg",
       "isBackToSchool": false,
       "backToSchoolPrice": 0,
       "isTopSelling": false,
