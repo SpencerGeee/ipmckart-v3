@@ -57,8 +57,8 @@
       "stock": 10,
       "rating": 0,
       "images": [
-        "assets/images/products/mobile-phones/oppo-smartphones/oppo-smartphones-001-realme-note-50-3gb-64gb-midnight-black-1.jpg",
-        "assets/images/products/mobile-phones/oppo-smartphones/oppo-smartphones-001-realme-note-50-3gb-64gb-midnight-black-2.jpg"
+        "assets/images/products/mobile-phones/oppo-smartphones/oppo-smartphones-001-realme-note-50-3gb-64gb-midnight-black-fixed-1772210135878-1.jpg",
+        "assets/images/products/mobile-phones/oppo-smartphones/oppo-smartphones-001-realme-note-50-3gb-64gb-midnight-black-fixed-1772210135985-2.jpg"
       ],
       "description": "A smartphone with a large battery that fits within its budget, a smooth screen, and well-equipped hardware is perfect for daily multimedia use.",
       "fullDescription": "• Display: 6.7″ IPS LCD with 90 Hz refresh\r\n• Processor: Unisoc Tiger T612\r\n• Memory: 4 GB RAM\r\n• Storage: 128 GB internal, expandable up to 2tb.\r\n• Rear Camera: 13 MP\r\n• Front Camera: 5 MP.\r\n• Battery: 5000 mAh\r\n• OS: Android with Realme UI",
@@ -67,7 +67,7 @@
       "flashSalePrice": 0,
       "flashSaleStock": 0,
       "flashSaleSold": 0,
-      "flashSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-smartphones-001-realme-note-50-3gb-64gb-midnight-black-1.jpg",
+      "flashSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-smartphones-001-realme-note-50-3gb-64gb-midnight-black-fixed-1772210135878-1.jpg",
       "isBlackFriday": false,
       "blackFridayPrice": 0,
       "blackFridayStock": 0,
@@ -76,7 +76,7 @@
       "christmasSalePrice": 0,
       "christmasSaleStock": 0,
       "christmasSaleSold": 0,
-      "christmasSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-smartphones-001-realme-note-50-3gb-64gb-midnight-black-1.jpg",
+      "christmasSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-smartphones-001-realme-note-50-3gb-64gb-midnight-black-fixed-1772210135878-1.jpg",
       "isBackToSchool": false,
       "backToSchoolPrice": 0,
       "isTopSelling": true,
@@ -233,8 +233,8 @@
       "stock": 10,
       "rating": 0,
       "images": [
-        "assets/images/products/mobile-phones/oppo-smartphones/oppo-a6x-1.png",
-        "assets/images/products/mobile-phones/oppo-smartphones/oppo-a6x-2.png"
+        "assets/images/products/mobile-phones/oppo-smartphones/oppo-a6x-fixed-1772210137561-1.jpg",
+        "assets/images/products/mobile-phones/oppo-smartphones/oppo-a6x-fixed-1772210137675-2.jpg"
       ],
       "description": "A value-oriented smartphone with a large, smooth 120 Hz display, massive battery capacity, and reliable daily performance, great for social media, video streaming, browsing, and everyday use without frequent charging.",
       "fullDescription": "• Display: 6.75″ HD+ IPS LCD, 1570 × 720 resolution, up to 120 Hz refresh rate\r\n• Processor: Qualcomm Snapdragon 685 (Octa-core)\r\n• Memory: 4 GB RAM (LPDDR4X)\r\n• Storage: 64 GB internal (UFS 2.2), expandable via microSD\r\n• Rear Camera: 13 MP wide with LED flash\r\n• Front Camera: 5 MP\r\n• Battery: ~6500 mAh (non-removable)\r\n• OS: Android 15 with ColorOS 15\r\n• Connectivity: Dual SIM, 4G LTE, Wi-Fi, Bluetooth 5.0, USB-C, 3.5 mm audio jack\r\n• Sensors: Side-mounted fingerprint, accelerometer, proximity, compass\r\n• Best for: Everyday apps, social media, video streaming, web browsing, and long-lasting use.",
@@ -243,7 +243,7 @@
       "flashSalePrice": 0,
       "flashSaleStock": 0,
       "flashSaleSold": 0,
-      "flashSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-a6x-1.png",
+      "flashSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-a6x-fixed-1772210137561-1.jpg",
       "isBlackFriday": false,
       "blackFridayPrice": 0,
       "blackFridayStock": 0,
@@ -252,7 +252,7 @@
       "christmasSalePrice": 0,
       "christmasSaleStock": 0,
       "christmasSaleSold": 0,
-      "christmasSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-a6x-1.png",
+      "christmasSaleImage": "assets/images/products/mobile-phones/oppo-smartphones/oppo-a6x-fixed-1772210137561-1.jpg",
       "isBackToSchool": false,
       "backToSchoolPrice": 0,
       "isTopSelling": true,
