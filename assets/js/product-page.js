@@ -118,10 +118,9 @@
                 const tmp = document.createElement('div');
                 tmp.innerHTML = data.content;
                 let plain = tmp.textContent || tmp.innerText || "";
-                plain = plain.substring(0, 150) + (plain.length > 150 ? '...' : '');
                 html += `<p class="short-desc-text">${plain}</p>`;
             } else {
-                const itemsToShow = data.features.slice(0, 3);
+                const itemsToShow = data.features;
                 
                 if (itemsToShow.length > 0) {
                     html += '<div class="short-features">';
@@ -138,13 +137,13 @@
                     });
                     html += '</div>';
                 } else if (data.bulletPoints && data.bulletPoints.length > 0) {
-                    let p = data.bulletPoints[0];
-                    if (p.length > 180) p = p.substring(0, 180) + '...';
-                    html += `<p class="short-desc-text"><i class="fas fa-check-circle" style="color: #e53935; margin-right: 5px;"></i> ${p}</p>`;
+                    data.bulletPoints.forEach(p => {
+                        html += `<p class="short-desc-text"><i class="fas fa-check-circle" style="color: #e53935; margin-right: 5px;"></i> ${p}</p>`;
+                    });
                 } else if (data.paragraphs.length > 0) {
-                    let p = data.paragraphs[0];
-                    if (p.length > 180) p = p.substring(0, 180) + '...';
-                    html += `<p class="short-desc-text">${p}</p>`;
+                    data.paragraphs.forEach(p => {
+                        html += `<p class="short-desc-text">${p}</p>`;
+                    });
                 }
             }
             
@@ -349,7 +348,7 @@
             if (tabsContainer) {
                 tabsContainer.innerHTML = `
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item"><a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab">Key Specifications</a></li>
+                        <li class="nav-item"><a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab">Key specifications</a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel">

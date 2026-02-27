@@ -8,7 +8,7 @@ async function updateDescriptions() {
     await require('./db')();
 
     console.log('Reading Excel file...');
-    const workbook = xlsx.readFile('/var/www/ipmckart/Product Discription.xlsx');
+    const workbook = xlsx.readFile('/var/www/ipmckart/assets/js/updatepro.xlsx');
     const sheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[sheetName];
     const data = xlsx.utils.sheet_to_json(worksheet, { defval: '' });
