@@ -33,6 +33,11 @@
         const cleanText = (text) => {
             if (!text) return '';
             let content = decodeHtml(text);
+            content = content.replace(/<br\s*\/?>/gi, '\\n');
+            content = content.replace(/<\/li>/gi, '\\n');
+            content = content.replace(/<\/p>/gi, '\\n\\n');
+            content = content.replace(/<[^>]*>?/gm, '');
+            content = content.replace(/&nbsp;/gi, ' ');
             content = content.replace(/[\uFFFD\u007F-\u009F\u00AD]/g, '');
             content = content.replace(/\u00D7/g, 'x');
             content = content.replace(/\u2013/g, '-');
@@ -43,12 +48,14 @@
         };
 
         const parseContent = (text) => {
+            if (!text) return { type: 'empty' };
+            let decoded = decodeHtml(text);
+            if (decoded.includes('<table') || decoded.includes('<section')) {
+                return { type: 'html', content: decoded };
+            }
+
             const content = cleanText(text);
             if (!content) return { type: 'empty' };
-
-            if (content.includes('<div') || content.includes('<table') || content.includes('<section')) {
-                return { type: 'html', content: content };
-            }
 
             let lines = content.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
             
@@ -62,18 +69,21 @@
 
             const features = [];
             const paragraphs = [];
+            const bulletPoints = [];
 
             lines.forEach(line => {
-                const cleanLine = line.replace(/^[\*\u2022\-]\s+/, '');
-                if (cleanLine.includes(':') && cleanLine.length < 100 && !cleanLine.endsWith(':')) {
+                let cleanLine = line.replace(/^[\*\u2022\-]\s+/, '').trim();
+                if (cleanLine.includes(':') && cleanLine.length < 150 && !cleanLine.endsWith(':')) {
                     const [key, ...val] = cleanLine.split(':');
                     features.push({ key: key.trim(), value: val.join(':').trim() });
+                } else if (cleanLine.length < 150 && !cleanLine.endsWith('.')) {
+                    bulletPoints.push(cleanLine);
                 } else {
                     paragraphs.push(cleanLine);
                 }
             });
 
-            return { type: 'mixed', features, paragraphs, raw: content };
+            return { type: 'mixed', features, paragraphs, bulletPoints, raw: content };
         };
 
         const getFeatureIcon = (label, index) => {
@@ -127,6 +137,10 @@
                             </div>`;
                     });
                     html += '</div>';
+                } else if (data.bulletPoints && data.bulletPoints.length > 0) {
+                    let p = data.bulletPoints[0];
+                    if (p.length > 180) p = p.substring(0, 180) + '...';
+                    html += `<p class="short-desc-text"><i class="fas fa-check-circle" style="color: #e53935; margin-right: 5px;"></i> ${p}</p>`;
                 } else if (data.paragraphs.length > 0) {
                     let p = data.paragraphs[0];
                     if (p.length > 180) p = p.substring(0, 180) + '...';
@@ -141,47 +155,30 @@
         const renderLong = (text) => {
             const data = parseContent(text);
             if (data.type === 'empty') return '<div class="no-description">No description available for this product.</div>';
-            if (data.type === 'html') return `<div class="luxury-long-desc">${data.content}</div>`;
             
-            let html = '<div class="luxury-long-desc">';
-            
-            if (data.paragraphs.length > 0) {
-                html += '<div class="desc-section"><div class="desc-content">';
-                html += `<p>${data.paragraphs[0]}</p>`;
-                html += '</div></div>';
-            }
-            
-            if (data.features.length > 0) {
-                html += '<div class="desc-section">';
-                html += '<h3 class="desc-section-title"><i class="fas fa-bolt"></i> Key Specifications</h3>';
-                html += '<div class="features-grid">';
+            // For non-HTML content, simplify into bullets only
+            if (data.type !== 'html') {
+                const allPoints = [];
+                data.features.forEach(item => {
+                    allPoints.push(`<strong>${item.key}:</strong> ${item.value}`);
+                });
+                data.bulletPoints.forEach(point => {
+                    allPoints.push(point);
+                });
                 
-                data.features.forEach((item, index) => {
-                    const icon = getFeatureIcon(item.key, index);
-                    html += `
-                        <div class="feature-card">
-                            <div class="feature-card-icon"><i class="${icon}"></i></div>
-                            <div class="feature-card-content">
-                                <h4>${item.key}</h4>
-                                <p>${item.value}</p>
-                            </div>
-                        </div>`;
-                });
-                html += '</div></div>';
+                if (allPoints.length > 0) {
+                    let html = '<div class="luxury-long-desc">';
+                    html += '<ul class="product-features-list">';
+                    allPoints.forEach(point => {
+                        html += `<li><div class="feature-content"><span class="feature-value">${point}</span></div></li>`;
+                    });
+                    html += '</ul></div>';
+                    return html;
+                }
             }
             
-            if (data.paragraphs.length > 1) {
-                html += '<div class="desc-section">';
-                html += '<h3 class="desc-section-title"><i class="fas fa-info-circle"></i> More Details</h3>';
-                html += '<div class="desc-content">';
-                data.paragraphs.slice(1).forEach(p => {
-                    html += `<p>${p}</p>`;
-                });
-                html += '</div></div>';
-            }
-            
-            html += '</div>';
-            return html;
+            // Fallback for HTML or if no points found
+            return `<div class="luxury-long-desc">${data.content || data.raw || text}</div>`;
         };
 
         return { renderShort, renderLong };
@@ -352,7 +349,7 @@
             if (tabsContainer) {
                 tabsContainer.innerHTML = `
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item"><a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab">Description</a></li>
+                        <li class="nav-item"><a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab">Key Specifications</a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel">

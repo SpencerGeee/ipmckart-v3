@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-01-20T12:24:50.784Z",
-  "totalProducts": 423,
-  "activeProducts": 423,
+  "generatedAt": "2026-02-25T11:06:47.640Z",
+  "totalProducts": 470,
+  "activeProducts": 470,
   "priceRange": {
     "min": 0,
     "max": 170347,
-    "avg": 5972.6285106382975
+    "avg": 5607.986936170212
   },
   "promoProducts": {
     "flashSale": 6,
