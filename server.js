@@ -22,6 +22,7 @@ const expressStaticGzip = require('express-static-gzip');
 const connectDB = require('./db');
 const cacheService = require('./services/cacheService');
 const initQuotaResetJob = require('./scripts/resetQuotas');
+const initDataFiles = require('./scripts/init-data-files');
 
 const authRouter = require('./routes/auth');
 const productsRouter = require('./routes/products');
@@ -41,14 +42,13 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://maps.googleapis.com", "https://maps.gstatic.com", "https://cdnjs.cloudflare.com", "https://unpkg.com", "https://cdn.jsdelivr.net", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://ssl.google-analytics.com", "https://analytics.google.com", "https://www.google.com", "https://elfsightcdn.com", "https://*.elfsight.com", "https://stats.g.doubleclick.net", "https://region1.google-analytics.com"],
-      connectSrc: ["'self'", "https://maps.googleapis.com", "https://maps.gstatic.com", "https://www.google-analytics.com", "https://analytics.google.com", "https://region1.google-analytics.com", "https://www.google.com/measurement/conversion", "https://www.googletagmanager.com", "https://core.service.elfsight.com", "https://*.elfsight.com", "https://analytics.google.com/g/collect", "https://stats.g.doubleclick.net", "https://www.google.com", "https://*.google-analytics.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://googleads.g.doubleclick.net", "https://maps.googleapis.com", "https://maps.gstatic.com", "https://cdnjs.cloudflare.com", "https://unpkg.com", "https://cdn.jsdelivr.net", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://ssl.google-analytics.com", "https://analytics.google.com", "https://www.google.com", "https://elfsightcdn.com", "https://*.elfsight.com", "https://stats.g.doubleclick.net", "https://region1.google-analytics.com"],
+      connectSrc: ["'self'", "https://googleads.g.doubleclick.net", "https://www.google.com.gh", "https://maps.googleapis.com", "https://maps.gstatic.com", "https://www.google-analytics.com", "https://analytics.google.com", "https://region1.google-analytics.com", "https://www.google.com/measurement/conversion", "https://www.googletagmanager.com", "https://core.service.elfsight.com", "https://*.elfsight.com", "https://analytics.google.com/g/collect", "https://stats.g.doubleclick.net", "https://www.google.com", "https://*.google-analytics.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com", "https://fonts.gstatic.com"],
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com", "https://unpkg.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "data:"],
-      imgSrc: ["'self'", "data:", "https:", "http:", "blob:", "https://www.google-analytics.com", "https://www.googletagmanager.com"],
+      imgSrc: ["'self'", "data:", "https:", "http:", "blob:", "https://fonts.gstatic.com", "https://fonts.googleapis.com", "https://www.google-analytics.com", "https://www.googletagmanager.com"],
       frameSrc: ["'self'", "https://www.googletagmanager.com", "https://elfsightcdn.com"],
       objectSrc: ["'none'"],
-      upgradeInsecureRequests: [],
     },
   },
 }));
@@ -118,11 +118,17 @@ let server;
 
 async function startServer() {
   try {
-    await connectDB();
-    logger.info('Database connection successful.');
+    await connectDB().catch(err => {
+      logger.error('Database connection failed, server will run with limited functionality:', err.message);
+    });
 
     await cacheService.connect();
-    
+
+    // Initialize JSON data files after DB is connected
+    initDataFiles().catch(err => {
+      logger.error('Failed to initialize data files:', err.message);
+    });
+
     initQuotaResetJob();
 
     server = app.listen(PORT, () => {

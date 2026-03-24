@@ -897,27 +897,6 @@ router.get('/', CacheMiddleware.cacheProducts(), async (req, res) => {
   });
 });
 
-// GET /api/products/:slug
-router.get('/:slug', async (req, res) => {
-  const filter = { slug: req.params.slug };
-  if (req.query.admin !== 'true') {
-    filter.active = true;
-  }
-
-  const p = await Product.findOne(filter).lean().select('-__v');
-  if (!p) return res.status(404).json({ message: 'Not found' });
-  res.json(p);
-});
-
-// POST /api/products/by-ids - Fetch products by IDs
-router.post('/by-ids', CacheMiddleware.invalidateProducts(), async (req, res) => {
-  const { ids } = req.body;
-  if (!Array.isArray(ids)) return res.status(400).json({ message: 'Invalid request: ids must be an array' });
-
-  const products = await Product.find({ _id: { $in: ids }, active: true }).lean().select('-__v');
-  res.json(products);
-});
-
 // GET /api/products/flash-sales
 router.get('/flash-sales', CacheMiddleware.cacheFlashSales(), async (req, res) => {
     try {
@@ -928,10 +907,22 @@ router.get('/flash-sales', CacheMiddleware.cacheFlashSales(), async (req, res) =
         }
 
         res.json(flashSaleProducts);
-    } catch (error) {
-        logger.error('Server Error fetching flash sale products:', error);
-        res.status(500).send('Server Error');
+    } catch (err) {
+        logger.error('Error fetching flash sales:', err);
+        res.status(500).json({ message: 'Server error' });
     }
+});
+
+// GET /api/products/:slug
+router.get('/:slug', async (req, res) => {
+  const filter = { slug: req.params.slug };
+  if (req.query.admin !== 'true') {
+    filter.active = true;
+  }
+
+  const p = await Product.findOne(filter).lean().select('-__v');
+  if (!p) return res.status(404).json({ message: 'Not found' });
+  res.json(p);
 });
 
 // --- ADDED: Multer storage (memory) and upload endpoint for product images ---

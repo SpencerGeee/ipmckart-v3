@@ -68,6 +68,12 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Handle JSON data files
+  if (pathname.endsWith('.json')) {
+    event.respondWith(cacheFirst(request, CACHES.API));
+    return;
+  }
+
   if (pathname.startsWith('/api/')) {
     event.respondWith(networkFirst(request, CACHES.API));
     return;
@@ -95,14 +101,21 @@ async function networkFirstWithTimeout(request, cacheName, timeoutMs) {
 
 async function staleWhileRevalidate(request, cacheName) {
   const cachedResponse = await caches.match(request);
-  const networkPromise = fetch(request).then(async (response) => {
-    if (response && response.ok) {
-      const cache = await caches.open(cacheName);
-      cache.put(request, response.clone());
+  
+  const fetchAndCache = async () => {
+    try {
+      const response = await fetch(request);
+      if (response && response.ok) {
+        const cache = await caches.open(cacheName);
+        cache.put(request, response.clone());
+      }
       return response;
+    } catch (error) {
+      return null;
     }
-    return response;
-  }).catch(() => null);
+  };
+  
+  const networkPromise = fetchAndCache();
   return cachedResponse || networkPromise;
 }
 
@@ -131,12 +144,20 @@ async function networkFirst(request, cacheName) {
     }
     throw new Error('Network error');
   } catch (err) {
-    const cached = await caches.match(request);
-    return cached || new Response(JSON.stringify({ error: 'Offline' }), { status: 503 });
+    try {
+      const cached = await caches.match(request);
+      if (cached) return cached;
+    } catch (cacheErr) {
+      // Ignore cache errors
+    }
+    return new Response(JSON.stringify({ error: 'Offline' }), { 
+      status: 503,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 }
 
 function isCacheableCDN(url) {
-  const whitelist = ['cdnjs.cloudflare.com', 'unpkg.com', 'cdn.jsdelivr.net', 'fonts.googleapis.com', 'fonts.gstatic.com'];
+  const whitelist = ['googleads.g.doubleclick.net', 'www.googleadservices.com', 'www.google.com', 'www.google.com.gh', 'cdnjs.cloudflare.com', 'unpkg.com', 'cdn.jsdelivr.net', 'fonts.googleapis.com', 'fonts.gstatic.com'];
   return whitelist.some(domain => url.hostname.includes(domain));
 }

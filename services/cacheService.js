@@ -29,7 +29,7 @@ class CacheService {
   async connect() {
     try {
       const redisUrl = process.env.REDIS_URL || 'redis://127.0.0.1:6379';
-      
+
       this.redis = new Redis(redisUrl, {
         retryStrategy: (times) => {
           const delay = Math.min(times * 50, 2000);
@@ -37,7 +37,8 @@ class CacheService {
         },
         maxRetriesPerRequest: 3,
         enableReadyCheck: true,
-        enableOfflineQueue: true
+        enableOfflineQueue: true,
+        connectTimeout: 5000
       });
 
       this.redis.on('connect', () => {
@@ -47,7 +48,7 @@ class CacheService {
 
       this.redis.on('error', (err) => {
         this.isConnected = false;
-        logger.error('Redis connection error:', err.message);
+        logger.warn('Redis connection error (running without cache):', err.message);
       });
 
       this.redis.on('close', () => {
@@ -57,9 +58,10 @@ class CacheService {
 
       await this.redis.ping();
       this.isConnected = true;
+      logger.info('Redis cache is available.');
       return true;
     } catch (err) {
-      logger.error('Redis cache connection failed (running without cache):', err.message);
+      logger.warn('Redis cache connection failed (running without cache):', err.message);
       this.isConnected = false;
       return false;
     }
