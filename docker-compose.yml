@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ipmc-kart-app
+    restart: unless-stopped
+    ports:
+      - "4040:4040"
+    environment:
+      - NODE_ENV=production
+      - PORT=4040
+      - MONGO_URI=mongodb://mongodb:27017/ipmckart
+      - REDIS_URL=redis://redis:6379
+      - FRONTEND_URL=${FRONTEND_URL}
+      - JWT_SECRET=${JWT_SECRET}
+      - SESSION_SECRET=${SESSION_SECRET}
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+    volumes:
+      - ./logs:/app/logs
+
+  mongodb:
+    image: mongo:6.0
+    container_name: ipmc-kart-db
+    restart: unless-stopped
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7.0-alpine
+    container_name: ipmc-kart-redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+  redis_data:

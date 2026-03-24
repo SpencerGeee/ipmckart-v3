@@ -85,6 +85,10 @@ app.use('/api/cart', cartRouter);
 app.use('/api/admin', adminRouter);
 app.use(userRoutes);
 
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'UP', timestamp: new Date().toISOString() });
+});
+
 app.use(express.static(path.join(__dirname)));
 
 app.use((req, res) => {

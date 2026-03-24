@@ -1,0 +1,39 @@
+name: Enterprise CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    - run: npm install
+    - run: npm run build:all
+
+  deploy:
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Deploy to Hostinger VPS
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.HOSTINGER_VPS_IP }}
+        username: root
+        key: ${{ secrets.HOSTINGER_SSH_KEY }}
+        script: |
+          cd /var/www/ipmckart
+          git pull origin main
+          docker-compose down
+          docker-compose up -d --build
+          docker image prune -f
