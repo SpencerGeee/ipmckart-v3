@@ -1,18 +1,19 @@
-const SW_VERSION = 'ipmc-kart-v10.0-' + new Date().toISOString().slice(0, 16).replace(/[-T:]/g, '');
+const SW_VERSION = 'ipmc-kart-v10.1-' + new Date().toISOString().slice(0, 16).replace(/[-T:]/g, '');
 const CACHE_PREFIX = 'ipmc-kart';
-const TIMEOUT_MS = 1000;
+const TIMEOUT_MS = 2000;
 
 const CACHES = {
-  PRECACHE: `${CACHE_PREFIX}-precache-v10`,
-  STATIC: `${CACHE_PREFIX}-static-v10`,
-  IMAGES: `${CACHE_PREFIX}-images-v10`,
-  API: `${CACHE_PREFIX}-api-v10`
+  PRECACHE: `${CACHE_PREFIX}-precache-v10.1`,
+  STATIC: `${CACHE_PREFIX}-static-v10.1`,
+  IMAGES: `${CACHE_PREFIX}-images-v10.1`,
+  API: `${CACHE_PREFIX}-api-v10.1`
 };
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/offline.html',
+  '/contact.html',
   '/assets/css/performance.c706b3e6.css',
   '/assets/vendor/fontawesome-free/css/all.min.css',
   '/assets/js/common.bundle.min.fc8e2cc1.js',
