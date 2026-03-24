@@ -98,6 +98,7 @@ async function staleWhileRevalidate(request, cacheName) {
     if (response && response.ok) {
       const cache = await caches.open(cacheName);
       cache.put(request, response.clone());
+      return response;
     }
     return response;
   }).catch(() => null);
@@ -107,12 +108,16 @@ async function staleWhileRevalidate(request, cacheName) {
 async function cacheFirst(request, cacheName) {
   const cachedResponse = await caches.match(request);
   if (cachedResponse) return cachedResponse;
-  const response = await fetch(request);
-  if (response && response.ok) {
-    const cache = await caches.open(cacheName);
-    cache.put(request, response.clone());
+  try {
+    const response = await fetch(request);
+    if (response && response.ok) {
+      const cache = await caches.open(cacheName);
+      cache.put(request, response.clone());
+    }
+    return response;
+  } catch (err) {
+    return new Response(null, { status: 404 });
   }
-  return response;
 }
 
 async function networkFirst(request, cacheName) {
