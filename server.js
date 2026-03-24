@@ -124,10 +124,15 @@ async function startServer() {
 
     await cacheService.connect();
 
-    // Initialize JSON data files after DB is connected
-    initDataFiles().catch(err => {
-      logger.error('Failed to initialize data files:', err.message);
-    });
+    logger.info('Starting JSON data files initialization...');
+    
+    // Initialize JSON data files BEFORE server starts
+    try {
+      await initDataFiles();
+      logger.info('JSON data files initialization complete.');
+    } catch (err) {
+      logger.error('Failed to initialize data files (server will continue):', err.message);
+    }
 
     initQuotaResetJob();
 

@@ -309,3 +309,5 @@ async function regenerateTopSelling() {
 }
 
 module.exports = regenerateAllJsonFiles;
+module.exports.default = regenerateAllJsonFiles;
+module.exports.initDataFiles = regenerateAllJsonFiles;
