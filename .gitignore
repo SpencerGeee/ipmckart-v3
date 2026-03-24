@@ -50,3 +50,5 @@ Thumbs.db
 .cache/
 tmp/
 
+.qwen/
+nginx/ssl/
