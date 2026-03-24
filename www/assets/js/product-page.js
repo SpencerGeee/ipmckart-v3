@@ -33,6 +33,11 @@
         const cleanText = (text) => {
             if (!text) return '';
             let content = decodeHtml(text);
+            content = content.replace(/<br\s*\/?>/gi, '\\n');
+            content = content.replace(/<\/li>/gi, '\\n');
+            content = content.replace(/<\/p>/gi, '\\n\\n');
+            content = content.replace(/<[^>]*>?/gm, '');
+            content = content.replace(/&nbsp;/gi, ' ');
             content = content.replace(/[\uFFFD\u007F-\u009F\u00AD]/g, '');
             content = content.replace(/\u00D7/g, 'x');
             content = content.replace(/\u2013/g, '-');
@@ -43,12 +48,14 @@
         };
 
         const parseContent = (text) => {
+            if (!text) return { type: 'empty' };
+            let decoded = decodeHtml(text);
+            if (decoded.includes('<table') || decoded.includes('<section')) {
+                return { type: 'html', content: decoded };
+            }
+
             const content = cleanText(text);
             if (!content) return { type: 'empty' };
-
-            if (content.includes('<div') || content.includes('<table') || content.includes('<section')) {
-                return { type: 'html', content: content };
-            }
 
             let lines = content.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
             
@@ -62,18 +69,21 @@
 
             const features = [];
             const paragraphs = [];
+            const bulletPoints = [];
 
             lines.forEach(line => {
-                const cleanLine = line.replace(/^[\*\u2022\-]\s+/, '');
-                if (cleanLine.includes(':') && cleanLine.length < 100 && !cleanLine.endsWith(':')) {
+                let cleanLine = line.replace(/^[\*\u2022\-]\s+/, '').trim();
+                if (cleanLine.includes(':') && cleanLine.length < 150 && !cleanLine.endsWith(':')) {
                     const [key, ...val] = cleanLine.split(':');
                     features.push({ key: key.trim(), value: val.join(':').trim() });
+                } else if (cleanLine.length < 150 && !cleanLine.endsWith('.')) {
+                    bulletPoints.push(cleanLine);
                 } else {
                     paragraphs.push(cleanLine);
                 }
             });
 
-            return { type: 'mixed', features, paragraphs, raw: content };
+            return { type: 'mixed', features, paragraphs, bulletPoints, raw: content };
         };
 
         const getFeatureIcon = (label, index) => {
@@ -108,10 +118,9 @@
                 const tmp = document.createElement('div');
                 tmp.innerHTML = data.content;
                 let plain = tmp.textContent || tmp.innerText || "";
-                plain = plain.substring(0, 150) + (plain.length > 150 ? '...' : '');
                 html += `<p class="short-desc-text">${plain}</p>`;
             } else {
-                const itemsToShow = data.features.slice(0, 3);
+                const itemsToShow = data.features;
                 
                 if (itemsToShow.length > 0) {
                     html += '<div class="short-features">';
@@ -127,10 +136,14 @@
                             </div>`;
                     });
                     html += '</div>';
+                } else if (data.bulletPoints && data.bulletPoints.length > 0) {
+                    data.bulletPoints.forEach(p => {
+                        html += `<p class="short-desc-text"><i class="fas fa-check-circle" style="color: #e53935; margin-right: 5px;"></i> ${p}</p>`;
+                    });
                 } else if (data.paragraphs.length > 0) {
-                    let p = data.paragraphs[0];
-                    if (p.length > 180) p = p.substring(0, 180) + '...';
-                    html += `<p class="short-desc-text">${p}</p>`;
+                    data.paragraphs.forEach(p => {
+                        html += `<p class="short-desc-text">${p}</p>`;
+                    });
                 }
             }
             
@@ -141,47 +154,30 @@
         const renderLong = (text) => {
             const data = parseContent(text);
             if (data.type === 'empty') return '<div class="no-description">No description available for this product.</div>';
-            if (data.type === 'html') return `<div class="luxury-long-desc">${data.content}</div>`;
             
-            let html = '<div class="luxury-long-desc">';
-            
-            if (data.paragraphs.length > 0) {
-                html += '<div class="desc-section"><div class="desc-content">';
-                html += `<p>${data.paragraphs[0]}</p>`;
-                html += '</div></div>';
-            }
-            
-            if (data.features.length > 0) {
-                html += '<div class="desc-section">';
-                html += '<h3 class="desc-section-title"><i class="fas fa-bolt"></i> Key Specifications</h3>';
-                html += '<div class="features-grid">';
+            // For non-HTML content, simplify into bullets only
+            if (data.type !== 'html') {
+                const allPoints = [];
+                data.features.forEach(item => {
+                    allPoints.push(`<strong>${item.key}:</strong> ${item.value}`);
+                });
+                data.bulletPoints.forEach(point => {
+                    allPoints.push(point);
+                });
                 
-                data.features.forEach((item, index) => {
-                    const icon = getFeatureIcon(item.key, index);
-                    html += `
-                        <div class="feature-card">
-                            <div class="feature-card-icon"><i class="${icon}"></i></div>
-                            <div class="feature-card-content">
-                                <h4>${item.key}</h4>
-                                <p>${item.value}</p>
-                            </div>
-                        </div>`;
-                });
-                html += '</div></div>';
+                if (allPoints.length > 0) {
+                    let html = '<div class="luxury-long-desc">';
+                    html += '<ul class="product-features-list">';
+                    allPoints.forEach(point => {
+                        html += `<li><div class="feature-content"><span class="feature-value">${point}</span></div></li>`;
+                    });
+                    html += '</ul></div>';
+                    return html;
+                }
             }
             
-            if (data.paragraphs.length > 1) {
-                html += '<div class="desc-section">';
-                html += '<h3 class="desc-section-title"><i class="fas fa-info-circle"></i> More Details</h3>';
-                html += '<div class="desc-content">';
-                data.paragraphs.slice(1).forEach(p => {
-                    html += `<p>${p}</p>`;
-                });
-                html += '</div></div>';
-            }
-            
-            html += '</div>';
-            return html;
+            // Fallback for HTML or if no points found
+            return `<div class="luxury-long-desc">${data.content || data.raw || text}</div>`;
         };
 
         return { renderShort, renderLong };
@@ -352,7 +348,7 @@
             if (tabsContainer) {
                 tabsContainer.innerHTML = `
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item"><a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab">Description</a></li>
+                        <li class="nav-item"><a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab">Key specifications</a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel">
@@ -400,7 +396,9 @@
     };
 
     const init = async () => {
-        const productId = getQueryParam("id");
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id') || urlParams.get('product') || urlParams.get('slug');
+
         if (!productId) {
             console.error("Product Page: No product ID found in URL");
             return;
@@ -409,28 +407,57 @@
         console.log("Product Page: Initializing for ID:", productId);
 
         try {
+            // Priority 1: Check if window.CartManager is the full version
+            if (window.CartManager && typeof window.CartManager.getAllProducts === 'function') {
+                window.IPMCCartManager = window.CartManager;
+            }
+            
             const manager = window.IPMCCartManager || window.CartManager;
+            
             if (manager) {
-                console.log("Product Page: Waiting for CartManager...");
+                console.log("Product Page: Checking CartManager capabilities...");
+                
+                if (typeof manager.getAllProducts !== 'function') {
+                    console.error("Product Page: manager.getAllProducts is not a function! Namespace conflict with a bundle detected.");
+                    return;
+                }
+
                 if (typeof manager.init === 'function') {
                     await manager.init();
                 }
                 
-                if (typeof manager.getAllProducts !== 'function') {
-                    console.error("Product Page: manager.getAllProducts is not a function! Check for namespace conflicts.");
-                    return;
+                let allProducts = manager.getAllProducts();
+
+                // Validation: If no products loaded, force one last load attempt
+                if (!allProducts || allProducts.length === 0) {
+                    console.log("Product Page: No products in manager, forcing load...");
+                    if (typeof manager.loadProducts === 'function') {
+                        allProducts = await manager.loadProducts();
+                    }
                 }
 
-                const allProducts = manager.getAllProducts();
-                console.log(`Product Page: CartManager ready. Total products: ${allProducts.length}`);
+                console.log(`Product Page: CartManager ready. Total products: ${allProducts ? allProducts.length : 0}`);
+
+                if (!allProducts) {
+                    console.error("Product Page: allProducts is null after init");
+                    return;
+                }
 
                 const product = allProducts.find(p => {
                     const idStr = String(p.id || "").toLowerCase().trim();
                     const slugStr = String(p.slug || "").toLowerCase().trim();
                     const mongoIdStr = String(p._id || "").toLowerCase().trim();
                     const searchId = productId.toLowerCase().trim();
-                    return idStr === searchId || slugStr === searchId || mongoIdStr === searchId;
+                    
+                    // Exact matches
+                    if (idStr === searchId || slugStr === searchId || mongoIdStr === searchId) return true;
+                    
+                    // Partial slug matches (e.g. if URL has ups-3s-20kva and real slug is ups-028-ups-3s-20kva-400v-3-3)
+                    if (searchId.length > 5 && slugStr.includes(searchId)) return true;
+                    
+                    return false;
                 });
+
                 
                 if (product) {
                     console.log("Product Page: Found product:", product.name);

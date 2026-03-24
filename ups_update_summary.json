@@ -1,0 +1,82 @@
+{
+  "updated": [
+    {
+      "name": "APC Back-UPS 700VA",
+      "id": "ups-007-apc-back-ups-700va",
+      "old_description": "The APC Back-UPS 700VA is a dependable and efficie..."
+    },
+    {
+      "name": "LIEBERT ITON 800VA E230V IEC-IFC",
+      "id": "ups-011-liebert-iton-800va-e230v-iec-ifc",
+      "old_description": "The LIEBERT ITON 800VA E230V IEC-IFC\ufffdis a compact ..."
+    },
+    {
+      "name": "CWORTHY 3.5KVA/ 24V INVERTER",
+      "id": "ups-021-cworthy-3-5kva-24v-inverter",
+      "old_description": "The CWORTHY 3.5KVA/ 24V INVERTER is a reliable and..."
+    },
+    {
+      "name": "APC Smart-UPS VT 15kVA",
+      "id": "ups-008-apc-smart-ups-vt-15kva",
+      "old_description": "The APC Smart-UPS VT 15kVA is a high-capacity, thr..."
+    },
+    {
+      "name": "APC EASY UPS SMV 750VA 230V",
+      "id": "ups-010-apc-easy-ups-smv-750va-230v",
+      "old_description": "The APC EASY UPS SMV 750VA 230V is a dependable li..."
+    },
+    {
+      "name": "APC Back-UPS 500VA",
+      "id": "ups-001-apc-back-ups-500va",
+      "old_description": "The APC Back-UPS 500VA\ufffdis an ideal power backup so..."
+    },
+    {
+      "name": "APC Back-UPS BV 650VA",
+      "id": "ups-002-apc-back-ups-bv-650va",
+      "old_description": "The APC Back-UPS BV 650VA\ufffdis a reliable and effici..."
+    },
+    {
+      "name": "Liebert PSI 1000VA (900W)",
+      "id": "ups-004-liebert-psi-1000va-900w",
+      "old_description": "The Liebert PSI 1000VA (900W)\ufffdis a high-performanc..."
+    },
+    {
+      "name": "Liebert ITON 800VA",
+      "id": "ups-006-liebert-iton-800va",
+      "old_description": "The Liebert ITON 800VA is a compact and reliable u..."
+    },
+    {
+      "name": "APC BACK-UPS BV 650VA 230V",
+      "id": "ups-009-apc-back-ups-bv-650va-230v",
+      "old_description": "The APC BACK-UPS BV 650VA 230V\ufffdis a reliable and c..."
+    },
+    {
+      "name": "APC Easy UPS SMV 750VA",
+      "id": "ups-005-apc-easy-ups-smv-750va",
+      "old_description": "The APC Easy UPS SMV 750VAis a reliable and effici..."
+    }
+  ],
+  "not_found": [
+    "APC Smart-UPS RT 8kVA 230V",
+    "APC Smart-UPS RT 6kVA 230V",
+    "FELICITY 5kW/48V INVERTER",
+    "FELICITY 3kVA /24V HYBRID INVERTER",
+    "Liebert PSI 750VA (675W)",
+    "APC SMART-UPS 2200VA LCD 230V",
+    "APC Easy UPS BV 800VA, 230V",
+    "APC Easy Back-UPS 700VA, 230V",
+    "APC Back-UPS 950VA, 230V",
+    "APC Smart-UPS C 1000VA LCD 230V",
+    "APC Smart-UPS RT 10kVA 230V",
+    "Ortea AVR Orion 60-20",
+    "APC Smart-UPS SRV 1000VA 230V",
+    "Hikvision DS-UPS1000VA",
+    "UPS 3S 20kVA 400V 3:3",
+    "Hikvision UPS DS-UPS3000",
+    "UPS 3S 10kVA 400V 3:3",
+    "APC Smart-UPS SRV 1000VA LCD 230V",
+    "BINATONE VOLTAGE PROTECTOR 13AMPS AVP-1300",
+    "BINATONE STABILIZER DVS -2000"
+  ],
+  "total_updated": 11
+}

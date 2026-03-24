@@ -354,6 +354,9 @@ router.post('/promos/create-product', isAuthenticated, requireRole('admin'), asy
       'back-to-school': { field: 'isBackToSchool', priceField: 'backToSchoolPrice' },
       'new-year': { field: 'isNewYear', priceField: 'newYearPrice' },
       'valentines': { field: 'isValentines', priceField: 'valentinesPrice' },
+      'independence-day': { field: 'isIndependenceDay', priceField: 'independenceDayPrice' },
+      'top-selling': { field: 'isTopSelling', priceField: null },
+
       'top-selling': { field: 'isTopSelling', priceField: null },
       'combo-deals': { field: 'isComboDeals', priceField: 'comboDealsPrice' }
     };
@@ -381,6 +384,11 @@ router.post('/promos/create-product', isAuthenticated, requireRole('admin'), asy
     await productsModule.regenerateProductJson();
 
     if (normalized === 'christmas-sale') await regenerateChristmasJSON();
+    else if (normalized === 'new-year') await regenerateNewYearJSON();
+    else if (normalized === 'valentines') await regenerateValentinesJSON();
+    else if (normalized === 'independence-day') await regenerateIndependenceDayJSON();
+    else if (normalized === 'combo-deals') await regenerateComboDealsJSON();
+
     else if (normalized === 'new-year') await regenerateNewYearJSON();
     else if (normalized === 'valentines') await regenerateValentinesJSON();
     else if (normalized === 'combo-deals') await regenerateComboDealsJSON();
@@ -488,6 +496,9 @@ router.post('/promos/assign', isAuthenticated, requireRole('admin'), async (req,
       'back-to-school': { field: 'isBackToSchool', priceField: 'backToSchoolPrice' },
       'new-year': { field: 'isNewYear', priceField: 'newYearPrice' },
       'valentines': { field: 'isValentines', priceField: 'valentinesPrice' },
+      'independence-day': { field: 'isIndependenceDay', priceField: 'independenceDayPrice' },
+      'top-selling': { field: 'isTopSelling', priceField: null },
+
       'top-selling': { field: 'isTopSelling', priceField: null },
       'combo-deals': { field: 'isComboDeals', priceField: 'comboDealsPrice' }
     };
@@ -521,6 +532,26 @@ router.post('/promos/assign', isAuthenticated, requireRole('admin'), async (req,
     
     // Regenerate promo JSON if needed
     if (normalized === 'christmas-sale') {
+    if (normalized === 'christmas-sale') {
+      await regenerateChristmasJSON();
+    } else if (normalized === 'new-year') {
+      await regenerateNewYearJSON();
+    } else if (normalized === 'valentines') {
+      await regenerateValentinesJSON();
+    } else if (normalized === 'independence-day') {
+      await regenerateIndependenceDayJSON();
+    } else if (normalized === 'combo-deals') {
+      await regenerateComboDealsJSON();
+    }
+
+    } else if (normalized === 'new-year') {
+      await regenerateNewYearJSON();
+    } else if (normalized === 'valentines') {
+      await regenerateValentinesJSON();
+    } else if (normalized === 'independence-day') {
+      await regenerateIndependenceDayJSON();
+    } else if (normalized === 'combo-deals') {
+
       await regenerateChristmasJSON();
     } else if (normalized === 'new-year') {
       await regenerateNewYearJSON();
@@ -541,6 +572,26 @@ router.post('/promos/regenerate', isAuthenticated, requireRole('admin'), async (
   try {
     const { promoType } = req.query;
     if (promoType === 'christmas-sale') {
+    if (promoType === 'christmas-sale') {
+      await regenerateChristmasJSON();
+    } else if (promoType === 'new-year') {
+      await regenerateNewYearJSON();
+    } else if (promoType === 'valentines') {
+      await regenerateValentinesJSON();
+    } else if (promoType === 'independence-day') {
+      await regenerateIndependenceDayJSON();
+    } else if (promoType === 'combo-deals') {
+      await regenerateComboDealsJSON();
+    }
+
+    } else if (promoType === 'new-year') {
+      await regenerateNewYearJSON();
+    } else if (promoType === 'valentines') {
+      await regenerateValentinesJSON();
+    } else if (promoType === 'independence-day') {
+      await regenerateIndependenceDayJSON();
+    } else if (promoType === 'combo-deals') {
+
       await regenerateChristmasJSON();
     } else if (promoType === 'new-year') {
       await regenerateNewYearJSON();
@@ -569,6 +620,7 @@ async function regenerateChristmasJSON() {
       name: p.name || '',
       price: Number(p.price) || 0,
       christmasSalePrice: Number(p.christmasSalePrice) || Number(p.price),
+      christmasSaleImage: p.christmasSaleImage || '',
       stock: Number(p.stock) || 0,
       rating: Number(p.rating) || 0,
       images: Array.isArray(p.images) ? p.images : [],
@@ -579,7 +631,7 @@ async function regenerateChristmasJSON() {
       christmasSaleSold: 0
     }))
   };
-  
+
   await fs.writeFile(
     path.join(__dirname, '..', 'christmas-sale.json'),
     JSON.stringify(data, null, 2)
@@ -602,6 +654,7 @@ async function regenerateNewYearJSON() {
       name: p.name || '',
       price: Number(p.price) || 0,
       newYearPrice: Number(p.newYearPrice) || Number(p.price),
+      newYearImage: p.newYearImage || '',
       stock: Number(p.stock) || 0,
       rating: Number(p.rating) || 0,
       images: Array.isArray(p.images) ? p.images : [],
@@ -610,7 +663,7 @@ async function regenerateNewYearJSON() {
       active: true
     }))
   };
-  
+
   await fs.writeFile(
     path.join(__dirname, '..', 'new-year.json'),
     JSON.stringify(data, null, 2)
@@ -633,6 +686,7 @@ async function regenerateComboDealsJSON() {
       name: p.name || '',
       price: Number(p.price) || 0,
       comboPrice: p.comboDealsPrice && Number(p.comboDealsPrice) > 0 ? Number(p.comboDealsPrice) : Number(p.price),
+      comboDealsImage: p.comboDealsImage || '',
       stock: Number(p.stock) || 0,
       rating: Number(p.rating) || 0,
       images: Array.isArray(p.images) ? p.images : [],
@@ -641,7 +695,7 @@ async function regenerateComboDealsJSON() {
       active: true
     }))
   };
-  
+
   await fs.writeFile(path.join(__dirname, '..', 'combo-offers-v2.json'), JSON.stringify(data, null, 2));
   await fs.writeFile(path.join(__dirname, '..', 'assets/data/combo-offers-v2.json'), JSON.stringify(data, null, 2));
 }
@@ -689,6 +743,13 @@ router.post('/promos/update-pricing', isAuthenticated, requireRole('admin'), asy
       } else if (promoType === 'valentines') {
         p.isValentines = true;
         if (targetPrice != null) p.valentinesPrice = targetPrice;
+      } else if (promoType === 'independence-day') {
+        p.isIndependenceDay = true;
+        if (targetPrice != null) p.independenceDayPrice = targetPrice;
+      } else if (promoType === 'top-selling') {
+
+        p.isValentines = true;
+        if (targetPrice != null) p.valentinesPrice = targetPrice;
       } else if (promoType === 'top-selling') {
         p.isTopSelling = true;
       } else if (promoType === 'combo-deals') {
@@ -708,6 +769,10 @@ router.post('/promos/update-pricing', isAuthenticated, requireRole('admin'), asy
         promoType === 'flash-sales' ? { isFlashSale: true, active: true } :
         promoType === 'black-friday' ? { isBlackFriday: true, active: true } :
         promoType === 'christmas-sale' ? { isChristmas: true, active: true } :
+        promoType === 'new-year' ? { isNewYear: true, active: true } :
+        promoType === 'independence-day' ? { isIndependenceDay: true, active: true } :
+        promoType === 'valentines' ? { isValentines: true, active: true } :
+
         promoType === 'new-year' ? { isNewYear: true, active: true } :
         promoType === 'valentines' ? { isValentines: true, active: true } :
         promoType === 'combo-deals' ? { isComboDeals: true, active: true } :
@@ -800,37 +865,45 @@ router.post('/promos/unassign', isAuthenticated, requireRole('admin'), async (re
     }
     const Product = require('../models/Product');
     const docs = await Product.find({ slug: { $in: productSlugs } });
+    
+    const validPromos = {
+      'flash-sales': 'isFlashSale',
+      'black-friday': 'isBlackFriday',
+      'christmas-sale': 'isChristmas',
+      'back-to-school': 'isBackToSchool',
+      'new-year': 'isNewYear',
+      'valentines': 'isValentines',
+      'independence-day': 'isIndependenceDay',
+      'top-selling': 'isTopSelling',
+      'combo-deals': 'isComboDeals'
+    };
+
+    const field = validPromos[promoType.toLowerCase()];
+    if (!field) return res.status(400).json({ message: 'Unsupported promoType' });
+
     for (const p of docs) {
-      if (promoType === 'flash-sales') {
-        p.isFlashSale = false;
-        p.flashSalePrice = null;
-        p.flashSaleImage = p.flashSaleImage || '';
-        p.flashSaleStock = 0;
-      } else if (promoType === 'black-friday') {
-        p.isBlackFriday = false;
-        p.blackFridayPrice = null;
-      } else if (promoType === 'christmas-sale') {
-        p.isChristmas = false;
-        p.christmasSalePrice = null;
-      } else if (promoType === 'back-to-school') {
-        p.isBackToSchool = false;
-        p.backToSchoolPrice = null;
-      } else if (promoType === 'new-year') {
-        p.isNewYear = false;
-        p.newYearPrice = null;
-      } else if (promoType === 'valentines') {
-        p.isValentines = false;
-        p.valentinesPrice = null;
-      } else if (promoType === 'top-selling') {
-        p.isTopSelling = false;
-      } else if (promoType === 'combo-deals') {
-        p.isComboDeals = false;
-        p.comboDealsPrice = null;
-      } else {
-        return res.status(400).json({ message: 'Unsupported promoType' });
-      }
+      p[field] = false;
+      // Also clear price fields if applicable
+      if (promoType === 'flash-sales') p.flashSalePrice = null;
+      if (promoType === 'black-friday') p.blackFridayPrice = null;
+      if (promoType === 'christmas-sale') p.christmasSalePrice = null;
+      if (promoType === 'back-to-school') p.backToSchoolPrice = null;
+      if (promoType === 'new-year') p.newYearPrice = null;
+      if (promoType === 'valentines') p.valentinesPrice = null;
+      if (promoType === 'independence-day') p.independenceDayPrice = null;
+      if (promoType === 'combo-deals') p.comboDealsPrice = null;
+      
       await p.save();
     }
+
+    // Regenerate JSON for this promo type
+    const normalized = promoType.toLowerCase().replace(/\s+/g, '-');
+    if (normalized === 'christmas-sale') await regenerateChristmasJSON();
+    else if (normalized === 'new-year') await regenerateNewYearJSON();
+    else if (normalized === 'valentines') await regenerateValentinesJSON();
+    else if (normalized === 'independence-day') await regenerateIndependenceDayJSON();
+    else if (normalized === 'combo-deals') await regenerateComboDealsJSON();
+
     return res.json({ ok: true, message: 'Products removed from promo', updated: docs.length });
   } catch (err) {
     logger.error('Unassign promo error:', err);
@@ -956,19 +1029,20 @@ router.post('/promos/regenerate', isAuthenticated, requireRole('admin'), async (
       return res.json({ ok: true, message: 'new-year.json regenerated', count: mapped.length });
     }
  
-    if (type === 'valentines') {
-      const items = await Product.find({ isValentines: true, active: true });
+    if (type === 'independence-day') {
+      const items = await Product.find({ isIndependenceDay: true, active: true });
       const mapped = items.map(p => ({
         ...baseMap(p),
-        valentinesPrice: p.valentinesPrice ?? p.price,
-        valentinesImage: p.valentinesImage || (Array.isArray(p.images) && p.images[0]) || '',
-        valentinesStock: p.stock ?? 0,
-        valentinesSold: 0
+        independenceDayPrice: p.independenceDayPrice ?? p.price,
+        independenceDayImage: p.independenceDayImage || (Array.isArray(p.images) && p.images[0]) || '',
+        independenceDayStock: p.stock ?? 0,
+        independenceDaySold: 0
       }));
-      const out = { valentines: mapped };
-      await fs.writeFile(path.join(process.cwd(), 'valentines.json'), JSON.stringify(out, null, 2));
-      return res.json({ ok: true, message: 'valentines.json regenerated', count: mapped.length });
+      const out = { independenceDay: mapped };
+      await fs.writeFile(path.join(process.cwd(), 'independence-day.json'), JSON.stringify(out, null, 2));
+      return res.json({ ok: true, message: 'independence-day.json regenerated', count: mapped.length });
     }
+
  
     return res.status(400).json({ message: 'Unsupported promoType' });
   } catch (err) {
@@ -1764,7 +1838,42 @@ router.get('/logs', async (req, res) => {
   }
 });
 
+async function regenerateIndependenceDayJSON() {
+  const fs = require('fs').promises;
+  const path = require('path');
+  const products = await Product.find({ isIndependenceDay: true, active: true }).lean();
+  const data = {
+    independenceDay: products.map(p => ({
+      id: p.slug,
+      slug: p.slug,
+      categoryId: p.category || '',
+      categoryName: '',
+      subcategoryId: p.subcategory || '',
+      subcategoryName: '',
+      brand: p.brand || '',
+      name: p.name || '',
+      price: Number(p.price) || 0,
+      independenceDayPrice: Number(p.independenceDayPrice) || Number(p.price),
+      independenceDayImage: p.independenceDayImage || '',
+      stock: Number(p.stock) || 0,
+      rating: Number(p.rating) || 0,
+      images: Array.isArray(p.images) ? p.images : [],
+      description: (p.description || '').replace(/[\n\r]/g, '\n').replace(/[\t]/g, ' '),
+      fullDescription: (p.fullDescription || '').replace(/[\n\r]/g, '\n').replace(/[\t]/g, ' '),
+      active: true,
+      independenceDayStock: Number(p.stock) || 0,
+      independenceDaySold: 0
+    }))
+  };
+
+  await fs.writeFile(
+    path.join(__dirname, '..', 'independence-day.json'),
+    JSON.stringify(data, null, 2)
+  );
+}
+
 async function regenerateValentinesJSON() {
+
   const fs = require('fs').promises;
   const path = require('path');
   const products = await Product.find({ isValentines: true, active: true }).lean();
@@ -1878,7 +1987,20 @@ async function regeneratePromoJSON(type) {
     }));
     const out = { newYear: mapped };
     await fs.writeFile(path.join(process.cwd(), 'new-year.json'), JSON.stringify(out, null, 2));
+  } else if (type === 'independence-day') {
+    const items = await Product.find({ isIndependenceDay: true, active: true }).lean();
+    const mapped = items.map(p => ({
+      ...baseMap(p),
+      independenceDayPrice: p.independenceDayPrice ?? p.price,
+      independenceDayImage: p.independenceDayImage || ((Array.isArray(p.images) && p.images[0]) || ''),
+      independenceDayStock: p.stock ?? 0,
+      independenceDaySold: 0
+    }));
+    const out = { independenceDay: mapped };
+    await fs.writeFile(path.join(process.cwd(), 'independence-day.json'), JSON.stringify(out, null, 2));
+    logger.info(`Independence Day JSON regenerated with ${mapped.length} products`);
   } else if (type === 'valentines') {
+
     const items = await Product.find({ isValentines: true, active: true });
     const mapped = items.map(p => ({
       ...baseMap(p),

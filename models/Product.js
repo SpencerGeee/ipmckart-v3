@@ -57,6 +57,12 @@ const productSchema = new Schema({
   isComboDeals: { type: Boolean, default: false, index: true },
   comboDealsPrice: { type: Number, default: null },
   comboDealsImage: { type: String, default: '' },
+  // Independence Day promo
+  isIndependenceDay: { type: Boolean, default: false, index: true },
+  independenceDayPrice: { type: Number, default: null },
+  independenceDayImage: { type: String, default: '' },
+ // Featured/curation flags
+
  // Featured/curation flags
  isTopSelling: { type: Boolean, default: false, index: true }
 }, { timestamps: true });
@@ -68,6 +74,9 @@ productSchema.index({ isBlackFriday: 1, active: 1 });
 productSchema.index({ isChristmas: 1, active: 1 });
 productSchema.index({ isNewYear: 1, active: 1 });
 productSchema.index({ isValentines: 1, active: 1 });
+productSchema.index({ isIndependenceDay: 1, active: 1 });
+productSchema.index({ isBackToSchool: 1, active: 1 });
+
 productSchema.index({ isBackToSchool: 1, active: 1 });
 productSchema.index({ isTopSelling: 1, active: 1 });
 productSchema.index({ isComboDeals: 1, active: 1 });

@@ -209,8 +209,16 @@
             const id = p.id || p.slug;
             const price = formatCurrency(p.price);
             const oldPrice = p.originalPrice || p.oldPrice ? formatCurrency(p.originalPrice || p.oldPrice) : null;
-            // Use Valentine's image if available
-            const image = p.valentinesImage || (Array.isArray(p.images) && p.images.length > 0 ? p.images[0] : "assets/images/placeholder.webp");
+            // Use promo image if available
+            const promoImg = p.independenceDayImage || 
+                            p.valentinesImage || 
+                            p.newYearImage || 
+                            p.blackFridayImage || 
+                            p.flashSaleImage || 
+                            p.christmasSaleImage || 
+                            p.backToSchoolImage || 
+                            p.comboDealsImage;
+            const image = promoImg || (Array.isArray(p.images) && p.images.length > 0 ? p.images[0] : "assets/images/placeholder.webp");
             const rating = p.rating || 0;
 
             return `
@@ -260,12 +268,21 @@
             const shortDescriptionHtml = descriptionRenderer.renderShort(product.description || "");
             const longDescriptionHtml = descriptionRenderer.renderLong(product.fullDescription || product.description || "");
             
-            // Use Valentine's Day specific image if available, regardless of context
+            // Use promo-specific image if available, regardless of context
             let images = Array.isArray(product.images) ? product.images : (product.image ? [product.image] : []);
-            
-            // If the product has a Valentine's image, prioritize it over other images
-            if (product.valentinesImage) {
-                images = [product.valentinesImage, ...images];
+
+            // If the product has a promo-specific image, prioritize it over other images
+            // Check in order of priority based on current date/season or active promo
+            const promoImage = product.independenceDayImage || 
+                              product.valentinesImage || 
+                              product.newYearImage || 
+                              product.blackFridayImage || 
+                              product.flashSaleImage || 
+                              product.christmasSaleImage || 
+                              product.backToSchoolImage || 
+                              product.comboDealsImage;
+            if (promoImage) {
+                images = [promoImage, ...images];
             }
 
             const imagesHtml = images.map(img => `
@@ -396,7 +413,9 @@
     };
 
     const init = async () => {
-        const productId = getQueryParam("id");
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id') || urlParams.get('product') || urlParams.get('slug');
+
         if (!productId) {
             console.error("Product Page: No product ID found in URL");
             return;
@@ -405,28 +424,57 @@
         console.log("Product Page: Initializing for ID:", productId);
 
         try {
+            // Priority 1: Check if window.CartManager is the full version
+            if (window.CartManager && typeof window.CartManager.getAllProducts === 'function') {
+                window.IPMCCartManager = window.CartManager;
+            }
+            
             const manager = window.IPMCCartManager || window.CartManager;
+            
             if (manager) {
-                console.log("Product Page: Waiting for CartManager...");
+                console.log("Product Page: Checking CartManager capabilities...");
+                
+                if (typeof manager.getAllProducts !== 'function') {
+                    console.error("Product Page: manager.getAllProducts is not a function! Namespace conflict with a bundle detected.");
+                    return;
+                }
+
                 if (typeof manager.init === 'function') {
                     await manager.init();
                 }
                 
-                if (typeof manager.getAllProducts !== 'function') {
-                    console.error("Product Page: manager.getAllProducts is not a function! Check for namespace conflicts.");
-                    return;
+                let allProducts = manager.getAllProducts();
+
+                // Validation: If no products loaded, force one last load attempt
+                if (!allProducts || allProducts.length === 0) {
+                    console.log("Product Page: No products in manager, forcing load...");
+                    if (typeof manager.loadProducts === 'function') {
+                        allProducts = await manager.loadProducts();
+                    }
                 }
 
-                const allProducts = manager.getAllProducts();
-                console.log(`Product Page: CartManager ready. Total products: ${allProducts.length}`);
+                console.log(`Product Page: CartManager ready. Total products: ${allProducts ? allProducts.length : 0}`);
+
+                if (!allProducts) {
+                    console.error("Product Page: allProducts is null after init");
+                    return;
+                }
 
                 const product = allProducts.find(p => {
                     const idStr = String(p.id || "").toLowerCase().trim();
                     const slugStr = String(p.slug || "").toLowerCase().trim();
                     const mongoIdStr = String(p._id || "").toLowerCase().trim();
                     const searchId = productId.toLowerCase().trim();
-                    return idStr === searchId || slugStr === searchId || mongoIdStr === searchId;
+                    
+                    // Exact matches
+                    if (idStr === searchId || slugStr === searchId || mongoIdStr === searchId) return true;
+                    
+                    // Partial slug matches (e.g. if URL has ups-3s-20kva and real slug is ups-028-ups-3s-20kva-400v-3-3)
+                    if (searchId.length > 5 && slugStr.includes(searchId)) return true;
+                    
+                    return false;
                 });
+
                 
                 if (product) {
                     console.log("Product Page: Found product:", product.name);

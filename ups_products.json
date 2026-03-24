@@ -1,0 +1,52 @@
+[
+  {
+    "product": "APC Back-UPS 500VA",
+    "key_specs": "\u2022 Capacity: 500\u202fVA / 300\u202fW\n\u2022 Output: 230\u202fV (typical for Ghana/EU markets)\n\u2022 Battery Type: Sealed Lead\u2011Acid (maintenance\u2011free)\n\u2022 Outlets: Multiple battery\u2011backup and surge\u2011protected sockets\n\u2022 Surge Protection: Yes\n\u2022 Runtime: Provides several minutes of backup at low load (varies with device)\n\u2022 Features: Automatic Voltage Regulation (AVR), Power\u2011on self\u2011test, LED indicators for status, Audible alarms for power events",
+    "description": "The APC Back\u2011UPS 500VA functions as an uninterruptible power supply system, which provides dependable power protection for your computer and network equipment, and home electronic devices against power outages, voltage fluctuations, and power surges. The system maintains power to essential equipment through its battery backup system and automatic voltage regulation, which allows users to complete their work and power down their devices safely."
+  },
+  {
+    "product": "APC Back-UPS BV 650VA",
+    "key_specs": "\u2022 Capacity: 650\u202fVA / 390\u202fW\n\u2022 Output Voltage: 230\u202fV (suitable for Ghana/EU power systems)\n\u2022 Battery Type: Sealed Lead\u2011Acid (maintenance\u2011free)\n\u2022 Outlets: Combination of battery\u2011backup + surge\u2011protected sockets\n\u2022 Surge Protection: Yes\n\u2022 Runtime: Provides minutes of backup power depending on load\n\u2022 Features: Automatic Voltage Regulation (AVR), LED status indicators, Audible alarms for power events",
+    "description": "The APC Back-UPS BV 650VA functions as a reliable uninterruptible power supply system that safeguards computers, home networking devices, and electronic equipment from power interruptions, voltage spikes, and power fluctuations. The system provides sufficient battery backup power to enable users to preserve their work and conduct safe device shutdowns."
+  },
+  {
+    "product": "Liebert ITON 800VA",
+    "key_specs": "\u2022 Capacity: 800\u202fVA / 480\u202fW\n\u2022 UPS Type: Line\u2011Interactive with AVR (Automatic Voltage Regulation)\n\u2022 Output Voltage: 230\u202fV\n\u2022 Battery: Sealed Lead\u2011Acid (VRLA), 12\u202fV\u202f9\u202fAh\n\u2022 Outlets: Typically 2 Schuko / C13 outlets, depending on version\n\u2022 Waveform: Stepped sine / simulated sine\n\u2022 Features: Cold\u2011start support, automatic restart, overload, and surge protection\n\u2022 Form Factor: Tower, compact design\n\u2022 Use Case: Ideal for PCs, workstations, routers, and small office electronics needing basic battery backup and power conditioning.",
+    "description": "The Liebert itON 800VA UPS functions as a small yet dependable line-interactive uninterruptible power supply that protects desktop computers, networking equipment, and delicate electronic devices from power outages, voltage spikes, and voltage changes, providing users with time to complete their work and perform proper system shutdown."
+  },
+  {
+    "product": "APC Back-UPS 700VA",
+    "key_specs": "\u2022 Capacity:\u202f700\u202fVA / 390\u202fW (approx.)\n\u2022 Output Voltage:\u202f230\u202fV\n\u2022 Topology:\u202fLine\u2011Interactive with Automatic Voltage Regulation (AVR)\n\u2022 Battery Type:\u202fSealed, maintenance\u2011free lead\u2011acid\n\u2022 Outlets:\u202fBattery backup + surge\u2011protected sockets\n\u2022 Surge Protection:\u202fYes (rated 273\u202fJ)\n\u2022 Connectivity:\u202fUSB port for power management\n\u2022 Runtime:\u202fSeveral minutes, depending on load",
+    "description": "The APC Back\u2011UPS 700VA functions as an uninterruptible power supply, which delivers battery backup power together with surge protection to safeguard computers, networking devices, and home electronic equipment. The system enables users to protect their work by saving it during power outages while they can safely shut down their equipment."
+  },
+  {
+    "product": "LIEBERT ITON 800VA E230V IEC-IFC",
+    "key_specs": "\u2022 Capacity: 800\u202fVA / 480\u202fW\n\u2022 UPS Topology: Line\u2011Interactive with AVR\n\u2022 Output Voltage: 230\u202fV AC\n\u2022 Outlets: 2\u202f\u00d7\u202fSchuko (Type\u202fF) or multiple IEC outlets, depending on version\n\u2022 Battery: Sealed Lead\u2011Acid (VRLA), 12\u202fV\u202f9\u202fAh\n\u2022 Typical Backup Time: ~3\u202fmin at half load\n\u2022 Waveform: Stepped sine (simulated)\n\u2022 Features: AVR (boost & trim), overload protection, auto\u2011restart, cold\u2011start support, LED indicators, audible alarms\n\u2022 Dimensions: 101\u202f\u00d7\u202f279\u202f\u00d7\u202f142\u202fmm\n\u2022 Weight: 4.9\u202fkg",
+    "description": "The Compact Liebert itON 800VA UPS protects computers and sensitive electronics through its line-interactive technology and automatic voltage regulation feature, which safeguards against power outages, surges, and voltage fluctuations, enabling users to save their work and complete a safe shutdown process."
+  },
+  {
+    "product": "APC EASY UPS SMV 750VA 230V",
+    "key_specs": "\u2022 Capacity: 750\u202fVA / 450\u202fW\n\u2022 Input/Output Voltage: 230\u202fV AC\n\u2022 UPS Type: Line\u2011Interactive with AVR (Automatic Voltage Regulation)\n\u2022 Battery: Sealed Lead\u2011Acid (maintenance\u2011free)\n\u2022 Outlets: Battery\u2011backup + surge\u2011protected sockets\n\u2022 Surge Protection: Yes\n\u2022 Features: AVR for voltage stabilization, LED indicators for status, Audible alarms for power events\n\u2022 Typical Use: PCs, routers, modems, POS systems, small office electronics",
+    "description": "The APC Easy UPS SMV 750VA is a compact and dependable uninterruptible power supply designed to protect PCs, networking equipment, and home electronics from power outages, surges, and voltage fluctuations. It provides battery backup power to keep devices running long enough to save data and safely shut down."
+  },
+  {
+    "product": "Liebert PSI 1000VA (900W)",
+    "key_specs": "\u2022 Capacity: 1000\u202fVA / 900\u202fW\n\u2022 UPS Type: Line\u2011Interactive with AVR (Automatic Voltage Regulation)\n\u2022 Input/Output Voltage: 230\u202fV AC\n\u2022 Battery: Sealed Lead\u2011Acid (maintenance\u2011free)\n\u2022 Outlets: Combination of battery\u2011backup and surge\u2011protected sockets\n\u2022 Surge Protection: Yes\n\u2022 Features: AVR for voltage stabilization, LED status indicators, Audible alarms for power events, Cold\u2011start support\n\u2022 Ideal for desktops, workstations, servers, and networking equipment that need dependable backup and power conditioning.",
+    "description": "The Liebert PSI 1000VA UPS functions as a dependable line-interactive uninterruptible power supply that safeguards computers and networking equipment and delicate electronic devices from power failures, electrical surges, and voltage changes. The system provides strong backup power through its 1000 VA/900 W capacity, while its automatic voltage regulation system extends operational time during power outages."
+  },
+  {
+    "product": "CWORTHY 3.5KVA/ 24V INVERTER",
+    "key_specs": "\u2022 Rated Power: 3.5\u202fkVA / 3500\u202fW (approx.)\n\u2022 DC Input Voltage: 24\u202fV\n\u2022 Output Voltage: 230\u202fVAC \u00b15%\n\u2022 Output Frequency: 50/60\u202fHz\n\u2022 Waveform: Pure/modified sine wave (model\u2011dependent)\n\u2022 Efficiency: High conversion efficiency (typically >90%)\n\u2022 Protections: Overload, short\u2011circuit, low battery, and overvoltage protections\n\u2022 Applications: Backup power for lights, TVs, computers, refrigerators, and small appliances from 24\u202fV battery systems (solar or grid backup)",
+    "description": "The 3.5 kVA inverter produces 24 V DC power to deliver consistent 230 V AC electricity, which can be used in residential, commercial, and solar energy systems. The system functions as an excellent solution to supply power for appliances, lights, and electronic devices during power outages or when operating from remote locations."
+  },
+  {
+    "product": "APC Smart-UPS VT 15kVA",
+    "key_specs": "\u2022 Capacity: 15\u202fkVA / 12\u202f000\u202fW load protection\n\u2022 UPS Topology: Double\u2011conversion online for pure sine\u2011wave output\n\u2022 Input Voltage: Hard\u2011wire three\u2011phase (5\u2011wire) (configurable)\n\u2022 Output Voltage: 120\u202fV / 208\u202fV / 220\u202fV (varies by setup)\n\u2022 Frequency: 50/60\u202fHz tolerance\n\u2022 Runtime: 18\u202fmin at full load; 45\u202fmin at half load with standard batteries\n\u2022 Battery Type: Sealed Lead\u2011Acid (VRLA), hot\u2011swappable modules\n\u2022 Management: Network management via SNMP/Web, SmartSlot, LCD console\n\u2022 Bypass: Internal maintenance and static bypass\n\u2022 Features: Emergency Power Off (EPO), scalable runtime, dual mains input\n\u2022 Use Case: Ideal for servers, networking gear, data centers, and mission\u2011critical electronics needing high\u2011availability power protection.",
+    "description": "The APC Smart\u2011UPS VT 15kVA functions as a three\u2011phase online UPS system, which provides high-capacity power protection for essential IT operations and small data centers and industrial power protection needs. The system delivers an uninterrupted power supply through its advanced management features, which enable users to extend operational time during power failures and system interruptions."
+  },
+  {
+    "product": "APC EASY UPS SMV 750VA 230V",
+    "key_specs": "\u2022 Capacity: 750 VA / 450 W\n\u2022 Input/Output Voltage: 230 V AC\n\u2022 Type: Line-Interactive UPS with Automatic Voltage Regulation (AVR)\n\u2022 Battery: Sealed Lead-Acid (maintenance-free)\n\u2022 Outlets: Battery-backup + surge-protected sockets\n\u2022 Surge Protection: Yes\n\u2022 Features: Voltage regulation (AVR), LED status indicators, Audible alarms for power events",
+    "description": "A compact and dependable uninterruptible power supply system protects computers and electronic devices from both power failures and voltage spikes while it delivers backup electricity to preserve work progress and safely power down equipment."
+  }
+]

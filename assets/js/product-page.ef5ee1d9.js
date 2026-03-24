@@ -1,1 +1,509 @@
-!async function(){const t=t=>"number"!=typeof t?"GHS 0.00":new Intl.NumberFormat("en-GH",{style:"currency",currency:"GHS",minimumFractionDigits:2,maximumFractionDigits:2}).format(t),e=(t,e=document)=>e.querySelector(t);function a(t){if("string"!=typeof t)return"";const e=document.createElement("div");return e.textContent=t,e.innerHTML}function i(t){return"string"!=typeof t?"":t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}const n=e=>{const n=t(e.price),r=e.oldPrice?t(e.oldPrice):"",s=a(e.name),o=i(e.name),c=i(e.id),l=i(e.categoryId||""),d=a(e.categoryName||"Misc"),p=i(e.images[0]||"assets/images/placeholder.webp"),u=e.images[1]?i(e.images[1]):"",g="number"==typeof e.rating?e.rating:100;return`\n        <div class="product-default">\n          <figure>\n            <a href="product.html?id=${c}" aria-label="View ${o}">\n              <img src="${p}" alt="${o}" loading="lazy" />\n              ${u?`<img src="${u}" alt="${o}" loading="lazy" />`:""}\n            </a>\n          </figure>\n          <div class="product-details">\n            <div class="category-list"><a href="category.html?category=${l}" class="product-category">${d}</a></div>\n            <h3 class="product-title"><a href="product.html?id=${c}">${s}</a></h3>\n            <div class="ratings-container"><div class="product-ratings" role="img" aria-label="Rating: ${g}%"><span class="ratings" style="width:${g}%"></span></div></div>\n            <div class="price-box">\n              ${r?`<span class="old-price">${r}</span>`:""}\n              <span class="product-price">${n}</span>\n            </div>\n            <div class="product-action">\n              <a href="product.html?id=${c}" class="btn-icon btn-add-cart" aria-label="Select options for ${o}"><i class="fa fa-arrow-right" aria-hidden="true"></i><span>SELECT OPTIONS</span></a>\n              <a href="wishlist.html" class="btn-icon-wish" title="Add to wishlist" aria-label="Add ${o} to wishlist"><i class="icon-heart" aria-hidden="true"></i></a>\n            </div>\n          </div>\n        </div>\n      `},r=e=>{const n=t(e.price),r=a(e.name),s=i(e.name),o=i(e.id),c=i(e.images[0]||"assets/images/placeholder.webp"),l="number"==typeof e.rating?e.rating:100;return`\n        <div class="product-default left-details product-widget">\n            <figure>\n                <a href="product.html?id=${o}" aria-label="View ${s}">\n                    <img src="${c}" width="74" height="74" alt="${s}" loading="lazy">\n                </a>\n            </figure>\n            <div class="product-details">\n                <h3 class="product-title"><a href="product.html?id=${o}">${r}</a></h3>\n                <div class="ratings-container"><div class="product-ratings" role="img" aria-label="Rating: ${l}%"><span class="ratings" style="width:${l}%"></span></div></div>\n                <div class="price-box"><span class="product-price">${n}</span></div>\n            </div>\n        </div>\n      `},s=n=>{const r=e(".product-single-container"),s=e(".product-single-tabs");if(!r||!s)return;const o=a(n.name),c=i(n.name),l=i(n.id),d=i(n.categoryId||""),p=a(n.categoryName||""),u=a(n.sku||"N/A"),g=a(n.description||""),m=a(n.longDescription||n.description||"No additional description."),v="number"==typeof n.rating?n.rating:100,h="number"==typeof n.reviews?n.reviews:0,f=n.images.map((t=>{const e=i(t);return`<div class="product-item"><img class="product-single-image" src="${e}" data-zoom-image="${e}" alt="${c}" loading="lazy"/></div>`})).join(""),w=n.images.map((t=>`<div class="owl-dot"><img src="${i(t)}" alt="${c} thumbnail" loading="lazy"/></div>`)).join("");document.title=`${o} | IPMC Kart`;const b=e(".breadcrumb-item.active");if(b&&(b.textContent=o),r.innerHTML=`\n        <div class="row">\n            <div class="col-lg-5 col-md-6 product-single-gallery">\n                <div class="product-slider-container">\n                    <div class="product-single-carousel owl-carousel owl-theme show-nav-hover">${f}</div>\n                </div>\n                <div class="prod-thumbnail owl-dots">${w}</div>\n            </div>\n            <div class="col-lg-7 col-md-6 product-single-details">\n                <h1 class="product-title">${o}</h1>\n                <div class="ratings-container"><div class="product-ratings" role="img" aria-label="Rating: ${v}%"><span class="ratings" style="width:${v}%"></span></div><a href="#reviews" class="rating-link">( ${h} Reviews )</a></div>\n                <hr class="short-divider">\n                <div class="price-box">\n                    ${n.oldPrice?`<span class="old-price">${t(n.oldPrice)}</span>`:""}\n                    <span class="new-price">${t(n.price)}</span>\n                </div>\n                <div class="product-desc"><p>${g}</p></div>\n                <ul class="single-info-list">\n                    <li>SKU: <strong>${u}</strong></li>\n                    <li>CATEGORY: <strong><a href="category.html?category=${d}" class="product-category">${p}</a></strong></li>\n                </ul>\n                <div class="product-action">\n                    <div class="product-single-qty">\n                        <label for="product-quantity" class="sr-only">Quantity</label>\n                        <input id="product-quantity" class="horizontal-quantity form-control" type="number" value="1" min="1" aria-label="Product quantity">\n                    </div>\n                    <button type="button" class="btn btn-dark add-cart" title="Add to Cart" aria-label="Add ${c} to cart">Add to Cart</button>\n                </div>\n                <hr class="divider mb-0 mt-0">\n                <div class="product-single-share mb-3">\n                    <label class="sr-only">Share:</label>\n                    <div class="social-icons mr-2" role="group" aria-label="Share product">\n                       \x3c!-- Social Icons --\x3e\n                    </div>\n                    <a href="wishlist.html" class="btn-icon-wish add-wishlist" title="Add to Wishlist" aria-label="Add ${c} to wishlist"><i class="icon-wishlist-2" aria-hidden="true"></i><span>Add to Wishlist</span></a>\n                </div>\n            </div>\n        </div>`,s.innerHTML=`\n        <ul class="nav nav-tabs" role="tablist">\n            <li class="nav-item"><a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab" aria-controls="product-desc-content" aria-selected="true">Description</a></li>\n            <li class="nav-item"><a class="nav-link" id="product-tab-reviews" data-toggle="tab" href="#product-reviews-content" role="tab" aria-controls="product-reviews-content" aria-selected="false">Reviews (${h})</a></li>\n        </ul>\n        <div class="tab-content">\n            <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel" aria-labelledby="product-tab-desc">\n                <div class="product-desc-content"><p>${m}</p></div>\n            </div>\n            <div class="tab-pane fade" id="product-reviews-content" role="tabpanel" aria-labelledby="product-tab-reviews">\n                \x3c!-- Reviews content can be loaded here --\x3e\n            </div>\n        </div>`,function(t,e){const a=i(t.name),n=i(t.description||""),r=(t.images&&t.images[0]&&i(t.images[0]),i(t.sku||"")),s="number"==typeof t.price?t.price.toFixed(2):"0.00",o=(t.oldPrice&&t.oldPrice.toFixed(2),i(t.categoryName||"")),c={"@context":"https://schema.org","@type":"Product",name:a,description:n,image:t.images||[],sku:r,brand:{"@type":"Brand",name:"IPMC Kart"},offers:{"@type":"Offer",url:`https://localhost:4040/product.html?id=${e}`,priceCurrency:"GHS",price:s,availability:t.stock>0?"https://schema.org/InStock":"https://schema.org/OutOfStock",priceValidUntil:new Date(Date.now()+31536e6).toISOString().split("T")[0],seller:{"@type":"Organization",name:"IPMC Kart"}},category:o,aggregateRating:t.rating?{"@type":"AggregateRating",ratingValue:(t.rating/100*5).toFixed(1),reviewCount:t.reviews||0}:void 0};c.aggregateRating||delete c.aggregateRating;const l=document.querySelector('script[type="application/ld+json"][data-product-schema]');l&&l.remove();const d=document.createElement("script");d.type="application/ld+json",d.setAttribute("data-product-schema","true"),d.textContent=JSON.stringify(c),document.head.appendChild(d)}(n,l),"undefined"!=typeof $&&void 0!==$.fn.owlCarousel)$(".product-single-carousel").owlCarousel({items:1,nav:!0,dotsContainer:".prod-thumbnail"});else{const t=()=>{"undefined"!=typeof $&&void 0!==$.fn.owlCarousel?$(".product-single-carousel").owlCarousel({items:1,nav:!0,dotsContainer:".prod-thumbnail"}):setTimeout(t,100)};t()}},o=(t,a)=>{const i=e(t);i&&(i.innerHTML=a.map(r).join(""))},c={data:null,promise:null};document.addEventListener("DOMContentLoaded",(async()=>{try{const t=new URLSearchParams(window.location.search).get("id");if(!t)return console.warn("No product ID in URL hash."),void(e(".product-single-container").innerHTML='<h2 class="text-center">No Product Selected</h2>');const a=await async function(){return c.data?c.data:(c.promise||(c.promise=fetch("products.grouped2.json").then((t=>{if(!t.ok)throw new Error("Failed to load product data");return t.json()})).then((t=>{const e=t.categories.flatMap((t=>t.subcategories.flatMap((e=>(e.products||[]).map((e=>({...e,categoryId:t.id,categoryName:t.name})))))));return c.data=e,e})).catch((t=>{throw c.promise=null,t}))),c.promise)}(),i=a.find((e=>String(e.id)===String(t)));if(!i)return void(e(".product-single-container").innerHTML='<h2 class="text-center">Product Not Found</h2>');s(i);((t,a)=>{const i=e(t);if(!i)return;i.innerHTML=a.map(n).join("");const r=()=>{if("undefined"!=typeof $&&void 0!==$.fn.owlCarousel){const t=$(i);t.hasClass("owl-loaded")&&(t.trigger("destroy.owl.carousel"),t.removeClass("owl-carousel owl-theme owl-loaded"),t.find(".owl-stage-outer").children().unwrap()),t.addClass("owl-carousel owl-theme"),t.owlCarousel({loop:!1,margin:20,nav:!0,dots:!0,autoplay:!1,responsive:{0:{items:1},480:{items:2},768:{items:3},992:{items:4}}})}else setTimeout(r,100)};r()})("#related-products-carousel",a.filter((t=>t.categoryId===i.categoryId&&t.id!==i.id)).slice(0,8));const r=a.filter((t=>t.labels&&t.labels.includes("HOT"))).slice(0,3),l=[...a].sort(((t,e)=>(e.rating||0)-(t.rating||0))).slice(0,3),d=a.slice(5,8),p=a.slice(0,3);o("#featured-products-widget",r.length?r:p),o("#bestselling-products-widget",d),o("#latest-products-widget",p),o("#toprated-products-widget",l);const u=e(".add-cart");u&&u.addEventListener("click",(function(t){t.preventDefault(),t.stopPropagation();const a=e("#product-quantity"),n=a&&parseInt(a.value)||1;window.CartManager&&"function"==typeof window.CartManager.addToCart?window.CartManager.addToCart(i.id,n):console.error("CartManager not available")}))}catch(t){console.error("Error on product page:",t),e(".product-single-container").innerHTML='<h2 class="text-center">Could not load product details.</h2>'}}))}();
+(function() {
+    'use strict';
+
+    const formatCurrency = (amount) => {
+        if (typeof amount !== 'number') return "GHS 0.00";
+        return new Intl.NumberFormat("en-GH", {
+            style: "currency",
+            currency: "GHS",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(amount);
+    };
+
+    const getQueryParam = (name) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    };
+
+    const escapeHtml = (text) => {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    };
+
+    const createDescriptionRenderer = () => {
+        const decodeHtml = (html) => {
+            const txt = document.createElement("textarea");
+            txt.innerHTML = html;
+            return txt.value;
+        };
+
+        const cleanText = (text) => {
+            if (!text) return '';
+            let content = decodeHtml(text);
+            content = content.replace(/<br\s*\/?>/gi, '\\n');
+            content = content.replace(/<\/li>/gi, '\\n');
+            content = content.replace(/<\/p>/gi, '\\n\\n');
+            content = content.replace(/<[^>]*>?/gm, '');
+            content = content.replace(/&nbsp;/gi, ' ');
+            content = content.replace(/[\uFFFD\u007F-\u009F\u00AD]/g, '');
+            content = content.replace(/\u00D7/g, 'x');
+            content = content.replace(/\u2013/g, '-');
+            content = content.replace(/\u2014/g, '-');
+            content = content.replace(/\u2018|\u2019/g, "'");
+            content = content.replace(/\u201C|\u201D/g, '"');
+            return content.trim();
+        };
+
+        const parseContent = (text) => {
+            if (!text) return { type: 'empty' };
+            let decoded = decodeHtml(text);
+            if (decoded.includes('<table') || decoded.includes('<section')) {
+                return { type: 'html', content: decoded };
+            }
+
+            const content = cleanText(text);
+            if (!content) return { type: 'empty' };
+
+            let lines = content.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+            
+            if (lines.length === 1 && content.includes(':')) {
+                const featureSplitRegex = /\s+(?=[A-Z][\w\s/()&.-]{2,25}:)/g;
+                const splitLines = content.split(featureSplitRegex);
+                if (splitLines.length > 1) {
+                    lines = splitLines.map(l => l.trim());
+                }
+            }
+
+            const features = [];
+            const paragraphs = [];
+            const bulletPoints = [];
+
+            lines.forEach(line => {
+                let cleanLine = line.replace(/^[\*\u2022\-]\s+/, '').trim();
+                if (cleanLine.includes(':') && cleanLine.length < 150 && !cleanLine.endsWith(':')) {
+                    const [key, ...val] = cleanLine.split(':');
+                    features.push({ key: key.trim(), value: val.join(':').trim() });
+                } else if (cleanLine.length < 150 && !cleanLine.endsWith('.')) {
+                    bulletPoints.push(cleanLine);
+                } else {
+                    paragraphs.push(cleanLine);
+                }
+            });
+
+            return { type: 'mixed', features, paragraphs, bulletPoints, raw: content };
+        };
+
+        const getFeatureIcon = (label, index) => {
+            const iconMap = {
+                'display': 'fas fa-desktop', 'screen': 'fas fa-desktop', 'resolution': 'fas fa-tv',
+                'size': 'fas fa-ruler', 'weight': 'fas fa-weight', 'color': 'fas fa-palette',
+                'storage': 'fas fa-hdd', 'memory': 'fas fa-memory', 'ram': 'fas fa-microchip',
+                'processor': 'fas fa-microchip', 'cpu': 'fas fa-microchip', 'battery': 'fas fa-battery-full',
+                'camera': 'fas fa-camera', 'wifi': 'fas fa-wifi', 'bluetooth': 'fas fa-bluetooth',
+                'port': 'fas fa-plug', 'usb': 'fas fa-usb', 'power': 'fas fa-bolt',
+                'warranty': 'fas fa-shield-alt', 'material': 'fas fa-cube', 'speed': 'fas fa-tachometer-alt',
+                'sound': 'fas fa-volume-up', 'audio': 'fas fa-music', 'os': 'fas fa-cog',
+                'system': 'fas fa-cogs', 'dimension': 'fas fa-expand'
+            };
+
+            const lowerLabel = (label || '').toLowerCase();
+            for (const [key, icon] of Object.entries(iconMap)) {
+                if (lowerLabel.includes(key)) return icon;
+            }
+            
+            const fallbackIcons = ['fas fa-check', 'fas fa-star', 'fas fa-circle', 'fas fa-dot-circle'];
+            return fallbackIcons[index % fallbackIcons.length];
+        };
+
+        const renderShort = (text) => {
+            const data = parseContent(text);
+            if (data.type === 'empty') return '';
+            
+            let html = '<div class="luxury-short-desc">';
+            
+            if (data.type === 'html') {
+                const tmp = document.createElement('div');
+                tmp.innerHTML = data.content;
+                let plain = tmp.textContent || tmp.innerText || "";
+                html += `<p class="short-desc-text">${plain}</p>`;
+            } else {
+                const itemsToShow = data.features;
+                
+                if (itemsToShow.length > 0) {
+                    html += '<div class="short-features">';
+                    itemsToShow.forEach((item, idx) => {
+                        const icon = getFeatureIcon(item.key, idx);
+                        html += `
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="${icon}"></i></div>
+                                <div class="feature-details">
+                                    <span class="feature-label">${item.key}</span>
+                                    <span class="feature-value">${item.value}</span>
+                                </div>
+                            </div>`;
+                    });
+                    html += '</div>';
+                } else if (data.bulletPoints && data.bulletPoints.length > 0) {
+                    data.bulletPoints.forEach(p => {
+                        html += `<p class="short-desc-text"><i class="fas fa-check-circle" style="color: #e53935; margin-right: 5px;"></i> ${p}</p>`;
+                    });
+                } else if (data.paragraphs.length > 0) {
+                    data.paragraphs.forEach(p => {
+                        html += `<p class="short-desc-text">${p}</p>`;
+                    });
+                }
+            }
+            
+            html += '</div>';
+            return html;
+        };
+
+        const renderLong = (text) => {
+            const data = parseContent(text);
+            if (data.type === 'empty') return '<div class="no-description">No description available for this product.</div>';
+            
+            // For non-HTML content, simplify into bullets only
+            if (data.type !== 'html') {
+                const allPoints = [];
+                data.features.forEach(item => {
+                    allPoints.push(`<strong>${item.key}:</strong> ${item.value}`);
+                });
+                data.bulletPoints.forEach(point => {
+                    allPoints.push(point);
+                });
+                
+                if (allPoints.length > 0) {
+                    let html = '<div class="luxury-long-desc">';
+                    html += '<ul class="product-features-list">';
+                    allPoints.forEach(point => {
+                        html += `<li><div class="feature-content"><span class="feature-value">${point}</span></div></li>`;
+                    });
+                    html += '</ul></div>';
+                    return html;
+                }
+            }
+            
+            // Fallback for HTML or if no points found
+            return `<div class="luxury-long-desc">${data.content || data.raw || text}</div>`;
+        };
+
+        return { renderShort, renderLong };
+    };
+
+    const renderRelatedProducts = (category, currentId) => {
+        const carousel = document.getElementById("related-products-carousel");
+        if (!carousel) return;
+
+        const manager = window.IPMCCartManager || window.CartManager;
+        if (!manager) return;
+
+        const allProducts = manager.getAllProducts();
+        const related = allProducts
+            .filter(p => p.categoryId === category && String(p.id || p.slug) !== String(currentId))
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 8);
+
+        if (related.length === 0) {
+            const section = carousel.closest(".products-section");
+            if (section) section.style.display = 'none';
+            return;
+        }
+
+        carousel.classList.remove('owl-carousel', 'owl-theme');
+
+        carousel.innerHTML = related.map(p => {
+            const name = escapeHtml(p.name);
+            const id = p.id || p.slug;
+            const price = formatCurrency(p.price);
+            const oldPrice = p.originalPrice || p.oldPrice ? formatCurrency(p.originalPrice || p.oldPrice) : null;
+            // Use promo image if available
+            const promoImg = p.independenceDayImage || 
+                            p.valentinesImage || 
+                            p.newYearImage || 
+                            p.blackFridayImage || 
+                            p.flashSaleImage || 
+                            p.christmasSaleImage || 
+                            p.backToSchoolImage || 
+                            p.comboDealsImage;
+            const image = promoImg || (Array.isArray(p.images) && p.images.length > 0 ? p.images[0] : "assets/images/placeholder.webp");
+            const rating = p.rating || 0;
+
+            return `
+                <div class="product-default inner-quickview inner-icon">
+                    <figure>
+                        <a href="product.html?id=${id}">
+                            <img src="${image}" width="239" height="239" alt="${name}">
+                        </a>
+                    </figure>
+                    <div class="product-details">
+                        <h3 class="product-title">
+                            <a href="product.html?id=${id}">${name}</a>
+                        </h3>
+                        <div class="ratings-container">
+                            <div class="product-ratings">
+                                <span class="ratings" style="width:${rating * 20}%"></span>
+                            </div>
+                        </div>
+                        <div class="price-box">
+                            ${oldPrice ? `<span class="old-price">${oldPrice}</span>` : ""}
+                            <span class="product-price">${price}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    };
+
+    const renderProduct = (product) => {
+        try {
+            console.log("Product Page: Rendering product:", product.name);
+            const container = document.querySelector(".product-single-container");
+            const tabsContainer = document.querySelector(".product-single-tabs");
+            if (!container) {
+                console.error("Product Page: Container .product-single-container not found!");
+                return;
+            }
+
+            const name = escapeHtml(product.name || "Unknown Product");
+            const price = formatCurrency(product.price || 0);
+            const oldPrice = product.originalPrice || product.oldPrice ? formatCurrency(product.originalPrice || product.oldPrice) : null;
+            const sku = product.id || product.slug || "N/A";
+            const category = product.categoryName || "Combo Deals";
+            const categoryId = product.categoryId || "combo-deals";
+            
+            const descriptionRenderer = createDescriptionRenderer();
+            const shortDescriptionHtml = descriptionRenderer.renderShort(product.description || "");
+            const longDescriptionHtml = descriptionRenderer.renderLong(product.fullDescription || product.description || "");
+
+            // Use promo-specific image if available, regardless of context
+            let images = Array.isArray(product.images) ? product.images : (product.image ? [product.image] : []);
+
+            // If the product has a promo-specific image, prioritize it over other images
+            // Check in order of priority based on current date/season or active promo
+            const promoImage = product.independenceDayImage || 
+                              product.valentinesImage || 
+                              product.newYearImage || 
+                              product.blackFridayImage || 
+                              product.flashSaleImage || 
+                              product.christmasSaleImage || 
+                              product.backToSchoolImage || 
+                              product.comboDealsImage;
+            if (promoImage) {
+                images = [promoImage, ...images];
+            }
+
+            const imagesHtml = images.map(img => `
+                <div class="product-item">
+                    <img class="product-single-image" src="${img}" data-zoom-image="${img}" alt="${name}" />
+                </div>
+            `).join('');
+
+            const thumbnailsHtml = images.map(img => `
+                <div class="owl-dot">
+                    <img src="${img}" alt="${name} thumbnail" />
+                </div>
+            `).join('');
+
+            console.log(`Product Page: Generated HTML with ${images.length} images`);
+
+            container.innerHTML = `
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 product-single-gallery">
+                        <div class="product-slider-container">
+                            <div class="product-single-carousel owl-carousel owl-theme show-nav-hover">
+                                ${imagesHtml || '<div class="product-item"><img src="assets/images/placeholder.webp" alt="No image"></div>'}
+                            </div>
+                        </div>
+                        <div class="prod-thumbnail owl-dots">
+                            ${thumbnailsHtml}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 col-md-6 product-single-details">
+                        <h1 class="product-title">${name}</h1>
+
+                        <div class="ratings-container">
+                            <div class="product-ratings">
+                                <span class="ratings" style="width:100%"></span>
+                            </div>
+                            <a href="#" class="rating-link">( 0 Reviews )</a>
+                        </div>
+
+                        <hr class="short-divider">
+
+                        <div class="price-box">
+                            ${oldPrice ? `<span class="old-price">${oldPrice}</span>` : ""}
+                            <span class="new-price">${price}</span>
+                        </div>
+
+                        <div class="product-desc">
+                            ${shortDescriptionHtml}
+                        </div>
+
+                        <ul class="single-info-list">
+                            <li>SKU: <strong>${sku}</strong></li>
+                            <li>CATEGORY: <strong><a href="category1.html?category=${categoryId}" class="product-category">${category}</a></strong></li>
+                        </ul>
+
+                        <div class="product-action">
+                            <div class="product-single-qty">
+                                <input id="product-quantity" class="horizontal-quantity form-control" type="number" value="1" min="1">
+                            </div>
+
+                            <button type="button" class="btn btn-dark add-cart mr-2" title="Add to Cart">Add to Cart</button>
+                            <a href="cart.html" class="btn btn-gray view-cart d-none">View cart</a>
+                        </div>
+
+                        <hr class="divider mb-0 mt-0">
+
+                        <div class="product-single-share mb-3">
+                            <label class="sr-only">Share:</label>
+                            <div class="social-icons mr-2">
+                                <a href="#" class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>
+                                <a href="#" class="social-icon social-twitter icon-twitter" target="_blank" title="Twitter"></a>
+                                <a href="#" class="social-icon social-linkedin fab fa-linkedin-in" target="_blank" title="Linkedin"></a>
+                            </div>
+                            <a href="wishlist.html" class="btn-icon-wish add-wishlist" title="Add to Wishlist"><i class="icon-heart"></i><span>Add to Wishlist</span></a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            if (tabsContainer) {
+                tabsContainer.innerHTML = `
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab">Key specifications</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel">
+                            <div class="product-desc-content">${longDescriptionHtml}</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const addBtn = container.querySelector(".add-cart");
+            if (addBtn) {
+                addBtn.addEventListener("click", () => {
+                    const qtyInput = document.getElementById("product-quantity");
+                    const qty = parseInt(qtyInput ? qtyInput.value : "1");
+                    if (window.CartManager) {
+                        window.CartManager.addToCart(sku, qty, { theme: categoryId === 'combo-deals' ? 'combo' : 'default' });
+                        const viewCartBtn = container.querySelector(".view-cart");
+                        if (viewCartBtn) viewCartBtn.classList.remove("d-none");
+                    }
+                });
+            }
+
+            const initCarousel = () => {
+                if (window.jQuery && jQuery.fn.owlCarousel) {
+                    const $carousel = jQuery(".product-single-carousel");
+                    if ($carousel.length) {
+                        $carousel.owlCarousel({
+                            items: 1,
+                            nav: true,
+                            dots: true,
+                            dotsContainer: '.prod-thumbnail'
+                        });
+                        console.log("Product Page: Carousel initialized");
+                    }
+                } else {
+                    setTimeout(initCarousel, 100);
+                }
+            };
+            initCarousel();
+            renderRelatedProducts(product.categoryId, product.id || product.slug);
+            console.log("Product Page: Render complete");
+        } catch (error) {
+            console.error("Product Page: Error in renderProduct:", error);
+        }
+    };
+
+    const init = async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id') || urlParams.get('product') || urlParams.get('slug');
+
+        if (!productId) {
+            console.error("Product Page: No product ID found in URL");
+            return;
+        }
+
+        console.log("Product Page: Initializing for ID:", productId);
+
+        try {
+            // Priority 1: Check if window.CartManager is the full version
+            if (window.CartManager && typeof window.CartManager.getAllProducts === 'function') {
+                window.IPMCCartManager = window.CartManager;
+            }
+            
+            const manager = window.IPMCCartManager || window.CartManager;
+            
+            if (manager) {
+                console.log("Product Page: Checking CartManager capabilities...");
+                
+                if (typeof manager.getAllProducts !== 'function') {
+                    console.error("Product Page: manager.getAllProducts is not a function! Namespace conflict with a bundle detected.");
+                    return;
+                }
+
+                if (typeof manager.init === 'function') {
+                    await manager.init();
+                }
+                
+                let allProducts = manager.getAllProducts();
+
+                // Validation: If no products loaded, force one last load attempt
+                if (!allProducts || allProducts.length === 0) {
+                    console.log("Product Page: No products in manager, forcing load...");
+                    if (typeof manager.loadProducts === 'function') {
+                        allProducts = await manager.loadProducts();
+                    }
+                }
+
+                console.log(`Product Page: CartManager ready. Total products: ${allProducts ? allProducts.length : 0}`);
+
+                if (!allProducts) {
+                    console.error("Product Page: allProducts is null after init");
+                    return;
+                }
+
+                const product = allProducts.find(p => {
+                    const idStr = String(p.id || "").toLowerCase().trim();
+                    const slugStr = String(p.slug || "").toLowerCase().trim();
+                    const mongoIdStr = String(p._id || "").toLowerCase().trim();
+                    const searchId = productId.toLowerCase().trim();
+                    
+                    // Exact matches
+                    if (idStr === searchId || slugStr === searchId || mongoIdStr === searchId) return true;
+                    
+                    // Partial slug matches (e.g. if URL has ups-3s-20kva and real slug is ups-028-ups-3s-20kva-400v-3-3)
+                    if (searchId.length > 5 && slugStr.includes(searchId)) return true;
+                    
+                    return false;
+                });
+
+                
+                if (product) {
+                    console.log("Product Page: Found product:", product.name);
+                    renderProduct(product);
+                    const breadcrumb = document.querySelector(".breadcrumb-item.active");
+                    if (breadcrumb) breadcrumb.textContent = product.name;
+                    document.title = `${product.name} | IPMC Kart`;
+                } else {
+                    console.warn("Product Page: Product not found in CartManager:", productId);
+                    const container = document.querySelector(".product-single-container");
+                    if (container) {
+                        container.innerHTML = `<div class="container text-center py-5">
+                            <h2>Product Not Found</h2>
+                            <p>Sorry, we couldn't find the product you're looking for.</p>
+                            <a href="index.html" class="btn btn-primary">Back to Home</a>
+                        </div>`;
+                    }
+                }
+            } else {
+                console.error("Product Page: CartManager not found on window");
+            }
+        } catch (err) {
+            console.error("Product Page: Error initializing:", err);
+        }
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();

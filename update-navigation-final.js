@@ -157,7 +157,9 @@ function updateNavigation(filePath) {
                                     </div>
                                     <!-- End .megamenu -->
                                 </li>
-                                <li class="nav-valentines">
+                                <li class="nav-independence">
+                                    <a href="independence-day.html">🇬🇭 Independence Day Sales</a>
+                                </li>
                                     <a href="valentines-sale.html">💝 Valentine's Sales</a>
                                 </li>
                                 <li class="nav-repairs">
@@ -258,7 +260,7 @@ console.log(`\nProcess completed!`);
 console.log(`Navigation updated in ${result.updatedCount} files`);
 console.log(`Navigation script added to ${result.scriptAddedCount} files`);
 console.log('\nChanges made:');
-console.log('- Replaced "New Year Sales" with "Valentine\'s Sales"');
+console.log('- Replaced "Valentine\'s Sales" with "Independence Day Sales"');
 console.log('- Fixed "Wireless Sound" category link to point to correct URL');
 console.log('- Fixed duplicate "Wireless Sound"/"Smart Watches" issue - now "Smart Watches" has its own subcategory');
 console.log('\nNote: Active states will be handled by the navigation-handler.js script dynamically based on the current page.');

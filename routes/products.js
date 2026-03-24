@@ -859,6 +859,8 @@ router.get('/', CacheMiddleware.cacheProducts(), async (req, res) => {
           filter.isNewYear = true;
       } else if (promoType === 'valentines') {
           filter.isValentines = true;
+      } else if (promoType === 'independence-day') {
+          filter.isIndependenceDay = true;
     } else if (promoType === 'top-selling') {
       filter.isTopSelling = true;
     } else if (promoType === 'combo-deals') {
@@ -1049,6 +1051,7 @@ const productSchema = z.object({
   stock: z.number().int().min(0).default(0),
   images: z.string().optional(), // Accepting a comma-separated string from the form
   description: z.string().default(''),
+  fullDescription: z.string().default(''),
 });
 
 router.post('/', isAuthenticated, requireRole('admin'), CacheMiddleware.invalidateProducts(), async (req, res) => {
@@ -1212,7 +1215,8 @@ router.post('/:slug/promo-image', isAuthenticated, requireRole('admin'), (req, r
       'back-to-school': 'backToSchoolImage',
       'new-year': 'newYearImage',
       'valentines': 'valentinesImage',
-      'combo-deals': 'comboDealsImage'
+      'combo-deals': 'comboDealsImage',
+      'independence-day': 'independenceDayImage'
     };
 
     const imageField = promoImageFields[promoType];
@@ -1250,11 +1254,12 @@ router.post('/:slug/promo-image', isAuthenticated, requireRole('admin'), (req, r
     // Write the image file
     await fs.writeFile(absPath, req.file.buffer);
 
-    // Update the product with the new image path
+    // Update the product with the new image path and refresh updatedAt for cache busting
     product[imageField] = relPath;
+    product.updatedAt = new Date();
     await product.save();
 
-    // Regenerate the corresponding promo JSON file
+    // Regenerate the corresponding promo JSON file immediately
     try {
       const adminRoutes = require('./admin');
       if (promoType === 'flash-sales') {
@@ -1271,6 +1276,8 @@ router.post('/:slug/promo-image', isAuthenticated, requireRole('admin'), (req, r
         await adminRoutes.regenerateComboDealsJSON();
       } else if (promoType === 'back-to-school') {
         await adminRoutes.regeneratePromoJSON('back-to-school');
+      } else if (promoType === 'independence-day') {
+        await adminRoutes.regeneratePromoJSON('independence-day');
       }
     } catch (regenErr) {
       logger.warn('Promo JSON regeneration after image update failed:', regenErr?.message);

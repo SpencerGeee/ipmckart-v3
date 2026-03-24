@@ -13,8 +13,8 @@
       "stock": 10,
       "rating": 0,
       "images": [
-        "assets/images/products/printers-scanners/printers-scanners/hp-printer-deskjet-2320-1.webp",
-        "assets/images/products/printers-scanners/printers-scanners/hp-printer-deskjet-2320-2.webp"
+        "assets/images/products/printers-scanners/hp/printers-scanners-005-hp-printer-deskjet-2320-fixed-printers-1772211740465-1.jpg",
+        "assets/images/products/printers-scanners/hp/printers-scanners-005-hp-printer-deskjet-2320-fixed-printers-1772211740787-2.jpg"
       ],
       "description": "A compact and affordable all‑in‑one printer that lets you print, scan, and copy everyday documents and photos. The product operates effectively as a home solution which provides users with simple USB installation.",
       "fullDescription": "• Functions: Print, Scan, Copy\r\n• Print Technology: HP Thermal Inkjet.\r\n• Print Speed: Up to 7.5 ppm (black) and 5.5 ppm (color) ISO; draft speeds up to 20 ppm black / 16 ppm color.\r\n• Print Resolution: Up to 1200 × 1200 dpi (black) and 4800 × 1200 optimized dpi (color).\r\n• Scanner: Flatbed scanner up to 1200 dpi optical resolution.\r\n• Copy Speed: Up to 6 cpm (black) and 3 cpm (color).\r\n• Copy Quality: Up to 600 × 300 dpi (black & color).\r\n• Connectivity: Hi‑Speed USB 2.0 (no wireless).\r\n• Duplex Printing: Manual (driver‑supported only).\r\n• Paper Handling: Input Tray: 60 sheets, Output Tray: 25 sheets, \r\n• Supported Sizes: A4, B5, A6, DL envelope.\r\n• Monthly Duty Cycle: Up to 1,000 pages; recommended monthly volume 50–100 pages.\r\n• Cartridge Configuration: 2 cartridges (black + tri‑color)\r\n• Compatible OS: Windows (7, 10, 11) and macOS (10.12 and above).\r\n• Dimensions: 425.2 × 304.1 × 149.1 mm\r\n• Weight: 3.42 kg (printer).\r\n• Best for: Everyday browsing, social media use, video streaming, messaging, and long battery endurance.",
@@ -23,7 +23,7 @@
       "flashSalePrice": 0,
       "flashSaleStock": 0,
       "flashSaleSold": 0,
-      "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-printer-deskjet-2320-1.webp",
+      "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-005-hp-printer-deskjet-2320-fixed-printers-1772211740465-1.jpg",
       "isBlackFriday": false,
       "blackFridayPrice": 0,
       "blackFridayStock": 0,
@@ -32,7 +32,7 @@
       "christmasSalePrice": 0,
       "christmasSaleStock": 0,
       "christmasSaleSold": 0,
-      "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-printer-deskjet-2320-1.webp",
+      "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-005-hp-printer-deskjet-2320-fixed-printers-1772211740465-1.jpg",
       "isBackToSchool": false,
       "backToSchoolPrice": 0,
       "isTopSelling": true,

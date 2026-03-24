@@ -532,9 +532,12 @@
                            : (type === 'christmas-sale') ? !!p.isChristmas
                            : (type === 'back-to-school') ? !!p.isBackToSchool
                            : (type === 'new-year') ? !!p.isNewYear
+                           : (type === 'independence-day') ? !!p.isIndependenceDay
+                           : (type === 'valentines') ? !!p.isValentines
                            : (type === 'top-selling') ? !!p.isTopSelling
                            : (type === 'combo-deals') ? !!p.isComboDeals
                            : false;
+
             const statusBadge = isAssigned
                 ? '<span class="badge bg-success">Assigned</span>'
                 : '<span class="badge bg-secondary">Not assigned</span>';
@@ -545,8 +548,12 @@
                                 : (type === 'christmas-sale') ? (p.christmasSalePrice ?? null)
                                 : (type === 'back-to-school') ? (p.backToSchoolPrice ?? null)
                                 : (type === 'new-year') ? (p.newYearPrice ?? null)
+                                : (type === 'independence-day') ? (p.independenceDayPrice ?? null)
+                                : (type === 'valentines') ? (p.valentinesPrice ?? null)
                                 : (type === 'combo-deals') ? (p.comboDealsPrice ?? null)
                                 : null;
+
+
             const currentPromoPrice = (promoPriceVal != null) ? Number(promoPriceVal) : '';
             const currentPercent = (currentPromoPrice !== '' && basePrice>0) ? Math.round((1 - (currentPromoPrice/basePrice))*100) : '';
             tr.innerHTML = `
@@ -709,6 +716,7 @@
             'black-friday': product.blackFridayImage || (Array.isArray(product.images) && product.images[0]) || '',
             'christmas-sale': product.christmasSaleImage || (Array.isArray(product.images) && product.images[0]) || '',
             'back-to-school': product.backToSchoolImage || (Array.isArray(product.images) && product.images[0]) || '',
+            'independence-day': product.independenceDayImage || (Array.isArray(product.images) && product.images[0]) || '',
             'new-year': product.newYearImage || (Array.isArray(product.images) && product.images[0]) || '',
             'valentines': product.valentinesImage || (Array.isArray(product.images) && product.images[0]) || '',
             'combo-deals': product.comboDealsImage || (Array.isArray(product.images) && product.images[0]) || ''
@@ -804,6 +812,8 @@
                 body: JSON.stringify({ promoType: type, productSlugs: slugs })
             });
             showToast(res?.message || 'Removed from promo');
+            await loadPromosProducts(currentPromosPage, currentPromosSearch);
+
         } catch (e) {
             console.error('Unassign promo failed:', e);
             showToast(`Remove failed: ${e.message}`, 'danger');
@@ -1111,6 +1121,7 @@
             document.getElementById('editProductStock').value = product.stock;
             document.getElementById('editProductImages').value = (product.images || []).join(', ');
             document.getElementById('editProductDescription').value = product.description;
+            document.getElementById('editProductFullDescription').value = product.fullDescription || '';
 
             const editModal = new bootstrap.Modal(document.getElementById('editProductModal'));
             editModal.show();
@@ -1231,6 +1242,7 @@
             subcategory: subcategoryVal,
             images: imagePaths.join(', '),
             description: document.getElementById('productDescription').value,
+            fullDescription: document.getElementById('productFullDescription').value,
             slug: slugVal
         };
 
@@ -1289,6 +1301,7 @@
             stock: parseInt(document.getElementById('editProductStock').value, 10),
             images: imagePaths.join(', '),
             description: document.getElementById('editProductDescription').value,
+            fullDescription: document.getElementById('editProductFullDescription').value,
         };
         
         showLoading();

@@ -49,33 +49,35 @@ function upsertFromProfile({ provider, providerId, email, name, emailVerified, a
   };
 }
 
-const google = new GoogleStrategy({
-  clientID: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: process.env.GOOGLE_CALLBACK_URL, // e.g. https://localhost:4040/api/auth/google/callback
-}, async (accessToken, refreshToken, profile, done) => {
-  try {
-    const email = profile.emails?.[0]?.value?.toLowerCase();
-    const name = profile.displayName || `${profile.name?.givenName || ''} ${profile.name?.familyName || ''}`.trim();
-    const providerId = profile.id;
-    const getUser = upsertFromProfile({
-      provider: 'google',
-      providerId,
-      email,
-      name,
-      emailVerified: !!profile.emails?.[0]?.verified,
-      avatar: profile.photos?.[0]?.value,
-    });
-    const user = await getUser();
-    return done(null, user);
-  } catch (err) {
-    return done(err);
-  }
-});
+if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
+  const google = new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: process.env.GOOGLE_CALLBACK_URL || '/api/auth/google/callback',
+  }, async (accessToken, refreshToken, profile, done) => {
+    try {
+      const email = profile.emails?.[0]?.value?.toLowerCase();
+      const name = profile.displayName || `${profile.name?.givenName || ''} ${profile.name?.familyName || ''}`.trim();
+      const providerId = profile.id;
+      const getUser = upsertFromProfile({
+        provider: 'google',
+        providerId,
+        email,
+        name,
+        emailVerified: !!profile.emails?.[0]?.verified,
+        avatar: profile.photos?.[0]?.value,
+      });
+      const user = await getUser();
+      return done(null, user);
+    } catch (err) {
+      return done(err);
+    }
+  });
 
-
-
-passport.use(google);
+  passport.use(google);
+} else {
+  console.warn('Google OAuth keys not found. Google login will be disabled.');
+}
 
 
 module.exports = passport;

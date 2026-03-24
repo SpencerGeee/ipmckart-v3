@@ -18,7 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.nav-starlink')?.classList.add('active');
     } else if (currentPage.includes('newyear') || currentPage.includes('new-year')) {
         document.querySelector('.nav-newyear')?.classList.add('active');
+    } else if (currentPage.includes('independence')) {
+        document.querySelector('.nav-independence')?.classList.add('active');
     } else if (currentPage.includes('repairs')) {
+
         document.querySelector('.nav-repairs')?.classList.add('active');
     } else if (currentPage.includes('blog')) {
         document.querySelector('.nav-blog')?.classList.add('active');

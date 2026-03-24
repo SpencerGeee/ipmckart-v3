@@ -12,8 +12,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-laserjet-pro-4003dw-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-laserjet-pro-4003dw-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-001-hp-laserjet-pro-4003dw-fixed-printers-1772211743077-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-001-hp-laserjet-pro-4003dw-fixed-printers-1772211743496-2.jpg"
     ],
     "description": "The monochrome laser printer operates at high speed, which makes it suitable for workgroups and offices that need to print black-and-white documents quickly while providing automatic double-sided printing and multiple wired and wireless connection options for their document processing needs.",
     "fullDescription": "• Print Technology: Monochrome laser printing (sharp black‑and‑white output with high text quality)\r\n• Print Speed: Up to 40 ppm (A4) fast printing for busy office environments.\r\n• Print Resolution: Up to 1200 × 1200 dpi, clear and crisp text/graphics.\r\n• Duplex Printing: Automatic two‑sided printing\r\n• Memory & Processor: 256 MB memory, 1.2 GHz processor\r\n• Monthly Duty Cycle: Up to 80,000 pages (recommended 750–4,000 pages/month).\r\n• Connectivity: USB 2.0, Gigabit Ethernet, dual‑band Wi‑Fi (2.4 / 5 GHz), Wi‑Fi Direct.\r\n• Mobile Printing: Supports HP Smart App, Apple AirPrint™, Mopria™\r\n• Paper Handling: 250‑sheet input tray + 100‑sheet multipurpose tray, 150‑sheet output capacity, Optional extra tray support (up to 900 sheets total)\r\n• Supported Media: A4, A5, A6, envelopes, labels, postcards, and various paper types.\r\n• Display: 2‑line backlit LCD for status/menus.\r\n• Size & Weight: Approx. 381 × 357 × 216 mm, 8.56 kg\r\n• Best for: Offices and workgroups needing fast monochrome printing, automatic duplexing, and flexible connectivity with strong duty cycle support.",
@@ -22,7 +22,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-laserjet-pro-4003dw-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-001-hp-laserjet-pro-4003dw-fixed-printers-1772211743077-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -31,7 +31,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-laserjet-pro-4003dw-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-001-hp-laserjet-pro-4003dw-fixed-printers-1772211743077-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -56,8 +56,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-officejet-pro-8023-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-officejet-pro-8023-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-007-hp-officejet-pro-8023-fixed-printers-1772211742713-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-007-hp-officejet-pro-8023-fixed-printers-1772211742913-2.jpg"
     ],
     "description": "The multifunction inkjet printer provides printing, scanning, copying, and faxing capabilities together with wireless and wired connectivity options, automatic two-sided printing, and a 2.65-inch color touchscreen, which functions as an optimal solution for home office environments and small business operations.",
     "fullDescription": "• Functions: Print, Copy, Scan, Fax\r\n• Print Technology: HP Thermal Inkjet\r\n• Print Speed: Up to 20 ppm (black), 10 ppm (color) (ISO); up to 29 ppm black / 25 ppm color in general office mode\r\n• Print Resolution: Up to 4800 × 1200 optimized dpi (color), 1200 × 1200 rendered dpi (black)\r\n• Duplex Printing: Automatic two‑sided printing standard\r\n• Scanner: Flatbed with ADF (35‑sheet Automatic Document Feeder); scan resolution up to 1200 dpi\r\n• Copy Speed: Up to 29 cpm (black) and 23 cpm (color)\r\n• Fax: Supported with RJ‑11 fax port and broadcast capabilities\r\n• Paper Handling: Input Tray: 225 sheets, Output Tray: 60 sheets, ADF: 35 sheets\r\n• Monthly Duty Cycle: Up to 20,000 pages; recommended monthly volume 800 pages\r\n• Connectivity: USB 2.0, Ethernet, Wi‑Fi 802.11 a/b/g/n, Wi‑Fi Direct, Mobile printing via HP Smart App, Apple AirPrint™, Mopria™ Certified\r\n• Display: 2.65″ Color touchscreen\r\n• Ink Cartridges: Uses HP 912 / 912XL cartridges (black + cyan + magenta + yellow)\r\n• Media Sizes Supported: A4, A5, A6, B5, envelopes, photo papers, etc.\r\n• Dimensions: 460 × 341 × 234 mm\r\n• Weight: 8.2 kg\r\n• Best for: Small offices or home offices that need professional‑quality color printing, automatic duplex, and multifunction capabilities with flexible connectivity.",
@@ -66,7 +66,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-officejet-pro-8023-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-007-hp-officejet-pro-8023-fixed-printers-1772211742713-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -75,7 +75,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-officejet-pro-8023-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-007-hp-officejet-pro-8023-fixed-printers-1772211742713-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -191,8 +191,8 @@
       "assets/images/products/ups/ups/apc-back-ups-700va-1.webp",
       "assets/images/products/ups/ups/apc-back-ups-700va-2.webp"
     ],
-    "description": "The APC Back-UPS 700VA is a dependable and efficient uninterruptible power supply (UPS) designed to provide essential power backup and surge protection for home and small office setups.",
-    "fullDescription": "The APC Back-UPS 700VA is a dependable and efficient uninterruptible power supply (UPS) designed to provide essential power backup and surge protection for home and small office setups. Here's a detailed overview:\n\nThe APC Back-UPS 700VA ensures uninterrupted operation of critical devices during power outages, surges, and voltage fluctuations. It is ideal for protecting electronics such as computers, routers, and modems. With its line-interactive topology, it stabilizes voltage levels and extends battery life. The APC Back-UPS 700VA features a compact tower design, making it easy to integrate into any workspace.\n\nThis UPS includes audible alarms to notify users of power conditions and comes with user-replaceable batteries, ensuring long-term usability. It also supports automatic voltage regulation (AVR), which corrects minor power fluctuations without switching to battery power.\nSpecifications\n<ul>\n \tPower Capacity: 700VA / 420W.\n \tInput Voltage: 120V.\n \tOutput Voltage: 120V.\n \tWaveform Type: Stepped approximation to a sine wave.\n \tTransfer Time: 6 ms typical.\n \tOutlets: 6 outlets (3 with battery backup and surge protection, 3 with surge protection only).\n \tBattery Type: Sealed lead-acid, maintenance-free.\n \tBattery Recharge Time: 8�12 hours.\n \tRuntime: Varies based on load; suitable for short-term backup.\n \tDimensions: Approximately 19 cm (H) x 11.5 cm (W) x 25 cm (D).\n \tWeight: Around 6.5 kg.\n \tWarranty: 2 years.\n</ul>",
+    "description": "The APC Back‑UPS 700VA functions as an uninterruptible power supply, which delivers battery backup power together with surge protection to safeguard computers, networking devices, and home electronic equipment. The system enables users to protect their work by saving it during power outages while they can safely shut down their equipment.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 700 VA / 390 W (approx.)</li><li class=\"ps-2\">Output Voltage: 230 V</li><li class=\"ps-2\">Topology: Line‑Interactive with Automatic Voltage Regulation (AVR)</li><li class=\"ps-2\">Battery Type: Sealed, maintenance‑free lead‑acid</li><li class=\"ps-2\">Outlets: Battery backup + surge‑protected sockets</li><li class=\"ps-2\">Surge Protection: Yes (rated 273 J)</li><li class=\"ps-2\">Connectivity: USB port for power management</li><li class=\"ps-2\">Runtime: Several minutes, depending on load</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -499,8 +499,8 @@
       "assets/images/products/ups/ups/liebert-iton-800va-e230v-iec-ifc-1.webp",
       "assets/images/products/ups/ups/liebert-iton-800va-e230v-iec-ifc-2.webp"
     ],
-    "description": "The LIEBERT ITON 800VA E230V IEC-IFC�is a compact and reliable line-interactive uninterruptible power supply (UPS) designed to protect essential electronics from power disturbances such as surges, spikes, and outages.",
-    "fullDescription": "The LIEBERT ITON 800VA E230V IEC-IFC�is a compact and reliable line-interactive uninterruptible power supply (UPS) designed to protect essential electronics from power disturbances such as surges, spikes, and outages. It is ideal for home offices, small businesses, and IT setups requiring dependable power backup.\n\nThis LIEBERT ITON 800VA E230V IEC-IFC ,�features Automatic Voltage Regulation (AVR), which stabilizes input voltage fluctuations without using the battery, extending its lifespan and ensuring consistent power delivery. It is equipped with IEC outlets, making it compatible with a variety of devices, including desktop computers, routers, and other sensitive electronics. The cold start function allows the UPS to start without a mains power supply, ensuring flexibility during outages.\n\nThe LIEBERT ITON 800VA E230V IEC-IFC is lightweight and compact, making it easy to integrate into any environment. It also includes overload protection and audible alarms to notify users of power issues. Its user-friendly design ensures straightforward operation and maintenance.\nSpecifications\n<ul>\n \tPower Capacity: 800VA / 480W\n \tInput Voltage: 230V\n \tOutput Voltage: 230V\n \tBattery Type: Maintenance-free sealed lead-acid\n \tRuntime: Approximately 10 minutes at half load\n \tTechnology: Line-interactive with AVR\n \tOutlets: IEC sockets\n \tFeatures: Cold start function, overload protection, audible alarms\n \tDimensions: Compact and lightweight design\n \tWarranty: 1 year\n</ul>",
+    "description": "The Compact Liebert itON 800VA UPS protects computers and sensitive electronics through its line-interactive technology and automatic voltage regulation feature, which safeguards against power outages, surges, and voltage fluctuations, enabling users to save their work and complete a safe shutdown process.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 800 VA / 480 W</li><li class=\"ps-2\">UPS Topology: Line‑Interactive with AVR</li><li class=\"ps-2\">Output Voltage: 230 V AC</li><li class=\"ps-2\">Outlets: 2 × Schuko (Type F) or multiple IEC outlets, depending on version</li><li class=\"ps-2\">Battery: Sealed Lead‑Acid (VRLA), 12 V 9 Ah</li><li class=\"ps-2\">Typical Backup Time: ~3 min at half load</li><li class=\"ps-2\">Waveform: Stepped sine (simulated)</li><li class=\"ps-2\">Features: AVR (boost & trim), overload protection, auto‑restart, cold‑start support, LED indicators, audible alarms</li><li class=\"ps-2\">Dimensions: 101 × 279 × 142 mm</li><li class=\"ps-2\">Weight: 4.9 kg</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -543,8 +543,8 @@
       "assets/images/products/ups/ups/apc-smart-ups-rt-8kva-230v-1.webp",
       "assets/images/products/ups/ups/apc-smart-ups-rt-8kva-230v-2.webp"
     ],
-    "description": ": The APC Smart-UPS RT 8kVA 230V is a high-performance, double-conversion online UPS designed for critical applications in IT environments, medical labs, and industrial operations.",
-    "fullDescription": ":\nThe APC Smart-UPS RT 8kVA 230V is a high-performance, double-conversion online UPS designed for critical applications in IT environments, medical labs, and industrial operations. With a compact rack/tower convertible design, it ensures reliable power protection, delivering clean and uninterrupted power during outages and disturbances. Featuring scalable runtime with external battery packs, hot-swappable batteries, and advanced management capabilities, this UPS�is ideal for maintaining uptime and operational efficiency. Its eco-mode operation enhances energy efficiency, reducing power consumption and costs. Trust the APC Smart-UPS RT 8kVA 230V�for dependable power backup and peace of mind.\nSpecifications:\n<ul>\n \tPower Capacity: 8kVA / 8,000W\n \tInput Voltage: 230V (configurable for 220V or 240V)\n \tOutput Voltage: 230V (configurable for 220V or 240V)\n \tBattery Type: Lead-acid, hot-swappable\n \tRuntime: Scalable with external battery packs\n \tTechnology: Double-conversion online\n \tFrequency: 50/60 Hz auto-sensing\n \tEfficiency: High-efficiency mode for reduced power consumption\n \tManagement: LCD interface, LED indicators, and network management capability\n \tDimensions: Height 26.3 cm, Width 43.2 cm, Depth 71.5 cm\n \tWeight: 111.82 kg\n</ul>",
+    "description": "The APC Smart-UPS RT 8kVA 230V is a high-performance, double-conversion online UPS designed for critical applications in IT environments, medical labs, and industrial operations.",
+    "fullDescription": "The APC Smart-UPS RT 8kVA 230V is a high-performance, double-conversion online UPS designed for critical applications in IT environments, medical labs, and industrial operations. With a compact rack/tower convertible design, it ensures reliable power protection, delivering clean and uninterrupted power during outages and disturbances. Featuring scalable runtime with external battery packs, hot-swappable batteries, and advanced management capabilities, this UPS is ideal for maintaining uptime and operational efficiency. Its eco-mode operation enhances energy efficiency, reducing power consumption and costs.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 8kVA / 8,000W</li><li class=\"ps-2\">Input Voltage: 230V (configurable for 220V or 240V)</li><li class=\"ps-2\">Output Voltage: 230V (configurable for 220V or 240V)</li><li class=\"ps-2\">Battery Type: Lead-acid, hot-swappable</li><li class=\"ps-2\">Runtime: Scalable with external battery packs</li><li class=\"ps-2\">Technology: Double-conversion online</li><li class=\"ps-2\">Frequency: 50/60 Hz auto-sensing</li><li class=\"ps-2\">Efficiency: High-efficiency mode for reduced power consumption</li><li class=\"ps-2\">Management: LCD interface, LED indicators, and network management capability</li><li class=\"ps-2\">Dimensions: Height 26.3 cm, Width 43.2 cm, Depth 71.5 cm</li><li class=\"ps-2\">Weight: 111.82 kg</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -807,8 +807,8 @@
       "assets/images/products/ups/ups/cworthy-3-5kva-24v-inverter-1.webp",
       "assets/images/products/ups/ups/cworthy-3-5kva-24v-inverter-2.webp"
     ],
-    "description": "The CWORTHY 3.5KVA/ 24V INVERTER is a reliable and efficient power solution designed for residential and small business applications.",
-    "fullDescription": "The CWORTHY 3.5KVA/ 24V INVERTER is a reliable and efficient power solution designed for residential and small business applications. It provides stable power output and advanced features to ensure optimal performance and energy efficiency.\n\nThe CWORTHY 3.5KVA/ 24V INVERTER is an excellent choice for ensuring reliable power supply and protecting your devices from power fluctuations. Its pure sine wave output ensures clean and stable power, making it safe for sensitive electronics. The built-in MPPT solar charge controller maximizes energy harvest from solar panels, improving overall system efficiency.\n<div></div>\nSpecifications\n<ul>\n \tRated Power: 3.5KVA (approximately 2800W).\n \tInput Voltage: 24V DC.\n \tOutput Voltage: 230V AC � 5%.\n \tWaveform: Pure sine wave for clean and stable power delivery.\n \tEfficiency: Maximum efficiency of 95%.\n \tSolar Charger: Built-in MPPT (Maximum Power Point Tracking) solar charge controller for optimized energy harvesting.\n \tProtection Features: Includes low battery alarms, high DC input voltage protection, overload protection, and short circuit protection.\n \tCompatibility: Supports mains voltage, generator power, and existing solar systems through AC coupling.\n \tDimensions: Compact and portable design for easy installation.\n \tApplications: Suitable for powering lights, refrigerators, and other essential appliances.\n</ul>\n\n\nWHY� CWORTHY 3.5KVA/ 24V INVERTER?\n\nThe CWORTHY 3.5KVA/ 24V INVERTER is an excellent choice for ensuring reliable power supply and protecting your devices from power fluctuations. Its pure sine wave output ensures clean and stable power, making it safe for sensitive electronics. The built-in MPPT solar charge controller maximizes energy harvest from solar panels, improving overall system efficiency.",
+    "description": "The 3.5 kVA inverter produces 24 V DC power to deliver consistent 230 V AC electricity, which can be used in residential, commercial, and solar energy systems. The system functions as an excellent solution to supply power for appliances, lights, and electronic devices during power outages or when operating from remote locations.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Rated Power: 3.5 kVA / 3500 W (approx.)</li><li class=\"ps-2\">DC Input Voltage: 24 V</li><li class=\"ps-2\">Output Voltage: 230 VAC ±5%</li><li class=\"ps-2\">Output Frequency: 50/60 Hz</li><li class=\"ps-2\">Waveform: Pure/modified sine wave (model‑dependent)</li><li class=\"ps-2\">Efficiency: High conversion efficiency (typically >90%)</li><li class=\"ps-2\">Protections: Overload, short‑circuit, low battery, and overvoltage protections</li><li class=\"ps-2\">Applications: Backup power for lights, TVs, computers, refrigerators, and small appliances from 24 V battery systems (solar or grid backup)</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -1068,8 +1068,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-printer-deskjet-2320-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-printer-deskjet-2320-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-005-hp-printer-deskjet-2320-fixed-printers-1772211740465-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-005-hp-printer-deskjet-2320-fixed-printers-1772211740787-2.jpg"
     ],
     "description": "A compact and affordable all‑in‑one printer that lets you print, scan, and copy everyday documents and photos. The product operates effectively as a home solution which provides users with simple USB installation.",
     "fullDescription": "• Functions: Print, Scan, Copy\r\n• Print Technology: HP Thermal Inkjet.\r\n• Print Speed: Up to 7.5 ppm (black) and 5.5 ppm (color) ISO; draft speeds up to 20 ppm black / 16 ppm color.\r\n• Print Resolution: Up to 1200 × 1200 dpi (black) and 4800 × 1200 optimized dpi (color).\r\n• Scanner: Flatbed scanner up to 1200 dpi optical resolution.\r\n• Copy Speed: Up to 6 cpm (black) and 3 cpm (color).\r\n• Copy Quality: Up to 600 × 300 dpi (black & color).\r\n• Connectivity: Hi‑Speed USB 2.0 (no wireless).\r\n• Duplex Printing: Manual (driver‑supported only).\r\n• Paper Handling: Input Tray: 60 sheets, Output Tray: 25 sheets, \r\n• Supported Sizes: A4, B5, A6, DL envelope.\r\n• Monthly Duty Cycle: Up to 1,000 pages; recommended monthly volume 50–100 pages.\r\n• Cartridge Configuration: 2 cartridges (black + tri‑color)\r\n• Compatible OS: Windows (7, 10, 11) and macOS (10.12 and above).\r\n• Dimensions: 425.2 × 304.1 × 149.1 mm\r\n• Weight: 3.42 kg (printer).\r\n• Best for: Everyday browsing, social media use, video streaming, messaging, and long battery endurance.",
@@ -1078,7 +1078,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-printer-deskjet-2320-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-005-hp-printer-deskjet-2320-fixed-printers-1772211740465-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -1087,7 +1087,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-printer-deskjet-2320-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-005-hp-printer-deskjet-2320-fixed-printers-1772211740465-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": true,
@@ -1203,8 +1203,8 @@
       "assets/images/products/ups/ups/apc-smart-ups-vt-15kva-1.webp",
       "assets/images/products/ups/ups/apc-smart-ups-vt-15kva-2.webp"
     ],
-    "description": "The APC Smart-UPS VT 15kVA is a high-capacity, three-phase uninterruptible power supply (UPS) designed for critical applications in IT environments, data centers, and industrial setups.",
-    "fullDescription": "The APC Smart-UPS VT 15kVA is a high-capacity, three-phase uninterruptible power supply (UPS) designed for critical applications in IT environments, data centers, and industrial setups. Here's a detailed overview:\n\nThe APC Smart-UPS VT 15kVA provides reliable and efficient power protection for sensitive equipment. With its double-conversion online topology, it ensures continuous and stable power delivery, even in challenging power conditions. The APC Smart-UPS VT 15kVA is ideal for environments requiring high availability and performance. It features parallel capability, allowing scalability and redundancy for critical systems. The internal maintenance bypass ensures uninterrupted power during maintenance, while the hot-swappable batteries enable easy replacement without downtime.\nSpecifications\n<ul>\n \tPower Capacity: 15,000VA / 12,000W.\n \tInput Voltage: 208V or 400V (depending on the model).\n \tOutput Voltage: 208V or 400V.\n \tWaveform Type: Pure sine wave.\n \tUPS Topology: Double-conversion online.\n \tTransfer Time: 0 ms (seamless).\n \tBattery Type: Sealed lead-acid, maintenance-free.\n \tRuntime: Varies based on load and external battery configuration.\n \tForm Factor: Tower or rack-mountable (depending on the model).\n \tCommunication Ports: USB, RS-232, and optional network management card.\n \tOperating Temperature: 0�40�C.\n \tWarranty: 2 years.\n</ul>",
+    "description": "The APC Smart‑UPS VT 15kVA functions as a three‑phase online UPS system, which provides high-capacity power protection for essential IT operations and small data centers and industrial power protection needs. The system delivers an uninterrupted power supply through its advanced management features, which enable users to extend operational time during power failures and system interruptions.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 15 kVA / 12 000 W load protection</li><li class=\"ps-2\">UPS Topology: Double‑conversion online for pure sine‑wave output</li><li class=\"ps-2\">Input Voltage: Hard‑wire three‑phase (5‑wire) (configurable)</li><li class=\"ps-2\">Output Voltage: 120 V / 208 V / 220 V (varies by setup)</li><li class=\"ps-2\">Frequency: 50/60 Hz tolerance</li><li class=\"ps-2\">Runtime: 18 min at full load; 45 min at half load with standard batteries</li><li class=\"ps-2\">Battery Type: Sealed Lead‑Acid (VRLA), hot‑swappable modules</li><li class=\"ps-2\">Management: Network management via SNMP/Web, SmartSlot, LCD console</li><li class=\"ps-2\">Bypass: Internal maintenance and static bypass</li><li class=\"ps-2\">Features: Emergency Power Off (EPO), scalable runtime, dual mains input</li><li class=\"ps-2\">Use Case: Ideal for servers, networking gear, data centers, and mission‑critical electronics needing high‑availability power protection.</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -1599,8 +1599,8 @@
       "assets/images/products/ups/ups/apc-easy-ups-smv-750va-230v-1.webp",
       "assets/images/products/ups/ups/apc-easy-ups-smv-750va-230v-2.webp"
     ],
-    "description": "The APC EASY UPS SMV 750VA 230V is a dependable line-interactive uninterruptible power supply (UPS) designed to provide essential power backup and protection for small to medium businesses, home offices, and IT setups.",
-    "fullDescription": "The APC EASY UPS SMV 750VA 230V is a dependable line-interactive uninterruptible power supply (UPS) designed to provide essential power backup and protection for small to medium businesses, home offices, and IT setups. It ensures consistent power delivery during outages and safeguards devices from voltage fluctuations, surges, and spikes.\n\nThis APC EASY UPS SMV 750VA 230V features Automatic Voltage Regulation (AVR), which stabilizes voltage levels without using the battery, extending its lifespan and ensuring reliable performance. It delivers pure sine wave output, making it suitable for sensitive electronics such as servers, workstations, and networking devices. The LCD interface provides real-time information on power conditions, battery status, and load levels, ensuring easy monitoring and management.\n\nEquipped with 6 IEC C13 outlets, the UPS supports multiple devices simultaneously. It also includes an intelligent card slot for optional network management, enabling remote monitoring and control. The compact tower design ensures space efficiency, making it easy to integrate into various environments.\nSpecifications\n<ul>\n \tPower Capacity: 750VA / 525W\n \tInput Voltage: 230V (configurable for 220V or 240V)\n \tOutput Voltage: 230V (configurable for 220V or 240V)\n \tBattery Type: Maintenance-free sealed lead-acid\n \tRuntime: Approximately 6 minutes at full load\n \tTechnology: Line-interactive with AVR\n \tOutlets: 6 IEC C13\n \tManagement: LCD interface, intelligent card slot for network management\n \tDimensions: Height 17.1 cm, Width 14 cm, Depth 36 cm\n \tWeight: 9.8 kg\n \tWarranty: 2 years repair or replace\n</ul>",
+    "description": "A compact and dependable uninterruptible power supply system protects computers and electronic devices from both power failures and voltage spikes while it delivers backup electricity to preserve work progress and safely power down equipment.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 750 VA / 450 W</li><li class=\"ps-2\">Input/Output Voltage: 230 V AC</li><li class=\"ps-2\">Type: Line-Interactive UPS with Automatic Voltage Regulation (AVR)</li><li class=\"ps-2\">Battery: Sealed Lead-Acid (maintenance-free)</li><li class=\"ps-2\">Outlets: Battery-backup + surge-protected sockets</li><li class=\"ps-2\">Surge Protection: Yes</li><li class=\"ps-2\">Features: Voltage regulation (AVR), LED status indicators, Audible alarms for power events</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -1643,8 +1643,8 @@
       "assets/images/products/ups/ups/apc-smart-ups-rt-6kva-230v-1.webp",
       "assets/images/products/ups/ups/apc-smart-ups-rt-6kva-230v-2.webp"
     ],
-    "description": "The APC Smart-UPS RT 6kVA 230V delivers high-performance power protection with double-conversion online technology.",
-    "fullDescription": "The APC Smart-UPS RT 6kVA 230V delivers high-performance power protection with double-conversion online technology. Ideal for critical applications, it offers scalable runtime, hot-swappable batteries, and advanced management capabilities. With a compact design and energy-efficient operation, this UPS ensures reliable power backup and operational efficiency.\n\nThe APC Smart-UPS RT 6kVA 230V�is a robust, double-conversion online UPS designed to provide reliable power protection for critical systems in IT environments, medical labs, and industrial applications. Its compact rack/tower convertible design ensures flexibility, while advanced features like hot-swappable batteries and scalable runtime make it a dependable choice for maintaining uptime.\nSpecifications\n<ul>\n \tPower Capacity: 6kVA / 6,000W\n \tInput Voltage: 230V (configurable for 220V or 240V)\n \tOutput Voltage: 230V (configurable for 220V or 240V)\n \tBattery Type: Lead-acid, hot-swappable\n \tRuntime: Scalable with external battery packs\n \tTechnology: Double-conversion online\n \tFrequency: 50/60 Hz auto-sensing\n \tEfficiency: High-efficiency mode for reduced power consumption\n \tManagement: LCD interface, LED indicators, and network management capability\n \tDimensions: Height 17.5 cm, Width 44 cm, Depth 62 cm\n \tWeight: 55.9 kg\n</ul>",
+    "description": "The APC Smart-UPS RT 6kVA 230V delivers high-performance power protection with double-conversion online technology, ideal for critical applications in IT environments, medical labs, and industrial operations.",
+    "fullDescription": "The APC Smart-UPS RT 6kVA 230V is a robust, double-conversion online UPS designed to provide reliable power protection for critical systems in IT environments, medical labs, and industrial applications. Its compact rack/tower convertible design ensures flexibility, while advanced features like hot-swappable batteries and scalable runtime make it a dependable choice for maintaining uptime. With eco-mode operation for enhanced energy efficiency and advanced management capabilities, this UPS delivers clean and uninterrupted power during outages and disturbances.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 6kVA / 6,000W</li><li class=\"ps-2\">Input Voltage: 230V (configurable for 220V or 240V)</li><li class=\"ps-2\">Output Voltage: 230V (configurable for 220V or 240V)</li><li class=\"ps-2\">Battery Type: Lead-acid, hot-swappable</li><li class=\"ps-2\">Runtime: Scalable with external battery packs</li><li class=\"ps-2\">Technology: Double-conversion online</li><li class=\"ps-2\">Frequency: 50/60 Hz auto-sensing</li><li class=\"ps-2\">Efficiency: High-efficiency mode for reduced power consumption</li><li class=\"ps-2\">Management: LCD interface, LED indicators, and network management capability</li><li class=\"ps-2\">Dimensions: Height 17.5 cm, Width 44 cm, Depth 62 cm</li><li class=\"ps-2\">Weight: 55.9 kg</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -1775,8 +1775,8 @@
       "assets/images/products/ups/ups/felicity-5kw-48v-inverter-1.webp",
       "assets/images/products/ups/ups/felicity-5kw-48v-inverter-2.webp"
     ],
-    "description": "The Felicity 5kW/48V inverter is a versatile and efficient solution for solar energy systems, designed to provide reliable power conversion and backup capabilities.",
-    "fullDescription": "The Felicity 5kW/48V inverter is a versatile and efficient solution for solar energy systems, designed to provide reliable power conversion and backup capabilities. It is ideal for residential and commercial applications, offering advanced features to ensure optimal performance and energy efficiency.\n\nThe Felicity 5kW/48V inverter is an excellent choice for anyone looking to optimize their solar energy system. Its pure sine wave output ensures stable and clean power, making it safe for sensitive electronics. The built-in MPPT solar charge controller maximizes energy harvest from solar panels, improving overall system efficiency. With a high charging current of up to 100A, it supports fast and efficient battery charging.\n<div></div>\n<div></div>\nSpecifications\n<ul>\n \tType: Off-grid solar inverter.\n \tRated Power: 5000W (5kW).\n \tInput Voltage: 48V DC.\n \tOutput Voltage: 220V AC.\n \tWaveform: Pure sine wave for stable and clean power output.\n \tSolar Charger: Built-in MPPT (Maximum Power Point Tracking) solar charge controller.\n \tCharging Current: Up to 100A.\n \tEfficiency: High conversion efficiency for maximum energy utilization.\n \tProtection: Overload, short circuit, and over-temperature protection.\n \tDisplay: LCD screen for real-time monitoring and configuration.\n \tCompatibility: Supports lithium-ion and lead-acid batteries.\n \tDimensions: Compact and portable design for easy installation.\n \tApplications: Suitable for homes, offices, and small businesses.\n</ul>\n\n\nWHY� FELICITY 5kW/48V INVERTER?\n\nThe Felicity 5kW/48V inverter is an excellent choice for anyone looking to optimize their solar energy system. Its pure sine wave output ensures stable and clean power, making it safe for sensitive electronics. The built-in MPPT solar charge controller maximizes energy harvest from solar panels, improving overall system efficiency. With a high charging current of up to 100A, it supports fast and efficient battery charging.\n<div></div>",
+    "description": "The Felicity 5kW/48V inverter is a versatile and efficient solution for solar energy systems, designed to provide reliable power conversion and backup capabilities for residential and commercial applications.",
+    "fullDescription": "The Felicity 5kW/48V inverter is an excellent choice for anyone looking to optimize their solar energy system. Its pure sine wave output ensures stable and clean power, making it safe for sensitive electronics. The built-in MPPT solar charge controller maximizes energy harvest from solar panels, improving overall system efficiency. With a high charging current of up to 100A, it supports fast and efficient battery charging.<ul class=\"product-specs-list\"><li class=\"ps-2\">Type: Off-grid solar inverter</li><li class=\"ps-2\">Rated Power: 5000W (5kW)</li><li class=\"ps-2\">Input Voltage: 48V DC</li><li class=\"ps-2\">Output Voltage: 220V AC</li><li class=\"ps-2\">Waveform: Pure sine wave for stable and clean power output</li><li class=\"ps-2\">Solar Charger: Built-in MPPT (Maximum Power Point Tracking) solar charge controller</li><li class=\"ps-2\">Charging Current: Up to 100A</li><li class=\"ps-2\">Efficiency: High conversion efficiency for maximum energy utilization</li><li class=\"ps-2\">Protection: Overload, short circuit, and over-temperature protection</li><li class=\"ps-2\">Display: LCD screen for real-time monitoring and configuration</li><li class=\"ps-2\">Compatibility: Supports lithium-ion and lead-acid batteries</li><li class=\"ps-2\">Applications: Suitable for homes, offices, and small businesses</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -1991,8 +1991,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-desk-jet-plus-4120-hp-305-catridge-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-desk-jet-plus-4120-hp-305-catridge-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-004-hp-desk-jet-plus-4120-hp-305-catridge-fixed-printers-1772211741325-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-004-hp-desk-jet-plus-4120-hp-305-catridge-fixed-printers-1772211741428-2.jpg"
     ],
     "description": "A home, student, and small office environment needs this multifunctional inkjet printer because it provides printing, scanning, copying, and mobile faxing through its wireless connection and simple installation process.",
     "fullDescription": "• Functions: Print, Copy, Scan, Wireless, Send mobile fax.\r\n• Print Technology: HP Thermal Inkjet.\r\n• Print Speed: Up to 8.5 ppm (black) and 5.5 ppm (color) (ISO); faster draft modes available.\r\n• Print Resolution: Up to 1200 × 1200 dpi (black), 4800 × 1200 optimized dpi (color).\r\n• Duplex Printing: Manual (driver‑supported).\r\n• Recommended Monthly Volume: 100–300 pages.\r\n• Scanner Type: Flatbed, ADF (Automatic Document Feeder).\r\n• Scan Resolution: Up to 1200 × 1200 dpi optical.\r\n• Copy Speed: Up to 6 cpm (black), 3 cpm (color).\r\n• Copy Resolution: Up to 300 × 300 dpi.\r\n• Paper Handling: 60‑sheet input tray, 25‑sheet output tray; A4/B5/A6/DL envelope support.\r\n• Mobile Printing: Wi‑Fi, Apple AirPrint™, HP Smart App, Mopria‑certified.\r\n• Connectivity: USB 2.0, Built‑in Wi‑Fi 802.11a/b/g/n.\r\n• Memory: 64 MB + 20 MB Flash.\r\n• Dimensions & Weight: 428 × 332 × 200 mm; 4.82 kg.",
@@ -2001,7 +2001,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-desk-jet-plus-4120-hp-305-catridge-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-004-hp-desk-jet-plus-4120-hp-305-catridge-fixed-printers-1772211741325-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -2010,7 +2010,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-desk-jet-plus-4120-hp-305-catridge-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-004-hp-desk-jet-plus-4120-hp-305-catridge-fixed-printers-1772211741325-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -2035,8 +2035,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-officejet-pro-x551dw-printer-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-officejet-pro-x551dw-printer-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-006-hp-officejet-pro-x551dw-printer-fixed-printers-1772211742417-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-006-hp-officejet-pro-x551dw-printer-fixed-printers-1772211742557-2.jpg"
     ],
     "description": "The high-speed professional inkjet printer uses HP PageWide Technology to provide printing results which match laser performance while operating at reduced printing costs. The system delivers quick color and black printing capabilities together with strong paper handling features and multiple network and wireless connection options.",
     "fullDescription": "• Print Technology: HP PageWide Technology with pigmented inks\r\n• Print Speed (ISO): Up to 42 ppm black & color; up to 70 ppm in General Office mode.\r\n• Print Resolution: Up to 1200 × 1200 optimized dpi (black); up to 2400 × 1200 optimized dpi (color). \r\n• First Page Out: 9.5 seconds (black & color). \r\n• Cartridges: 4 (black, cyan, magenta, yellow). \r\n• Monthly Duty Cycle: Up to 80 000 pages; recommended 1000 – 6000 pages. \r\n• Paper Handling: Input: 500-sheet main tray + 50-sheet multipurpose tray,  Output: 300-sheet face-down tray, Automatic duplex (2-sided) printing: Yes (standard).\r\n• Display: 4.3″ color touchscreen for easy operation. \r\n• Connectivity: Built in Wi Fi 802.11b/g/n, Ethernet, USB 2.0 supports mobile printing (HP ePrint, AirPrint, Google Cloud Print). \r\n• Processor & Memory: 792 MHz CPU with 512 MB RAM. \r\n• Supported Media: A4, A5, A6, B5; envelopes; labels; specialty papers. \r\n• Dimensions: 517 × 399 × 414 mm (WxDxH).\r\n• Weight: 17.1 kg.\r\n• OS Support: Windows, macOS, Linux (varies by driver). \r\n• Best for: Workgroups, small/medium offices, and high volume printing with fast color output and low running cost.",
@@ -2045,7 +2045,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-officejet-pro-x551dw-printer-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-006-hp-officejet-pro-x551dw-printer-fixed-printers-1772211742417-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -2054,7 +2054,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-officejet-pro-x551dw-printer-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-006-hp-officejet-pro-x551dw-printer-fixed-printers-1772211742417-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -2079,8 +2079,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-neverstop-printer-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-neverstop-printer-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-008-hp-neverstop-printer-fixed-printers-1772211742157-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-008-hp-neverstop-printer-fixed-printers-1772211742270-2.jpg"
     ],
     "description": "The printer functions as a compact monochrome laser device that uses a refillable toner tank system to produce cost-effective black-and-white printouts. The system allows users to print documents wirelessly from their mobile devices, which makes it suitable for home and small office use.",
     "fullDescription": "• Print Technology: Monochrome Laser (black‑and‑white)\r\n• Functions: Print only (most base models)\r\n• Print Speed: Up to 20 ppm (A4, ISO)\r\n• First Page Out: 7.6–8.5 sec (ready)\r\n• Print Resolution: Up to 600 × 600 dpi (enhanced ×2)\r\n• Toner System: Refillable toner tank includes toner for 5 000 pages out of the box; refill kits yield additional pages (mess‑free refilling).\r\n• Monthly Duty Cycle: Up to 20 000 - 25 000 pages\r\n• Recommended Monthly Volume: 250 - 2 500 pages\r\n• Connectivity: USB 2.0, Wi‑Fi (on “w” / wireless network models); Wi‑Fi Direct (on some variants)\r\n• Mobile Printing: HP Smart App, Apple AirPrint, Mopria‑certified printing\r\n• Paper Handling: 150‑sheet input tray, 100‑sheet output bin\r\n• Duplex Printing: Manual (driver‑supported)\r\n• Supported Media: A4, A5, A6, envelopes (No. 10, C5, DL, B5 JIS), plain/heavy/bond paper, labels\r\n• Display: Simple LED segment display for status and toner level\r\n• Dimensions: 380 × 293 × 211 mm\r\n• Weight: 6.9 kg\r\n• Best for: Black‑and‑white document printing, home or small office use, lower cost per page with refillable toner, easy mobile/wireless printing.",
@@ -2089,7 +2089,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-neverstop-printer-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-008-hp-neverstop-printer-fixed-printers-1772211742157-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -2098,7 +2098,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-neverstop-printer-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-008-hp-neverstop-printer-fixed-printers-1772211742157-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -2170,8 +2170,8 @@
       "assets/images/products/ups/ups/apc-back-ups-500va-1.webp",
       "assets/images/products/ups/ups/apc-back-ups-500va-2.webp"
     ],
-    "description": "The APC Back-UPS 500VA�is an ideal power backup solution for safeguarding essential electronics in homes and small office setups.",
-    "fullDescription": "The APC Back-UPS 500VA�is an ideal power backup solution for safeguarding essential electronics in homes and small office setups. Designed with reliability and efficiency in mind, this uninterruptible power supply provides seamless protection against power outages, surges, and fluctuations, ensuring uninterrupted performance for connected devices such as computers, routers, modems, and gaming consoles.\n\nWith its 300W power capacity, the Back-UPS 500VA supports multiple devices simultaneously, making it suitable for a variety of scenarios. Its three battery-backed outlets ensure that critical devices remain operational during power interruptions, while the three surge-protected outlets prevent damage to less essential equipment. Additionally, it comes equipped with audible alarms that notify users of changes in power conditions, giving you peace of mind during unexpected disruptions.\n\nThe integrated PowerChute software enhances its functionality by allowing automated system shutdowns, protecting sensitive data and minimizing hardware risks during extended outages. This APC Back-UPS 500VA also features a compact and lightweight tower design, allowing for easy installation in any space-constrained area. The lead-acid battery is both efficient and quick to recharge, ensuring readiness for the next power event.\n\nIn terms of eco-friendliness, the APC Back-UPS 500VA adheres to energy efficiency standards and provides an environmentally conscious solution for power protection. Its durable build quality and user-friendly operation make it a trustworthy choice for protecting your valuable equipment and ensuring smooth operation during unpredictable power situations.\nSpecifications\n<ul>\n \tPower Capacity: 500VA / 300W.\n \tOutlets: 6 total outlets (3 with battery backup and surge protection, 3 with surge protection only).\n \tBattery Type: Lead-acid battery with a typical recharge time of 8 hours.\n \tRuntime: Provides backup power for a few minutes, depending on the load.\n \tSurge Protection: 480 Joules surge energy rating.\n \tInput Voltage: 120V.\n \tOutput Voltage: 120V.\n \tAdditional Features:\n<ul>\n \tAudible alarms for power status.\n \tPowerChute software for automatic shutdown.\n \tCompact tower design for easy placement.\n</ul>\n\n \tDimensions: Approximately 18.5 cm (H) x 11.5 cm (W) x 21.3 cm (D).\n \tWeight: Around 4.9 kg.\n \tWarranty: 2 years.\n</ul>",
+    "description": "The APC Back‑UPS 500VA functions as an uninterruptible power supply system, which provides dependable power protection for your computer and network equipment, and home electronic devices against power outages, voltage fluctuations, and power surges. The system maintains power to essential equipment through its battery backup system and automatic voltage regulation, which allows users to complete their work and power down their devices safely.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 500 VA / 300 W</li><li class=\"ps-2\">Output: 230 V (typical for Ghana/EU markets)</li><li class=\"ps-2\">Battery Type: Sealed Lead‑Acid (maintenance‑free)</li><li class=\"ps-2\">Outlets: Multiple battery‑backup and surge‑protected sockets</li><li class=\"ps-2\">Surge Protection: Yes</li><li class=\"ps-2\">Runtime: Provides several minutes of backup at low load (varies with device)</li><li class=\"ps-2\">Features: Automatic Voltage Regulation (AVR), Power‑on self‑test, LED indicators for status, Audible alarms for power events</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -2214,8 +2214,8 @@
       "assets/images/products/ups/ups/apc-back-ups-bv-650va-1.webp",
       "assets/images/products/ups/ups/apc-back-ups-bv-650va-2.webp"
     ],
-    "description": "The APC Back-UPS BV 650VA�is a reliable and efficient uninterruptible power supply (UPS) designed to provide essential power backup and surge protection for home and small office devices.",
-    "fullDescription": "The APC Back-UPS BV 650VA�is a reliable and efficient uninterruptible power supply (UPS) designed to provide essential power backup and surge protection for home and small office devices. Here's a detailed overview:\n\nThe APC Back-UPS BV 650VA ensures uninterrupted operation of critical devices during power outages and voltage fluctuations. With its line-interactive topology, it offers stable power delivery and protects connected equipment like computers, routers, and modems. Its compact design and user-friendly features make it an excellent choice for small setups.\nSpecifications\n<ul>\n \tPower Capacity: 650VA / 375W.\n \tInput Voltage: 230V.\n \tOutput Voltage: 230V.\n \tWaveform Type: Stepped approximation to a sine wave.\n \tTransfer Time: 6 ms typical, 10 ms maximum.\n \tBattery Type: Sealed lead-acid, maintenance-free.\n \tRuntime: Varies based on load; suitable for short-term backup.\n \tOutlets: 4 universal outlets for battery backup and surge protection.\n \tSurge Energy Rating: 156 Joules.\n \tNoise Level: 40 dBA.\n \tDimensions: 9.25 cm (H) x 16.5 cm (W) x 30.5 cm (D).\n \tWeight: 4.5 kg.\n \tOperating Temperature: 0�40�C.\n \tWarranty: 2 years.\n</ul>",
+    "description": "The APC Back-UPS BV 650VA functions as a reliable uninterruptible power supply system that safeguards computers, home networking devices, and electronic equipment from power interruptions, voltage spikes, and power fluctuations. The system provides sufficient battery backup power to enable users to preserve their work and conduct safe device shutdowns.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 650 VA / 390 W</li><li class=\"ps-2\">Output Voltage: 230 V (suitable for Ghana/EU power systems)</li><li class=\"ps-2\">Battery Type: Sealed Lead‑Acid (maintenance‑free)</li><li class=\"ps-2\">Outlets: Combination of battery‑backup + surge‑protected sockets</li><li class=\"ps-2\">Surge Protection: Yes</li><li class=\"ps-2\">Runtime: Provides minutes of backup power depending on load</li><li class=\"ps-2\">Features: Automatic Voltage Regulation (AVR), LED status indicators, Audible alarms for power events</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -2258,8 +2258,8 @@
       "assets/images/products/ups/ups/liebert-psi-1000va-900w-1.webp",
       "assets/images/products/ups/ups/liebert-psi-1000va-900w-2.webp"
     ],
-    "description": "The Liebert PSI 1000VA (900W)�is a high-performance uninterruptible power supply (UPS) designed for critical applications in IT environments, small data centers, and network closets.",
-    "fullDescription": "The Liebert PSI 1000VA (900W)�is a high-performance uninterruptible power supply (UPS) designed for critical applications in IT environments, small data centers, and network closets. Here's a detailed overview:\n\nThe Liebert PSI 1000VA (900W) is a line-interactive UPS that provides reliable power backup and protection against power disturbances such as outages, surges, and voltage fluctuations. With its 0.9 power factor, it delivers more usable power to connected devices, making it ideal for modern IT equipment. The Liebert PSI 1000VA (900W) is designed with flexibility in mind, featuring a rack/tower convertible form factor and a rotatable LCD display for easy monitoring in any setup.\n\nThis UPS includes automatic voltage regulation (AVR) to stabilize output voltage without using the battery, extending battery life. It also supports hot-swappable batteries, allowing for maintenance without interrupting power to connected devices. Multiple communication options, including USB and SNMP, enable remote monitoring and management.\nSpecifications\n<ul>\n \tCapacity: 1000VA / 900W.\n \tPower Factor: 0.9.\n \tInput Voltage: 230V.\n \tOutput Voltage: 230V.\n \tWaveform Type: Pure sine wave.\n \tTransfer Time: 4�6 ms.\n \tOutlets: 8�9 battery-backed outlets (depending on the model).\n \tBattery Type: Sealed lead-acid, maintenance-free.\n \tRuntime: 3�5 minutes at full load.\n \tForm Factor: Rack/tower convertible, 2U height.\n \tCommunication Ports: USB, SNMP, contact closure.\n \tOperating Temperature: 0�40�C.\n \tWarranty: 2 years.\n</ul>",
+    "description": "The Liebert PSI 1000VA UPS functions as a dependable line-interactive uninterruptible power supply that safeguards computers and networking equipment and delicate electronic devices from power failures, electrical surges, and voltage changes. The system provides strong backup power through its 1000 VA/900 W capacity, while its automatic voltage regulation system extends operational time during power outages.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 1000 VA / 900 W</li><li class=\"ps-2\">UPS Type: Line‑Interactive with AVR (Automatic Voltage Regulation)</li><li class=\"ps-2\">Input/Output Voltage: 230 V AC</li><li class=\"ps-2\">Battery: Sealed Lead‑Acid (maintenance‑free)</li><li class=\"ps-2\">Outlets: Combination of battery‑backup and surge‑protected sockets</li><li class=\"ps-2\">Surge Protection: Yes</li><li class=\"ps-2\">Features: AVR for voltage stabilization, LED status indicators, Audible alarms for power events, Cold‑start support</li><li class=\"ps-2\">Ideal for desktops, workstations, servers, and networking equipment that need dependable backup and power conditioning.</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -2302,8 +2302,8 @@
       "assets/images/products/ups/ups/liebert-iton-800va-1.webp",
       "assets/images/products/ups/ups/liebert-iton-800va-2.webp"
     ],
-    "description": "The Liebert ITON 800VA is a compact and reliable uninterruptible power supply (UPS) designed to provide essential power backup and protection for small office and home setups.",
-    "fullDescription": "The Liebert ITON 800VA is a compact and reliable uninterruptible power supply (UPS) designed to provide essential power backup and protection for small office and home setups. Here's a detailed overview:\n\nThe Liebert ITON 800VA is a line-interactive UPS that ensures stable power delivery during outages, surges, and voltage fluctuations. It is ideal for safeguarding critical devices such as desktop computers, routers, and modems. With its automatic voltage regulation (AVR), it stabilizes voltage levels without using the battery, extending battery life and improving efficiency. The Liebert ITON 800VA features a compact tower design, making it easy to install in space-constrained environments.\n\nThis UPS also includes overload protection and an auto-restart function, ensuring reliable operation even in challenging conditions. Its cold start capability allows it to power up devices directly from the battery during a power outage.\nSpecifications\n<ul>\n \tPower Capacity: 800VA / 360W.\n \tInput Voltage: 230V.\n \tOutput Voltage: 230V.\n \tWaveform Type: Stepped approximation to a sine wave.\n \tTransfer Time: 4�6 ms.\n \tOutlets: 4 IEC outlets for battery backup and surge protection.\n \tBattery Type: Sealed lead-acid, maintenance-free.\n \tBattery Recharge Time: 4�6 hours to 90%.\n \tRuntime: Varies based on load; suitable for short-term backup.\n \tDimensions: 279 mm (L) x 101 mm (W) x 142 mm (H).\n \tWeight: Approximately 4.2 kg.\n \tOperating Temperature: 0�40�C.\n \tWarranty: 2 years.\n</ul>",
+    "description": "The Liebert itON 800VA UPS functions as a small yet dependable line-interactive uninterruptible power supply that protects desktop computers, networking equipment, and delicate electronic devices from power outages, voltage spikes, and voltage changes, providing users with time to complete their work and perform proper system shutdown.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 800 VA / 480 W</li><li class=\"ps-2\">UPS Type: Line‑Interactive with AVR (Automatic Voltage Regulation)</li><li class=\"ps-2\">Output Voltage: 230 V</li><li class=\"ps-2\">Battery: Sealed Lead‑Acid (VRLA), 12 V 9 Ah</li><li class=\"ps-2\">Outlets: Typically 2 Schuko / C13 outlets, depending on version</li><li class=\"ps-2\">Waveform: Stepped sine / simulated sine</li><li class=\"ps-2\">Features: Cold‑start support, automatic restart, overload, and surge protection</li><li class=\"ps-2\">Form Factor: Tower, compact design</li><li class=\"ps-2\">Use Case: Ideal for PCs, workstations, routers, and small office electronics needing basic battery backup and power conditioning.</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -2434,8 +2434,8 @@
       "assets/images/products/ups/ups/apc-back-ups-bv-650va-230v-1.webp",
       "assets/images/products/ups/ups/apc-back-ups-bv-650va-230v-2.webp"
     ],
-    "description": "The APC BACK-UPS BV 650VA 230V�is a reliable and compact uninterruptible power supply (UPS) designed to provide essential power backup and surge protection for home and small office electronics.",
-    "fullDescription": "The APC BACK-UPS BV 650VA 230V�is a reliable and compact uninterruptible power supply (UPS) designed to provide essential power backup and surge protection for home and small office electronics. It ensures uninterrupted operation of critical devices during power outages and safeguards them from power disturbances like surges, spikes, and voltage fluctuations.\n\nThis APC BACK-UPS BV 650VA 230V features Automatic Voltage Regulation (AVR), which stabilizes voltage fluctuations without using the battery, extending its lifespan and ensuring consistent power delivery. It is equipped with 4 universal outlets, allowing you to connect multiple devices such as computers, routers, and entertainment systems. The compact design supports flexible installation, whether placed upright, flat, or wall-mounted, making it suitable for various setups.\n\nThe APC BACK-UPS BV 650VA 230V includes LED indicators and audible alarms to provide real-time updates on power and battery status. Its maintenance-free lead-acid battery ensures reliable performance, while the surge energy rating of 156 Joules protects connected devices from power spikes.\nSpecifications:\n<ul>\n \tPower Capacity: 650VA / 375W\n \tInput Voltage: 230V\n \tOutput Voltage: 230V\n \tBattery Type: Maintenance-free sealed lead-acid\n \tRuntime: Approximately 10 minutes at half load\n \tTechnology: Line-interactive with AVR\n \tOutlets: 4 universal sockets\n \tSurge Energy Rating: 156 Joules\n \tBattery Recharge Time: 8 hours\n \tDimensions: Height 9.25 cm, Width 16.5 cm, Depth 30.5 cm\n \tWeight: 4.5 kg\n \tWarranty: 2 years repair or replace\n</ul>",
+    "description": "The APC Back-UPS BV 650VA functions as a reliable uninterruptible power supply system that safeguards computers, home networking devices, and electronic equipment from power interruptions, voltage spikes, and power fluctuations. The system provides sufficient battery backup power to enable users to preserve their work and conduct safe device shutdowns.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 650 VA / 390 W</li><li class=\"ps-2\">Output Voltage: 230 V (suitable for Ghana/EU power systems)</li><li class=\"ps-2\">Battery Type: Sealed Lead‑Acid (maintenance‑free)</li><li class=\"ps-2\">Outlets: Combination of battery‑backup + surge‑protected sockets</li><li class=\"ps-2\">Surge Protection: Yes</li><li class=\"ps-2\">Runtime: Provides minutes of backup power depending on load</li><li class=\"ps-2\">Features: Automatic Voltage Regulation (AVR), LED status indicators, Audible alarms for power events</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -2698,8 +2698,8 @@
       "assets/images/products/ups/ups/felicity-3kva-24v-hybrid-inverter-1.webp",
       "assets/images/products/ups/ups/felicity-3kva-24v-hybrid-inverter-2.webp"
     ],
-    "description": "The FELICITY 3kVA /24V HYBRID INVERTER is a cutting-edge energy solution that brings together the functionality of an inverter, solar charge controller, and battery charger in one efficient device.",
-    "fullDescription": "The FELICITY 3kVA /24V HYBRID INVERTER is a cutting-edge energy solution that brings together the functionality of an inverter, solar charge controller, and battery charger in one efficient device. Designed for residential, commercial, and small-scale industrial applications, this hybrid inverter is an all-in-one energy manager, perfect for powering homes, offices, and businesses.\n\nFeaturing a pure sine wave output, the inverter provides clean and stable power, making it safe for sensitive electronics such as computers, televisions, and medical devices. At its core is a highly efficient MPPT (Maximum Power Point Tracking) solar charge controller, which optimizes energy capture from solar panels, ensuring maximum energy utilization. Its wide MPPT voltage range of 120-450V DC makes it highly adaptable, accommodating various solar panel setups.\n\nWith a high operational efficiency of up to 95%, the FELICITY 3kVA /24V HYBRID INVERTER delivers reliable performance while minimizing energy wastage. It includes advanced protection features such as overload, short circuit, over-temperature, and low battery safeguards, ensuring durability and dependability in demanding conditions. The FELICITY 3kVA /24V HYBRID INVERTER supports a high charging current of up to 100A, enabling fast and efficient battery charging.\n\nThe intuitive LCD display provides real-time monitoring, showing crucial system metrics such as input and output voltage, battery level, and system status. This allows users to configure and optimize settings based on their specific energy requirements. Compatible with both lithium-ion and lead-acid batteries, this hybrid inverter offers flexibility for users to design a system that best meets their energy needs.\n\nCompact and lightweight, it is designed for easy installation and integration into existing solar energy setups or backup power systems. Whether the goal is to reduce electricity costs, achieve energy independence, or enhance sustainability, the FELICITY 3kVA /24V HYBRID INVERTER is a dependable and innovative choice.\n<div></div>\nSpecifications\n<ul>\n \tRated Power: 3kVA (3000W).\n \tInput Voltage: 24V DC.\n \tOutput Voltage: 220V AC � 5%.\n \tWaveform: Pure sine wave for stable and clean power.\n \tSolar Charger: Built-in MPPT (Maximum Power Point Tracking) solar charge controller with a voltage range of 120-450V DC.\n \tEfficiency: Up to 95%.\n \tCharging Current: Up to 100A.\n \tProtection Features: Overload, short circuit, over-temperature, and low battery protection.\n \tDisplay: LCD screen for real-time monitoring and configuration.\n \tCompatibility: Supports lithium-ion and lead-acid batteries.\n \tDimensions: Compact and portable design for easy installation.\n \tApplications: Ideal for powering homes, offices, and small businesses.\n</ul>",
+    "description": "The FELICITY 3kVA /24V HYBRID INVERTER is a cutting-edge energy solution that combines inverter, solar charge controller, and battery charger functionality for residential, commercial, and small-scale industrial applications.",
+    "fullDescription": "Featuring a pure sine wave output, the inverter provides clean and stable power, making it safe for sensitive electronics such as computers, televisions, and medical devices. At its core is a highly efficient MPPT (Maximum Power Point Tracking) solar charge controller, which optimizes energy capture from solar panels, ensuring maximum energy utilization. With a high operational efficiency of up to 95%, it delivers reliable performance while minimizing energy wastage.<ul class=\"product-specs-list\"><li class=\"ps-2\">Rated Power: 3kVA (3000W)</li><li class=\"ps-2\">Input Voltage: 24V DC</li><li class=\"ps-2\">Output Voltage: 220V AC ± 5%</li><li class=\"ps-2\">Waveform: Pure sine wave for stable and clean power</li><li class=\"ps-2\">Solar Charger: Built-in MPPT with voltage range of 120-450V DC</li><li class=\"ps-2\">Efficiency: Up to 95%</li><li class=\"ps-2\">Charging Current: Up to 100A</li><li class=\"ps-2\">Protection: Overload, short circuit, over-temperature, and low battery protection</li><li class=\"ps-2\">Display: LCD screen for real-time monitoring and configuration</li><li class=\"ps-2\">Compatibility: Supports lithium-ion and lead-acid batteries</li><li class=\"ps-2\">Applications: Ideal for powering homes, offices, and small businesses</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -3003,8 +3003,7 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-color-laserjet-enterprise-flow-mfp-m776z-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-color-laserjet-enterprise-flow-mfp-m776z-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-010-hp-color-laserjet-enterprise-flow-mfp-m776z-fixed-printers-1772211746176-1.jpg"
     ],
     "description": "The professional-grade enterprise-class multifunction color laser printer delivers high-speed color printing together with scanning, copying, and faxing functions, while offering advanced workflow features, strong security measures, and large paper storage and touchscreen control. The solution is designed to meet the printing and scanning needs of active offices and workgroups that require extensive printing and scanning operations.",
     "fullDescription": "• Functions: Print, Copy, Scan, Fax (MFP all‑in‑one)\r\n• Print Technology: Color Laser\r\n• Print Speed: Up to 46 ppm (black & color, A4, ISO)\r\n• Print Resolution: Up to 1200 × 1200 dpi (black & color)\r\n• First Page Out: 6.5 s (black), 6.8 s (color)\r\n• Display: 9.0″ color touchscreen (1024 × 768) for easy operation\r\n• Duty Cycle: Up to 200,000 pages/month with recommended 40,000 pages/month\r\n• Memory: 5 GB standard, expandable up to 7 GB\r\n• Internal Storage: 500 GB high‑performance hard disk for job storage and security features\r\n• Connectivity: Gigabit Ethernet, USB 2.0, built‑in wireless (802.11n/BLE), Wi‑Fi Direct; optional network modules available\r\n• Mobile Printing: HP ePrint, Apple AirPrint™, Mopria™ Certified, Google Cloud Print\r\n• Paper Handling: Standard Input: 100‑sheet multipurpose tray + 2×550‑sheet trays + optional additional trays for high capacity, Output: 500‑sheet output tray, Media Support: Wide range (plain, heavy, glossy, cardstock, envelopes, etc.) with A3 and larger formats (RA3, SRA3) supported\r\n• Scanner: Flatbed + 200‑sheet Automatic Document Feeder (ADF) with duplex scanning and up to 600 dpi optical resolution\r\n• Copy Speed: Up to 46 cpm (black & color)\r\n• Fax: Built‑in fax with modem and memory support\r\n• Supported Print Languages: HP PCL 6, PCL 5, PostScript Level 3, Native PDF printing\r\n• Security: Advanced embedded security with monitoring, self‑healing firmware, and access controls (enterprise security features).\r\n• Best for: Medium to large offices, centralized enterprise print environments, and workflow‑intensive departments requiring fast color printing, robust scanning workflows, large paper capacity, and secure networked printing.",
@@ -3013,7 +3012,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-color-laserjet-enterprise-flow-mfp-m776z-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-010-hp-color-laserjet-enterprise-flow-mfp-m776z-fixed-printers-1772211746176-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -3022,7 +3021,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-color-laserjet-enterprise-flow-mfp-m776z-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-010-hp-color-laserjet-enterprise-flow-mfp-m776z-fixed-printers-1772211746176-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -3050,8 +3049,8 @@
       "assets/images/products/ups/ups/liebert-psi-750va-675w-1.webp",
       "assets/images/products/ups/ups/liebert-psi-750va-675w-2.webp"
     ],
-    "description": "The Liebert PSI 750VA (675W)�is a versatile and feature-rich uninterruptible power supply (UPS) designed for critical applications in IT environments, small data centers, and network closets.",
-    "fullDescription": "The Liebert PSI 750VA (675W)�is a versatile and feature-rich uninterruptible power supply (UPS) designed for critical applications in IT environments, small data centers, and network closets. Here's a detailed overview:\n\nThe Liebert PSI 750VA (675W) is a line-interactive UPS that provides reliable power backup and protection against power disturbances such as outages, surges, and voltage fluctuations. With its 0.9 power factor, it delivers more usable power to connected devices, making it ideal for modern IT equipment. The Liebert PSI 750VA (675W) is designed to be flexible, with a rack/tower convertible form factor and a rotatable LCD display for easy monitoring in any setup.\n\nThis Liebert PSI 750VA (675W) features automatic voltage regulation (AVR), which ensures stable output voltage without using the battery, thereby extending battery life. It also supports hot-swappable batteries, allowing for easy maintenance without interrupting power to connected devices. The Liebert PSI 750VA (675W) is equipped with multiple communication options, including USB and SNMP, for remote monitoring and management.\nSpecifications\n<ul>\n \tCapacity: 750VA / 675W.\n \tPower Factor: 0.9.\n \tInput Voltage: 230V.\n \tOutput Voltage: 230V.\n \tWaveform Type: Pure sine wave.\n \tTransfer Time: 4�6 ms.\n \tOutlets: 8�9 battery-backed outlets (depending on the model).\n \tBattery Type: Sealed lead-acid, maintenance-free.\n \tRuntime: 3�5 minutes at full load.\n \tForm Factor: Rack/tower convertible, 2U height.\n \tCommunication Ports: USB, SNMP, contact closure.\n \tOperating Temperature: 0�40�C.\n \tWarranty: 2 years.\n</ul>",
+    "description": "The Liebert PSI 750VA (675W) is a versatile and feature-rich uninterruptible power supply (UPS) designed for critical applications in IT environments, small data centers, and network closets.",
+    "fullDescription": "The Liebert PSI 750VA (675W) is a line-interactive UPS that provides reliable power backup and protection against power disturbances such as outages, surges, and voltage fluctuations. With its 0.9 power factor, it delivers more usable power to connected devices, making it ideal for modern IT equipment. The rack/tower convertible form factor and rotatable LCD display provide easy monitoring in any setup.<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 750VA / 675W</li><li class=\"ps-2\">Power Factor: 0.9</li><li class=\"ps-2\">Input Voltage: 230V</li><li class=\"ps-2\">Output Voltage: 230V</li><li class=\"ps-2\">Waveform Type: Pure sine wave</li><li class=\"ps-2\">Transfer Time: 4-6 ms</li><li class=\"ps-2\">Outlets: 8-9 battery-backed outlets</li><li class=\"ps-2\">Battery Type: Sealed lead-acid, maintenance-free</li><li class=\"ps-2\">Runtime: 3-5 minutes at full load</li><li class=\"ps-2\">Form Factor: Rack/tower convertible, 2U height</li><li class=\"ps-2\">Communication Ports: USB, SNMP, contact closure</li><li class=\"ps-2\">Warranty: 2 years</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -3094,8 +3093,8 @@
       "assets/images/products/ups/ups/apc-easy-ups-smv-750va-1.webp",
       "assets/images/products/ups/ups/apc-easy-ups-smv-750va-2.webp"
     ],
-    "description": "The APC Easy UPS SMV 750VAis a reliable and efficient uninterruptible power supply (UPS) designed to provide essential power backup and surge protection for small to medium-sized setups.",
-    "fullDescription": "The APC Easy UPS SMV 750VAis a reliable and efficient uninterruptible power supply (UPS) designed to provide essential power backup and surge protection for small to medium-sized setups. Here's a detailed overview:\n\nThe APC Easy UPS SMV 750VA is a line-interactive UPS that ensures stable power delivery during outages, surges, and voltage fluctuations. It is ideal for protecting critical devices such as computers, routers, and small office equipment. With its pure sine wave output, it supports sensitive electronics and ensures smooth operation. The APC Easy UPS SMV 750VA features automatic voltage regulation (AVR), which stabilizes voltage without using the battery, extending battery life and improving efficiency.\n\nIts compact tower design makes it easy to install in space-constrained environments, while the LCD interface provides real-time information on power status and battery conditions. The UPS is equipped with universal outlets, making it compatible with a wide range of devices.\nSpecifications\n<ul>\n \tPower Capacity: 750VA / 525W.\n \tInput Voltage: 165�290V.\n \tOutput Voltage: 230V.\n \tWaveform Type: Pure sine wave.\n \tTransfer Time: 2�6 ms typical, 12 ms maximum.\n \tOutlets: 4 universal outlets for battery backup and surge protection.\n \tBattery Type: Sealed lead-acid, maintenance-free.\n \tBattery Recharge Time: 4 hours.\n \tRuntime: Varies based on load; suitable for short-term backup.\n \tNoise Level: 45 dBA.\n \tOperating Temperature: 0�40�C.\n \tDimensions: 22 cm (H) x 16 cm (W) x 41 cm (D).\n \tWeight: 13.6 kg.\n \tSurge Energy Rating: 190 Joules.\n \tWarranty: 2 years.\n</ul>",
+    "description": "A compact and dependable uninterruptible power supply system protects computers and electronic devices from both power failures and voltage spikes while it delivers backup electricity to preserve work progress and safely power down equipment.",
+    "fullDescription": "<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 750 VA / 450 W</li><li class=\"ps-2\">Input/Output Voltage: 230 V AC</li><li class=\"ps-2\">Type: Line-Interactive UPS with Automatic Voltage Regulation (AVR)</li><li class=\"ps-2\">Battery: Sealed Lead-Acid (maintenance-free)</li><li class=\"ps-2\">Outlets: Battery-backup + surge-protected sockets</li><li class=\"ps-2\">Surge Protection: Yes</li><li class=\"ps-2\">Features: Voltage regulation (AVR), LED status indicators, Audible alarms for power events</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -3271,7 +3270,7 @@
       "assets/images/products/ups/ups/apc-smart-ups-2200va-lcd-230v-2.webp"
     ],
     "description": "The APC Smart-UPS 2200VA LCD 230V is a high-performance, line-interactive UPS designed to provide reliable power protection for critical systems such as servers, network devices, and business applications.",
-    "fullDescription": "The APC Smart-UPS 2200VA LCD 230V is a high-performance, line-interactive UPS designed to provide reliable power protection for critical systems such as servers, network devices, and business applications. It ensures uninterrupted power supply during outages and safeguards equipment from power disturbances like surges and voltage fluctuations.\n\nThis APC SMART-UPS 2200VA LCD 230V features pure sine wave output, making it ideal for sensitive electronics. Its Automatic Voltage Regulation (AVR) corrects voltage fluctuations without using the battery, extending battery life and ensuring consistent power delivery. The LCD interface provides real-time information on power conditions, battery status, and load levels, making it easy to monitor and manage.\n\nWith 8 IEC C13 outlets and 1 IEC C19 outlet, it supports multiple devices simultaneously. The SmartSlot allows for optional network management cards, enabling remote monitoring and control. Its rack-mountable 2U design ensures space efficiency in IT environments, while the hot-swappable batteries allow for maintenance without downtime.\nSpecifications\n<ul>\n \tPower Capacity: 2200VA / 1980W\n \tInput Voltage: 230V (configurable for 220V or 240V)\n \tOutput Voltage: 230V (configurable for 220V or 240V)\n \tBattery Type: Maintenance-free sealed lead-acid\n \tRuntime: Scalable with external battery packs\n \tTechnology: Line-interactive with AVR\n \tOutlets: 8 IEC C13, 1 IEC C19\n \tManagement: LCD interface, SmartSlot for network management\n \tDimensions: Height 8.6 cm, Width 48 cm, Depth 68.3 cm\n \tWeight: 42.31 kg\n \tWarranty: 3 years for the UPS, 2 years for the battery\n</ul>",
+    "fullDescription": "The APC Smart-UPS 2200VA LCD 230V ensures uninterrupted power supply during outages and safeguards equipment from power disturbances like surges and voltage fluctuations. This UPS features pure sine wave output, making it ideal for sensitive electronics. Its Automatic Voltage Regulation (AVR) corrects voltage fluctuations without using the battery, extending battery life and ensuring consistent power delivery.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 2200VA / 1980W</li><li class=\"ps-2\">Input Voltage: 230V (configurable for 220V or 240V)</li><li class=\"ps-2\">Output Voltage: 230V (configurable for 220V or 240V)</li><li class=\"ps-2\">Battery Type: Maintenance-free sealed lead-acid</li><li class=\"ps-2\">Runtime: Scalable with external battery packs</li><li class=\"ps-2\">Technology: Line-interactive with AVR</li><li class=\"ps-2\">Outlets: 8 IEC C13, 1 IEC C19</li><li class=\"ps-2\">Management: LCD interface, SmartSlot for network management</li><li class=\"ps-2\">Dimensions: Height 8.6 cm, Width 48 cm, Depth 68.3 cm</li><li class=\"ps-2\">Weight: 42.31 kg</li><li class=\"ps-2\">Warranty: 3 years for the UPS, 2 years for the battery</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -3314,8 +3313,8 @@
       "assets/images/products/ups/ups/apc-easy-ups-bv-800va-230v-1.webp",
       "assets/images/products/ups/ups/apc-easy-ups-bv-800va-230v-2.webp"
     ],
-    "description": "The APC Easy UPS BV 800VA, 230V is a reliable and cost-effective uninterruptible power supply (UPS) designed for homes and small offices.",
-    "fullDescription": "The APC Easy UPS BV 800VA, 230V is a reliable and cost-effective uninterruptible power supply (UPS) designed for homes and small offices. It provides essential power backup and surge protection for critical devices, ensuring uninterrupted connectivity and safeguarding equipment from power disturbances like surges, spikes, and voltage fluctuations.\n\nThis UPS features Automatic Voltage Regulation (AVR), which corrects voltage dips and surges without using the battery, extending its lifespan and ensuring consistent power delivery. With its 4 universal outlets, it supports multiple devices, including computers, routers, and entertainment systems. The compact design allows for flexible installation, whether upright, flat, or wall-mounted, making it suitable for various setups.\n\nThe APC Easy UPS BV 800VA is equipped with LED indicators and audible alarms for real-time status updates, ensuring users are always informed about power and battery conditions. Its maintenance-free lead-acid battery provides reliable performance, while the surge energy rating of 156 Joules protects connected devices from power spikes.\nSpecifications\n<ul>\n \tPower Capacity: 800VA / 450W\n \tInput Voltage: 230V\n \tOutput Voltage: 230V\n \tBattery Type: Maintenance-free sealed lead-acid\n \tRuntime: Approximately 10 minutes at half load\n \tTechnology: Line-interactive with AVR\n \tOutlets: 4 universal sockets\n \tSurge Energy Rating: 156 Joules\n \tBattery Recharge Time: 8 hours\n \tDimensions: Height 9.25 cm, Width 16.05 cm, Depth 30.5 cm\n \tWeight: 5.3 kg\n \tManagement: LED indicators and audible alarms\n \tWarranty: 2 years repair or replace\n</ul>",
+    "description": "The APC Easy UPS BV 800VA, 230V is a reliable and cost-effective uninterruptible power supply (UPS) designed for homes and small offices, providing essential power backup and surge protection.",
+    "fullDescription": "The APC Easy UPS BV 800VA provides essential power backup and surge protection for critical devices, ensuring uninterrupted connectivity and safeguarding equipment from power disturbances like surges, spikes, and voltage fluctuations. This UPS features Automatic Voltage Regulation (AVR), which corrects voltage dips and surges without using the battery, extending its lifespan and ensuring consistent power delivery.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 800VA / 480W</li><li class=\"ps-2\">Input/Output Voltage: 230V</li><li class=\"ps-2\">Outlets: 4 universal sockets</li><li class=\"ps-2\">Battery Type: Maintenance-free sealed lead-acid</li><li class=\"ps-2\">Technology: Line-interactive with AVR</li><li class=\"ps-2\">Features: LED indicators, audible alarms</li><li class=\"ps-2\">Mounting: Upright, flat, or wall-mounted</li><li class=\"ps-2\">Protection: Surge and spike protection</li><li class=\"ps-2\">Ideal for: Computers, routers, entertainment systems</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -3358,8 +3357,8 @@
       "assets/images/products/ups/ups/apc-easy-back-ups-700va-230v-1.webp",
       "assets/images/products/ups/ups/apc-easy-back-ups-700va-230v-2.webp"
     ],
-    "description": "The APC Easy Back-UPS 700VA, 230V is a compact and reliable uninterruptible power supply (UPS) designed to protect essential electronics in homes and small offices.",
-    "fullDescription": "The APC Easy Back-UPS 700VA, 230V is a compact and reliable uninterruptible power supply (UPS) designed to protect essential electronics in homes and small offices. It provides dependable power backup during outages and safeguards devices from surges, spikes, and voltage fluctuations. With line-interactive technology and Automatic Voltage Regulation (AVR), it ensures stable power delivery by correcting voltage variations without relying on the battery, extending its lifespan.\n\nThis UPS features universal sockets, making it compatible with a wide range of devices, including computers, routers, and entertainment systems. It also includes USB charging ports, allowing users to keep mobile devices powered during outages. The lightweight and space-saving design make it easy to integrate into any setup, while its user-friendly interface ensures straightforward operation.\n\nIdeal for maintaining productivity and protecting valuable electronics, the APC Easy Back-UPS 700VA is a practical and efficient solution for everyday power protection needs. Let me know if you'd like more details or assistance with specifications!\nSpecification\n<ul>\n \tPower Capacity: 700VA / 360W\n \tInput Voltage: 230V\n \tOutput Voltage: 230V\n \tBattery Type: Maintenance-free sealed lead-acid\n \tRuntime: Approximately 10 minutes at half load\n \tTechnology: Line-interactive with Automatic Voltage Regulation (AVR)\n \tOutlets: 2 universal sockets\n \tUSB Charging: Built-in USB ports for charging mobile devices\n \tSurge Energy Rating: 156 Joules\n \tBattery Recharge Time: 6-8 hours\n \tDimensions: Height 14.2 cm, Width 10.1 cm, Depth 30.5 cm\n \tWeight: 4.5 kg\n \tManagement: LED status indicators and audible alarms\n</ul>",
+    "description": "The APC Easy Back-UPS 700VA, 230V is a compact and reliable uninterruptible power supply (UPS) designed to protect essential electronics in homes and small offices from power outages and surges.",
+    "fullDescription": "The APC Easy Back-UPS 700VA provides dependable power backup during outages and safeguards devices from surges, spikes, and voltage fluctuations. With line-interactive technology and Automatic Voltage Regulation (AVR), it ensures stable power delivery by correcting voltage variations without relying on the battery, extending its lifespan. This UPS features universal sockets and USB charging ports for versatile connectivity.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 700VA / 420W</li><li class=\"ps-2\">Input/Output Voltage: 230V</li><li class=\"ps-2\">Outlets: Universal sockets with battery backup</li><li class=\"ps-2\">USB Ports: Yes, for mobile device charging</li><li class=\"ps-2\">Battery Type: Maintenance-free sealed lead-acid</li><li class=\"ps-2\">Technology: Line-interactive with AVR</li><li class=\"ps-2\">Features: LED indicators, audible alarms</li><li class=\"ps-2\">Design: Compact and lightweight</li><li class=\"ps-2\">Ideal for: Computers, routers, entertainment systems</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -3402,8 +3401,8 @@
       "assets/images/products/ups/ups/apc-back-ups-950va-230v-1.webp",
       "assets/images/products/ups/ups/apc-back-ups-950va-230v-2.webp"
     ],
-    "description": "The APC Back-UPS 950VA, 230V, AVR, IEC Sockets is a reliable and efficient power backup solution tailored for protecting home and small office electronics from power outages, surges, and voltage fluctuations.",
-    "fullDescription": "The APC Back-UPS 950VA, 230V, AVR, IEC Sockets is a reliable and efficient power backup solution tailored for protecting home and small office electronics from power outages, surges, and voltage fluctuations. This line-interactive UPS features Automatic Voltage Regulation (AVR), ensuring stable power delivery by instantly correcting voltage fluctuations without using the battery. This reduces battery usage, prolonging its lifespan and ensuring it is available for critical outages.\n\nEquipped with 6 IEC sockets, including 4 with battery backup and surge protection, and 2 with surge-only protection, the UPS offers ample connectivity for various devices like desktop computers, modems, routers, and entertainment systems. It is designed to handle a load capacity of 950VA / 480W, making it ideal for essential equipment in both home and office environments.\n\nThe compact, tower-style design is both space-efficient and easy to integrate into any setup. The UPS features LED status indicators and audible alarms, providing clear information on power and battery status at a glance. Additionally, the maintenance-free sealed lead-acid battery ensures reliable performance and allows for easy replacement when necessary.\n\nWith a runtime of approximately 10 minutes at half load, the APC Back-UPS 950VA, 230V provides sufficient time to save your work and safely shut down connected devices during a power outage. Its surge energy rating of 273 Joules further protects your equipment from power spikes, ensuring their longevity.\n\nWhether you�re working from home, managing a small office, or looking to safeguard your valuable electronics, this UPS is a trusted choice for dependable power protection. If you'd like help with anything else related to this UPS, just let me know!\nSpecifications\n<ul>\n \tPower Capacity: 950VA / 480W\n \tInput Voltage: 230V\n \tOutput Voltage: 230V\n \tBattery Type: Maintenance-free sealed lead-acid\n \tRuntime: Approximately 10 minutes at half load\n \tTechnology: Line-interactive with AVR\n \tOutlets: 6 IEC C13 (4 with battery backup and surge protection, 2 with surge protection only)\n \tSurge Energy Rating: 273 Joules\n \tBattery Recharge Time: 8 hours\n \tDimensions: Height 21.5 cm, Width 13 cm, Depth 33.6 cm\n \tWeight: 8 kg\n \tManagement: LED status indicators and audible alarms\n \tWarranty: 2 years repair or replace\n</ul>",
+    "description": "The APC Back-UPS 950VA, 230V with AVR and IEC Sockets is a reliable power backup solution for protecting home and small office electronics from power outages, surges, and voltage fluctuations.",
+    "fullDescription": "This line-interactive UPS features Automatic Voltage Regulation (AVR), ensuring stable power delivery by instantly correcting voltage fluctuations without using the battery. This reduces battery usage, prolonging its lifespan and ensuring it is available for critical outages. Equipped with 6 IEC sockets, including 4 with battery backup and surge protection, and 2 with surge-only protection.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 950VA / 480W</li><li class=\"ps-2\">Input/Output Voltage: 230V</li><li class=\"ps-2\">Outlets: 6 IEC sockets (4 battery + surge, 2 surge only)</li><li class=\"ps-2\">Battery Type: Maintenance-free sealed lead-acid</li><li class=\"ps-2\">Technology: Line-interactive with AVR</li><li class=\"ps-2\">Features: LED status indicators, audible alarms</li><li class=\"ps-2\">Design: Compact tower style</li><li class=\"ps-2\">Protection: Surge and spike protection</li><li class=\"ps-2\">Ideal for: Desktop computers, modems, routers, entertainment systems</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -3446,8 +3445,8 @@
       "assets/images/products/ups/ups/apc-smart-ups-c-1000va-lcd-230v-1.webp",
       "assets/images/products/ups/ups/apc-smart-ups-c-1000va-lcd-230v-2.webp"
     ],
-    "description": "The APC Smart-UPS C 1000VA LCD 230V�is a reliable, line-interactive uninterruptible power supply (UPS) tailored for small businesses, home offices, and IT setups.",
-    "fullDescription": "The APC Smart-UPS C 1000VA LCD 230V�is a reliable, line-interactive uninterruptible power supply (UPS) tailored for small businesses, home offices, and IT setups. It provides dependable power backup and safeguards connected devices from power disturbances, such as surges, spikes, and brownouts, ensuring uninterrupted productivity and system protection.\n\nThis APC Smart-UPS C 1000VA LCD 230V features pure sine wave output, making it ideal for protecting modern, sensitive equipment, such as servers, workstations, and networking devices. The intuitive graphic LCD display offers detailed information on power conditions and battery status, making it easy to monitor and manage. Moreover, its SmartConnect feature allows remote monitoring and management via a secure web portal, ensuring peace of mind even when you're away.\n\nWith 8 IEC outlets, it supports multiple devices simultaneously while maintaining efficient operation. Its compact tower design ensures a small footprint, saving valuable space in any environment. The built-in battery ensures up to 9 minutes of runtime at full load, giving users ample time to save work and safely shut down systems during extended outages. Its eco-friendly design also minimizes energy consumption, making it a cost-effective and sustainable choice.\n\nIn short, the APC Smart-UPS C 1000VA LCD 230V combines performance, reliability, and user-friendly features to provide top-notch power protection for critical systems. Would you like help with additional details, or are there specific features you'd like to explore further?",
+    "description": "The APC Smart-UPS C 1000VA LCD 230V is a reliable, line-interactive uninterruptible power supply (UPS) tailored for small businesses, home offices, and IT setups requiring dependable power protection.",
+    "fullDescription": "The APC Smart-UPS C 1000VA LCD provides dependable power backup and safeguards connected devices from power disturbances, such as surges, spikes, and brownouts, ensuring uninterrupted productivity and system protection. This UPS features pure sine wave output, making it ideal for protecting modern, sensitive equipment, such as servers, workstations, and networking devices.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 1000VA / 900W</li><li class=\"ps-2\">Input/Output Voltage: 230V</li><li class=\"ps-2\">Outlets: 8 IEC outlets</li><li class=\"ps-2\">Battery Type: Maintenance-free sealed lead-acid</li><li class=\"ps-2\">Technology: Line-interactive with AVR</li><li class=\"ps-2\">Display: Graphic LCD with detailed status info</li><li class=\"ps-2\">Management: SmartConnect for remote monitoring</li><li class=\"ps-2\">Waveform: Pure sine wave</li><li class=\"ps-2\">Design: Compact tower design</li><li class=\"ps-2\">Ideal for: Servers, workstations, networking devices</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -3490,8 +3489,8 @@
       "assets/images/products/ups/ups/apc-smart-ups-rt-10kva-230v-1.webp",
       "assets/images/products/ups/ups/apc-smart-ups-rt-10kva-230v-2.webp"
     ],
-    "description": "The APC Smart-UPS RT 10kVA 230V �is an advanced power protection system specifically designed to cater to critical applications in data centers, IT environments, medical labs, and industrial operations.",
-    "fullDescription": "The APC Smart-UPS RT 10kVA 230V �is an advanced power protection system specifically designed to cater to critical applications in data centers, IT environments, medical labs, and industrial operations. Equipped with double-conversion online technology, it delivers consistent, high-quality power by isolating connected devices from fluctuations in utility power. This UPS is engineered for flexibility and scalability, with a rack/tower convertible design and an extendable runtime via additional battery packs.\n\nIts hot-swappable battery feature allows maintenance without downtime, ensuring uninterrupted power supply even during servicing. With an intuitive LCD interface, audible alarms, and compatibility with advanced network management software, the UPS provides real-time monitoring and control. Additionally, its eco-mode operation enhances energy efficiency, reducing electricity consumption and operational costs. For environments where uptime is critical, the APC Smart-UPS RT 10kVA 230V ensures reliability, operational efficiency, and peace of mind. If you'd like, we can dive into its specific features or unique advantages! Let me know.\n\nThis UPS is ideal for environments where uptime is critical, offering features like hot-swappable batteries, audible alarms, and advanced management software for seamless operation.\nSpecifications\n<ul>\n \tPower Capacity: 10kVA / 10,000W\n \tInput Voltage: 230V (configurable for 220V or 240V)\n \tOutput Voltage: 230V (configurable for 220V or 240V)\n \tBattery Type: Lead-acid, hot-swappable\n \tRuntime: Scalable with external battery packs\n \tTechnology: Double-conversion online\n \tFrequency: 50/60 Hz auto-sensing\n \tEfficiency: High-efficiency mode for reduced power consumption\n \tManagement: LCD interface, LED indicators, and network management capability\n \tDimensions: Height 21.7 cm, Width 44 cm, Depth 68 cm\n \tWeight: 101.44 kg\n</ul>",
+    "description": "The APC Smart-UPS RT 10kVA 230V is an advanced power protection system designed for critical applications in data centers, IT environments, medical labs, and industrial operations.",
+    "fullDescription": "The APC Smart-UPS RT 10kVA 230V is equipped with double-conversion online technology, delivering consistent, high-quality power by isolating connected devices from fluctuations in utility power. This UPS is engineered for flexibility and scalability, with a rack/tower convertible design and an extendable runtime via additional battery packs. Its hot-swappable battery feature allows maintenance without downtime.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 10kVA / 8,000W</li><li class=\"ps-2\">Input Voltage: 230V (configurable)</li><li class=\"ps-2\">Output Voltage: 230V (configurable for 220V or 240V)</li><li class=\"ps-2\">Battery Type: Lead-acid, hot-swappable</li><li class=\"ps-2\">Runtime: Scalable with external battery packs</li><li class=\"ps-2\">Technology: Double-conversion online</li><li class=\"ps-2\">Frequency: 50/60 Hz auto-sensing</li><li class=\"ps-2\">Management: LCD interface, network management capable</li><li class=\"ps-2\">Efficiency: Eco-mode for reduced power consumption</li><li class=\"ps-2\">Dimensions: Height 26.3 cm, Width 44 cm, Depth 71.5 cm</li><li class=\"ps-2\">Weight: 85 kg</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -4411,8 +4410,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/epson-dot-matrix-printer-lq-690ii-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/epson-dot-matrix-printer-lq-690ii-2.webp"
+      "assets/images/products/printers-scanners/epson/printers-scanners-015-epson-dot-matrix-printer-lq-690ii-fixed-printers-1772211750474-1.jpg",
+      "assets/images/products/printers-scanners/epson/printers-scanners-015-epson-dot-matrix-printer-lq-690ii-fixed-printers-1772211750567-2.jpg"
     ],
     "description": "The 24-pin dot matrix impact printer operates as a robust printing device that meets the needs of business operations by printing multiple document types. The system produces rapid and accurate textual output while maintaining operational durability in both office and industrial settings.",
     "fullDescription": "• Print Technology: 24-pin impact dot matrix, reliable for multipart form printing.\r\n• Printable Columns: 106 columns at 10 cpi, wide printable area.\r\n• Print Speed: High-Speed Draft: up to 487 cps (10 cpi), 12 cpi High-Speed: up to 529 cps, Draft: ~366–396 cps, Letter Quality: 121–132 cps, fast output for continuous and form printing.\r\n• Print Resolution: 360 × 180 dpi, clear character and text quality.\r\n• Copy Capability: Prints 1 original + up to 6 copies, handy for multi-part forms.\r\n• Character Sets & Barcodes: Supports a range of character tables and built-in barcodes (e.g., Code 39, EAN-13, UPC-A).\r\n• Interfaces: USB 2.0 and Bidirectional Parallel (IEEE-1284), standard PC connectivity.\r\n• Media Handling: Front, rear, and bottom feeds; accepts single sheets, continuous paper, envelopes, roll paper, labels, and card stock.\r\n• Print Head Life: 400 million strokes per wire\r\n• Ribbon Life: Approx. 10 million characters per ribbon cartridge\r\n• MTBF: 20,000 power-on hours, dependable in busy printing environments.\r\n• Buffer Memory: 128 KB, smooth data handling.\r\n• Supported Paper Thickness: Continuous: 0.065 – 0.49 mm, Single sheet: 0.065 – 0.15 mm, Labels/multi-part: 0.16 – 0.49 mm\r\n• Dimensions & Weight: 480 × 301 × 211 mm, 6.8 kg, sturdy desktop footprint.\r\n• Power Consumption: 38 W (printing), 3 W (standby).\r\n• Operating Environment: 5 – 35 °C; humidity 10 – 80 % RH (non-condensing).\r\n• Best for: Offices, logistics, warehousing, retail POS, and businesses needing reliable high-volume dot matrix output with multipart form capability.",
@@ -4421,7 +4420,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/epson-dot-matrix-printer-lq-690ii-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/epson/printers-scanners-015-epson-dot-matrix-printer-lq-690ii-fixed-printers-1772211750474-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -4430,7 +4429,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/epson-dot-matrix-printer-lq-690ii-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/epson/printers-scanners-015-epson-dot-matrix-printer-lq-690ii-fixed-printers-1772211750474-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -4675,8 +4674,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-pro-3000-s4-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-pro-3000-s4-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-021-hp-scanjet-pro-3000-s4-fixed-printers-1772211751483-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-021-hp-scanjet-pro-3000-s4-fixed-printers-1772211751754-2.jpg"
     ],
     "description": "The high-speed sheet-fed document scanner operates as an automatic document feeder that supports 50 sheets and performs fast duplex scanning to create multiple output file formats. The system operates in a compact design yet delivers dependable results for daily scanning tasks, which include archiving, OCR processing, and searchable PDF creation.",
     "fullDescription": "• Scanner Type: Sheet-fed document scanner with automatic document feeder (ADF).\r\n• Scan Resolution: Up to 600 × 600 dpi optical (software up to 1200 dpi).\r\n• Scan Speed: Up to 40 ppm (pages per minute) for single-sided; 80 ipm (images per minute) for duplex.\r\n• ADF Capacity: 50 sheets standard.\r\n• Duplex Scanning: Yes, single-pass two-sided scanning.\r\n• Daily Duty Cycle: Recommended up to 4,000 pages/day.\r\n• Color Scanning: Yes (color & black-and-white).\r\n• Bit Depth: 24-bit external / 48-bit internal for rich color depth.\r\n• Grayscale Levels: 256 levels of gray.\r\n• Scan File Formats: PDF, PDF/A, Encrypted PDF, JPEG, PNG, BMP, TIFF, Word, Excel, PowerPoint, Text (.txt), RTF, and searchable PDF.\r\n• Scan Technology: CMOS CIS (Contact Image Sensor).\r\n• Multifeed Detection: Yes, helps catch misfeeds while scanning., supports long documents.\r\n• Media Sizes: A4, A5, A6, B5, and custom lengths up to 3100 mm\r\n• Media Types Supported: Cut sheets, laser/inkjet printed pages, bank checks, business cards, carbonless forms, plastic cards (up to 1.24 mm).\r\n• Connectivity: USB 3.0.\r\n• Operating Systems: Windows, macOS, Linux (via TWAIN/ISIS/WIA drivers), with wide compatibility.\r\n• Dimensions & Weight: Approx. 300 × 172 × 154 mm and 2.7 kg, compact and desktop-friendly.\r\n• Power & Efficiency: ENERGY STAR certified with low power consumption.\r\n• Best for: Offices, workgroups, and business environments that need fast, reliable batch scanning with automatic duplex, OCR support, and flexible file outputs for digital archiving or workflows.",
@@ -4685,7 +4684,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-pro-3000-s4-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-021-hp-scanjet-pro-3000-s4-fixed-printers-1772211751483-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -4694,7 +4693,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-pro-3000-s4-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-021-hp-scanjet-pro-3000-s4-fixed-printers-1772211751483-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -4810,8 +4809,8 @@
       "assets/images/products/ups/ups/ortea-avr-orion-60-20-1.webp",
       "assets/images/products/ups/ups/ortea-avr-orion-60-20-2.webp"
     ],
-    "description": "The Ortea AVR Orion 60-20 is a three-phase voltage stabilizer designed to ensure stable and reliable power supply for industrial and commercial applications.",
-    "fullDescription": "The Ortea AVR Orion 60-20 is a three-phase voltage stabilizer designed to ensure stable and reliable power supply for industrial and commercial applications. It is engineered to handle voltage fluctuations effectively, protecting sensitive equipment and ensuring optimal performance.\n\nThe Ortea AVR Orion 60-20 is an excellent choice for businesses requiring stable and consistent power supply. Its �20% input voltage variation capability ensures that even in areas with fluctuating power, your equipment remains protected. With a high efficiency of 98%, it minimizes energy loss, making it cost-effective.\n<div></div>\nSpecifications\n<ul>\n \tType: Three-phase voltage stabilizer.\n \tInput Voltage Variation: �20%.\n \tRated Power: 60 kVA.\n \tInput Voltage Range: 320-480 V.\n \tMaximum Input Current: 108 A.\n \tOutput Voltage: 400 V.\n \tRated Output Current: 87 A.\n \tEfficiency: 98%.\n \tAdjustment Speed: 12 ms/V.\n \tDimensions: 600 x 800 x 1600 mm.\n \tWeight: 425 kg.\n</ul>\n\n\nWHY� Ortea AVR Orion 60-20?\n\nThe Ortea AVR Orion 60-20 is an excellent choice for businesses requiring stable and consistent power supply. Its �20% input voltage variation capability ensures that even in areas with fluctuating power, your equipment remains protected. With a high efficiency of 98%, it minimizes energy loss, making it cost-effective. The fast adjustment speed of 12 ms/V ensures quick response to voltage changes, safeguarding sensitive devices. Its robust build and compact design make it suitable for various industrial and commercial environments.",
+    "description": "The Ortea AVR Orion 60-20 is a three-phase voltage stabilizer designed to ensure stable and reliable power supply for industrial and commercial applications with sensitive equipment.",
+    "fullDescription": "The Ortea AVR Orion 60-20 is engineered to handle voltage fluctuations effectively, protecting sensitive equipment and ensuring optimal performance. Its ±20% input voltage variation capability ensures that even in areas with fluctuating power, your equipment remains protected. With a high efficiency of 98%, it minimizes energy loss, making it cost-effective.<ul class=\"product-specs-list\"><li class=\"ps-2\">Type: Three-phase voltage stabilizer</li><li class=\"ps-2\">Rated Power: 60 kVA</li><li class=\"ps-2\">Input Voltage Range: 320-480 V</li><li class=\"ps-2\">Input Voltage Variation: ±20%</li><li class=\"ps-2\">Output Voltage: 400 V</li><li class=\"ps-2\">Maximum Input Current: 108 A</li><li class=\"ps-2\">Rated Output Current: 87 A</li><li class=\"ps-2\">Efficiency: 98%</li><li class=\"ps-2\">Adjustment Speed: 12 ms/V</li><li class=\"ps-2\">Dimensions: 600 x 800 x 1600 mm</li><li class=\"ps-2\">Weight: 425 kg</li><li class=\"ps-2\">Ideal for: Industrial and commercial applications</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -5511,8 +5510,7 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/epson-tm-t20iii-printer-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/epson-tm-t20iii-printer-2.webp"
+      "assets/images/products/printers-scanners/epson/printers-scanners-013-epson-tm-t20iii-printer-fixed-printers-1772211747598-2.jpg"
     ],
     "description": "The thermal POS receipt printer operates reliably and quickly in retail and hospitality and point-of-sale system environments. The printer uses direct thermal printing technology, which requires no ink or ribbons, and it supports standard receipt paper rolls while providing multiple connectivity options that match different POS system requirements and operational settings.",
     "fullDescription": "• Print Technology: Direct thermal line printing\r\n• Print Speed: Up to 250 mm/sec (about 9.8 in/sec), quick receipt output.\r\n• Print Resolution: 203 × 203 dpi\r\n• Print Width: Standard 80 mm (also supports 58 mm paper).\r\n• Paper Handling: Uses thermal receipt paper rolls with max diameter of 83 mm.\r\n• Connectivity: USB + Serial (RS‑232) common POS interfaces, Ethernet (network version available) for shared network printing.\r\n• Cutter: Partial auto‑cutter with 1.5 million cut life.\r\n• Durability: Mechanism rated 15 million lines, MTBF 360,000 hours.\r\n• Fonts & Barcodes: Supports alphanumeric text, graphics, and many barcode types (UPC, EAN, Code 39/128, QR, PDF417, GS1 DataBar, etc.).\r\n• Sensors: Paper end, near‑end, and cover‑open sensors help prevent jams and errors.\r\n• Dimensions: 140 × 199 × 146 mm (W × D × H).\r\n• Weight: 1.7 kg.\r\n• Power: External AC adapter (24 V).\r\n• Color: Black classic POS design.\r\n• Best for: Retail stores, restaurants, ticketing counters, and any business needing fast, reliable receipt printing with low maintenance.",
@@ -5521,7 +5519,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/epson-tm-t20iii-printer-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/epson/printers-scanners-013-epson-tm-t20iii-printer-fixed-printers-1772211747598-2.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -5530,7 +5528,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/epson-tm-t20iii-printer-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/epson/printers-scanners-013-epson-tm-t20iii-printer-fixed-printers-1772211747598-2.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -6130,8 +6128,8 @@
       "assets/images/products/ups/ups/apc-smart-ups-srv-1000va-230v-1.webp",
       "assets/images/products/ups/ups/apc-smart-ups-srv-1000va-230v-2.webp"
     ],
-    "description": "The APC Smart-UPS SRV 1000VA 230V is a robust and versatile uninterruptible power supply (UPS) designed to deliver consistent, reliable power protection for critical devices.",
-    "fullDescription": "The APC Smart-UPS SRV 1000VA 230V is a robust and versatile uninterruptible power supply (UPS) designed to deliver consistent, reliable power protection for critical devices. As part of the APC by Schneider Electric family, this UPS is tailored to meet the demands of business environments where downtime is not an option. Whether you are running servers, networking equipment, or other sensitive devices, it ensures uninterrupted power and guards against power surges, fluctuations, and outages.\n\nAPC Smart-UPS SRV 1000VA is equipped with an intelligent battery management system that optimizes battery performance and lifespan. This ensures that the UPS is always ready to provide backup power during outages. The built-in LCD display offers a user-friendly interface for real-time monitoring and configuration, allowing you to check critical metrics such as input and output voltage, battery status, and load levels with ease.\n\nThe APC Smart-UPS SRV 1000VA 230V is an ideal choice for businesses looking to protect their critical equipment, maintain operational continuity, and minimize downtime in challenging power environments. Its advanced features, user-friendly design, and reliable performance make it a valuable addition to any IT infrastructure or power-sensitive application.\nSpecifications\n<ul>\n \tPower Capacity: 1000 VA / 800 W.\n \tInput Voltage: 230V.\n \tOutput Voltage: 230V.\n \tForm Factor: 2U rackmount design.\n \tOutput Connections: 3x IEC 320 C13 outlets.\n \tWaveform: Pure sine wave for clean and stable power.\n \tEfficiency: High efficiency for reduced energy consumption.\n \tFeatures:\n<ul>\n \tAutomatic internal bypass for uninterrupted power supply.\n \tIntelligent battery management for extended battery life.\n \tLCD graphics display for real-time monitoring and configuration.\n \tECO Mode for energy savings.\n \tInput power factor correction.\n</ul>\n\n \tProtection: Overload, short circuit, and surge protection.\n \tWeight: Approximately 9.3 kg.\n \tApplications: Suitable for servers, networking equipment, and other critical devices.\n</ul>",
+    "description": "The APC Smart-UPS SRV 1000VA 230V is a robust and versatile uninterruptible power supply (UPS) designed to deliver consistent, reliable power protection for critical business devices.",
+    "fullDescription": "As part of the APC by Schneider Electric family, this UPS is tailored to meet the demands of business environments where downtime is not an option. Whether you are running servers, networking equipment, or other sensitive devices, it ensures uninterrupted power and guards against power surges, fluctuations, and outages. The intelligent battery management system optimizes battery performance and lifespan.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 1000VA / 900W</li><li class=\"ps-2\">Input/Output Voltage: 230V</li><li class=\"ps-2\">Outlets: IEC outlets with battery backup</li><li class=\"ps-2\">Battery Type: Maintenance-free sealed lead-acid</li><li class=\"ps-2\">Technology: Line-interactive with AVR</li><li class=\"ps-2\">Display: LCD with real-time monitoring</li><li class=\"ps-2\">Management: Intelligent battery management</li><li class=\"ps-2\">Waveform: Pure sine wave</li><li class=\"ps-2\">Protection: Surge, spike, and brownout protection</li><li class=\"ps-2\">Ideal for: Servers, networking equipment, sensitive devices</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -6699,8 +6697,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/epson-dot-matrix-printer-lq-2190-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/epson-dot-matrix-printer-lq-2190-2.webp"
+      "assets/images/products/printers-scanners/epson/printers-scanners-014-epson-dot-matrix-printer-lq-2190-fixed-printers-1772211750717-1.jpg",
+      "assets/images/products/printers-scanners/epson/printers-scanners-014-epson-dot-matrix-printer-lq-2190-fixed-printers-1772211750879-2.jpg"
     ],
     "description": "The business and industrial world needs a professional-grade 24-pin dot matrix impact printer that operates as a heavy-duty printing system. The system operates efficiently for high-volume printing of multipart forms, invoices and waybills, reports and labels, and all types of continuous-feed documents.",
     "fullDescription": "• Print Technology: 24-pin impact dot matrix\r\n• Printable Columns: Up to 136 columns (10 cpi), wide printable area for large forms.\r\n• Print Speed: High-Speed Draft: up to 548 cps (10 cpi), Draft: 410 cps, NLQ (Near Letter Quality): 120 cps\r\n• Print Resolution: Approx. 360 × 180 dpi, crisp text and graphics output.\r\n• Copy Capability: Can produce 1 original + up to 6 copies\r\n• Ribbon Life: Long-lasting ribbons with high character yield\r\n• Media Handling: Supports continuous paper, single sheets, envelopes, labels, and multi-part forms, Tractor feeds & friction feed options for versatile use.\r\n• Interfaces: USB 2.0 and IEEE-1284 Parallel standard Buffer Memory: 128 KB\r\n• Durability: Designed for heavy print workloads with a robust build for long operational life.\r\n• Dimensions: Typical desktop footprint (44.0 × 31.0 × 21.0 cm).\r\n• Weight: 9.5 kg (varies by region/packaging)\r\n• Operating Environment: Suitable for typical office temperatures; built for continuous use.\r\n• Best for: Warehouses, logistics, accounting departments, retail POS stations, and industrial settings that require reliable, high-volume multipart and continuous form printing at low ongoing cost.",
@@ -6709,7 +6707,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/epson-dot-matrix-printer-lq-2190-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/epson/printers-scanners-014-epson-dot-matrix-printer-lq-2190-fixed-printers-1772211750717-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -6718,7 +6716,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/epson-dot-matrix-printer-lq-2190-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/epson/printers-scanners-014-epson-dot-matrix-printer-lq-2190-fixed-printers-1772211750717-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -7051,8 +7049,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-professional-1000-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-professional-1000-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-022-hp-scanjet-professional-1000-fixed-printers-1772211751275-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-022-hp-scanjet-professional-1000-fixed-printers-1772211751363-2.jpg"
     ],
     "description": "The portable sheet-fed scanner operates on USB power and enables users to scan documents, receipts, business cards, envelopes, and long documents from their current location. The device provides users with lightweight construction and straightforward operation through its single-button scanning feature and multiple file output options.",
     "fullDescription": "• Scanner Type: Sheet‑fed mobile scanner (manual feed).\r\n• Scan Resolution: Optical up to 600 × 600 dpi (hardware and enhanced).\r\n• Color / Bit Depth: 48‑bit color, 256‑level grayscale.\r\n• Scan Speed: Up to 5 ppm / 8 ipm (black & color at 300 dpi).\r\n• ADF Capacity: Single sheet at a time (manual feed slot).\r\n• Duplex Scanning: Single‑pass duplex scanning supported.\r\n• Media Sizes: Up to 8.5″ × 14″ (216 × 356 mm); supports business cards, checks, envelopes, and more.\r\n• Media Types: Plain paper, inkjet, envelopes, labels, checks, cards (business, plastic ID).\r\n• Connectivity: USB 2.0 (Hi‑Speed)\r\n• Operating Systems: Windows 10, 8, 7, Vista, XP; Mac OS X v 10.5–10.6.\r\n• Control: Two front‑panel buttons (Cancel & Scan) with one‑button PDF generation.\r\n• Power: Powered from USB port (approx. 2.5 W).\r\n• Weight & Size: 0.66 kg; 290 × 50 × 75 mm (W × D × H).\r\n• Best for: Field professionals, mobile workers, students, and small offices needing quick, reliable scanning of documents, receipts, and cards without a bulky desktop scanner.",
@@ -7061,7 +7059,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-professional-1000-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-022-hp-scanjet-professional-1000-fixed-printers-1772211751275-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -7070,7 +7068,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-professional-1000-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-022-hp-scanjet-professional-1000-fixed-printers-1772211751275-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -7143,7 +7141,7 @@
       "assets/images/products/ups/ups/hikvision-ds-ups1000va-2.webp"
     ],
     "description": "The Hikvision DS-UPS1000VA is a compact and efficient uninterruptible power supply (UPS) designed to provide reliable backup power and protect sensitive devices from power fluctuations.",
-    "fullDescription": "The Hikvision DS-UPS1000VA is a compact and efficient uninterruptible power supply (UPS) designed to provide reliable backup power and protect sensitive devices from power fluctuations. It is ideal for small-scale applications, ensuring uninterrupted operation of essential equipment. The Hikvision DS-UPS1000VA is an excellent choice for ensuring uninterrupted power supply and protecting your devices from power surges and fluctuations. With a capacity of 1000 VA / 600 W, it is suitable for small-scale applications such as home offices, routers, and surveillance systems. Its fast transfer time of = 10 ms ensures minimal disruption during power outages, while the built-in surge and overload protection safeguards your equipment.\n<div></div>\nSpecifications\n<ul>\n \tCapacity: 1000 VA / 600 W.\n \tInput Voltage Range: 140 VAC to 290 VAC.\n \tOutput Voltage Range: 210 VAC to 235 VAC.\n \tOutput Frequency: 50/60 Hz � 0.5 Hz (self-adaptive).\n \tTransfer Time: = 10 ms.\n \tWaveform: PWM (Pulse Width Modulation).\n \tBattery: 12 V/9 Ah lead-acid battery.\n \tRecharge Time: 4-6 hours to recover 90% capacity.\n \tBackup Time:\n<ul>\n \t60W load: 60 minutes.\n \t150W load: 15 minutes.\n \t300W load: 2 minutes.\n</ul>\n\n \tProtection: Surge protection, overload protection, discharge protection, and short circuit protection.\n \tIndicator: LED indicators for working mode, charging, overloading, and fault status.\n \tOperating Temperature: 0�C to 40�C (32�F to 104�F).\n \tDimensions: 274 mm � 95 mm � 139 mm (10.79\" � 3.74\" � 5.47\").\n \tWeight: Approximately 5.4 kg (11.9 lbs).\n</ul>\n\n\nWHY� Hikvision DS-UPS1000VA?\n\nThe Hikvision DS-UPS1000VA is an excellent choice for ensuring uninterrupted power supply and protecting your devices from power surges and fluctuations. With a capacity of 1000 VA / 600 W, it is suitable for small-scale applications such as home offices, routers, and surveillance systems. Its fast transfer time of = 10 ms ensures minimal disruption during power outages, while the built-in surge and overload protection safeguards your equipment.",
+    "fullDescription": "The Hikvision DS-UPS1000VA is ideal for small-scale applications, ensuring uninterrupted operation of essential equipment. With a capacity of 1000 VA / 600 W, it is suitable for home offices, routers, and surveillance systems. Its fast transfer time ensures minimal disruption during power outages, while the built-in surge and overload protection safeguards your equipment.<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 1000 VA / 600 W</li><li class=\"ps-2\">Input Voltage: 120-290 VAC</li><li class=\"ps-2\">Output Voltage: 220 VAC ±5%</li><li class=\"ps-2\">Transfer Time: ≤10 ms</li><li class=\"ps-2\">Waveform: PWM (Pulse Width Modulation)</li><li class=\"ps-2\">Battery: 12V/7Ah lead-acid batteries</li><li class=\"ps-2\">Recharge Time: 6-8 hours</li><li class=\"ps-2\">Protection: Surge, overload, and short circuit protection</li><li class=\"ps-2\">Display: LED indicators</li><li class=\"ps-2\">Ideal for: Surveillance systems, routers, small office equipment</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -7187,7 +7185,7 @@
       "assets/images/products/ups/ups/ups-3s-20kva-400v-3-3-2.webp"
     ],
     "description": "The UPS 3S 20kVA 400V 3:3 is a three-phase uninterruptible power supply designed to provide reliable and consistent power for small and medium-sized businesses.",
-    "fullDescription": "<h4></h4>\nThe UPS 3S 20kVA 400V 3:3 is a three-phase uninterruptible power supply designed to provide reliable and consistent power for small and medium-sized businesses. It delivers 20 kVA (20 kW) of power with an output voltage of 400V, and it is also compatible with 380V and 415V. This UPS uses double-conversion online technology to ensure clean and stable power, even during fluctuations and disturbances.\n\nIt features high energy efficiency with less than 3% harmonic distortion, reducing operational costs while maintaining optimal performance. It is compatible with external battery systems, allowing for customizable runtime extensions based on specific needs. The UPS 3S 20kVA 400V 3:3 is built to withstand harsh environments, with dust filters and conformance-coated boards providing added protection.\n\nIt is designed for quick setup and easy maintenance, with a compact structure that simplifies installation. The UPS 3S 20kVA 400V 3:3 is especially suitable for small-to-medium-sized data centers, electrical rooms, and environments requiring uninterrupted power supply to protect critical equipment. Its adaptability and user-friendly design make it a dependable solution for business continuity.\n<h4>Specification</h4>\n<ul>\n \tPower Capacity: 20 kVA (20 kW).\n \tInput Voltage: 400V (supports 380V and 415V).\n \tOutput Voltage: 400V (supports 380V and 415V).\n \tUPS Type: Double-conversion online.\n \tInput Voltage Range: 304�477V.\n \tFrequency Range: 45�65 Hz.\n \tInput Power Factor: Greater than 0.99.\n \tHarmonic Distortion: Less than 3% for linear loads.\n \tOverload Capacity: 125% for 10 minutes, 150% for 1 minute.\n \tBattery Type: External battery system.\n \tOperating Temperature: 0�40�C.\n \tHumidity: 0�95% non-condensing.\n \tProtection: IP20 rating with dust filters and conformance-coated boards.\n \tDimensions: Approximately 77 cm (height) x 25 cm (width) x 80 cm (depth).\n \tWeight: Around 58 kg.\n \tCertifications: CE, EAC, RCM.\n</ul>",
+    "fullDescription": "The UPS 3S 20kVA 400V 3:3 delivers 20 kVA (20 kW) of power with an output voltage of 400V, and is also compatible with 380V and 415V. This UPS uses double-conversion online technology to ensure clean and stable power, even during fluctuations and disturbances. It features high energy efficiency with less than 3% harmonic distortion, reducing operational costs while maintaining optimal performance.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 20kVA / 20kW</li><li class=\"ps-2\">Input/Output Voltage: 400V (compatible with 380V/415V)</li><li class=\"ps-2\">Phase: Three-phase (3:3)</li><li class=\"ps-2\">Technology: Double-conversion online</li><li class=\"ps-2\">Harmonic Distortion: <3%</li><li class=\"ps-2\">Efficiency: High energy efficiency</li><li class=\"ps-2\">Battery: Compatible with external battery systems</li><li class=\"ps-2\">Runtime: Customizable with external batteries</li><li class=\"ps-2\">Protection: Dust filters, conformal-coated boards</li><li class=\"ps-2\">Ideal for: Small and medium-sized businesses</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -7671,7 +7669,7 @@
       "assets/images/products/ups/ups/hikvision-ups-ds-ups3000-2.webp"
     ],
     "description": "The Hikvision UPS DS-UPS3000 is a reliable and efficient uninterruptible power supply (UPS) designed to provide backup power and protect sensitive equipment from power fluctuations.",
-    "fullDescription": "The Hikvision UPS DS-UPS3000 is a reliable and efficient uninterruptible power supply (UPS) designed to provide backup power and protect sensitive equipment from power fluctuations. It is ideal for both residential and commercial applications, ensuring uninterrupted operation of critical devices.\n<div></div>\nSpecifications\n<ul>\n \tCapacity: 3000 VA / 1800 W.\n \tInput Voltage Range: 140 VAC to 290 VAC.\n \tOutput Voltage Range: 210 VAC to 235 VAC.\n \tOutput Frequency: 50/60 Hz � 0.5 Hz (self-adaptive).\n \tTransfer Time: = 10 ms.\n \tWaveform: PWM (Pulse Width Modulation).\n \tBattery: 12 V/9 Ah � 4 lead-acid batteries.\n \tRecharge Time: 6-8 hours to recover 90% capacity.\n \tBackup Time:\n<ul>\n \t100W load: 150 minutes.\n \t600W load: 15 minutes.\n \t900W load: 6 minutes.\n</ul>\n\n \tProtection: Surge protection, overload protection, discharge protection, and short circuit protection.\n \tInterface: USB port for remote control.\n \tDisplay: LCD screen showing input voltage, output voltage, battery capacity, and load level.\n \tOperating Temperature: 0�C to 40�C (32�F to 104�F).\n \tDimensions: 412 mm � 145 mm � 210 mm (16.22\" � 5.71\" � 8.27\").\n \tWeight: Approximately 18.5 kg (40.8 lbs).\n</ul>\n\n\nWHY Hikvision UPS DS-UPS3000?\n\nThe Hikvision UPS DS-UPS3000 is an excellent choice for ensuring uninterrupted power supply and protecting your devices from power surges and fluctuations. With a capacity of 3000 VA / 1800 W, it can handle a variety of devices, making it suitable for both home and office use. Its fast transfer time of = 10 ms ensures minimal disruption during power outages, while the built-in surge and overload protection safeguards your equipment.\n<div></div>",
+    "fullDescription": "The Hikvision UPS DS-UPS3000 is ideal for both residential and commercial applications, ensuring uninterrupted operation of critical devices. With a capacity of 3000 VA / 1800 W, it provides ample power for various equipment. Its fast transfer time and comprehensive protection features make it a dependable choice for power backup.<ul class=\"product-specs-list\"><li class=\"ps-2\">Capacity: 3000 VA / 1800 W</li><li class=\"ps-2\">Input Voltage Range: 140-290 VAC</li><li class=\"ps-2\">Output Voltage Range: 210-235 VAC</li><li class=\"ps-2\">Output Frequency: 50/60 Hz ±0.5 Hz</li><li class=\"ps-2\">Transfer Time: ≤10 ms</li><li class=\"ps-2\">Waveform: PWM (Pulse Width Modulation)</li><li class=\"ps-2\">Battery: 12V/9Ah × 4 lead-acid batteries</li><li class=\"ps-2\">Recharge Time: 6-8 hours</li><li class=\"ps-2\">Protection: Surge, overload, short circuit protection</li><li class=\"ps-2\">Backup Time: 150 min @ 100W, 15 min @ 600W</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -8239,8 +8237,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-pro-scanner-n4600-fnw1-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-pro-scanner-n4600-fnw1-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-023-hp-scanjet-pro-scanner-n4600-fnw1-fixed-printers-1772211752019-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-023-hp-scanjet-pro-scanner-n4600-fnw1-fixed-printers-1772211752149-2.jpg"
     ],
     "description": "The document scanner functions as a professional-grade device because it includes both flatbed and automatic document feeder (ADF) systems. The system provides speedy double-sided scanning together with cutting-edge image enhancement capabilities and various output options that suit the demands of active office environments, work teams, and document-heavy operations.",
     "fullDescription": "• Scanner Type: Flatbed + 100‑sheet Automatic Document Feeder (ADF) with single‑pass duplex scanning that scans both sides in one pass.\r\n• Scan Speed: Up to 40 ppm / 80 ipm (ADF, black & white / color at 300 dpi).\r\n• Optical Resolution: Up to 600 × 600 dpi (ADF); up to 1200 × 1200 dpi (flatbed).\r\n• Enhanced Resolution: Up to 1200 dpi\r\n• Bit Depth: 24‑bit external / 48‑bit internal color depth with 256 grayscale levels\r\n• Daily Duty Cycle: Recommended up to 6,000 pages/day, suitable for heavy office use.\r\n• Document Sizes: ADF: up to 216 × 5362 mm (length) and down to 89 × 148 mm, Flatbed: up to 216 × 356 mm (letter/legal).\r\n• Media Types: Paper (plain, inkjet, photo), envelopes, labels, index cards, mixed batches.\r\n• File Formats: PDF, searchable PDF, PDF/A, JPEG, PNG, BMP, TIFF, Text, RTF, Word (DOC/DOCX), Excel (XLS/XLSX), CSV.\r\n• Connectivity: USB 3.0, Ethernet (Gigabit), Wi‑Fi (802.11 b/g/n), Wi‑Fi Direct, flexible wired and wireless networking.\r\n• Control Panel: 2.8″ color touchscreen with home/feature buttons.\r\n• Advanced Features: Multi‑feed detection (HP EveryPage) to reduce misfeeds, OCR & advanced image cleanup (auto threshold, blank‑page removal, auto crop, straightening), Scan‑to workflows: Computer, email, network folder, USB drive.\r\n• Supported Operating Systems: Windows, macOS, Linux.\r\n• Dimensions & Weight: 21.1″ × 12.8″ × 5.2″; 6.1 kg (varies by region).\r\n• Power: External adapter, 17.4 W active scanning.\r\n• Best For: High‑volume office environments, corporate departments, and teams needing fast duplex scanning, network sharing, advanced OCR capabilities, and versatile document handling for diverse media types.",
@@ -8249,7 +8247,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-pro-scanner-n4600-fnw1-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-023-hp-scanjet-pro-scanner-n4600-fnw1-fixed-printers-1772211752019-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -8258,7 +8256,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-scanjet-pro-scanner-n4600-fnw1-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-023-hp-scanjet-pro-scanner-n4600-fnw1-fixed-printers-1772211752019-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -8287,7 +8285,7 @@
       "assets/images/products/ups/ups/ups-3s-10kva-400v-3-3-2.webp"
     ],
     "description": "The UPS 3S 10kVA 400V 3:3 is a robust, three-phase uninterruptible power supply that offers reliable protection for critical systems and applications.",
-    "fullDescription": "The UPS 3S 10kVA 400V 3:3 is a robust, three-phase uninterruptible power supply that offers reliable protection for critical systems and applications. Designed with double-conversion online technology, it provides seamless power backup with minimal voltage distortion, ensuring the smooth operation of connected equipment.\n\nThis UPS 3S 10kVA 400V 3:3 is compatible with external batteries, allowing users to customize their runtime based on specific requirements. Compact and versatile, the UPS 3S 10kVA 400V 3:3 is well-suited for demanding environments, including data centers, telecommunications setups, and industrial facilities. Its built-in maintenance bypass simplifies servicing without interrupting the power supply, while the addition of dust filters enhances durability and performance in harsh conditions.\n\nThe UPS 3S 10kVA 400V 3:3 supports a wide input voltage range, accommodates high overloads, and delivers exceptional efficiency in both standard and challenging operational environments. Environmentally conscious, this product is RoHS compliant, reflecting a commitment to sustainability and minimal environmental impact. The UPS 3S 10kVA 400V 3:3 is engineered for reliability, making it an ideal choice for businesses seeking uninterrupted power protection for critical operations.\n<ul>\n \tOutput Specifications:\n<ul>\n \tMaximum Configurable Power: 10.0 kWatts / 10.0 kVA.\n \tVoltage Distortion: Less than 3% for linear loads.\n \tFrequency: 50 Hz or 60 Hz (sync to mains).\n \tLoad Crest Factor: 3:1.\n \tOverload Capacity: 10 minutes at 125% load, 60 seconds at 150% load.\n</ul>\n\n \tInput Specifications:\n<ul>\n \tVoltage Range: 304�477V.\n \tFrequency Range: 45�65 Hz.\n \tTotal Harmonic Distortion: Less than 3% for full load.\n \tPower Factor: Greater than 0.99 at full load.\n</ul>\n\n \tPhysical Dimensions:\n<ul>\n \tHeight: 530 mm.\n \tWidth: 250 mm.\n \tDepth: 700 mm.\n \tNet Weight: 36 kg.\n</ul>\n\n \tEnvironmental Features:\n<ul>\n \tOperating Temperature: 0�40�C.\n \tRelative Humidity: 0�95% (non-condensing).\n \tNoise Level: 60 dBA at 1 meter.\n \tProtection Class: IP20.\n</ul>\n\n \tAdditional Features:\n<ul>\n \tBuilt-in maintenance bypass.\n \tDust filter for enhanced durability.\n \tRoHS compliant for environmental sustainability\n</ul>\n\n</ul>",
+    "fullDescription": "The UPS 3S 10kVA 400V 3:3 is designed with double-conversion online technology, providing seamless power backup with minimal voltage distortion, ensuring the smooth operation of connected equipment. This UPS is compatible with external batteries, allowing users to customize their runtime based on specific requirements. Its built-in maintenance bypass simplifies servicing without interrupting the power supply.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 10kVA / 10kW</li><li class=\"ps-2\">Input/Output Voltage: 400V (compatible with 380V/415V)</li><li class=\"ps-2\">Phase: Three-phase (3:3)</li><li class=\"ps-2\">Technology: Double-conversion online</li><li class=\"ps-2\">Harmonic Distortion: <3%</li><li class=\"ps-2\">Efficiency: High energy efficiency</li><li class=\"ps-2\">Battery: Compatible with external battery systems</li><li class=\"ps-2\">Runtime: Customizable with external batteries</li><li class=\"ps-2\">Features: Maintenance bypass, dust filters</li><li class=\"ps-2\">Ideal for: Data centers, telecommunications, industrial facilities</li></ul>",
     "active": true,
     "isFlashSale": true,
     "flashSalePrice": 59237.11,
@@ -9119,8 +9117,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/epson-printer-lq-350-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/epson-printer-lq-350-2.webp"
+      "assets/images/products/printers-scanners/epson/printers-scanners-032-epson-printer-lq-350-fixed-printers-1772211751045-1.jpg",
+      "assets/images/products/printers-scanners/epson/printers-scanners-032-epson-printer-lq-350-fixed-printers-1772211751137-2.jpg"
     ],
     "description": "The 24-pin dot-matrix impact printer provides dependable multi-part form printing with receipt and invoice ticket and report printing capabilities for daily use. The printing system, which operates with a sturdy print head, provides multiple paper handling options with its operational features, making it suitable for small businesses, retail, and logistics operations that require affordable printing solutions that remain active over extended periods.",
     "fullDescription": "• Print Technology: 24‑pin impact dot‑matrix dependable for multipart and continuous‑form printing.\r\n• Print Speed: High‑Speed Draft: Up to 347 cps (10 cpi), Draft: 289 cps, NLQ (Near Letter Quality): 82 cps\r\n• Print Resolution: Approx. 360 × 360 dpi equivalent\r\n• Copy Capability: Up to 1 original + 4 copies (5‑part forms).\r\n• Media Handling: Continuous Paper: Fan‑fold or roll paper, Single Sheets: Supported via friction or tractor feed, Envelopes & Labels: Supported (varies with feed path).\r\n• Paper Paths: Friction feed and rear single‑sheet feed for flexible media use.\r\n• Interfaces: Parallel (IEEE‑1284) and USB 2.0\r\n• Buffer Memory: Typically 64 KB\r\n• Ribbon Life: Long‑lasting ribbon for low replacement cost.\r\n• Operating Environment: Suitable for typical office conditions.\r\n• Dimensions (Approx): 410 × 300 × 150 mm (W × D × H)\r\n• Weight (Approx): 7.5 kg\r\n• Best for: Retail, warehousing, small offices, POS stations, and businesses that require impact printing for multi‑part forms or labels with low ongoing maintenance and cost.",
@@ -9129,7 +9127,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/epson-printer-lq-350-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/epson/printers-scanners-032-epson-printer-lq-350-fixed-printers-1772211751045-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -9138,7 +9136,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/epson-printer-lq-350-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/epson/printers-scanners-032-epson-printer-lq-350-fixed-printers-1772211751045-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -9559,8 +9557,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-cart-21-black-c9351ae-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-cart-21-black-c9351ae-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-040-hp-cart-21-black-c9351ae-fixed-printers-1772212467622-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-040-hp-cart-21-black-c9351ae-fixed-printers-1772212468219-2.jpg"
     ],
     "description": "This original HP black ink cartridge for HP inkjet printers produces full, high-quality black color images and travel-spanning texts by using the dye-pigment ink. It is an average-yield item that would be fairly easy to set up and accepted by most HP devices.",
     "fullDescription": "• Model: HP 21 Black Ink Cartridge (C9351AE)\r\n• Ink Color: Black\r\n• Ink Type: Pigment-based (for sharp, laser-like black text)\r\n• Print Technology: HP Thermal Inkjet\r\n• Ink Volume: 5 ml\r\n• Page Yield: 190 pages (ISO/IEC standard; actual yield varies with content)\r\n• Print Head Nozzles: 416\r\n• Ink Drop Size: 17 pl\r\n• Operating Temp: 15 – 35 °C; storage temp: −15 – 35 °C\r\n• Dimensions: 141 × 131 × 37 mm\r\n• Weight: 0.04 kg\r\n• What’s in the Box: 1 black ink cartridge\r\n• Best for: Everyday printing of text documents, reports, letters, and homework, where crisp black text is ideal for home and office inkjet printers that use HP 21 cartridges.",
@@ -9569,7 +9567,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-cart-21-black-c9351ae-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-040-hp-cart-21-black-c9351ae-fixed-printers-1772212467622-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -9578,7 +9576,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-cart-21-black-c9351ae-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-040-hp-cart-21-black-c9351ae-fixed-printers-1772212467622-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -11455,7 +11453,7 @@
       "assets/images/products/ups/ups/apc-smart-ups-srv-1000va-lcd-230v-2.webp"
     ],
     "description": "The APC Smart-UPS SRV 1000VA LCD 230V is a dependable uninterruptible power supply designed to safeguard critical devices against power interruptions, surges, and fluctuations.",
-    "fullDescription": "The APC Smart-UPS SRV 1000VA LCD 230V is a dependable uninterruptible power supply designed to safeguard critical devices against power interruptions, surges, and fluctuations. It is ideal for servers, networking equipment, and other sensitive devices requiring consistent power. With a user-friendly LCD display, it provides real-time monitoring and easy configuration. Intelligent battery management ensures optimized performance and prolonged lifespan, making it a robust choice for challenging power environments.\n<ul>\n \tPower Capacity: 1000 VA / 800 W.\n \tInput &amp; Output Voltage: 230V.\n \tForm Factor: 2U rackmount design.\n \tOutput Connections: 3x IEC 320 C13 outlets.\n \tWaveform: Pure sine wave for clean and stable power.\n \tEfficiency: High efficiency for reduced energy consumption.\n \tFeatures:\n<ul>\n \tAutomatic internal bypass for uninterrupted power supply.\n \tECO Mode for energy savings.\n \tInput power factor correction.\n</ul>\n\n \tProtection: Overload, short circuit, and surge protection.\n \tWeight: Approximately 9.3 kg.\n</ul>",
+    "fullDescription": "The APC Smart-UPS SRV 1000VA LCD 230V is ideal for servers, networking equipment, and other sensitive devices requiring consistent power. With a user-friendly LCD display, it provides real-time monitoring and easy configuration. Intelligent battery management ensures optimized performance and prolonged lifespan, making it a robust choice for challenging power environments.<ul class=\"product-specs-list\"><li class=\"ps-2\">Power Capacity: 1000VA / 800W</li><li class=\"ps-2\">Input/Output Voltage: 230V</li><li class=\"ps-2\">Form Factor: 2U rackmount design</li><li class=\"ps-2\">Output Connections: 3x IEC 320 C13 outlets</li><li class=\"ps-2\">Waveform: Pure sine wave</li><li class=\"ps-2\">Efficiency: High efficiency for reduced energy consumption</li><li class=\"ps-2\">Display: LCD with real-time status</li><li class=\"ps-2\">Battery: Hot-swappable, maintenance-free</li><li class=\"ps-2\">Management: Intelligent battery management</li><li class=\"ps-2\">Ideal for: Servers, networking equipment, sensitive devices</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -13079,8 +13077,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/printers-scanners/printers-scanners/hp-44a-black-original-laserjet-toner-cartridge-1.webp",
-      "assets/images/products/printers-scanners/printers-scanners/hp-44a-black-original-laserjet-toner-cartridge-2.webp"
+      "assets/images/products/printers-scanners/hp/printers-scanners-044-hp-44a-black-original-laserjet-toner-cartridge-fixed-printers-1772212468411-1.jpg",
+      "assets/images/products/printers-scanners/hp/printers-scanners-044-hp-44a-black-original-laserjet-toner-cartridge-fixed-printers-1772212468589-2.jpg"
     ],
     "description": "The product consists of an authentic HP black laser toner cartridge, which is specifically designed for compact HP LaserJet Pro printers. The printer produces high-quality black text and sharp graphics, which maintain their quality throughout various standard documents. This printing solution is perfect for home office environments and small business operations that use compatible HP laser printers.",
     "fullDescription": "• Model: HP 44A Black Original LaserJet Toner Cartridge (CF244A).\r\n• Print Technology: Laser, reliable monochrome printing.\r\n• Color: Black.\r\n• Page Yield: 1,000 pages at 5 % coverage (ISO/IEC 19752 standard).\r\n• Compatibility: Works with HP LaserJet Pro M15a, M15w, LaserJet Pro MFP M28a, M28w printers.\r\n• Operating Temperature: 15 – 32.5 °C.\r\n• Storage Temperature: ‑20 – 40 °C.\r\n• Operating Humidity: 20 – 80 % RH.\r\n• Package Includes: Toner cartridge and recycling guide.\r\n• Weight: 0.51 kg; Package weight: 0.81 kg.\r\n• Best for: Daily black‑and‑white printing of documents, reports, homework, and office forms where consistent text clarity and dependable performance are needed.",
@@ -13089,7 +13087,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-44a-black-original-laserjet-toner-cartridge-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-044-hp-44a-black-original-laserjet-toner-cartridge-fixed-printers-1772212468411-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -13098,7 +13096,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/printers-scanners/printers-scanners/hp-44a-black-original-laserjet-toner-cartridge-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/printers-scanners-044-hp-44a-black-original-laserjet-toner-cartridge-fixed-printers-1772212468411-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -16118,8 +16116,8 @@
       "assets/images/products/ups/ups/binatone-voltage-protector-13amps-avp-1300-1.webp",
       "assets/images/products/ups/ups/binatone-voltage-protector-13amps-avp-1300-2.webp"
     ],
-    "description": "Safeguard your valuable appliances with the BINATONE VOLTAGE PROTECTOR 13AMPS AVP-1300, designed to protect against high and low voltage fluctuations.",
-    "fullDescription": "Safeguard your valuable appliances with the BINATONE VOLTAGE PROTECTOR 13AMPS AVP-1300, designed to protect against high and low voltage fluctuations. With a maximum load of 13 amps (�2990W) and 140-joule spike protection, this microprocessor-controlled device ensures your electronics stay safe from power surges and instability. Ideal for fridges, freezers, TVs, and home theaters, it features a selectable delay function (5 seconds or 3 minutes) and a digital display for real-time voltage monitoring. Compact, efficient, and backed by a 2-year warranty, it�s the ultimate plug-and-protect solution for homes and offices.\n<ul>\n \tType: Automatic Voltage Protector\n \tMaximum Load: 13 Amps / 2990 Watts\n \tVoltage Range: 170V � 260V\n \tNormal Voltage: 230V AC\n \tFrequency: 50/60Hz\n \tSpike Protection: 140 Joules\n \tDelay Options:\n<ul>\n \t5 seconds (for electronics)\n \t3 minutes (for refrigerators/freezers)\n</ul>\n\n \tControl System: Microprocessor-based\n \tDisplay: Digital screen with real-time voltage and countdown timer\n \tAppliance Compatibility:\n<ul>\n \tRefrigerators (up to 600L)\n \tFreezers\n \tTVs\n \tHome theaters\n \tSatellite dishes\n \tMobile phones and laptops\n</ul>\n\n \tColor: White\n \tMaterial: Durable plastic housing\n \tWeight: Approx. 500g\n \tCertifications: Eco-friendly\n</ul>",
+    "description": "The BINATONE VOLTAGE PROTECTOR 13AMPS AVP-1300 safeguards valuable appliances against high and low voltage fluctuations, providing reliable power protection for homes and offices.",
+    "fullDescription": "With a maximum load of 13 amps (2990W) and 140-joule spike protection, this microprocessor-controlled device ensures your electronics stay safe from power surges and instability. Ideal for fridges, freezers, TVs, and home theaters, it features a selectable delay function and a digital display for real-time voltage monitoring.<ul class=\"product-specs-list\"><li class=\"ps-2\">Type: Automatic Voltage Protector</li><li class=\"ps-2\">Maximum Load: 13 Amps / 2990 Watts</li><li class=\"ps-2\">Voltage Range: 170V - 260V</li><li class=\"ps-2\">Normal Voltage: 230V AC</li><li class=\"ps-2\">Frequency: 50/60Hz</li><li class=\"ps-2\">Spike Protection: 140 Joules</li><li class=\"ps-2\">Delay Function: 5 seconds or 3 minutes (selectable)</li><li class=\"ps-2\">Display: Digital voltage display</li><li class=\"ps-2\">Control: Microprocessor-controlled</li><li class=\"ps-2\">Warranty: 2 years</li><li class=\"ps-2\">Ideal for: Fridges, freezers, TVs, home theaters</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -17922,8 +17920,8 @@
       "assets/images/products/ups/ups/binatone-stabilizer-dvs-2000-1.webp",
       "assets/images/products/ups/ups/binatone-stabilizer-dvs-2000-2.webp"
     ],
-    "description": "Protect your valuable electronics from power fluctuations with the BINATONE STABILIZER DVS -2000.",
-    "fullDescription": "Protect your valuable electronics from power fluctuations with the BINATONE STABILIZER DVS -2000. Designed with advanced CPU control circuitry, this 2000VA stabilizer ensures accurate output regulation and full protection against high voltage, low voltage, short circuits, and overheating. Ideal for TVs, home theaters, and refrigerators up to 300L, it features a 110V socket for international appliances and a USB port for charging mobile devices. With selectable delay modes and a sleek, compact design, the DVS-2000 delivers peace of mind and reliable performance for your home or office.\n<ul>\n \tType: Digital Automatic Voltage Stabilizer\n \tCapacity: 2000VA (max)\n \tInput Voltage Range: 110V � 280V\n \tOutput Voltage: 230V ~ 50Hz\n \tControl System: Advanced CPU Control Circuit\n \tDelay Time:\n<ul>\n \tDefault: 6 seconds\n \tOptional Delay Mode: 180 seconds\n</ul>\n\n \tProtection Features:\n<ul>\n \tHigh voltage\n \tLow voltage\n \tHigh temperature\n \tShort circuit\n</ul>\n\n \tOutput Regulation: Accurate and stable\n \tSockets:\n<ul>\n \t110V socket for compatible appliances\n \tUSB port for charging phones and power banks\n</ul>\n\n \tAppliance Compatibility:\n<ul>\n \tTVs\n \tHome theater systems\n \tRefrigerators up to 300L\n</ul>\n\n \tDesign: Compact, durable housing\n</ul>",
+    "description": "The BINATONE STABILIZER DVS-2000 is a 2000VA digital automatic voltage stabilizer designed to protect electronics from power fluctuations with advanced CPU control circuitry.",
+    "fullDescription": "Designed with advanced CPU control circuitry, this 2000VA stabilizer ensures accurate output regulation and full protection against high voltage, low voltage, short circuits, and overheating. Ideal for TVs, home theaters, and refrigerators up to 300L, it features a 110V socket for international appliances and a USB port for charging mobile devices.<ul class=\"product-specs-list\"><li class=\"ps-2\">Type: Digital Automatic Voltage Stabilizer</li><li class=\"ps-2\">Capacity: 2000VA (max)</li><li class=\"ps-2\">Input Voltage Range: 110V - 280V</li><li class=\"ps-2\">Output Voltage: 230V ~ 50Hz</li><li class=\"ps-2\">Control System: Advanced CPU Control Circuit</li><li class=\"ps-2\">Delay Modes: Selectable (instant/6 minutes)</li><li class=\"ps-2\">Additional Socket: 110V for international appliances</li><li class=\"ps-2\">USB Port: Yes, for mobile charging</li><li class=\"ps-2\">Protection: Over-voltage, under-voltage, short circuit, overheat</li><li class=\"ps-2\">Ideal for: TVs, home theaters, refrigerators up to 300L</li></ul>",
     "active": true,
     "isFlashSale": false,
     "flashSalePrice": 0,
@@ -18622,8 +18620,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/combo-deals/combo-deals/ipmc-lt14-laptop-sleeve-hp-deskjet-plus-4120-printer-1.webp",
-      "assets/images/products/combo-deals/combo-deals/ipmc-lt14-laptop-sleeve-hp-deskjet-plus-4120-printer-2.webp"
+      "assets/images/products/printers-scanners/hp/ipmc-lt14-laptop-sleeve-hp-deskjet-plus-4120-printer-fixed-printers-1772211741681-1.jpg",
+      "assets/images/products/printers-scanners/hp/ipmc-lt14-laptop-sleeve-hp-deskjet-plus-4120-printer-fixed-printers-1772211741952-2.jpg"
     ],
     "description": "Get the complete setup you need for work, study, or home office, the IPMC LT14 Laptop, a protective 14\" sleeve, and the HP Deskjet Plus 4120 Printer with 2 ink cartridges. This bundle delivers performance, convenience, and unbeatable value.",
     "fullDescription": "",
@@ -18632,7 +18630,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/combo-deals/combo-deals/ipmc-lt14-laptop-sleeve-hp-deskjet-plus-4120-printer-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/ipmc-lt14-laptop-sleeve-hp-deskjet-plus-4120-printer-fixed-printers-1772211741681-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -18641,7 +18639,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/combo-deals/combo-deals/ipmc-lt14-laptop-sleeve-hp-deskjet-plus-4120-printer-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/ipmc-lt14-laptop-sleeve-hp-deskjet-plus-4120-printer-fixed-printers-1772211741681-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,
@@ -18666,8 +18664,8 @@
     "stock": 10,
     "rating": 0,
     "images": [
-      "assets/images/products/combo-deals/combo-deals/ipmc-aio-i5-heatz-headphone-hp-deskjet-2320-printer-1.webp",
-      "assets/images/products/combo-deals/combo-deals/ipmc-aio-i5-heatz-headphone-hp-deskjet-2320-printer-2.webp"
+      "assets/images/products/printers-scanners/hp/ipmc-aio-i5-heatz-headphone-hp-deskjet-2320-printer-fixed-printers-1772211740994-1.jpg",
+      "assets/images/products/printers-scanners/hp/ipmc-aio-i5-heatz-headphone-hp-deskjet-2320-printer-fixed-printers-1772211741159-2.jpg"
     ],
     "description": "Power up your workspace with this all-in-one bundle, the IPMC AIO i5 Desktop, Heatz Headphone, and HP Deskjet 2320 Printer. Designed for professionals, students, and home offices, this package delivers performance, sound, and productivity at unbeatable value.",
     "fullDescription": "",
@@ -18676,7 +18674,7 @@
     "flashSalePrice": 0,
     "flashSaleStock": 0,
     "flashSaleSold": 0,
-    "flashSaleImage": "assets/images/products/combo-deals/combo-deals/ipmc-aio-i5-heatz-headphone-hp-deskjet-2320-printer-1.webp",
+    "flashSaleImage": "assets/images/products/printers-scanners/hp/ipmc-aio-i5-heatz-headphone-hp-deskjet-2320-printer-fixed-printers-1772211740994-1.jpg",
     "isBlackFriday": false,
     "blackFridayPrice": 0,
     "blackFridayStock": 0,
@@ -18685,7 +18683,7 @@
     "christmasSalePrice": 0,
     "christmasSaleStock": 0,
     "christmasSaleSold": 0,
-    "christmasSaleImage": "assets/images/products/combo-deals/combo-deals/ipmc-aio-i5-heatz-headphone-hp-deskjet-2320-printer-1.webp",
+    "christmasSaleImage": "assets/images/products/printers-scanners/hp/ipmc-aio-i5-heatz-headphone-hp-deskjet-2320-printer-fixed-printers-1772211740994-1.jpg",
     "isBackToSchool": false,
     "backToSchoolPrice": 0,
     "isTopSelling": false,

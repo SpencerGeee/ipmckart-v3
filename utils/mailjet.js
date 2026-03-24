@@ -4,10 +4,20 @@ const path = require('path');
 const crypto = require('crypto'); // For token generation
 const bcrypt = require('bcryptjs');
 
-const mailjet = new Mailjet({
-  apiKey: process.env.MAILJET_API_KEY,
-  apiSecret: process.env.MAILJET_SECRET_KEY,
-});
+let mailjet;
+if (process.env.MAILJET_API_KEY && process.env.MAILJET_SECRET_KEY) {
+  mailjet = new Mailjet({
+    apiKey: process.env.MAILJET_API_KEY,
+    apiSecret: process.env.MAILJET_SECRET_KEY,
+  });
+} else {
+  console.warn('Mailjet API keys not found. Email services will be disabled.');
+  mailjet = {
+    post: () => ({
+      request: () => Promise.resolve({ body: { Messages: [{ Status: 'Disabled' }] } })
+    })
+  };
+}
 
 // Use API_URL for backend links; fallback to WEBSITE_URL
 const API_BASE = process.env.API_URL || process.env.WEBSITE_URL;

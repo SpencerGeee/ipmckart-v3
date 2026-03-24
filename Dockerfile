@@ -23,6 +23,7 @@ COPY --from=builder /app/models ./models
 COPY --from=builder /app/services ./services
 COPY --from=builder /app/middleware ./middleware
 COPY --from=builder /app/scripts ./scripts
+COPY --from=builder /app/utils ./utils
 COPY --from=builder /app/assets ./assets
 COPY --from=builder /app/www ./www
 COPY --from=builder /app/config ./config
